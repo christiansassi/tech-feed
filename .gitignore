@@ -1,0 +1,32 @@
+# Secrets and local credentials
+.env
+.env.*
+*.pem
+*.key
+.secrets/
+
+# Claude Code local configuration
+.claude/
+
+# Assistant workspace memory and tool state (local only)
+.vault/
+.playwright-cli/
+.reverse-api/
+
+# Build output (published by the workflow, never committed)
+_site/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

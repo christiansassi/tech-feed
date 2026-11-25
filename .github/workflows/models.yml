@@ -1,0 +1,57 @@
+# Build the model-release JSON files every hour and publish them on GitHub Pages.
+# YAML does not allow tab indentation, so this file is the one exception to the tab rule.
+
+name: models
+
+on:
+  schedule:
+    # Minute 23 instead of 0: GitHub delays or drops scheduled runs at the start of the hour.
+    - cron: "23 * * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "models/**"
+      - "requirements.txt"
+      - ".github/workflows/models.yml"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Build site
+        run: python -m models.build --out _site
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

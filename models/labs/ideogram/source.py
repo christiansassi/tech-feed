@@ -1,0 +1,12 @@
+"""Sources for Ideogram image model releases."""
+
+from models.common.runner import cli
+from models.common.sources import hf, html
+
+SOURCES = [
+	html("https://ideogram.ai/blog/"),
+	hf("ideogram-ai"),
+]
+
+if __name__ == "__main__":
+	cli(__file__, SOURCES)
