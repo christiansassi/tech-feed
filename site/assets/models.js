@@ -146,6 +146,19 @@ async function loadModels() {
 }
 
 /**
+ * Build the message shown when there are no models to list.
+ *
+ * @returns {HTMLDivElement} Empty state block.
+ */
+function emptyState() {
+	const block = element("div", "empty");
+
+	block.append(element("span", "empty-label", "The frontier is quiet"), element("p", "empty-text", "Somewhere, the next model is still training."));
+
+	return block;
+}
+
+/**
  * Render the model lines, grouped by month, into a container.
  *
  * @param {HTMLElement} container Element that receives the month groups.
@@ -162,7 +175,7 @@ function renderModels(container, entries) {
 	container.replaceChildren();
 
 	if (!entries.length) {
-		container.append(element("p", "empty", "No models yet. The list fills in after the next update."));
+		container.append(emptyState());
 		return;
 	}
 

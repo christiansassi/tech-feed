@@ -26,6 +26,8 @@ body {
 	color: var(--ink);
 	font-family: var(--font-mono);
 	overflow: hidden;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 body.no-webgl {
@@ -130,6 +132,28 @@ nav.toc a[aria-disabled="true"] {
 
 nav.toc a[aria-disabled="true"] .dots {
 	color: var(--ink-faint);
+}
+
+.repo {
+	position: fixed;
+	right: max(1.25rem, env(safe-area-inset-right));
+	bottom: max(1.25rem, env(safe-area-inset-bottom));
+	display: block;
+	width: 1.4rem;
+	height: 1.4rem;
+	color: var(--ink-muted);
+	transition: color 0.25s ease;
+}
+
+.repo svg {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.repo:hover,
+.repo:focus-visible {
+	color: var(--ink);
 }
 
 @media (prefers-reduced-motion: reduce) {
