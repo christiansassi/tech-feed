@@ -115,10 +115,12 @@ nav.toc a .dots::before {
 	content: "................................................................................................................................................................................................................................................";
 }
 
-nav.toc a:hover .label,
-nav.toc a:focus-visible .label {
-	text-decoration: underline;
-	text-underline-offset: 0.2em;
+nav.toc a {
+	transition: opacity 0.25s ease;
+}
+
+nav.toc:has(a:hover, a:focus-visible) a:not(:hover, :focus-visible) {
+	opacity: 0.3;
 }
 
 nav.toc a[aria-disabled="true"] {
