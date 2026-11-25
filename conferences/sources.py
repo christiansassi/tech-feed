@@ -69,7 +69,7 @@ CONFERENCES = [
 	Conference("nullcon-berlin", "Nullcon Berlin", "https://nullcon.net/", "Report only the Berlin edition, not Goa."),
 	Conference("offensivecon", "OffensiveCon", "https://www.offensivecon.org/", "Report only the Berlin edition, not Tokyo."),
 	Conference("one-conference", "ONE Conference", "https://one-conference.nl/"),
-	Conference("owasp-appsec-eu", "OWASP Global AppSec EU", "https://owasp.org/assets/sitedata/events.yml", "The page lists every OWASP event: report only Global AppSec EU."),
+	Conference("owasp-appsec-eu", "OWASP Global AppSec EU", "https://owasp.org/assets/sitedata/events.yml", "The page lists every OWASP event: report only Global AppSec EU. Its listed range covers three training days followed by two conference days: report only the last two days."),
 	Conference("pass-the-salt", "Pass the SALT", "https://www.pass-the-salt.org/"),
 	Conference("rootedcon", "RootedCON", "https://rootedcon.com/", "Report only RootedCON Madrid."),
 	Conference("sec-t", "SEC-T", "https://sec-t.org/"),
