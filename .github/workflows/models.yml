@@ -47,8 +47,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Add landing page, models page and 404 redirect
-        run: cp -r site/. _site/
+      - name: Add landing page, section pages and 404 redirect
+        run: |
+          cp -r site/. _site/
+          # Version the asset links with the commit, so browsers fetch the new files after a deploy instead of a cached copy.
+          find _site -name "*.html" -exec sed -i "s#\(assets/[a-z]*\.\(js\|css\)\)\"#\1?v=${GITHUB_SHA::7}\"#g" {} +
 
       - name: Add latest models from the site-data branch
         run: |
