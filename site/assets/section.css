@@ -1,4 +1,4 @@
-/* Models page layout: the landing background behind a veil and one dotted-leader line per model. */
+/* Section pages layout (Models, News, Conferences): the landing background behind a veil, one dotted-leader line per entry, and a centered message when a section is empty. */
 
 body {
 	overflow: auto;

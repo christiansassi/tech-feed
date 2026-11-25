@@ -1,0 +1,58 @@
+/**
+ * GLSL `field()` functions for the animated backgrounds, keyed by the
+ * `data-shader` name of the canvas. `landing.js` adds the shared helpers, the
+ * palette and the grain around the chosen function.
+ */
+
+/**
+ * Culture as a lava lamp: blobs rise and sink slowly, each around its own resting
+ * height and with its own reach, so they spread over the whole screen instead of
+ * piling up at the edges. Every blob is made of three lobes that drift around its
+ * center: most of the time they stay close and push the outline out of round, and
+ * now and then they move far enough apart that the blob pinches and divides, then
+ * they come back together. A noise warp keeps every outline changing. The field
+ * maps to one continuous gradient, with no rings or hard borders.
+ */
+const FIELD_SHADERS = {
+	"field-culture": `
+	float field(vec2 uv, vec2 p, float t) {
+		float aspect = uRes.x / uRes.y;
+		float slow = t * 0.02;
+		float f = 0.0;
+
+		vec2 wobble = vec2(noise(p * 3.2 + vec2(slow, -slow)), noise(p * 3.2 + vec2(7.3 - slow, 2.1 + slow))) - 0.5;
+		vec2 q = p + wobble * 0.13;
+
+		for (int i = 0; i < 10; i++) {
+			float fi = float(i);
+			vec2 h = hash22(vec2(fi * 1.31, fi * 2.17) + 4.7);
+			float speed = mix(0.016, 0.032, h.y);
+			float phase = 6.2832 * hash12(vec2(fi, 7.0));
+
+			float reach = mix(0.15, 0.42, hash12(vec2(fi, 5.0)));
+			float y = (hash12(vec2(fi, 13.0)) - 0.5) * (0.84 - 2.0 * reach) + sin(t * speed + phase) * reach;
+			float velocity = cos(t * speed + phase);
+			float x = (h.x - 0.5) * aspect * 0.95 + 0.05 * sin(t * speed * 0.7 + fi * 1.9);
+			float r = mix(0.045, 0.09, hash12(vec2(fi, 11.0)));
+
+			float split = 0.5 + 0.5 * sin(t * mix(0.025, 0.05, hash12(vec2(fi, 17.0))) + 6.2832 * hash12(vec2(fi, 19.0)));
+			float spread = r * (0.35 + 2.8 * split * split * split);
+			float spin = t * 0.04 * (hash12(vec2(fi, 23.0)) - 0.5) + 6.2832 * hash12(vec2(fi, 29.0));
+
+			for (int k = 0; k < 3; k++) {
+				float fk = float(k);
+				float lobe = r * mix(0.5, 0.72, hash12(vec2(fi, 31.0 + fk)));
+				float angle = spin + fk * 2.0944 + 0.7 * sin(t * 0.05 + fi + fk * 1.7);
+				float gap = spread * mix(0.55, 1.0, hash12(vec2(fi, 37.0 + fk)));
+
+				vec2 d = q - vec2(x, y) - vec2(cos(angle), sin(angle)) * gap;
+				d.y /= 1.0 + 0.45 * abs(velocity);
+				f += lobe * lobe / (dot(d, d) + 0.0005);
+			}
+		}
+
+		return smoothstep(0.6, 2.6, f);
+	}
+
+`,
+};

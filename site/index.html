@@ -16,63 +16,15 @@
 	<main>
 		<h1><span>Tech</span><span>Feed</span></h1>
 		<nav class="toc" aria-label="Feeds">
-			<a aria-disabled="true"><span class="num">[1]</span><span class="dots"></span><span class="label">News</span></a>
+			<a href="news/" target="_blank" rel="noopener"><span class="num">[1]</span><span class="dots"></span><span class="label">News</span></a>
 			<a href="models/" target="_blank" rel="noopener"><span class="num">[2]</span><span class="dots"></span><span class="label">Models</span></a>
-			<a aria-disabled="true"><span class="num">[3]</span><span class="dots"></span><span class="label">Conferences</span></a>
+			<a href="conferences/" target="_blank" rel="noopener"><span class="num">[3]</span><span class="dots"></span><span class="label">Conferences</span></a>
 		</nav>
 	</main>
 
 	<a class="repo" href="https://github.com/christiansassi/tech-feed" target="_blank" rel="noopener" aria-label="Source code on GitHub"><svg aria-hidden="true" fill="currentColor" fill-rule="evenodd" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0c6.63 0 12 5.276 12 11.79-.001 5.067-3.29 9.567-8.175 11.187-.6.118-.825-.25-.825-.56 0-.398.015-1.665.015-3.242 0-1.105-.375-1.813-.81-2.181 2.67-.295 5.475-1.297 5.475-5.822 0-1.297-.465-2.344-1.23-3.169.12-.295.54-1.503-.12-3.125 0 0-1.005-.324-3.3 1.209a11.32 11.32 0 00-3-.398c-1.02 0-2.04.133-3 .398-2.295-1.518-3.3-1.209-3.3-1.209-.66 1.622-.24 2.83-.12 3.125-.765.825-1.23 1.887-1.23 3.169 0 4.51 2.79 5.527 5.46 5.822-.345.294-.66.81-.765 1.577-.69.31-2.415.81-3.495-.973-.225-.354-.9-1.223-1.845-1.209-1.005.015-.405.56.015.781.51.28 1.095 1.327 1.23 1.666.24.663 1.02 1.93 4.035 1.385 0 .988.015 1.916.015 2.196 0 .31-.225.664-.825.56C3.303 21.374-.003 16.867 0 11.791 0 5.276 5.37 0 12 0z"></path></svg></a>
 
-	<!--
-		Culture as a lava lamp: blobs rise and sink slowly, each around its own resting
-		height and with its own reach, so they spread over the whole screen instead of
-		piling up at the edges. Every blob is made of three lobes that drift around its
-		center: most of the time they stay close and push the outline out of round, and
-		now and then they move far enough apart that the blob pinches and divides, then
-		they come back together. A noise warp keeps every outline changing. The field
-		maps to one continuous gradient, with no rings or hard borders.
-	-->
-	<script type="x-shader/x-fragment" id="field-culture">
-		float field(vec2 uv, vec2 p, float t) {
-			float aspect = uRes.x / uRes.y;
-			float slow = t * 0.02;
-			float f = 0.0;
-
-			vec2 wobble = vec2(noise(p * 3.2 + vec2(slow, -slow)), noise(p * 3.2 + vec2(7.3 - slow, 2.1 + slow))) - 0.5;
-			vec2 q = p + wobble * 0.13;
-
-			for (int i = 0; i < 10; i++) {
-				float fi = float(i);
-				vec2 h = hash22(vec2(fi * 1.31, fi * 2.17) + 4.7);
-				float speed = mix(0.016, 0.032, h.y);
-				float phase = 6.2832 * hash12(vec2(fi, 7.0));
-
-				float reach = mix(0.15, 0.42, hash12(vec2(fi, 5.0)));
-				float y = (hash12(vec2(fi, 13.0)) - 0.5) * (0.84 - 2.0 * reach) + sin(t * speed + phase) * reach;
-				float velocity = cos(t * speed + phase);
-				float x = (h.x - 0.5) * aspect * 0.95 + 0.05 * sin(t * speed * 0.7 + fi * 1.9);
-				float r = mix(0.045, 0.09, hash12(vec2(fi, 11.0)));
-
-				float split = 0.5 + 0.5 * sin(t * mix(0.025, 0.05, hash12(vec2(fi, 17.0))) + 6.2832 * hash12(vec2(fi, 19.0)));
-				float spread = r * (0.35 + 2.8 * split * split * split);
-				float spin = t * 0.04 * (hash12(vec2(fi, 23.0)) - 0.5) + 6.2832 * hash12(vec2(fi, 29.0));
-
-				for (int k = 0; k < 3; k++) {
-					float fk = float(k);
-					float lobe = r * mix(0.5, 0.72, hash12(vec2(fi, 31.0 + fk)));
-					float angle = spin + fk * 2.0944 + 0.7 * sin(t * 0.05 + fi + fk * 1.7);
-					float gap = spread * mix(0.55, 1.0, hash12(vec2(fi, 37.0 + fk)));
-
-					vec2 d = q - vec2(x, y) - vec2(cos(angle), sin(angle)) * gap;
-					d.y /= 1.0 + 0.45 * abs(velocity);
-					f += lobe * lobe / (dot(d, d) + 0.0005);
-				}
-			}
-
-			return smoothstep(0.6, 2.6, f);
-		}
-	</script>
+	<script src="assets/field.js"></script>
 	<script src="assets/landing.js"></script>
 </body>
 </html>

@@ -342,11 +342,11 @@ function siteRoot() {
  */
 function boot() {
 	const canvas = document.querySelector("canvas.field");
-	const shader = document.getElementById(canvas.dataset.shader);
+	const source = typeof FIELD_SHADERS === "object" ? FIELD_SHADERS[canvas.dataset.shader] : undefined;
 	const bands = Number.parseInt(canvas.dataset.bands || "0", 10);
 
 	try {
-		startField(canvas, shader.textContent, bands);
+		startField(canvas, source, bands);
 	} catch (error) {
 		canvas.hidden = true;
 		document.body.classList.add("no-webgl");

@@ -20,6 +20,11 @@ body {
 	height: 100%;
 }
 
+/* Reserve the scrollbar space on both sides, so centered content keeps the same position whether or not a page scrolls. */
+html {
+	scrollbar-gutter: stable both-edges;
+}
+
 body {
 	margin: 0;
 	background: var(--ground);
