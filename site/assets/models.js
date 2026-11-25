@@ -117,7 +117,7 @@ async function getJson(url) {
 /**
  * Load the latest models of every lab that has a site file.
  *
- * @returns {Promise<Array<{lab: {slug: string, label: string}, model: {slug: string, label: string, date: ?number}}>>} One entry per model, newest first, undated models last.
+ * @returns {Promise<Array<{lab: {slug: string, label: string}, model: {slug: string, label: string, date: ?number, url: ?string}}>>} One entry per model, newest first, undated models last.
  */
 async function loadModels() {
 	const index = await getJson("index.json");
@@ -191,7 +191,14 @@ function renderModels(container, entries) {
 			container.append(element("div", "month", month), rows);
 		}
 
-		const row = element("div", "row");
+		const row = element(model.url ? "a" : "div", "row");
+
+		if (model.url) {
+			row.href = model.url;
+			row.target = "_blank";
+			row.rel = "noopener";
+		}
+
 		const when = Number.isInteger(model.date) ? formatWhen(model.date) : "";
 
 		row.append(labIcon(lab.slug), element("span", "lab", lab.label), element("span", "dots"), element("span", "model", model.label), element("span", "day", when));

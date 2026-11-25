@@ -50,7 +50,7 @@ Find the most recent models released by each AI lab listed on BASE_URL and repor
 	- models of other labs that this lab only makes available, for example in its app or API
 	- a model that becomes generally available or reaches a new region after it was already announced
 	- on Hugging Face (`type` `hf`): datasets, Spaces, tokenizers, quantized or converted copies (GGUF, AWQ, GPTQ, FP8, NVFP4, INT4, MLX, ONNX), adapters and LoRAs, and fine-tunes of models made by other labs
-5. Several items can describe the same release: a blog post, a changelog entry and the Hugging Face repositories of its sizes or variants. Treat them as one model, named as the lab names the release (for example `Qwen4-Max`, not `Qwen/Qwen4-Max-Instruct-2611-FP8`). Its date is the date of the lab's own announcement when there is one, otherwise the earliest date among its items.
+5. Several items can describe the same release: a blog post, a changelog entry and the Hugging Face repositories of its sizes or variants. Treat them as one model, named as the lab names the release (for example `Qwen4-Max`, not `Qwen/Qwen4-Max-Instruct-2611-FP8`). Its date and link come from one item: the lab's own announcement when there is one, otherwise the item with the earliest date.
 6. Find the kept model with the highest `date`. Report it together with every other kept model whose `date` falls on the same UTC day, newest first. Use models with `date` `null` only when the lab has no dated model, and then report their `date` as `null`.
 7. If a lab file cannot be fetched, or no item in it is a model release, report the lab with an empty `models` list.
 
@@ -78,12 +78,13 @@ Reply with one JSON object and nothing else: no prose, no code fence. It must va
 						"type": "array",
 						"items": {
 							"type": "object",
-							"required": ["slug", "label", "date"],
+							"required": ["slug", "label", "date", "url"],
 							"additionalProperties": false,
 							"properties": {
 								"slug": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
 								"label": {"type": "string"},
-								"date": {"type": ["integer", "null"]}
+								"date": {"type": ["integer", "null"]},
+								"url": {"type": ["string", "null"]}
 							}
 						}
 					}
@@ -98,14 +99,15 @@ Reply with one JSON object and nothing else: no prose, no code fence. It must va
 - A model's `label` is its name as the lab writes it, such as `Claude Fable 5.2` or `GPT-Live-1.1`.
 - A model's `slug` is its `label` in lowercase, with every run of characters other than `a-z` and `0-9` replaced by one `-`, and no `-` at the start or end: `Claude Fable 5.2` becomes `claude-fable-5-2`.
 - `date` is the Unix timestamp in seconds as found in the data. Do not convert it.
+- `url` is the `url` of the same item as `date`, copied exactly, or `null` when that item has no link.
 
 Example:
 
 ```
 {
 	"labs": [
-		{"slug": "anthropic", "label": "Anthropic", "models": [{"slug": "claude-fable-5-2", "label": "Claude Fable 5.2", "date": 1794182400}]},
-		{"slug": "microsoft", "label": "Microsoft", "models": [{"slug": "mai-image-2-7", "label": "MAI Image 2.7", "date": 1794939396}, {"slug": "mai-realtime-1", "label": "MAI Realtime 1", "date": 1794939377}]},
+		{"slug": "anthropic", "label": "Anthropic", "models": [{"slug": "claude-fable-5-2", "label": "Claude Fable 5.2", "date": 1794182400, "url": "https://www.anthropic.com/news/claude-fable-5-2"}]},
+		{"slug": "microsoft", "label": "Microsoft", "models": [{"slug": "mai-image-2-7", "label": "MAI Image 2.7", "date": 1794939396, "url": "https://microsoft.ai/news/mai-image-2-7/"}, {"slug": "mai-realtime-1", "label": "MAI Realtime 1", "date": 1794939377, "url": "https://microsoft.ai/news/mai-realtime-1/"}]},
 		{"slug": "luma", "label": "Luma AI", "models": []}
 	]
 }
