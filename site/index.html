@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tech Feed</title>
+	<meta name="description" content="Hourly JSON feeds of new AI model releases from 48 labs.">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif&display=swap">
+	<link rel="stylesheet" href="assets/landing.css">
+</head>
+<body>
+	<canvas class="field" data-shader="field-culture" data-bands="0" aria-hidden="true"></canvas>
+
+	<main>
+		<p class="stamp"></p>
+		<h1><span>Tech</span><span>Feed</span></h1>
+		<nav class="toc" aria-label="Feeds">
+			<a href="models/"><span class="num">[1]</span><span class="dots"></span><span class="label">Models</span></a>
+			<a aria-disabled="true"><span class="num">[2]</span><span class="dots"></span><span class="label">News</span></a>
+			<a href="https://github.com/christiansassi/tech-feed"><span class="num">[3]</span><span class="dots"></span><span class="label">Source</span></a>
+		</nav>
+	</main>
+
+	<!--
+		Culture as a lava lamp: blobs rise and sink slowly, each around its own resting
+		height and with its own reach, so they spread over the whole screen instead of
+		piling up at the edges. They stretch along their direction of travel. Where two
+		meet, the metaball field joins them with a soft bridge; as they part, the bridge
+		pinches and they divide again. A slow noise warp keeps every outline changing.
+		The field maps to one continuous gradient, with no rings or hard borders.
+	-->
+	<script type="x-shader/x-fragment" id="field-culture">
+		float field(vec2 uv, vec2 p, float t) {
+			float aspect = uRes.x / uRes.y;
+			float slow = t * 0.02;
+			float f = 0.0;
+
+			vec2 wobble = vec2(noise(p * 2.6 + vec2(slow, -slow)), noise(p * 2.6 + vec2(7.3 - slow, 2.1 + slow))) - 0.5;
+			vec2 q = p + wobble * 0.08;
+
+			for (int i = 0; i < 10; i++) {
+				float fi = float(i);
+				vec2 h = hash22(vec2(fi * 1.31, fi * 2.17) + 4.7);
+				float speed = mix(0.016, 0.032, h.y);
+				float phase = 6.2832 * hash12(vec2(fi, 7.0));
+
+				float reach = mix(0.15, 0.42, hash12(vec2(fi, 5.0)));
+				float y = (hash12(vec2(fi, 13.0)) - 0.5) * (0.84 - 2.0 * reach) + sin(t * speed + phase) * reach;
+				float velocity = cos(t * speed + phase);
+				float x = (h.x - 0.5) * aspect * 0.95 + 0.05 * sin(t * speed * 0.7 + fi * 1.9);
+				float r = mix(0.045, 0.09, hash12(vec2(fi, 11.0)));
+
+				vec2 d = q - vec2(x, y);
+				d.y /= 1.0 + 0.45 * abs(velocity);
+				f += r * r / (dot(d, d) + 0.0005);
+			}
+
+			return smoothstep(0.6, 2.6, f);
+		}
+	</script>
+	<script src="assets/landing.js"></script>
+</body>
+</html>
