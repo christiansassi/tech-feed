@@ -55,7 +55,7 @@ CONFERENCES = [
 	Conference("forum-incyber", "Forum InCyber Europe", "https://europe.forum-incyber.com/", "Report only the Europe edition in Lille."),
 	Conference("grehack", "GreHack", "https://grehack.fr/"),
 	Conference("hacklu", "Hack.lu", "https://hack.lu/"),
-	Conference("hackinbo", "HackInBo", "https://tickets.hackinbo.it/events/ical/?locale=en", "The page is a calendar feed of the editions.", "https://tickets.hackinbo.it/"),
+	Conference("hackinbo", "HackInBo", "https://tickets.hackinbo.it/events/ical/?locale=en", "The page is a calendar feed. The Business and Classic editions on consecutive days form one edition: report both days.", "https://tickets.hackinbo.it/"),
 	Conference("hacktivity", "Hacktivity", "https://hacktivity.com/"),
 	Conference("hardwear-io", "hardwear.io Netherlands", "https://hardwear.io/", "Report only the Netherlands edition, not the USA one."),
 	Conference("hexacon", "Hexacon", "https://www.hexacon.fr/"),
