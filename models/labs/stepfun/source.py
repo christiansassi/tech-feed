@@ -73,10 +73,12 @@ def extract_articles(articles: list[dict], source_url: str) -> list[dict]:
 
 	return newest_first([item(a["title"], a["date"], a["url"], a["summary"]) for a in articles])
 
+LABEL = "StepFun"
+
 SOURCES = [
 	hf("stepfun-ai"),
 	custom("api", NEWS_PAGE, bundle_articles, extract_articles),
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

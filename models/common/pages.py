@@ -128,20 +128,25 @@ def _card_of(anchor: LexborNode, pattern: re.Pattern) -> LexborNode:
 
 	return card
 
-def _title_of(card: LexborNode, anchor: LexborNode) -> str:
+def _title_of(card: LexborNode, anchor: LexborNode, title: str | None = None) -> str:
 	"""Return the title of a card.
 
-	Try, in order: the link's ``aria-label`` without a leading "Read ...:" phrase,
+	When ``title`` is given, use the text of the first element it selects. Otherwise
+	try, in order: the link's ``aria-label`` without a leading "Read ...:" phrase,
 	the first heading inside the card, the first image ``alt`` text, the first
 	title-like element, the first paragraph, and finally the link text.
 
 	Args:
 		card (LexborNode): Card node.
 		anchor (LexborNode): Article link inside the card.
+		title (str | None): CSS selector of the title element, for pages where the default order picks the wrong text.
 
 	Returns:
 		str: Title text.
 	"""
+
+	if title is not None:
+		return node_text(card.css_first(title))
 
 	label = READ_PREFIX.sub("", anchor.attributes.get("aria-label") or "").strip()
 
@@ -176,32 +181,37 @@ def _summary_of(card: LexborNode, title: str) -> str | None:
 
 	return None
 
-def _better(candidate: dict, current: dict) -> bool:
-	"""Tell whether a second card for the same article carries better data than the first.
+def _merge(current: dict, candidate: dict) -> dict:
+	"""Combine two cards for the same article, keeping the best value of each field.
+
+	A page can show one article twice, for example a dated row with a "Read Paper"
+	button and an undated card with the real title.
 
 	Args:
-		candidate (dict): Item read from the later card.
 		current (dict): Item kept so far.
+		candidate (dict): Item read from the later card.
 
 	Returns:
-		bool: True when the candidate adds a missing date or a real title in place of a short label.
+		dict: Item with the first date found, a real title in place of a short label, and the longer summary.
 	"""
 
-	if candidate["date"] and not current["date"]:
-		return True
+	title = current["title"]
 
-	if current["date"] and not candidate["date"]:
-		return False
+	if len(title or "") < 15 <= len(candidate["title"] or ""):
+		title = candidate["title"]
 
-	return len(current["title"] or "") < 15 <= len(candidate["title"] or "")
+	summary = max(current["summary"], candidate["summary"], key=lambda text: len(text or ""))
 
-def link_list(pattern: str, date_from_url: Callable[[str], str | None] | None = None, scope: str | None = None) -> Callable[[str, str], list[dict]]:
+	return dict(current, title=title, date=current["date"] or candidate["date"], summary=summary)
+
+def link_list(pattern: str, date_from_url: Callable[[str], str | None] | None = None, scope: str | None = None, title: str | None = None) -> Callable[[str, str], list[dict]]:
 	"""Return an extractor for a listing page whose article links match ``pattern``.
 
 	Args:
 		pattern (str): Regular expression that the path of article links on the same host matches, e.g. ``r"^/news/[^/]+$"``.
 		date_from_url (Callable | None): Optional function that reads the date from an article URL, for pages that show no dates.
 		scope (str | None): Optional CSS selector of the page area that holds the list, e.g. a sidebar; links elsewhere are ignored.
+		title (str | None): Optional CSS selector of the title element inside each card, e.g. ``"[class*=blogTitle]"``.
 
 	Returns:
 		Callable[[str, str], list[dict]]: Extractor ``extract(page_html, source_url)``.
@@ -211,6 +221,9 @@ def link_list(pattern: str, date_from_url: Callable[[str], str | None] | None = 
 
 	if scope is not None:
 		require_text("scope", scope)
+
+	if title is not None:
+		require_text("title", title)
 
 	compiled = re.compile(pattern)
 
@@ -241,17 +254,16 @@ def link_list(pattern: str, date_from_url: Callable[[str], str | None] | None = 
 				continue
 
 			card = _card_of(anchor, compiled)
-			title = _title_of(card, anchor)
+			card_title = _title_of(card, anchor, title)
 
-			if not title:
+			if not card_title:
 				continue
 
 			time_node = card.css_first("time[datetime]")
 			date = (time_node.attributes.get("datetime") if time_node else None) or find_date(node_text(card)) or (date_from_url(url) if date_from_url else None)
-			candidate = item(title, date, url, _summary_of(card, title))
+			candidate = item(card_title, date, url, _summary_of(card, card_title))
 
-			if url not in seen or _better(candidate, seen[url]):
-				seen[url] = candidate
+			seen[url] = _merge(seen[url], candidate) if url in seen else candidate
 
 		return newest_first(list(seen.values()))
 

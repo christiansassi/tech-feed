@@ -38,10 +38,12 @@ def extract_articles(content: dict, source_url: str) -> list[dict]:
 
 	return newest_first(items)
 
+LABEL = "ByteDance"
+
 SOURCES = [
 	api("https://seed.bytedance.com/api/get_article_list_v2?article_type=2&count=10&order_desc=true", extract_articles),
 	hf("ByteDance-Seed"),
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

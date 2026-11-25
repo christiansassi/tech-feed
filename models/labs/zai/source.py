@@ -85,6 +85,8 @@ def extract_articles(content: dict, source_url: str) -> list[dict]:
 
 	return newest_first(items)
 
+LABEL = "Z.ai"
+
 SOURCES = [
 	api(ARTICLES_API, extract_articles),
 	rss("https://docs.z.ai/release-notes/new-released/rss.xml"),
@@ -92,4 +94,4 @@ SOURCES = [
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

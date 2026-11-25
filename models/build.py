@@ -37,7 +37,7 @@ def discover_labs() -> list[str]:
 	return sorted(path.parent.name for path in LABS_DIR.glob("*/source.py"))
 
 def build_lab(lab: str) -> dict:
-	"""Import a lab's ``source.py`` and run its sources.
+	"""Import a lab's ``source.py`` and run its sources with its ``LABEL``.
 
 	Args:
 		lab (str): Lab folder name.
@@ -50,7 +50,7 @@ def build_lab(lab: str) -> dict:
 
 	module = importlib.import_module(f"models.labs.{lab}.source")
 
-	return run_lab(lab, module.SOURCES)
+	return run_lab(lab, module.LABEL, module.SOURCES)
 
 def summary_entry(document: dict) -> dict:
 	"""Return the index entry for one lab document.
@@ -59,16 +59,16 @@ def summary_entry(document: dict) -> dict:
 		document (dict): Document from ``run_lab``.
 
 	Returns:
-		dict: Lab name, relative URL of each level, generation time and per-source status with item counts.
+		dict: Lab slug and label, relative URL of each level, generation time and per-source status with item counts.
 	"""
 
 	require_type("document", document, dict)
 
-	lab = document["lab"]
+	lab = document["slug"]
 	sources = [{"rank": s["rank"], "type": s["type"], "status": s["status"], "error": s["error"], "items": len(s["items"])} for s in document["sources"]]
 	urls = {level: f"{lab}/{level}.json" for level in LEVELS}
 
-	return {"lab": lab, "urls": urls, "generated_at": document["generated_at"], "sources": sources}
+	return {"slug": lab, "label": document["label"], "urls": urls, "generated_at": document["generated_at"], "sources": sources}
 
 def write_json(path: Path, text: str) -> None:
 	"""Write JSON text to ``path``, creating parent folders.
@@ -117,7 +117,7 @@ def build(out_dir: Path, labs: list[str], workers: int) -> list[dict]:
 	models_dir = out_dir / "models"
 
 	for document in documents:
-		lab_dir = models_dir / document["lab"]
+		lab_dir = models_dir / document["slug"]
 
 		for level in LEVELS:
 			write_json(lab_dir / f"{level}.json", to_json(at_document_level(document, level)))
@@ -146,7 +146,7 @@ def main() -> None:
 
 	for entry in entries:
 		marks = " ".join(f"{s['rank']}:{s['type']}:{s['status']}:{s['items']}" + (f" ({s['error']})" if s["error"] else "") for s in entry["sources"])
-		print(f"{entry['lab']:16} {marks}")
+		print(f"{entry['slug']:16} {marks}")
 
 if __name__ == "__main__":
 	main()

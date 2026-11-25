@@ -8,9 +8,11 @@ JavaScript, carries no data in its HTML and has not been updated since early
 from models.common.runner import cli
 from models.common.sources import hf
 
+LABEL = "Essential AI"
+
 SOURCES = [
 	hf("EssentialAI"),
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

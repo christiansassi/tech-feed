@@ -56,6 +56,8 @@ def latest_news(client: primp.Client, source: Source) -> str:
 
 	return fetch_html(client, Source("html", newest))
 
+LABEL = "DeepSeek"
+
 SOURCES = [
 	custom("html", SITEMAP, latest_news, link_list(r"^/news/news\d{6}/?$", news_date, scope="nav.menu")),
 	hf("deepseek-ai"),
@@ -63,4 +65,4 @@ SOURCES = [
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

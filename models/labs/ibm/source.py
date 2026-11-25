@@ -3,6 +3,8 @@
 from models.common.runner import cli
 from models.common.sources import hf, rss
 
+LABEL = "IBM"
+
 SOURCES = [
 	hf("ibm-granite"),
 	rss("https://newsroom.ibm.com/announcements?pagetemplate=rss"),
@@ -10,4 +12,4 @@ SOURCES = [
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

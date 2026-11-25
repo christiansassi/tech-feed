@@ -10,6 +10,8 @@ from models.common.sources import hf, html, rss
 
 NAVIGATION_HEADERS = {"Accept": "text/html,application/xhtml+xml", "Sec-Fetch-Dest": "document", "Sec-Fetch-Mode": "navigate", "Sec-Fetch-Site": "none"}
 
+LABEL = "Meta"
+
 SOURCES = [
 	rss("https://about.fb.com/news/tag/ai/feed/"),
 	hf("facebook"),
@@ -17,4 +19,4 @@ SOURCES = [
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

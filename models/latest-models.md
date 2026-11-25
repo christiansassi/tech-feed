@@ -3,23 +3,25 @@
 ```
 BASE_URL = https://christiansassi.github.io/tech-feed/models/
 LEVEL    = medium    # light | medium | full
-LABS     = all       # all, or a comma-separated list of lab names such as: qwen, openai, xiaomi
+LABS     = all       # all, or a comma-separated list of lab slugs such as: qwen, openai, xiaomi
 ```
 
 ## Task
 
-Find the most recent model released by each AI lab listed on BASE_URL and report it. Use only the JSON files described below. Do not open the article links inside them and do not search the web.
+Find the most recent models released by each AI lab listed on BASE_URL and report them. Use only the JSON files described below. Do not open the article links inside them and do not search the web.
 
 ## Steps
 
 1. Fetch `{BASE_URL}index.json`. Its `labs` array has one entry per lab with:
-	- `lab`: lab name, such as `qwen`
+	- `slug`: lab identifier, such as `openai`
+	- `label`: lab name for display, such as `OpenAI`
 	- `urls`: the paths of the three files of the lab, relative to BASE_URL, keyed by level (`light`, `medium`, `full`)
-2. For every lab in `labs` (or only the labs named in LABS), fetch `{BASE_URL}{urls[LEVEL]}`. Fetch one lab at a time or in parallel; every lab is independent.
+2. For every lab in `labs` (or only the labs whose `slug` is in LABS), fetch `{BASE_URL}{urls[LEVEL]}`. Fetch one lab at a time or in parallel; every lab is independent.
 3. Each lab file has this shape:
 	```
 	{
-		"lab": "qwen",
+		"slug": "qwen",
+		"label": "Qwen",
 		"level": "medium",
 		"generated_at": 1795613766,
 		"sources": [
@@ -45,22 +47,66 @@ Find the most recent model released by each AI lab listed on BASE_URL and report
 4. In each lab file, keep only the items that announce a new model or a new version of a model made by that lab (language, vision, image, video, audio, speech, embedding, code or any other model). Use the title and, when present, the summary to decide. Discard:
 	- research papers, benchmarks and technical reports that do not release a model
 	- product features, apps, pricing, API changes, partnerships, events, hiring and company news
-	- on Hugging Face (`type` `hf`): datasets, Spaces, quantized or converted copies (GGUF, AWQ, GPTQ, FP8, INT4, MLX, ONNX), adapters and LoRAs, and fine-tunes of models made by other labs
+	- models of other labs that this lab only makes available, for example in its app or API
+	- a model that becomes generally available or reaches a new region after it was already announced
+	- on Hugging Face (`type` `hf`): datasets, Spaces, tokenizers, quantized or converted copies (GGUF, AWQ, GPTQ, FP8, NVFP4, INT4, MLX, ONNX), adapters and LoRAs, and fine-tunes of models made by other labs
 5. Several items can describe the same release: a blog post, a changelog entry and the Hugging Face repositories of its sizes or variants. Treat them as one model, named as the lab names the release (for example `Qwen4-Max`, not `Qwen/Qwen4-Max-Instruct-2611-FP8`). Its date is the date of the lab's own announcement when there is one, otherwise the earliest date among its items.
-6. The latest model of a lab is the kept model with the highest `date`. Use a model with `date` `null` only when the lab has no dated model, and then report `date` as `null`.
-7. If a lab file cannot be fetched, or no item in it is a model release, report the lab as `null`.
+6. Find the kept model with the highest `date`. Report it together with every other kept model whose `date` falls on the same UTC day, newest first. Use models with `date` `null` only when the lab has no dated model, and then report their `date` as `null`.
+7. If a lab file cannot be fetched, or no item in it is a model release, report the lab with an empty `models` list.
 
 ## Output
 
-Reply with one JSON object and nothing else: no prose, no code fence. Use the lab names as keys, in the order of `index.json`. Each value is `null` or an object with:
-
-- `title`: the model name
-- `date`: Unix timestamp in seconds, as found in the data (do not convert it)
+Reply with one JSON object and nothing else: no prose, no code fence. It must validate against this JSON Schema:
 
 ```
 {
-	"qwen": {"title": "Qwen4-Max", "date": 1794787200},
-	"xiaomi": {"title": "MiMo-V2.6", "date": 1790000000},
-	"essentialai": null
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"type": "object",
+	"required": ["labs"],
+	"additionalProperties": false,
+	"properties": {
+		"labs": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"required": ["slug", "label", "models"],
+				"additionalProperties": false,
+				"properties": {
+					"slug": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+					"label": {"type": "string"},
+					"models": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"required": ["slug", "label", "date"],
+							"additionalProperties": false,
+							"properties": {
+								"slug": {"type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"},
+								"label": {"type": "string"},
+								"date": {"type": ["integer", "null"]}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+```
+
+- `labs` follows the order of `index.json`. Copy each lab's `slug` and `label` from `index.json` exactly.
+- A model's `label` is its name as the lab writes it, such as `Claude Fable 5.2` or `GPT-Live-1.1`.
+- A model's `slug` is its `label` in lowercase, with every run of characters other than `a-z` and `0-9` replaced by one `-`, and no `-` at the start or end: `Claude Fable 5.2` becomes `claude-fable-5-2`.
+- `date` is the Unix timestamp in seconds as found in the data. Do not convert it.
+
+Example:
+
+```
+{
+	"labs": [
+		{"slug": "anthropic", "label": "Anthropic", "models": [{"slug": "claude-fable-5-2", "label": "Claude Fable 5.2", "date": 1794182400}]},
+		{"slug": "microsoft", "label": "Microsoft", "models": [{"slug": "mai-image-2-7", "label": "MAI Image 2.7", "date": 1794939396}, {"slug": "mai-realtime-1", "label": "MAI Realtime 1", "date": 1794939377}]},
+		{"slug": "luma", "label": "Luma AI", "models": []}
+	]
 }
 ```

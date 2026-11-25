@@ -143,10 +143,12 @@ def extract_posts(posts: list[dict], source_url: str) -> list[dict]:
 
 	return newest_first([item(p["title"], p["date"], p["url"], p["summary"]) for p in posts])
 
+LABEL = "Xiaomi"
+
 SOURCES = [
 	hf("XiaomiMiMo"),
 	custom("api", HOMEPAGE, bundle_posts, extract_posts),
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

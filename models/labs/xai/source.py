@@ -60,10 +60,12 @@ def extract_release_notes(page_html: str, source_url: str) -> list[dict]:
 
 	return newest_first(items)
 
+LABEL = "xAI"
+
 SOURCES = [
 	html("https://x.ai/news", link_list(r"^/news/[^/]+$")),
 	html("https://docs.x.ai/docs/release-notes", extract_release_notes),
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

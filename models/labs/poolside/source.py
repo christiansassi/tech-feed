@@ -85,10 +85,12 @@ def extract_posts(content: dict, source_url: str) -> list[dict]:
 
 	return newest_first(items)
 
+LABEL = "Poolside"
+
 SOURCES = [
 	api("https://poolside.ai/blog/__data.json", extract_posts),
 	hf("poolside"),
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

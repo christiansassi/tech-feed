@@ -3,6 +3,8 @@
 from models.common.runner import cli
 from models.common.sources import hf, rss
 
+LABEL = "Microsoft"
+
 SOURCES = [
 	rss("https://microsoft.ai/feed/?post_type=new"),
 	rss("https://microsoft.ai/feed/?post_type=model"),
@@ -10,4 +12,4 @@ SOURCES = [
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

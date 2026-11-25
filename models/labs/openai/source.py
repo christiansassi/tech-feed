@@ -60,6 +60,8 @@ def extract_changelog(page_html: str, source_url: str) -> list[dict]:
 
 	return newest_first(items)
 
+LABEL = "OpenAI"
+
 SOURCES = [
 	rss("https://openai.com/news/rss.xml"),
 	html("https://developers.openai.com/api/docs/changelog", extract_changelog),
@@ -67,4 +69,4 @@ SOURCES = [
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

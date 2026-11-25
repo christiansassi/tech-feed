@@ -4,10 +4,12 @@ from models.common.pages import link_list
 from models.common.runner import cli
 from models.common.sources import html, rss
 
+LABEL = "Cursor"
+
 SOURCES = [
 	rss("https://cursor.com/changelog/rss.xml"),
 	html("https://cursor.com/blog", link_list(r"^/(?:en-US/)?blog/[^/]+$")),
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

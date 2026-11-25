@@ -34,6 +34,8 @@ def extract_news(content: dict, source_url: str) -> list[dict]:
 
 	return newest_first(items)
 
+LABEL = "MiniMax"
+
 SOURCES = [
 	html("https://www.minimax.io/blog", link_list(r"^/(?:blog|news)/[^/]+$")),
 	hf("MiniMaxAI"),
@@ -41,4 +43,4 @@ SOURCES = [
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

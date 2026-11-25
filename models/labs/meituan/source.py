@@ -3,6 +3,8 @@
 from models.common.runner import cli
 from models.common.sources import github, hf, rss
 
+LABEL = "Meituan"
+
 SOURCES = [
 	hf("meituan-longcat"),
 	rss("https://tech.meituan.com/feed/"),
@@ -10,4 +12,4 @@ SOURCES = [
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

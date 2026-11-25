@@ -34,10 +34,12 @@ def extract_articles(content: dict, source_url: str) -> list[dict]:
 
 	return newest_first(items)
 
+LABEL = "Qwen"
+
 SOURCES = [
 	api("https://qwen.ai/api/v2/article/retrieval?type=qwen_ai&language=en-US", extract_articles),
 	hf("Qwen"),
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

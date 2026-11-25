@@ -32,10 +32,12 @@ def extract_posts(content: list, source_url: str) -> list[dict]:
 
 	return newest_first(items)
 
+LABEL = "AI21 Labs"
+
 SOURCES = [
 	api("https://www.ai21.com/wp-json/wp/v2/posts?per_page=10&_fields=date,title,link,excerpt,content", extract_posts),
 	hf("ai21labs"),
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

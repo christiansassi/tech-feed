@@ -12,6 +12,8 @@ from models.common.sources import hf, html, rss
 
 GEMINI_CHANGELOG = "https://aistudio.google.com/docs/changelog"
 
+LABEL = "Google"
+
 SOURCES = [
 	rss("https://deepmind.google/blog/rss.xml"),
 	html(f"{GEMINI_CHANGELOG}.md", markdown_entries(GEMINI_CHANGELOG)),
@@ -21,4 +23,4 @@ SOURCES = [
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

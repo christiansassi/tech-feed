@@ -3,10 +3,12 @@
 from models.common.runner import cli
 from models.common.sources import hf, rss
 
+LABEL = "Perplexity"
+
 SOURCES = [
 	rss("https://docs.perplexity.ai/docs/resources/changelog/rss.xml"),
 	hf("perplexity-ai"),
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

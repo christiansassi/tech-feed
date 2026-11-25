@@ -41,10 +41,12 @@ def extract_releases(page_html: str, source_url: str) -> list[dict]:
 
 	return newest_first(items)
 
+LABEL = "Nous Research"
+
 SOURCES = [
 	html("https://nousresearch.com/releases", extract_releases),
 	hf("NousResearch"),
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

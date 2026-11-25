@@ -40,10 +40,12 @@ def extract_posts(content: dict, source_url: str) -> list[dict]:
 
 	return newest_first(items)
 
+LABEL = "LG AI Research"
+
 SOURCES = [
 	api("https://www.lgresearch.ai/api/board/blog/list?pg=1&pgSz=10&schExpsYn=Y&schLangTp=en", extract_posts),
 	hf("LGAI-EXAONE"),
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

@@ -3,10 +3,12 @@
 from models.common.runner import cli
 from models.common.sources import rss
 
+LABEL = "ElevenLabs"
+
 SOURCES = [
 	rss("https://elevenlabs.io/blog/rss.xml"),
 	rss("https://elevenlabs.io/docs/changelog.rss"),
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

@@ -95,18 +95,20 @@ def run_source(client: Any, source: Source, rank: int) -> dict:
 
 	return entry
 
-def run_lab(lab: str, sources: list[Source]) -> dict:
+def run_lab(slug: str, label: str, sources: list[Source]) -> dict:
 	"""Fetch every source of a lab and return the document at the ``full`` level.
 
 	Args:
-		lab (str): Lab folder name, e.g. ``"qwen"``.
+		slug (str): Lab folder name, e.g. ``"openai"``.
+		label (str): Lab name for display, e.g. ``"OpenAI"``.
 		sources (list[Source]): Sources in priority order, main source first.
 
 	Returns:
-		dict: Document with the lab name, generation time and one entry per source.
+		dict: Document with the lab slug and label, generation time and one entry per source.
 	"""
 
-	require_text("lab", lab)
+	require_text("slug", slug)
+	require_text("label", label)
 	require_type("sources", sources, list)
 
 	if not sources:
@@ -115,7 +117,7 @@ def run_lab(lab: str, sources: list[Source]) -> dict:
 	client = new_client()
 	entries = [run_source(client, source, rank) for rank, source in enumerate(sources, start=1)]
 
-	return {"lab": lab, "level": "full", "generated_at": utc_now(), "sources": entries}
+	return {"slug": slug, "label": label, "level": "full", "generated_at": utc_now(), "sources": entries}
 
 def at_document_level(document: dict, level: str) -> dict:
 	"""Return a copy of a lab document whose items keep only the keys of a level.
@@ -149,13 +151,14 @@ def to_json(document: dict) -> str:
 
 	return json.dumps(document, indent="\t", ensure_ascii=False)
 
-def cli(source_file: str, sources: list[Source]) -> None:
+def cli(source_file: str, label: str, sources: list[Source]) -> None:
 	"""Run a lab from its ``source.py`` and print the document to stdout.
 
 	The level defaults to ``medium``; pass ``light`` or ``full`` as the first command-line argument to change it.
 
 	Args:
-		source_file (str): ``__file__`` of the lab's ``source.py``; its folder name is the lab name.
+		source_file (str): ``__file__`` of the lab's ``source.py``; its folder name is the lab slug.
+		label (str): Lab name for display.
 		sources (list[Source]): Sources in priority order.
 
 	Returns:
@@ -169,4 +172,4 @@ def cli(source_file: str, sources: list[Source]) -> None:
 
 	sys.stdout.reconfigure(encoding="utf-8")
 
-	print(to_json(at_document_level(run_lab(Path(source_file).parent.name, sources), level)))
+	print(to_json(at_document_level(run_lab(Path(source_file).parent.name, label, sources), level)))

@@ -57,10 +57,12 @@ def extract_articles(content: dict, source_url: str) -> list[dict]:
 
 	return newest_first([article_item(article) for article in content.get("articles") or []])
 
+LABEL = "Midjourney"
+
 SOURCES = [
 	api("https://docs.midjourney.com/api/v2/help_center/en-us/articles/32199405667853.json", extract_article),
 	api("https://docs.midjourney.com/api/v2/help_center/en-us/articles.json?sort_by=created_at&sort_order=desc&per_page=30", extract_articles),
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

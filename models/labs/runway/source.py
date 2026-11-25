@@ -45,6 +45,8 @@ def extract_changelog(page_html: str, source_url: str) -> list[dict]:
 
 	return newest_first(items)
 
+LABEL = "Runway"
+
 SOURCES = [
 	html("https://runway.com/research", link_list(r"^/research/(?!publications$)[^/]+$")),
 	html("https://runway.com/changelog", extract_changelog),
@@ -52,4 +54,4 @@ SOURCES = [
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)

@@ -60,6 +60,8 @@ def extract_posts(content: dict, source_url: str) -> list[dict]:
 
 	return newest_first(items)
 
+LABEL = "Tencent"
+
 SOURCES = [
 	api("https://api.hunyuan.tencent.com/api/blog/publicList", extract_posts, method="POST", json_body={"pageNum": 1, "pageSize": 20}),
 	hf("tencent", search="Hunyuan"),
@@ -67,4 +69,4 @@ SOURCES = [
 ]
 
 if __name__ == "__main__":
-	cli(__file__, SOURCES)
+	cli(__file__, LABEL, SOURCES)
