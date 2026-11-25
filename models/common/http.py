@@ -25,7 +25,6 @@ METHODS = ("GET", "POST")
 
 _USER_AGENTS = UserAgent(platforms="desktop")
 
-
 class FetchError(Exception):
 	"""Error raised when a source cannot be fetched or parsed.
 
@@ -47,7 +46,6 @@ class FetchError(Exception):
 		super().__init__(message)
 		self.http_status = http_status
 
-
 def new_client(timeout: float = TIMEOUT_SECONDS) -> primp.Client:
 	"""Return a primp client with a random desktop User-Agent.
 
@@ -66,7 +64,6 @@ def new_client(timeout: float = TIMEOUT_SECONDS) -> primp.Client:
 	}
 
 	return primp.Client(headers=headers, follow_redirects=True, timeout=timeout)
-
 
 def send(client: primp.Client, url: str, method: str = "GET", json_body: dict | None = None, headers: dict | None = None) -> primp.Response:
 	"""Send one request and return the response, raising on transport or HTTP errors.

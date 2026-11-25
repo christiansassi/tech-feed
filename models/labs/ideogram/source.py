@@ -1,10 +1,11 @@
 """Sources for Ideogram image model releases."""
 
+from models.common.pages import link_list
 from models.common.runner import cli
 from models.common.sources import hf, html
 
 SOURCES = [
-	html("https://ideogram.ai/blog/"),
+	html("https://ideogram.ai/blog/", link_list(r"^/blog/[^/]+/?$")),
 	hf("ideogram-ai"),
 ]
 

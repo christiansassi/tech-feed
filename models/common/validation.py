@@ -8,7 +8,6 @@ types everywhere: ``TypeError`` for a wrong type and ``ValueError`` for a wrong 
 from collections.abc import Collection
 from urllib.parse import urlparse
 
-
 def require_type(name: str, value: object, expected: type | tuple[type, ...]) -> None:
 	"""Raise ``TypeError`` unless ``value`` is an instance of ``expected``.
 
@@ -23,7 +22,6 @@ def require_type(name: str, value: object, expected: type | tuple[type, ...]) ->
 
 	if not isinstance(value, expected):
 		raise TypeError(f"{name} must be {expected}, got {type(value).__name__}")
-
 
 def require_text(name: str, value: object) -> None:
 	"""Raise unless ``value`` is a non-empty string.
@@ -40,7 +38,6 @@ def require_text(name: str, value: object) -> None:
 
 	if not value.strip():
 		raise ValueError(f"{name} must not be empty")
-
 
 def require_http_url(name: str, value: object) -> None:
 	"""Raise unless ``value`` is an absolute http or https URL.
@@ -60,7 +57,6 @@ def require_http_url(name: str, value: object) -> None:
 	if parts.scheme not in ("http", "https") or not parts.netloc:
 		raise ValueError(f"{name} must be an absolute http(s) URL, got {value!r}")
 
-
 def require_choice(name: str, value: object, choices: Collection[str]) -> None:
 	"""Raise unless ``value`` is one of ``choices``.
 
@@ -78,7 +74,6 @@ def require_choice(name: str, value: object, choices: Collection[str]) -> None:
 	if value not in choices:
 		raise ValueError(f"{name} must be one of {sorted(choices)}, got {value!r}")
 
-
 def require_positive_number(name: str, value: object) -> None:
 	"""Raise unless ``value`` is an int or float greater than zero.
 
@@ -94,7 +89,6 @@ def require_positive_number(name: str, value: object) -> None:
 
 	if value <= 0:
 		raise ValueError(f"{name} must be greater than zero, got {value!r}")
-
 
 def require_callable(name: str, value: object) -> None:
 	"""Raise ``TypeError`` unless ``value`` is callable.

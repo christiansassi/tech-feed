@@ -1,10 +1,11 @@
 """Sources for Cognition (SWE models, Devin, Windsurf) model releases."""
 
+from models.common.pages import link_list
 from models.common.runner import cli
 from models.common.sources import html, rss
 
 SOURCES = [
-	html("https://cognition.com/blog"),
+	html("https://cognition.com/blog", link_list(r"^/blog/[^/]+$")),
 	rss("https://docs.devin.ai/release-notes/overview/rss.xml"),
 ]
 

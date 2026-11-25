@@ -1,10 +1,11 @@
 """Sources for Liquid AI (LFM) model releases."""
 
+from models.common.pages import link_list
 from models.common.runner import cli
 from models.common.sources import hf, html
 
 SOURCES = [
-	html("https://www.liquid.ai/news/models"),
+	html("https://www.liquid.ai/news/models", link_list(r"^/(?:news|blog)/[^/]+$")),
 	hf("LiquidAI"),
 ]
 

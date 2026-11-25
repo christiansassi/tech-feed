@@ -1,11 +1,15 @@
-"""Sources for Essential AI (Rnj) model releases. The website is stale, so Hugging Face is the main signal."""
+"""Sources for Essential AI (Rnj) model releases.
+
+Hugging Face is the only source: the research page renders its list with
+JavaScript, carries no data in its HTML and has not been updated since early
+2026 (Rnj-1.5 is missing from it).
+"""
 
 from models.common.runner import cli
-from models.common.sources import hf, html
+from models.common.sources import hf
 
 SOURCES = [
 	hf("EssentialAI"),
-	html("https://www.essential.ai/research"),
 ]
 
 if __name__ == "__main__":

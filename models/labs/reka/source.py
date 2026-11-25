@@ -1,10 +1,11 @@
 """Sources for Reka AI model releases."""
 
+from models.common.pages import link_list
 from models.common.runner import cli
 from models.common.sources import hf, html
 
 SOURCES = [
-	html("https://reka.ai/news"),
+	html("https://reka.ai/news", link_list(r"^/news/[^/]+$")),
 	hf("RekaAI"),
 ]
 

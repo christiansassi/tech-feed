@@ -5,6 +5,9 @@
 	--ink-muted: rgba(243, 239, 230, 0.62);
 	--ink-faint: rgba(243, 239, 230, 0.28);
 	--ground: #050507;
+	--font-title: "Space Grotesk", system-ui, sans-serif;
+	--font-body: "Instrument Sans", system-ui, sans-serif;
+	--font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
 	color-scheme: dark;
 }
 
@@ -21,7 +24,7 @@ body {
 	margin: 0;
 	background: var(--ground);
 	color: var(--ink);
-	font-family: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+	font-family: var(--font-mono);
 	overflow: hidden;
 }
 
@@ -60,7 +63,7 @@ main {
 
 h1 {
 	margin: 0;
-	font-family: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+	font-family: var(--font-title);
 	font-weight: 400;
 	font-size: clamp(3.6rem, 11vw, 9rem);
 	line-height: 0.9;
@@ -82,7 +85,7 @@ nav.toc {
 	display: grid;
 	gap: 0.55rem;
 	width: min(22rem, 86vw);
-	font-family: "Instrument Serif", Georgia, serif;
+	font-family: var(--font-body);
 	font-size: 1.05rem;
 }
 
@@ -96,14 +99,20 @@ nav.toc a {
 }
 
 nav.toc a .num {
-	font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+	font-family: var(--font-mono);
 	font-size: 0.72rem;
 	letter-spacing: 0.08em;
 }
 
 nav.toc a .dots {
-	border-bottom: 1px dotted var(--ink-muted);
-	transform: translateY(-0.25em);
+	overflow: hidden;
+	white-space: nowrap;
+	letter-spacing: 0.12em;
+	color: var(--ink-muted);
+}
+
+nav.toc a .dots::before {
+	content: "................................................................................................................................................................................................................................................";
 }
 
 nav.toc a:hover .label,
@@ -118,7 +127,7 @@ nav.toc a[aria-disabled="true"] {
 }
 
 nav.toc a[aria-disabled="true"] .dots {
-	border-color: var(--ink-faint);
+	color: var(--ink-faint);
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,8 +1,11 @@
 """Build the static GitHub Pages output for every model lab.
 
 Import each ``models/labs/<lab>/source.py``, run its sources in parallel across
-labs, and write ``<out>/models/<lab>/index.json`` for every lab plus
-``<out>/models/index.json`` with the list of labs and the status of their sources.
+labs, and write ``<out>/models/<lab>/light.json``, ``medium.json`` and
+``full.json`` for every lab, plus ``<out>/models/index.json`` with the list of
+labs, their file URLs and the status of their sources. When ``DEFAULT_LEVEL`` is
+set, that level is also written as ``<out>/models/<lab>/index.json`` so the bare
+folder URL answers with it.
 
 Usage: ``python -m models.build [--out _site] [--workers 8] [--only lab1,lab2]``
 """
@@ -14,13 +17,15 @@ import sys
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-from models.common.runner import run_lab, to_json, utc_now
+from models.common.items import LEVELS
+from models.common.runner import at_document_level, run_lab, to_json, utc_now
 from models.common.validation import require_positive_number, require_type
 
 LABS_DIR = Path(__file__).parent / "labs"
 
 DEFAULT_WORKERS = 8
 
+DEFAULT_LEVEL = None
 
 def discover_labs() -> list[str]:
 	"""Return the names of all lab folders that contain a ``source.py``.
@@ -30,7 +35,6 @@ def discover_labs() -> list[str]:
 	"""
 
 	return sorted(path.parent.name for path in LABS_DIR.glob("*/source.py"))
-
 
 def build_lab(lab: str) -> dict:
 	"""Import a lab's ``source.py`` and run its sources.
@@ -48,7 +52,6 @@ def build_lab(lab: str) -> dict:
 
 	return run_lab(lab, module.SOURCES)
 
-
 def summary_entry(document: dict) -> dict:
 	"""Return the index entry for one lab document.
 
@@ -56,15 +59,16 @@ def summary_entry(document: dict) -> dict:
 		document (dict): Document from ``run_lab``.
 
 	Returns:
-		dict: Lab name, relative URL, generation time and per-source status.
+		dict: Lab name, relative URL of each level, generation time and per-source status with item counts.
 	"""
 
 	require_type("document", document, dict)
 
-	sources = [{"rank": s["rank"], "type": s["type"], "status": s["status"], "error": s["error"]} for s in document["sources"]]
+	lab = document["lab"]
+	sources = [{"rank": s["rank"], "type": s["type"], "status": s["status"], "error": s["error"], "items": len(s["items"])} for s in document["sources"]]
+	urls = {level: f"{lab}/{level}.json" for level in LEVELS}
 
-	return {"lab": document["lab"], "url": f"{document['lab']}/index.json", "generated_at": document["generated_at"], "sources": sources}
-
+	return {"lab": lab, "urls": urls, "generated_at": document["generated_at"], "sources": sources}
 
 def write_json(path: Path, text: str) -> None:
 	"""Write JSON text to ``path``, creating parent folders.
@@ -82,7 +86,6 @@ def write_json(path: Path, text: str) -> None:
 
 	path.parent.mkdir(parents=True, exist_ok=True)
 	path.write_text(text + "\n", encoding="utf-8", newline="\n")
-
 
 def build(out_dir: Path, labs: list[str], workers: int) -> list[dict]:
 	"""Run the given labs in parallel and write their JSON files under ``out_dir``.
@@ -114,13 +117,18 @@ def build(out_dir: Path, labs: list[str], workers: int) -> list[dict]:
 	models_dir = out_dir / "models"
 
 	for document in documents:
-		write_json(models_dir / document["lab"] / "index.json", to_json(document))
+		lab_dir = models_dir / document["lab"]
+
+		for level in LEVELS:
+			write_json(lab_dir / f"{level}.json", to_json(at_document_level(document, level)))
+
+		if DEFAULT_LEVEL:
+			write_json(lab_dir / "index.json", to_json(at_document_level(document, DEFAULT_LEVEL)))
 
 	entries = [summary_entry(document) for document in documents]
 	write_json(models_dir / "index.json", to_json({"generated_at": utc_now(), "labs": entries}))
 
 	return entries
-
 
 def main() -> None:
 	"""Parse the command line, build the site and print one status line per lab."""
@@ -137,9 +145,8 @@ def main() -> None:
 	sys.stdout.reconfigure(encoding="utf-8")
 
 	for entry in entries:
-		marks = " ".join(f"{s['rank']}:{s['type']}:{s['status']}" + (f" ({s['error']})" if s["error"] else "") for s in entry["sources"])
+		marks = " ".join(f"{s['rank']}:{s['type']}:{s['status']}:{s['items']}" + (f" ({s['error']})" if s["error"] else "") for s in entry["sources"])
 		print(f"{entry['lab']:16} {marks}")
-
 
 if __name__ == "__main__":
 	main()

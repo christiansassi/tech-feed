@@ -1,8 +1,11 @@
-"""Run the sources of one lab and build its published JSON document.
+"""Run the sources of one lab and build its published JSON documents.
 
-Each source is fetched in priority order. A failing source is recorded with its
-error and does not stop the others, so a lab is always published with whatever
-could be fetched.
+Each source is fetched in priority order and its content is mapped to items in
+the common schema. When a source's ``medium`` level exceeds 50 KB, its oldest
+items are dropped and the count is recorded in ``items_dropped``. A failing
+source is recorded with its error and does not stop the others, so a lab is
+always published with whatever could be fetched. The same run is written at
+three levels: ``light``, ``medium`` and ``full``.
 """
 
 import datetime as dt
@@ -13,9 +16,11 @@ from typing import Any
 
 from models.common.fetchers import DEFAULT_FETCHERS
 from models.common.http import FetchError, new_client
+from models.common.items import LEVELS, at_level
 from models.common.sources import Source
-from models.common.validation import require_text, require_type
+from models.common.validation import require_choice, require_text, require_type
 
+SOURCE_BUDGET_BYTES = 50 * 1024
 
 def utc_now() -> str:
 	"""Return the current UTC time as an ISO 8601 string with a ``Z`` suffix.
@@ -26,9 +31,33 @@ def utc_now() -> str:
 
 	return dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
+def within_budget(items: list[dict], budget: int = SOURCE_BUDGET_BYTES) -> tuple[list[dict], int]:
+	"""Keep the newest items whose ``medium`` level fits in the byte budget.
+
+	Items are expected newest first, so the oldest ones are dropped. The same
+	items are kept at every level, so ``full`` can still exceed the budget
+	because of the article bodies.
+
+	Args:
+		items (list[dict]): Items in the common schema, newest first.
+		budget (int): Maximum size in bytes of the source's items at the ``medium`` level.
+
+	Returns:
+		tuple[list[dict], int]: Kept items and the number of items dropped.
+	"""
+
+	require_type("items", items, list)
+	require_type("budget", budget, int)
+
+	kept = len(items)
+
+	while kept > 0 and len(to_json({"items": at_level(items[:kept], "medium")}).encode("utf-8")) > budget:
+		kept -= max(1, kept // 10)
+
+	return items[:kept], len(items) - kept
 
 def run_source(client: Any, source: Source, rank: int) -> dict:
-	"""Fetch one source and return its entry for the published document.
+	"""Fetch one source, extract its items and return its entry for the published document.
 
 	Args:
 		client (Any): primp client shared by the sources of the lab.
@@ -36,7 +65,7 @@ def run_source(client: Any, source: Source, rank: int) -> dict:
 		rank (int): Priority of the source, 1 for the main one.
 
 	Returns:
-		dict: Entry with rank, kind, URL, status, HTTP status, error and content.
+		dict: Entry with rank, kind, URL, fetch time, status, HTTP status, error and items at the ``full`` level.
 	"""
 
 	require_type("source", source, Source)
@@ -50,13 +79,15 @@ def run_source(client: Any, source: Source, rank: int) -> dict:
 		"status": "ok",
 		"http_status": 200,
 		"error": None,
-		"content": None,
+		"items_dropped": 0,
+		"items": [],
 	}
 
 	fetch = source.fetch or DEFAULT_FETCHERS[source.kind]
 
 	try:
-		entry["content"] = fetch(client, source)
+		content = fetch(client, source)
+		entry["items"], entry["items_dropped"] = within_budget(source.extract(content, source.url))
 	except FetchError as exc:
 		entry.update(status="error", http_status=exc.http_status, error=str(exc))
 	except Exception as exc:
@@ -64,9 +95,8 @@ def run_source(client: Any, source: Source, rank: int) -> dict:
 
 	return entry
 
-
 def run_lab(lab: str, sources: list[Source]) -> dict:
-	"""Fetch every source of a lab and return the document published for it.
+	"""Fetch every source of a lab and return the document at the ``full`` level.
 
 	Args:
 		lab (str): Lab folder name, e.g. ``"qwen"``.
@@ -85,14 +115,31 @@ def run_lab(lab: str, sources: list[Source]) -> dict:
 	client = new_client()
 	entries = [run_source(client, source, rank) for rank, source in enumerate(sources, start=1)]
 
-	return {"lab": lab, "generated_at": utc_now(), "sources": entries}
+	return {"lab": lab, "level": "full", "generated_at": utc_now(), "sources": entries}
 
-
-def to_json(document: dict) -> str:
-	"""Serialize a lab document as tab-indented JSON.
+def at_document_level(document: dict, level: str) -> dict:
+	"""Return a copy of a lab document whose items keep only the keys of a level.
 
 	Args:
 		document (dict): Document from ``run_lab``.
+		level (str): ``"light"``, ``"medium"`` or ``"full"``.
+
+	Returns:
+		dict: Document for that level.
+	"""
+
+	require_type("document", document, dict)
+	require_choice("level", level, LEVELS)
+
+	sources = [dict(entry, items=at_level(entry["items"], level)) for entry in document["sources"]]
+
+	return dict(document, level=level, sources=sources)
+
+def to_json(document: dict) -> str:
+	"""Serialize a document as tab-indented JSON.
+
+	Args:
+		document (dict): Any JSON-serializable document.
 
 	Returns:
 		str: JSON text indented with tabs.
@@ -102,9 +149,10 @@ def to_json(document: dict) -> str:
 
 	return json.dumps(document, indent="\t", ensure_ascii=False)
 
-
 def cli(source_file: str, sources: list[Source]) -> None:
 	"""Run a lab from its ``source.py`` and print the document to stdout.
+
+	The level defaults to ``medium``; pass ``light`` or ``full`` as the first command-line argument to change it.
 
 	Args:
 		source_file (str): ``__file__`` of the lab's ``source.py``; its folder name is the lab name.
@@ -116,6 +164,9 @@ def cli(source_file: str, sources: list[Source]) -> None:
 
 	require_text("source_file", source_file)
 
+	level = sys.argv[1] if len(sys.argv) > 1 else "medium"
+	require_choice("level", level, LEVELS)
+
 	sys.stdout.reconfigure(encoding="utf-8")
 
-	print(to_json(run_lab(Path(source_file).parent.name, sources)))
+	print(to_json(at_document_level(run_lab(Path(source_file).parent.name, sources), level)))

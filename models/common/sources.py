@@ -1,8 +1,9 @@
 """Source definitions used by every lab's ``source.py``.
 
 A lab lists its sources in priority order with the constructors below. Each
-constructor returns a ``Source`` that records the source kind, the URL and how
-to fetch it; the runner turns that list into the published JSON.
+constructor returns a ``Source`` that records the source kind, the URL, how to
+fetch it and how to extract items in the common schema from the fetched content;
+the runner turns that list into the published JSON.
 """
 
 import os
@@ -11,6 +12,7 @@ from dataclasses import dataclass
 from typing import Any
 from urllib.parse import quote, urlencode
 
+from models.common.items import extract_feed, extract_github, extract_hf
 from models.common.validation import require_callable, require_choice, require_http_url, require_text, require_type
 
 KINDS = ("api", "rss", "html", "hf")
@@ -20,7 +22,6 @@ HF_API = "https://huggingface.co/api/models"
 HF_LIMIT = 50
 
 GITHUB_LIMIT = 30
-
 
 @dataclass(frozen=True)
 class Source:
@@ -33,6 +34,7 @@ class Source:
 		json_body (dict | None): JSON body for a POST request.
 		headers (dict | None): Extra request headers.
 		fetch (Callable | None): Custom fetch function ``fetch(client, source) -> content`` that replaces the default one for the kind.
+		extract (Callable | None): Function ``extract(content, source_url) -> list[dict]`` that turns the fetched content into items in the common schema.
 	"""
 
 	kind: str
@@ -41,7 +43,7 @@ class Source:
 	json_body: dict | None = None
 	headers: dict | None = None
 	fetch: Callable[..., Any] | None = None
-
+	extract: Callable[..., list[dict]] | None = None
 
 def _check_headers(headers: dict | None) -> None:
 	"""Raise unless ``headers`` is None or a dict of strings.
@@ -62,12 +64,12 @@ def _check_headers(headers: dict | None) -> None:
 		require_text("header name", key)
 		require_type(f"header {key}", value, str)
 
-
-def api(url: str, method: str = "GET", json_body: dict | None = None, headers: dict | None = None) -> Source:
-	"""Return a source whose JSON response is published unchanged.
+def api(url: str, extract: Callable[..., list[dict]], method: str = "GET", json_body: dict | None = None, headers: dict | None = None) -> Source:
+	"""Return a source backed by a JSON endpoint.
 
 	Args:
 		url (str): Absolute URL of the JSON endpoint.
+		extract (Callable[..., list[dict]]): Function ``extract(content, source_url)`` that maps the JSON to items.
 		method (str): ``"GET"`` or ``"POST"``.
 		json_body (dict | None): JSON body for a POST request.
 		headers (dict | None): Extra request headers.
@@ -83,12 +85,12 @@ def api(url: str, method: str = "GET", json_body: dict | None = None, headers: d
 		require_type("json_body", json_body, dict)
 
 	_check_headers(headers)
+	require_callable("extract", extract)
 
-	return Source("api", url, method, json_body, headers)
-
+	return Source("api", url, method, json_body, headers, extract=extract)
 
 def rss(url: str) -> Source:
-	"""Return a source whose RSS or Atom feed is converted to JSON with xmltodict.
+	"""Return a source backed by an RSS or Atom feed, parsed with xmltodict and mapped to items generically.
 
 	Args:
 		url (str): Absolute URL of the feed.
@@ -99,14 +101,14 @@ def rss(url: str) -> Source:
 
 	require_http_url("url", url)
 
-	return Source("rss", url)
+	return Source("rss", url, extract=extract_feed)
 
-
-def html(url: str, headers: dict | None = None) -> Source:
-	"""Return a source whose page is converted to markdown.
+def html(url: str, extract: Callable[..., list[dict]], headers: dict | None = None) -> Source:
+	"""Return a source backed by an HTML page.
 
 	Args:
 		url (str): Absolute URL of the page.
+		extract (Callable[..., list[dict]]): Function ``extract(page_html, source_url)`` that maps the page to items.
 		headers (dict | None): Extra request headers, for sites that reject requests without them.
 
 	Returns:
@@ -114,10 +116,10 @@ def html(url: str, headers: dict | None = None) -> Source:
 	"""
 
 	require_http_url("url", url)
+	require_callable("extract", extract)
 	_check_headers(headers)
 
-	return Source("html", url, headers=headers)
-
+	return Source("html", url, headers=headers, extract=extract)
 
 def hf(org: str, search: str | None = None) -> Source:
 	"""Return a source that lists the newest models of a Hugging Face organization.
@@ -140,8 +142,7 @@ def hf(org: str, search: str | None = None) -> Source:
 	if search:
 		params["search"] = search
 
-	return Source("hf", f"{HF_API}?{urlencode(params)}")
-
+	return Source("hf", f"{HF_API}?{urlencode(params)}", extract=extract_hf)
 
 def github(org: str) -> Source:
 	"""Return a source that lists the newest repositories of a GitHub organization.
@@ -165,23 +166,24 @@ def github(org: str) -> Source:
 	if token:
 		headers["Authorization"] = f"Bearer {token}"
 
-	return Source("api", url, headers=headers)
+	return Source("api", url, headers=headers, extract=extract_github)
 
-
-def custom(kind: str, url: str, fetch: Callable[..., Any]) -> Source:
+def custom(kind: str, url: str, fetch: Callable[..., Any], extract: Callable[..., list[dict]]) -> Source:
 	"""Return a source with its own fetch function, for sites that need extra steps.
 
 	Args:
-		kind (str): One of ``KINDS``; describes the published content.
+		kind (str): One of ``KINDS``; describes where the content comes from.
 		url (str): Absolute URL of the entry point, shown in the output.
 		fetch (Callable[..., Any]): Function ``fetch(client, source) -> content``.
+		extract (Callable[..., list[dict]]): Function ``extract(content, source_url)`` that maps the content to items.
 
 	Returns:
-		Source: Source that the runner fetches with ``fetch``.
+		Source: Source that the runner fetches with ``fetch`` and maps with ``extract``.
 	"""
 
 	require_choice("kind", kind, KINDS)
 	require_http_url("url", url)
 	require_callable("fetch", fetch)
+	require_callable("extract", extract)
 
-	return Source(kind, url, fetch=fetch)
+	return Source(kind, url, fetch=fetch, extract=extract)
