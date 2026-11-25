@@ -3,7 +3,7 @@
 Every source is reduced to a list of items with the same keys:
 
 - ``title``: name of the release or article, which usually carries the model name
-- ``date``: publication date as ISO 8601 (``2026-11-16`` or ``2026-11-16T10:00:00Z``), or None
+- ``date``: publication time as a Unix timestamp in seconds (midnight UTC when the source gives only the day), or None
 - ``url``: absolute link to the article, model page or repository, or None
 - ``summary``: short plain-text introduction, or None
 - ``body``: full text as markdown when the source provides it, or None
@@ -124,37 +124,36 @@ def to_markdown(markup: str | None, base_url: str | None = None) -> str | None:
 
 	return text or None
 
-def iso_date(value: Any) -> str | None:
-	"""Normalize a date in any common format to ISO 8601.
+def timestamp(value: Any) -> int | None:
+	"""Convert a date in any common format to a Unix timestamp in seconds.
 
-	Accepts RFC 2822 (RSS), ISO 8601, ``YYYYMMDD``, ``YYYY/MM/DD`` and Unix timestamps in seconds or milliseconds.
+	Accepts RFC 2822 (RSS), ISO 8601, ``YYYYMMDD``, ``YYYY/MM/DD``, ``YYYY-MM`` and Unix timestamps in seconds or milliseconds. A date without a time counts as midnight UTC, and a month without a day counts as its first day.
 
 	Args:
 		value (Any): Date value as found in the source.
 
 	Returns:
-		str | None: ``YYYY-MM-DD`` for dates without a time, ``YYYY-MM-DDTHH:MM:SSZ`` in UTC otherwise, or the original text when it cannot be parsed.
+		int | None: Seconds since 1970-01-01 UTC, or None when the value is empty or cannot be parsed.
 	"""
 
 	if value is None or value == "":
 		return None
 
 	if isinstance(value, (int, float)) and not isinstance(value, bool):
-		seconds = value / 1000 if value > 10**11 else value
-		return dt.datetime.fromtimestamp(seconds, dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+		return int(value / 1000 if value > 10**11 else value)
 
 	text = str(value).strip()
 
 	if re.fullmatch(r"\d{10,13}", text):
-		return iso_date(int(text))
+		return timestamp(int(text))
 
 	if re.fullmatch(r"\d{8}", text):
 		text = f"{text[:4]}-{text[4:6]}-{text[6:]}"
 
 	text = re.sub(r"^(\d{4})[/.](\d{1,2})[/.](\d{1,2})", lambda m: f"{m.group(1)}-{int(m.group(2)):02d}-{int(m.group(3)):02d}", text)
 
-	if re.fullmatch(r"\d{4}-\d{2}-\d{2}", text):
-		return text
+	if re.fullmatch(r"\d{4}-\d{2}", text):
+		text += "-01"
 
 	parsed = None
 
@@ -165,19 +164,19 @@ def iso_date(value: Any) -> str | None:
 		try:
 			parsed = email.utils.parsedate_to_datetime(text)
 		except (TypeError, ValueError):
-			return text
+			return None
 
 	if parsed.tzinfo is None:
 		parsed = parsed.replace(tzinfo=dt.timezone.utc)
 
-	return parsed.astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+	return int(parsed.timestamp())
 
 def item(title: Any, date: Any = None, url: Any = None, summary: str | None = None, body: str | None = None, base_url: str | None = None) -> dict:
 	"""Build one item in the common schema.
 
 	Args:
 		title (Any): Release or article title; converted to plain text.
-		date (Any): Date in any format accepted by ``iso_date``.
+		date (Any): Date in any format accepted by ``timestamp``.
 		url (Any): Link to the article; relative links are resolved against ``base_url``.
 		summary (str | None): Introduction as HTML or text; shortened by ``summarize``.
 		body (str | None): Full text as markdown, or None.
@@ -194,7 +193,7 @@ def item(title: Any, date: Any = None, url: Any = None, summary: str | None = No
 
 	return {
 		"title": plain_text(text_of(title)),
-		"date": iso_date(date),
+		"date": timestamp(date),
 		"url": link,
 		"summary": summarize(summary),
 		"body": body or None,

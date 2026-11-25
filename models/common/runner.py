@@ -22,14 +22,14 @@ from models.common.validation import require_choice, require_text, require_type
 
 SOURCE_BUDGET_BYTES = 50 * 1024
 
-def utc_now() -> str:
-	"""Return the current UTC time as an ISO 8601 string with a ``Z`` suffix.
+def utc_now() -> int:
+	"""Return the current time as a Unix timestamp in seconds.
 
 	Returns:
-		str: Timestamp such as ``"2026-11-25T10:00:00Z"``.
+		int: Seconds since 1970-01-01 UTC, such as ``1795600800``.
 	"""
 
-	return dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+	return int(dt.datetime.now(dt.timezone.utc).timestamp())
 
 def within_budget(items: list[dict], budget: int = SOURCE_BUDGET_BYTES) -> tuple[list[dict], int]:
 	"""Keep the newest items whose ``medium`` level fits in the byte budget.
