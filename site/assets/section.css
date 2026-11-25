@@ -45,6 +45,18 @@ body {
 	color: var(--ink-faint);
 }
 
+/* A line with an update time stays hidden until the time is loaded, then fades in complete. */
+.meta:has(.updated) {
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 0.4s ease;
+}
+
+.meta.ready {
+	visibility: visible;
+	opacity: 1;
+}
+
 .meta .updated::after {
 	content: "·";
 	padding-left: 0.4rem;

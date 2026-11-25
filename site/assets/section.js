@@ -86,24 +86,29 @@ function rowElement(url) {
  * Fill every `.updated` element with the time its index file was generated.
  *
  * The index is rewritten each time the sources are read, so this is the time of
- * the last data check. Elements whose index cannot be read are removed.
+ * the last data check. Elements whose index cannot be read are removed. The line
+ * that holds them stays hidden until then, so it appears once and complete.
  *
  * @returns {Promise<void>} Resolves when every element is filled or removed.
  */
 async function showUpdated() {
 	for (const node of document.querySelectorAll(".updated[data-index]")) {
+		const line = node.closest(".meta");
 		const index = await getJson(node.dataset.index);
 
 		if (!index || !Number.isInteger(index.generated_at)) {
 			node.remove();
-			continue;
+		} else {
+			const when = new Date(index.generated_at * 1000);
+			const day = when.toLocaleDateString("en-US", {month: "short", day: "numeric", timeZone: "UTC"});
+			const time = when.toLocaleTimeString("en-GB", {hour: "2-digit", minute: "2-digit", timeZone: "UTC"});
+
+			node.textContent = `Updated ${day}, ${time} UTC`;
 		}
 
-		const when = new Date(index.generated_at * 1000);
-		const day = when.toLocaleDateString("en-US", {month: "short", day: "numeric", timeZone: "UTC"});
-		const time = when.toLocaleTimeString("en-GB", {hour: "2-digit", minute: "2-digit", timeZone: "UTC"});
-
-		node.textContent = `Updated ${day}, ${time} UTC`;
+		if (line) {
+			line.classList.add("ready");
+		}
 	}
 }
 
