@@ -159,12 +159,51 @@ body {
 	display: none;
 }
 
-.row.event {
-	grid-template-columns: auto 1fr auto auto 5.5rem;
+/* Conference rows share one grid across all months: the dots run from each name to its place, and dates and ticket tags line up in columns. */
+.months.events {
+	display: grid;
+	grid-template-columns: 1fr auto auto;
+	column-gap: 1.4rem;
+	row-gap: 0.7rem;
+}
+
+.months.events .month {
+	grid-column: 1 / -1;
+}
+
+.months.events .rows {
+	display: contents;
+}
+
+.months.events .row {
+	grid-column: 1 / -1;
+	grid-template-columns: subgrid;
+	column-gap: 1.4rem;
+}
+
+.row.event .lead {
+	display: flex;
+	gap: 0.55rem;
+	align-items: baseline;
+	min-width: 0;
+}
+
+.row.event .model {
+	text-align: left;
+	white-space: nowrap;
+}
+
+.row.event .lead .dots {
+	flex: 1;
+}
+
+.row.event .lab {
+	text-align: right;
 }
 
 .row.event .day {
-	width: 13ch;
+	width: auto;
+	color: var(--ink);
 }
 
 .tag {
@@ -172,12 +211,17 @@ body {
 	font-size: 0.66rem;
 	letter-spacing: 0.12em;
 	text-transform: uppercase;
-	text-align: right;
 	color: var(--ink-muted);
 }
 
+/* Ticket tags from most to least actionable: open sales stand out, upcoming sales stay neutral, sold out recedes. */
 .tag-available {
 	color: #ff6a12;
+	font-weight: 700;
+}
+
+.tag-not_yet {
+	color: var(--ink-muted);
 }
 
 .tag-sold_out {
@@ -186,7 +230,11 @@ body {
 }
 
 @media (max-width: 560px) {
-	.row.event {
+	.months.events {
 		grid-template-columns: 1fr auto auto;
+	}
+
+	.row.event .lab {
+		display: none;
 	}
 }

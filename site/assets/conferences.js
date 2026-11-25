@@ -10,8 +10,8 @@
 
 const TICKET_TAGS = {
 	available: "Tickets",
-	sold_out: "Sold out",
 	not_yet: "Soon",
+	sold_out: "Sold out",
 };
 
 /**
@@ -95,10 +95,18 @@ function renderConferences(container, entries) {
 		}
 
 		const row = rowElement(edition.url);
-		const tag = TICKET_TAGS[edition.tickets && edition.tickets.status] || "";
+		const status = edition.tickets ? edition.tickets.status : "unknown";
 
+		const lead = element("span", "lead");
+
+		lead.append(element("span", "model", label), element("span", "dots"), element("span", "lab", edition.place || ""));
 		row.classList.add("event");
-		row.append(element("span", "model", label), element("span", "dots"), element("span", "lab", edition.place || ""), element("span", "day", formatDays(edition.start, edition.end)), element("span", `tag tag-${edition.tickets ? edition.tickets.status : "unknown"}`, tag));
+		row.append(lead, element("span", "day", formatDays(edition.start, edition.end)));
+
+		if (TICKET_TAGS[status]) {
+			row.append(element("span", `tag tag-${status}`, TICKET_TAGS[status]));
+		}
+
 		rows.append(row);
 	}
 }
