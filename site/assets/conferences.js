@@ -115,5 +115,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 	if (container) {
 		renderConferences(container, await loadConferences());
+		cascade(container);
 	}
 });

@@ -148,5 +148,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 	if (container) {
 		renderModels(container, await loadModels());
+		cascade(container);
 	}
 });

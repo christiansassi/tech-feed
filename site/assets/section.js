@@ -83,6 +83,37 @@ function rowElement(url) {
 }
 
 /**
+ * Number the month headers and rows of a list for the cascade entrance.
+ *
+ * Each month gets its position (`--g`) and each element its position inside
+ * its month (`--j`); `section.css` turns them into animation delays, so the
+ * months open one after the other and their rows follow.
+ *
+ * @param {HTMLElement} container List container.
+ * @returns {void}
+ */
+function cascade(container) {
+	requireInstance("container", container, HTMLElement);
+
+	let group = -1;
+	let position = 0;
+
+	for (const node of container.querySelectorAll(".month, .row")) {
+
+		if (node.classList.contains("month")) {
+			group += 1;
+			position = 0;
+		}
+
+		node.style.setProperty("--g", group);
+		node.style.setProperty("--j", position);
+		position += 1;
+	}
+
+	container.classList.add("cascade");
+}
+
+/**
  * Fill every `.updated` element with the time its index file was generated.
  *
  * The index is rewritten each time the sources are read, so this is the time of

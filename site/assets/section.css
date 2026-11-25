@@ -278,3 +278,40 @@ body {
 		display: none;
 	}
 }
+
+/* Cascade entrance: months open one after the other, each drawing its line, and their rows follow (delays from cascade() in section.js). */
+.months.cascade .month,
+.months.cascade .row {
+	opacity: 0;
+	animation: cascade-in 0.45s ease forwards;
+	animation-delay: calc(var(--g) * 180ms + var(--j) * 35ms);
+}
+
+.months.cascade .month::after {
+	transform-origin: left center;
+	transform: scaleX(0);
+	animation: cascade-line 0.6s ease forwards;
+	animation-delay: calc(var(--g) * 180ms);
+}
+
+@keyframes cascade-in {
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes cascade-line {
+	to {
+		transform: scaleX(1);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.months.cascade .month,
+	.months.cascade .row,
+	.months.cascade .month::after {
+		opacity: 1;
+		transform: none;
+		animation: none;
+	}
+}
