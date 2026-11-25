@@ -1,13 +1,16 @@
 # Build the model-release JSON files every hour and publish them on GitHub Pages,
-# together with the landing page and the 404 redirect from site/.
+# together with the landing page, the models page and the 404 redirect from site/,
+# and the latest models that the Raspberry updater keeps on the site-data branch.
+# The updater starts this workflow with workflow_dispatch after each push to site-data.
 # YAML does not allow tab indentation, so this file is the one exception to the tab rule.
 
 name: models
 
 on:
   schedule:
-    # Minute 23 instead of 0: GitHub delays or drops scheduled runs at the start of the hour.
-    - cron: "23 * * * *"
+    # Minute 45: the raw files are fresh when the Raspberry updater reads them at minute 0,
+    # and GitHub delays or drops scheduled runs at the start of the hour.
+    - cron: "45 * * * *"
   workflow_dispatch:
   push:
     branches: [main]
@@ -44,8 +47,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Add landing page and 404 redirect
+      - name: Add landing page, models page and 404 redirect
         run: cp -r site/. _site/
+
+      - name: Add latest models from the site-data branch
+        run: |
+          if git ls-remote --exit-code --heads origin site-data; then
+            git fetch --depth 1 origin site-data
+            git archive FETCH_HEAD models | tar -x -C _site
+          fi
 
       - uses: actions/upload-pages-artifact@v5
         with:

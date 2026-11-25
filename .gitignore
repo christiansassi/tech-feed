@@ -10,6 +10,7 @@
 
 # Assistant workspace memory and tool state (local only)
 .vault/
+updater/
 .playwright-cli/
 .reverse-api/
 

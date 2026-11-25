@@ -1,11 +1,13 @@
 """Build the static GitHub Pages output for every model lab.
 
 Import each ``models/labs/<lab>/source.py``, run its sources in parallel across
-labs, and write ``<out>/models/<lab>/light.json``, ``medium.json`` and
+labs, and write ``<out>/models/<lab>/raw/light.json``, ``medium.json`` and
 ``full.json`` for every lab, plus ``<out>/models/index.json`` with the list of
-labs, their file URLs and the status of their sources. When ``DEFAULT_LEVEL`` is
-set, that level is also written as ``<out>/models/<lab>/index.json`` so the bare
-folder URL answers with it.
+labs, their file URLs and the status of their sources. The index also names
+``<lab>/site/latest.json``, the latest models shown on the site, which the
+Raspberry updater publishes on the ``site-data`` branch and the workflow copies
+into the site. When ``DEFAULT_LEVEL`` is set, that level is also written as
+``<out>/models/<lab>/index.json`` so the bare folder URL answers with it.
 
 Usage: ``python -m models.build [--out _site] [--workers 8] [--only lab1,lab2]``
 """
@@ -59,16 +61,16 @@ def summary_entry(document: dict) -> dict:
 		document (dict): Document from ``run_lab``.
 
 	Returns:
-		dict: Lab slug and label, relative URL of each level, generation time and per-source status with item counts.
+		dict: Lab slug and label, relative URL of each raw level and of the site file, generation time and per-source status with item counts.
 	"""
 
 	require_type("document", document, dict)
 
 	lab = document["slug"]
 	sources = [{"rank": s["rank"], "type": s["type"], "status": s["status"], "error": s["error"], "items": len(s["items"])} for s in document["sources"]]
-	urls = {level: f"{lab}/{level}.json" for level in LEVELS}
+	urls = {level: f"{lab}/raw/{level}.json" for level in LEVELS}
 
-	return {"slug": lab, "label": document["label"], "urls": urls, "generated_at": document["generated_at"], "sources": sources}
+	return {"slug": lab, "label": document["label"], "urls": urls, "site": f"{lab}/site/latest.json", "generated_at": document["generated_at"], "sources": sources}
 
 def write_json(path: Path, text: str) -> None:
 	"""Write JSON text to ``path``, creating parent folders.
@@ -120,7 +122,7 @@ def build(out_dir: Path, labs: list[str], workers: int) -> list[dict]:
 		lab_dir = models_dir / document["slug"]
 
 		for level in LEVELS:
-			write_json(lab_dir / f"{level}.json", to_json(at_document_level(document, level)))
+			write_json(lab_dir / "raw" / f"{level}.json", to_json(at_document_level(document, level)))
 
 		if DEFAULT_LEVEL:
 			write_json(lab_dir / "index.json", to_json(at_document_level(document, DEFAULT_LEVEL)))
