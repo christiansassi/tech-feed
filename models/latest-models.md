@@ -4,6 +4,7 @@
 BASE_URL = https://christiansassi.github.io/tech-feed/models/
 LEVEL    = medium    # light | medium | full
 LABS     = all       # all, or a comma-separated list of lab slugs such as: qwen, openai, xiaomi
+SINCE    = latest    # latest, or a Unix timestamp in seconds: report every release from that time on
 ```
 
 ## Task
@@ -51,7 +52,9 @@ Find the most recent models released by each AI lab listed on BASE_URL and repor
 	- a model that becomes generally available or reaches a new region after it was already announced
 	- on Hugging Face (`type` `hf`): datasets, Spaces, tokenizers, quantized or converted copies (GGUF, AWQ, GPTQ, FP8, NVFP4, INT4, MLX, ONNX), adapters and LoRAs, and fine-tunes of models made by other labs
 5. Several items can describe the same release: a blog post, a changelog entry and the Hugging Face repositories of its sizes or variants. Treat them as one model, named as the lab names the release (for example `Qwen4-Max`, not `Qwen/Qwen4-Max-Instruct-2611-FP8`). Its date and link come from one item: the lab's own announcement when there is one, otherwise the item with the earliest date.
-6. Find the kept model with the highest `date`. Report it together with every other kept model whose `date` falls on the same UTC day, newest first. Use models with `date` `null` only when the lab has no dated model, and then report their `date` as `null`.
+6. Choose the models to report. A `since` field in a lab's entry of `index.json`, when present, replaces SINCE for that lab.
+	- When SINCE is `latest`: find the kept model with the highest `date`, and report it together with every other kept model whose `date` falls on the same UTC day, newest first. Use models with `date` `null` only when the lab has no dated model, and then report their `date` as `null`.
+	- When SINCE is a timestamp: report every kept model whose `date` is on or after it, newest first, and skip models whose `date` is `null`.
 7. If a lab file cannot be fetched, or no item in it is a model release, report the lab with an empty `models` list.
 
 ## Output

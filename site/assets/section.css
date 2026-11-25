@@ -279,19 +279,19 @@ body {
 	}
 }
 
-/* Cascade entrance: months open one after the other, each drawing its line, and their rows follow (delays from cascade() in section.js). */
+/* Cascade entrance: months open one after the other, each drawing its line, and their rows follow (delays from cascade() in section.js, capped so long lists finish within about 1.6 s). */
 .months.cascade .month,
 .months.cascade .row {
 	opacity: 0;
 	animation: cascade-in 0.45s ease forwards;
-	animation-delay: calc(var(--g) * 180ms + var(--j) * 35ms);
+	animation-delay: calc(min(var(--g), 6) * 180ms + min(var(--j), 15) * 35ms);
 }
 
 .months.cascade .month::after {
 	transform-origin: left center;
 	transform: scaleX(0);
 	animation: cascade-line 0.6s ease forwards;
-	animation-delay: calc(var(--g) * 180ms);
+	animation-delay: calc(min(var(--g), 6) * 180ms);
 }
 
 @keyframes cascade-in {
