@@ -10,7 +10,6 @@
 
 const TICKET_TAGS = {
 	available: "Tickets",
-	not_yet: "Soon",
 	sold_out: "Sold out",
 };
 
