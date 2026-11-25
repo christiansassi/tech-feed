@@ -1,0 +1,31 @@
+# Issue form opened by the "Report it here" link on the Conferences page.
+# YAML does not allow tab indentation, so this file uses spaces.
+name: Missing conference
+description: Report a security conference that the Conferences page does not show, or shows wrong.
+title: "[Conferences] "
+labels: ["conferences"]
+body:
+  - type: input
+    id: conference
+    attributes:
+      label: Conference
+      description: The conference name.
+    validations:
+      required: true
+  - type: input
+    id: website
+    attributes:
+      label: Website
+      description: The official site of the conference.
+    validations:
+      required: true
+  - type: input
+    id: dates
+    attributes:
+      label: Dates and place
+      description: The dates and city of the next edition, if you know them.
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Anything else, such as wrong dates or a wrong ticket status.

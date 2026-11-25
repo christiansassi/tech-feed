@@ -1,0 +1,33 @@
+# Issue form opened by the "Report it here" link on the Models page.
+# YAML does not allow tab indentation, so this file uses spaces.
+name: Missing model
+description: Report a model release that the Models page does not show, or shows wrong.
+title: "[Models] "
+labels: ["models"]
+body:
+  - type: input
+    id: lab
+    attributes:
+      label: Lab
+      description: The lab that released the model, such as OpenAI or Qwen.
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: Model
+      description: The model name as the lab writes it.
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Announcement link
+      description: The page where the lab announces the model.
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Anything else, such as a wrong date or a missing lab.

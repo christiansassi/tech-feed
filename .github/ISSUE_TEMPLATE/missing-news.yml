@@ -1,0 +1,26 @@
+# Issue form opened by the "Report it here" link on the News page.
+# YAML does not allow tab indentation, so this file uses spaces.
+name: Missing news
+description: Suggest a news source or report a story that the News page does not show.
+title: "[News] "
+labels: ["news"]
+body:
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: The site or feed that should be followed, or that published the story.
+    validations:
+      required: true
+  - type: input
+    id: link
+    attributes:
+      label: Link
+      description: The link to the source or to the story.
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Anything else.

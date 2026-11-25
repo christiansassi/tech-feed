@@ -33,6 +33,38 @@ body {
 	font-size: clamp(3.2rem, 9vw, 6rem);
 }
 
+.meta {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.4rem;
+	margin: -0.4rem 0 0;
+	font-family: var(--font-mono);
+	font-size: 0.68rem;
+	letter-spacing: 0.04em;
+	color: var(--ink-faint);
+}
+
+.meta .updated::after {
+	content: "·";
+	padding-left: 0.4rem;
+}
+
+/* The underline is a background line that grows from the center to both sides on hover. */
+.meta a {
+	padding-bottom: 0.15em;
+	color: var(--ink-muted);
+	text-decoration: none;
+	background: linear-gradient(currentColor, currentColor) center bottom / 0 1px no-repeat;
+	transition: color 0.2s ease, background-size 0.3s ease;
+}
+
+.meta a:hover,
+.meta a:focus-visible {
+	color: var(--ink);
+	background-size: 100% 1px;
+}
+
 .month {
 	display: flex;
 	gap: 0.8rem;
