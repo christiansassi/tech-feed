@@ -124,7 +124,6 @@ body {
 		display: none;
 	}
 }
-	
 
 .empty {
 	position: fixed;
@@ -154,4 +153,40 @@ body {
 	line-height: 1.15;
 	letter-spacing: -0.02em;
 	color: var(--ink);
+}
+
+.empty[hidden] {
+	display: none;
+}
+
+.row.event {
+	grid-template-columns: auto 1fr auto auto 5.5rem;
+}
+
+.row.event .day {
+	width: 13ch;
+}
+
+.tag {
+	font-family: var(--font-mono);
+	font-size: 0.66rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	text-align: right;
+	color: var(--ink-muted);
+}
+
+.tag-available {
+	color: #ff6a12;
+}
+
+.tag-sold_out {
+	color: var(--ink-faint);
+	text-decoration: line-through;
+}
+
+@media (max-width: 560px) {
+	.row.event {
+		grid-template-columns: 1fr auto auto;
+	}
 }

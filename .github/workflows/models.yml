@@ -1,6 +1,7 @@
-# Build the model-release JSON files every hour and publish them on GitHub Pages,
-# together with the landing page, the models page and the 404 redirect from site/,
-# and the latest models that the Raspberry updater keeps on the site-data branch.
+# Build the model-release JSON files and the raw conference pages every hour and
+# publish them on GitHub Pages, together with the landing page, the section pages and
+# the 404 redirect from site/, and the latest models and conferences that the
+# Raspberry updater keeps on the site-data branch.
 # The updater starts this workflow with workflow_dispatch after each push to site-data.
 # YAML does not allow tab indentation, so this file is the one exception to the tab rule.
 
@@ -16,6 +17,7 @@ on:
     branches: [main]
     paths:
       - "models/**"
+      - "conferences/**"
       - "site/**"
       - "requirements.txt"
       - ".github/workflows/models.yml"
@@ -42,10 +44,13 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      - name: Build site
+      - name: Build models
         run: python -m models.build --out _site
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build conferences
+        run: python -m conferences.build --out _site
 
       - name: Add landing page, section pages and 404 redirect
         run: |
@@ -53,11 +58,11 @@ jobs:
           # Version the asset links with the commit, so browsers fetch the new files after a deploy instead of a cached copy.
           find _site -name "*.html" -exec sed -i "s#\(assets/[a-z]*\.\(js\|css\)\)\"#\1?v=${GITHUB_SHA::7}\"#g" {} +
 
-      - name: Add latest models from the site-data branch
+      - name: Add latest models and conferences from the site-data branch
         run: |
           if git ls-remote --exit-code --heads origin site-data; then
             git fetch --depth 1 origin site-data
-            git archive FETCH_HEAD models | tar -x -C _site
+            git archive FETCH_HEAD | tar -x -C _site
           fi
 
       - uses: actions/upload-pages-artifact@v5
