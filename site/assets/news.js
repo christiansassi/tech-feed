@@ -134,7 +134,7 @@ function setFlipped(card, flipped) {
 }
 
 /**
- * Attach the flip listeners: a click or Enter flips a card and turns the others back, Escape turns every card back; the link on the back opens the article.
+ * Attach the flip listeners: a click or Enter flips a card and turns the others back, Escape or a click outside the cards turns every card back; the link on the back opens the article.
  *
  * @param {HTMLElement} grid Element that holds the cards.
  * @returns {void}
@@ -167,6 +167,14 @@ function bindFlips(grid) {
 	document.addEventListener("keydown", (event) => {
 
 		if (event.key === "Escape") {
+			grid.querySelectorAll(".flip-card.flipped").forEach((card) => setFlipped(card, false));
+		}
+	});
+
+	// A click anywhere outside the cards turns every card back.
+	document.addEventListener("click", (event) => {
+
+		if (!event.target.closest(".flip-card")) {
 			grid.querySelectorAll(".flip-card.flipped").forEach((card) => setFlipped(card, false));
 		}
 	});
