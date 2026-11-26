@@ -269,9 +269,9 @@ body {
 	color: var(--ink-muted);
 }
 
-/* Ticket tags: open sales stand out, sold out recedes. */
+/* Ticket tags: open sales stand out in green (OpenAI green-300), sold out recedes. */
 .tag-available {
-	color: #ff6a12;
+	color: #6bc67f;
 	font-weight: 700;
 }
 
@@ -492,5 +492,200 @@ body:has(.follow-layer.open) .ledger {
 @media (prefers-reduced-motion: reduce) {
 	.follow-layer.open .chip {
 		animation: none;
+	}
+}
+
+/* News cards: wider page so three cards fit in a row; each card is a square cover, the title, then the time on the left and the source on the right. Spacing on an 8px grid: 16px between cards in a row, three times that between rows so each title stays with its own cover, 12px inside a card. */
+.ledger.wide {
+	width: min(46rem, calc(100vw - 2rem));
+}
+
+/* Full width, so the cards keep their size when the Hot filter leaves only a few. */
+.cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
+	gap: 48px 16px;
+	width: 100%;
+	margin-top: 2.6rem;
+}
+
+/* All / Hot filter above the cards, a small segmented control like the one on anthropic.com/news. Concentric corners: the inner radius plus the padding gives the outer radius (5px + 3px = 8px). It is closer to the cards than to the title, since it acts on them. */
+.news-filter {
+	position: relative;
+	display: flex;
+	gap: 0.15rem;
+	width: max-content;
+	margin: 2.6rem 0 0 auto;
+	padding: 3px;
+	border: 1px solid rgba(243, 239, 230, 0.12);
+	border-radius: 8px;
+	opacity: 0;
+	transform: translateY(-4px);
+	transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.news-filter.shown {
+	opacity: 1;
+	transform: none;
+}
+
+.news-filter[hidden] + .cards {
+	margin-top: 2.6rem;
+}
+
+.news-filter:not([hidden]) + .cards {
+	margin-top: 1.5rem;
+}
+
+.news-filter button {
+	all: unset;
+	position: relative;
+	z-index: 1;
+	cursor: pointer;
+	padding: 0.3rem 0.85rem;
+	border-radius: 5px;
+	font-family: var(--font-body);
+	font-size: 0.8rem;
+	color: var(--ink-muted);
+	transition: color 0.25s ease;
+}
+
+.news-filter button:hover,
+.news-filter button:focus-visible {
+	color: var(--ink);
+}
+
+.news-filter button[aria-pressed="true"] {
+	color: var(--ground);
+}
+
+/* The thumb sits under the active option. When the other one is picked, the edge on the side of the move leaves first and the other edge follows, so the thumb stretches and contracts. */
+.news-filter .thumb {
+	position: absolute;
+	top: 3px;
+	bottom: 3px;
+	left: var(--left, 3px);
+	right: var(--right, 3px);
+	border-radius: 5px;
+	background: var(--ink);
+	transition: left 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) var(--left-delay, 0s), right 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) var(--right-delay, 0s);
+}
+
+.news-filter.still .thumb {
+	transition: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.news-filter,
+	.news-filter .thumb {
+		transition: none;
+		animation: none;
+	}
+}
+
+/* The card and its single column may shrink below the width of the one-line source, so the source is cut instead of widening the card. */
+.card {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 12px;
+	align-content: start;
+	min-width: 0;
+	color: inherit;
+	text-decoration: none;
+	transition: opacity 0.25s ease;
+}
+
+.cards:has(.card:hover) .card:not(:hover) {
+	opacity: 0.3;
+}
+
+.card .art {
+	position: relative;
+	aspect-ratio: 1;
+	border-radius: 10px;
+	overflow: hidden;
+	background: #15151a;
+}
+
+.card .art img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0;
+	transition: opacity 0.4s ease, transform 0.5s ease;
+}
+
+.card .art img.ready {
+	opacity: 1;
+}
+
+.card:hover .art img {
+	transform: scale(1.03);
+}
+
+.card h3 {
+	margin: 0;
+	font-family: var(--font-title);
+	font-weight: 400;
+	font-size: 1rem;
+	line-height: 1.3;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+/* HOT items: amber (OpenAI orange-400) bold title, no mark on the cover. */
+.card.is-hot h3 {
+	font-weight: 600;
+	color: #ee7c37;
+}
+
+.card .foot {
+	display: flex;
+	justify-content: space-between;
+	gap: 0.6rem;
+	font-family: var(--font-body);
+	font-size: 0.78rem;
+	color: var(--ink-faint);
+}
+
+.card .foot .when {
+	flex: none;
+	color: var(--ink-muted);
+	white-space: nowrap;
+}
+
+/* One line only: a long source name is cut with an ellipsis, and the full name shows on hover. */
+.card .foot .source {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-align: right;
+}
+
+/* Entrance: the same fade as the rows of the other pages, one card after the other. */
+.cards.cascade .card {
+	animation: cascade-in 0.45s ease backwards;
+	animation-delay: calc(min(var(--j), 15) * 35ms);
+}
+
+/* The Hot filter hides the other cards. */
+body.hot-only .card:not(.is-hot) {
+	display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.cards.cascade .card {
+		animation: none;
+	}
+}
+
+/* Phones: one card per row, so the source fits and the cover is larger. */
+@media (max-width: 560px) {
+	.cards {
+		grid-template-columns: 1fr;
 	}
 }
