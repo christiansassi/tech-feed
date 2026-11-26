@@ -20,9 +20,10 @@ body {
 	height: 100%;
 }
 
-/* Reserve the scrollbar space on both sides, so centered content keeps the same position whether or not a page scrolls. */
+/* Reserve the scrollbar space on both sides, so centered content keeps the same position whether or not a page scrolls. The track is transparent and the thumb takes the color of the divider lines. */
 html {
 	scrollbar-gutter: stable both-edges;
+	scrollbar-color: var(--ink-faint) transparent;
 }
 
 body {
