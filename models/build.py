@@ -2,14 +2,17 @@
 
 Import each ``models/labs/<lab>/source.py``, run its sources in parallel across
 labs, and write ``<out>/models/<lab>/raw/light.json``, ``medium.json`` and
-``full.json`` for every lab, plus ``<out>/models/index.json`` with the list of
-labs, their file URLs and the status of their sources. The index also names
+``full.json`` for every followed lab, plus ``<out>/models/index.json`` with the list of
+followed labs, their file URLs and the status of their sources, and the labs whose code is kept but whose data is not built. The index also names
 ``<lab>/site/latest.json``, the latest models shown on the site, which the
 Raspberry updater publishes on the ``site-data`` branch and the workflow copies
 into the site. When ``DEFAULT_LEVEL`` is set, that level is also written as
 ``<out>/models/<lab>/index.json`` so the bare folder URL answers with it.
 
-Usage: ``python -m models.build [--out _site] [--workers 8] [--only lab1,lab2]``
+With ``--deep`` the sources are read in deep mode (no byte budget, every page of
+paginated sources, more Hugging Face models), for a one-off history backfill.
+
+Usage: ``python -m models.build [--out _site] [--workers 8] [--only lab1,lab2] [--deep]``
 """
 
 import argparse
@@ -21,6 +24,7 @@ from pathlib import Path
 
 from models.common.items import LEVELS
 from models.common.runner import at_document_level, run_lab, to_json, utc_now
+from models.common.sources import DEEP_ENV
 from models.common.validation import require_positive_number, require_type
 
 LABS_DIR = Path(__file__).parent / "labs"
@@ -28,6 +32,9 @@ LABS_DIR = Path(__file__).parent / "labs"
 DEFAULT_WORKERS = 8
 
 DEFAULT_LEVEL = None
+
+# Labs built and analyzed every hour; the other labs keep their code but get no data.
+TRACKED = frozenset({"anthropic", "deepseek", "google", "meta", "minimax", "mistral", "moonshotai", "openai", "qwen", "tencent", "thinkingmachines", "xai", "xiaomi", "zai"})
 
 def discover_labs() -> list[str]:
 	"""Return the names of all lab folders that contain a ``source.py``.
@@ -37,6 +44,20 @@ def discover_labs() -> list[str]:
 	"""
 
 	return sorted(path.parent.name for path in LABS_DIR.glob("*/source.py"))
+
+def lab_label(lab: str) -> str:
+	"""Return the display name of a lab.
+
+	Args:
+		lab (str): Lab folder name.
+
+	Returns:
+		str: ``LABEL`` of the lab's ``source.py``.
+	"""
+
+	require_type("lab", lab, str)
+
+	return importlib.import_module(f"models.labs.{lab}.source").LABEL
 
 def build_lab(lab: str) -> dict:
 	"""Import a lab's ``source.py`` and run its sources with its ``LABEL``.
@@ -98,7 +119,7 @@ def build(out_dir: Path, labs: list[str], workers: int) -> list[dict]:
 		workers (int): Maximum number of labs fetched at the same time.
 
 	Returns:
-		list[dict]: Index entries, one per lab.
+		list[dict]: Index entries, one per built lab.
 	"""
 
 	require_type("out_dir", out_dir, Path)
@@ -128,7 +149,9 @@ def build(out_dir: Path, labs: list[str], workers: int) -> list[dict]:
 			write_json(lab_dir / "index.json", to_json(at_document_level(document, DEFAULT_LEVEL)))
 
 	entries = [summary_entry(document) for document in documents]
-	write_json(models_dir / "index.json", to_json({"generated_at": utc_now(), "labs": entries}))
+	untracked = [{"slug": lab, "label": lab_label(lab)} for lab in discover_labs() if lab not in TRACKED]
+
+	write_json(models_dir / "index.json", to_json({"generated_at": utc_now(), "labs": entries, "untracked": untracked}))
 
 	return entries
 
@@ -138,10 +161,14 @@ def main() -> None:
 	parser = argparse.ArgumentParser(description="Build the GitHub Pages output for the model labs.")
 	parser.add_argument("--out", type=Path, default=Path("_site"), help="output folder (site root)")
 	parser.add_argument("--workers", type=int, default=DEFAULT_WORKERS, help="labs fetched in parallel")
-	parser.add_argument("--only", default="", help="comma-separated lab names; default is every lab")
+	parser.add_argument("--only", default="", help="comma-separated lab names; default is every followed lab")
+	parser.add_argument("--deep", action="store_true", help="read every page and skip the byte budget, for a history backfill")
 	args = parser.parse_args()
 
-	labs = [name.strip() for name in args.only.split(",") if name.strip()] or discover_labs()
+	if args.deep:
+		os.environ[DEEP_ENV] = "1"
+
+	labs = [name.strip() for name in args.only.split(",") if name.strip()] or [lab for lab in discover_labs() if lab in TRACKED]
 	entries = build(args.out, labs, args.workers)
 
 	sys.stdout.reconfigure(encoding="utf-8")

@@ -8,7 +8,7 @@ HTML read with the generic link list extractor.
 from models.common.items import item, newest_first
 from models.common.pages import link_list
 from models.common.runner import cli
-from models.common.sources import api, hf, html
+from models.common.sources import api, hf, html, query_page
 from models.common.validation import require_type
 
 NEWS_URL = "https://www.minimax.io/news/"
@@ -34,12 +34,14 @@ def extract_news(content: dict, source_url: str) -> list[dict]:
 
 	return newest_first(items)
 
+NEWS_API = "https://www.minimax.io/api/news?page=1&locale=en"
+
 LABEL = "MiniMax"
 
 SOURCES = [
 	html("https://www.minimax.io/blog", link_list(r"^/(?:blog|news)/[^/]+$")),
 	hf("MiniMaxAI"),
-	api("https://www.minimax.io/api/news?page=1&locale=en", extract_news),
+	api(NEWS_API, extract_news, next_page=query_page(NEWS_API, "page")),
 ]
 
 if __name__ == "__main__":

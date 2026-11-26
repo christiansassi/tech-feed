@@ -10,7 +10,7 @@ import os
 from collections.abc import Callable
 from dataclasses import dataclass
 from typing import Any
-from urllib.parse import quote, urlencode
+from urllib.parse import parse_qsl, quote, urlencode, urlsplit, urlunsplit
 
 from models.common.items import extract_feed, extract_github, extract_hf
 from models.common.validation import require_callable, require_choice, require_http_url, require_text, require_type
@@ -20,6 +20,12 @@ KINDS = ("api", "rss", "html", "hf")
 HF_API = "https://huggingface.co/api/models"
 
 HF_LIMIT = 50
+
+# shortcut: deep mode reads the newest 1000 models of an organization, the largest page the API returns; follow the Link header if older ones are ever needed.
+HF_DEEP_LIMIT = 1000
+
+# Environment variable that turns on deep mode, set by ``models.build --deep``.
+DEEP_ENV = "TECH_FEED_DEEP"
 
 GITHUB_LIMIT = 30
 
@@ -35,6 +41,7 @@ class Source:
 		headers (dict | None): Extra request headers.
 		fetch (Callable | None): Custom fetch function ``fetch(client, source) -> content`` that replaces the default one for the kind.
 		extract (Callable | None): Function ``extract(content, source_url) -> list[dict]`` that turns the fetched content into items in the common schema.
+		next_page (Callable | None): Function ``next_page(number) -> dict`` that returns the fields to replace to request page ``number`` (2, 3, ...); used only in deep mode.
 	"""
 
 	kind: str
@@ -44,6 +51,52 @@ class Source:
 	headers: dict | None = None
 	fetch: Callable[..., Any] | None = None
 	extract: Callable[..., list[dict]] | None = None
+	next_page: Callable[[int], dict] | None = None
+
+def deep_mode() -> bool:
+	"""Return whether sources are read in deep mode, for a one-off history backfill.
+
+	Deep mode removes the per-source byte budget, follows the pages of sources
+	that define ``next_page`` and reads more Hugging Face models.
+
+	Returns:
+		bool: True when the ``TECH_FEED_DEEP`` environment variable is ``"1"``.
+	"""
+
+	return os.environ.get(DEEP_ENV) == "1"
+
+def query_page(url: str, name: str) -> Callable[[int], dict]:
+	"""Return a ``next_page`` function that sets one query parameter of ``url`` to the page number.
+
+	Args:
+		url (str): Absolute URL of the first page.
+		name (str): Query parameter that holds the page number, e.g. ``"page"`` or ``"paged"``.
+
+	Returns:
+		Callable[[int], dict]: Function that returns ``{"url": <URL of that page>}``.
+	"""
+
+	require_http_url("url", url)
+	require_text("name", name)
+
+	parts = urlsplit(url)
+	query = [(key, value) for key, value in parse_qsl(parts.query, keep_blank_values=True) if key != name]
+
+	def next_page(number: int) -> dict:
+		"""Return the URL of page ``number``.
+
+		Args:
+			number (int): Page number, 2 or more.
+
+		Returns:
+			dict: ``{"url": ...}`` for ``dataclasses.replace``.
+		"""
+
+		require_type("number", number, int)
+
+		return {"url": urlunsplit(parts._replace(query=urlencode(query + [(name, str(number))], safe="[]")))}
+
+	return next_page
 
 def _check_headers(headers: dict | None) -> None:
 	"""Raise unless ``headers`` is None or a dict of strings.
@@ -64,7 +117,7 @@ def _check_headers(headers: dict | None) -> None:
 		require_text("header name", key)
 		require_type(f"header {key}", value, str)
 
-def api(url: str, extract: Callable[..., list[dict]], method: str = "GET", json_body: dict | None = None, headers: dict | None = None) -> Source:
+def api(url: str, extract: Callable[..., list[dict]], method: str = "GET", json_body: dict | None = None, headers: dict | None = None, next_page: Callable[[int], dict] | None = None) -> Source:
 	"""Return a source backed by a JSON endpoint.
 
 	Args:
@@ -73,6 +126,7 @@ def api(url: str, extract: Callable[..., list[dict]], method: str = "GET", json_
 		method (str): ``"GET"`` or ``"POST"``.
 		json_body (dict | None): JSON body for a POST request.
 		headers (dict | None): Extra request headers.
+		next_page (Callable[[int], dict] | None): Optional pagination for deep mode, such as ``query_page(url, "page")``.
 
 	Returns:
 		Source: Source of kind ``"api"``.
@@ -81,19 +135,24 @@ def api(url: str, extract: Callable[..., list[dict]], method: str = "GET", json_
 	require_http_url("url", url)
 	require_choice("method", method, ("GET", "POST"))
 
+	if next_page is not None:
+		require_callable("next_page", next_page)
+
+
 	if json_body is not None:
 		require_type("json_body", json_body, dict)
 
 	_check_headers(headers)
 	require_callable("extract", extract)
 
-	return Source("api", url, method, json_body, headers, extract=extract)
+	return Source("api", url, method, json_body, headers, extract=extract, next_page=next_page)
 
-def rss(url: str) -> Source:
+def rss(url: str, next_page: Callable[[int], dict] | None = None) -> Source:
 	"""Return a source backed by an RSS or Atom feed, parsed with xmltodict and mapped to items generically.
 
 	Args:
 		url (str): Absolute URL of the feed.
+		next_page (Callable[[int], dict] | None): Optional pagination for deep mode, such as ``query_page(url, "paged")``.
 
 	Returns:
 		Source: Source of kind ``"rss"``.
@@ -101,7 +160,10 @@ def rss(url: str) -> Source:
 
 	require_http_url("url", url)
 
-	return Source("rss", url, extract=extract_feed)
+	if next_page is not None:
+		require_callable("next_page", next_page)
+
+	return Source("rss", url, extract=extract_feed, next_page=next_page)
 
 def html(url: str, extract: Callable[..., list[dict]], headers: dict | None = None) -> Source:
 	"""Return a source backed by an HTML page.
@@ -137,7 +199,7 @@ def hf(org: str, search: str | None = None) -> Source:
 	if search is not None:
 		require_text("search", search)
 
-	params = {"author": org, "sort": "createdAt", "direction": "-1", "limit": str(HF_LIMIT)}
+	params = {"author": org, "sort": "createdAt", "direction": "-1", "limit": str(HF_DEEP_LIMIT if deep_mode() else HF_LIMIT)}
 
 	if search:
 		params["search"] = search

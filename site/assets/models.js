@@ -3,7 +3,9 @@
  *
  * Read `index.json` next to the page, then the `site/latest.json` file of every
  * lab that has one (written by the Raspberry updater), and list each model as a
- * dotted-leader line grouped by the month of release, newest first. Load after
+ * dotted-leader line grouped by the month of release, newest first. The
+ * "Following N labs" button opens a layer that lists every lab in the
+ * repository, followed ones highlighted. Load after
  * `landing.js` (background and argument checks) and `section.js` (shared helpers).
  */
 
@@ -59,12 +61,15 @@ function labIcon(slug) {
 }
 
 /**
- * Load the latest models of every lab that has a site file.
+ * Load the models of every lab of the index that has a site file.
  *
+ * @param {?object} index Parsed `index.json`, or null when it could not be read.
  * @returns {Promise<Array<{lab: {slug: string, label: string}, model: {slug: string, label: string, date: ?number, url: ?string}}>>} One entry per model, newest first, undated models last.
  */
-async function loadModels() {
-	const index = await getJson("index.json");
+async function loadModels(index) {
+	if (index !== null && typeof index !== "object") {
+		throw new TypeError("index must be an object or null");
+	}
 
 	if (!index || !Array.isArray(index.labs)) {
 		return [];
@@ -143,11 +148,112 @@ function renderModels(container, entries) {
 	}
 }
 
+/**
+ * Fill the "Following N labs" button and the chips of the Labs layer.
+ *
+ * The labs of the index are the followed ones; `untracked` lists the labs whose
+ * scraper is in the repository but whose data is not built. All of them are
+ * shown in alphabetical order. Without an index the button is removed.
+ *
+ * @param {?object} index Parsed `index.json`, or null when it could not be read.
+ * @returns {void}
+ */
+function renderLabs(index) {
+	if (index !== null && typeof index !== "object") {
+		throw new TypeError("index must be an object or null");
+	}
+
+	const trigger = document.querySelector(".labs-trigger");
+	const chips = document.querySelector(".labs-layer .chips");
+
+	if (!trigger || !chips) {
+		return;
+	}
+
+	if (!index || !Array.isArray(index.labs)) {
+		trigger.closest(".following").remove();
+		return;
+	}
+
+	const followed = index.labs.map(({slug, label}) => ({slug, label, on: true}));
+	const others = Array.isArray(index.untracked) ? index.untracked.map(({slug, label}) => ({slug, label, on: false})) : [];
+	const labs = followed.concat(others).sort((a, b) => a.label.localeCompare(b.label, "en", {sensitivity: "base"}));
+
+	labs.forEach((lab, position) => {
+		const chip = element("span", lab.on ? "chip on" : "chip");
+
+		chip.style.setProperty("--k", position);
+		chip.append(labIcon(lab.slug), element("span", "", lab.label));
+		chips.append(chip);
+	});
+
+	trigger.textContent = `${followed.length} labs`;
+	trigger.closest(".following").classList.remove("pending");
+}
+
+/**
+ * Open or close the Labs layer, moving the focus into it and back to the button.
+ *
+ * @param {boolean} open Whether the layer is shown.
+ * @returns {void}
+ */
+function setLabsOpen(open) {
+	if (typeof open !== "boolean") {
+		throw new TypeError("open must be a boolean");
+	}
+
+	const trigger = document.querySelector(".labs-trigger");
+	const layer = document.querySelector(".labs-layer");
+
+	if (!trigger || !layer || layer.classList.contains("open") === open) {
+		return;
+	}
+
+	layer.classList.toggle("open", open);
+	trigger.setAttribute("aria-expanded", String(open));
+
+	(open ? layer : trigger).focus({preventScroll: true});
+}
+
+/**
+ * Attach the listeners of the Labs layer: the button toggles it, and Escape or a click anywhere but a link closes it.
+ *
+ * @returns {void}
+ */
+function bindLabs() {
+	const trigger = document.querySelector(".labs-trigger");
+	const layer = document.querySelector(".labs-layer");
+
+	if (!trigger || !layer) {
+		return;
+	}
+
+	trigger.addEventListener("click", () => setLabsOpen(trigger.getAttribute("aria-expanded") !== "true"));
+
+	layer.addEventListener("click", (event) => {
+
+		if (!event.target.closest("a")) {
+			setLabsOpen(false);
+		}
+	});
+
+	document.addEventListener("keydown", (event) => {
+
+		if (event.key === "Escape") {
+			setLabsOpen(false);
+		}
+	});
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
 	const container = document.querySelector(".months");
+	const index = await getJson("index.json");
+
+	bindLabs();
+	renderLabs(index);
 
 	if (container) {
-		renderModels(container, await loadModels());
+		renderModels(container, await loadModels(index));
 		cascade(container);
 	}
 });

@@ -9,7 +9,7 @@ The docs feed lags behind and Hugging Face lists the open models.
 
 from models.common.items import item, newest_first
 from models.common.runner import cli
-from models.common.sources import api, hf, rss
+from models.common.sources import api, hf, query_page, rss
 from models.common.validation import require_type
 
 ARTICLES_API = "https://www.zhipuai.cn/api/articles?limit=20&sort=-createAt&depth=0&where[active][equals]=true&select[title_en]=true&select[createAt]=true&select[category]=true&select[resume_en]=true&select[externalUrl_en]=true&select[content_en]=true"
@@ -88,7 +88,7 @@ def extract_articles(content: dict, source_url: str) -> list[dict]:
 LABEL = "Z.ai"
 
 SOURCES = [
-	api(ARTICLES_API, extract_articles),
+	api(ARTICLES_API, extract_articles, next_page=query_page(ARTICLES_API, "page")),
 	rss("https://docs.z.ai/release-notes/new-released/rss.xml"),
 	hf("zai-org"),
 ]

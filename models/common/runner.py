@@ -2,12 +2,15 @@
 
 Each source is fetched in priority order and its content is mapped to items in
 the common schema. When a source's ``medium`` level exceeds 50 KB, its oldest
-items are dropped and the count is recorded in ``items_dropped``. A failing
+items are dropped and the count is recorded in ``items_dropped``. In deep mode
+(``models.build --deep``) the budget is lifted and paginated sources are read
+page by page until a page adds nothing new. A failing
 source is recorded with its error and does not stop the others, so a lab is
 always published with whatever could be fetched. The same run is written at
 three levels: ``light``, ``medium`` and ``full``.
 """
 
+import dataclasses
 import datetime as dt
 import json
 import sys
@@ -16,11 +19,14 @@ from typing import Any
 
 from models.common.fetchers import DEFAULT_FETCHERS
 from models.common.http import FetchError, new_client
-from models.common.items import LEVELS, at_level
-from models.common.sources import Source
+from models.common.items import LEVELS, at_level, newest_first
+from models.common.sources import Source, deep_mode
 from models.common.validation import require_choice, require_text, require_type
 
 SOURCE_BUDGET_BYTES = 50 * 1024
+
+# Upper bound on the pages read from one source in deep mode.
+MAX_PAGES = 100
 
 def utc_now() -> int:
 	"""Return the current time as a Unix timestamp in seconds.
@@ -56,6 +62,46 @@ def within_budget(items: list[dict], budget: int = SOURCE_BUDGET_BYTES) -> tuple
 
 	return items[:kept], len(items) - kept
 
+def read_pages(client: Any, source: Source, items: list[dict]) -> list[dict]:
+	"""Read the following pages of a paginated source and add their new items.
+
+	Pages are requested from 2 up to ``MAX_PAGES`` and the loop stops at the
+	first page that fails or adds no item that was not already seen.
+
+	Args:
+		client (Any): primp client shared by the sources of the lab.
+		source (Source): Source with a ``next_page`` function.
+		items (list[dict]): Items of the first page.
+
+	Returns:
+		list[dict]: Items of every page read, newest first.
+	"""
+
+	require_type("source", source, Source)
+	require_type("items", items, list)
+
+	fetch = source.fetch or DEFAULT_FETCHERS[source.kind]
+	seen = {(entry["title"], entry["date"], entry["url"]) for entry in items}
+	items = list(items)
+
+	for number in range(2, MAX_PAGES + 1):
+		page = dataclasses.replace(source, **source.next_page(number))
+
+		try:
+			found = page.extract(fetch(client, page), page.url)
+		except Exception:
+			break
+
+		new = [entry for entry in found if (entry["title"], entry["date"], entry["url"]) not in seen]
+
+		if not new:
+			break
+
+		seen.update((entry["title"], entry["date"], entry["url"]) for entry in new)
+		items.extend(new)
+
+	return newest_first(items)
+
 def run_source(client: Any, source: Source, rank: int) -> dict:
 	"""Fetch one source, extract its items and return its entry for the published document.
 
@@ -87,7 +133,12 @@ def run_source(client: Any, source: Source, rank: int) -> dict:
 
 	try:
 		content = fetch(client, source)
-		entry["items"], entry["items_dropped"] = within_budget(source.extract(content, source.url))
+		items = source.extract(content, source.url)
+
+		if deep_mode():
+			entry["items"] = read_pages(client, source, items) if source.next_page else items
+		else:
+			entry["items"], entry["items_dropped"] = within_budget(items)
 	except FetchError as exc:
 		entry.update(status="error", http_status=exc.http_status, error=str(exc))
 	except Exception as exc:
