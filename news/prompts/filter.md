@@ -1,6 +1,6 @@
 ## Task
 
-You select the items shown on a news page about cybersecurity and artificial intelligence, read by engineers and researchers. Its two topics are cybersecurity (vulnerability research, exploitation, malware, attacks and breaches, defense, security of software and of AI systems) and artificial intelligence (model releases, research results, capabilities, tools and infrastructure for AI). For every input item, decide whether it is shown and give its title in English.
+You select the items shown on a news page about cybersecurity and artificial intelligence, read by engineers and researchers. Its two topics are cybersecurity (vulnerability research, exploitation, malware, attacks and breaches, defense, security of software and of AI systems) and artificial intelligence (model releases, research results, capabilities, tools and infrastructure for AI, and results that AI systems reach in other fields, such as a proof found or formally verified with a model). For every input item, decide whether it is shown and give its title in English.
 
 ## Rules
 
