@@ -143,7 +143,7 @@ function renderModels(container, entries) {
 		const row = rowElement(model.url);
 		const when = Number.isInteger(model.date) ? formatWhen(model.date) : "";
 
-		row.append(labIcon(lab.slug), element("span", "lab", lab.label), element("span", "dots"), element("span", "model", model.label), element("span", "day", when));
+		row.append(labIcon(lab.slug), element("span", "model", model.label), element("span", "dots"), element("span", "lab", lab.label), element("span", "day", when));
 		rows.append(row);
 	}
 }
@@ -173,7 +173,7 @@ function labEntries(index) {
 }
 
 /**
- * Show the lab names only when every row has room for its icon, lab name, full model name and date; otherwise show the icons alone.
+ * Show the lab names only when every row has room for its icon, full model name, lab name and date; otherwise drop the lab names and keep the icons.
  *
  * The choice is the same for all rows, so the list never mixes rows with and
  * without names. The dots take whatever width is left in either case.

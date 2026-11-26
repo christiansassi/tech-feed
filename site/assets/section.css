@@ -128,10 +128,13 @@ body {
 	height: 100%;
 }
 
+/* The lab of a model and the place of a conference: gray, on the right of the dots. */
 .row .lab {
 	font-family: var(--font-body);
 	color: var(--ink-muted);
 	font-size: 0.95rem;
+	text-align: right;
+	white-space: nowrap;
 }
 
 .row .dots {
@@ -152,7 +155,7 @@ body {
 	white-space: nowrap;
 	font-family: var(--font-title);
 	font-size: 1.08rem;
-	text-align: right;
+	text-align: left;
 }
 
 .row .day {
@@ -164,9 +167,9 @@ body {
 	color: var(--ink-muted);
 }
 
-/* Set by models.js when a lab name does not fit in some row: every row then shows the icon alone, and the dots fill what is left. */
+/* Set by models.js when a lab name does not fit in some row: every row then drops the lab name and keeps the icon, the model, the dots and the time. */
 .months.icons-only .row {
-	grid-template-columns: auto 1fr auto auto;
+	grid-template-columns: auto auto 1fr auto;
 }
 
 .months.icons-only .row .lab {
