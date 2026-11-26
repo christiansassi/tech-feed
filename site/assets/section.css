@@ -773,14 +773,15 @@ body.hot-only .flip-card:not(.is-hot) {
 	border-radius: 10px;
 	overflow: hidden;
 	transform: rotateY(180deg);
-	background: #0c0c10 center / cover no-repeat;
+	background: #0c0c10;
 }
 
+/* Only the blurred copy carries the cover; it overflows the card so the faded edges of the blur stay outside. */
 .flip-card .back::before {
 	content: "";
 	position: absolute;
-	inset: -20px;
-	background: inherit;
+	inset: -48px;
+	background: var(--cover, none) center / cover no-repeat;
 	filter: blur(18px) brightness(0.28) saturate(1.2);
 }
 

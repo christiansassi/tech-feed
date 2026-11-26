@@ -102,7 +102,7 @@ function newsCard(item, position) {
 	image.addEventListener("load", () => image.classList.add("ready"), {once: true});
 	coverUrl(item.url).then((url) => {
 		image.src = url;
-		back.style.backgroundImage = `url(${url})`;
+		back.style.setProperty("--cover", `url(${url})`);
 	}).catch((error) => console.warn("Cover not drawn:", error));
 
 	art.append(image);
