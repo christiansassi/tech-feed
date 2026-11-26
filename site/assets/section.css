@@ -613,15 +613,11 @@ body:has(.follow-layer.open) .ledger {
 	height: 100%;
 	object-fit: cover;
 	opacity: 0;
-	transition: opacity 0.4s ease, transform 0.5s ease;
+	transition: opacity 0.4s ease;
 }
 
 .card .art img.ready {
 	opacity: 1;
-}
-
-.card:hover .art img {
-	transform: scale(1.03);
 }
 
 .card h3 {
