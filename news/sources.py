@@ -122,6 +122,29 @@ def in_category(category: str) -> Callable[[dict, str], list[dict]]:
 
 	return extract
 
+def extract_discussion(content: dict, source_url: str) -> list[dict]:
+	"""Read a link aggregator feed so that each item links to its page on the aggregator, not to the article it points to.
+
+	The card of such an item names the aggregator as its source, so its link
+	goes to the aggregator too; the page there links to the article.
+
+	Args:
+		content (dict): Feed converted by xmltodict, whose items have a ``comments`` element.
+		source_url (str): Feed URL.
+
+	Returns:
+		list[dict]: Items with the aggregator page as ``url``, newest first.
+	"""
+
+	require_type("content", content, dict)
+
+	channel = dict(content.get("rss", {}).get("channel", {}))
+	entries = channel.get("item", [])
+	entries = [entries] if isinstance(entries, dict) else entries
+	channel["item"] = [dict(entry, link=text_of(entry.get("comments")) or entry.get("link")) for entry in entries]
+
+	return extract_feed({"rss": {"channel": channel}}, source_url)
+
 def extract_msrc(content: dict, source_url: str) -> list[dict]:
 	"""Turn the MSRC blog search API response into items, leaving out the posts in Japanese.
 
@@ -208,7 +231,7 @@ SOURCES = [
 	feed("google-threat-intelligence", "Google Threat Intelligence", "https://feeds.feedburner.com/threatintelligence/pvexyqv7v0v"),
 	feed("greynoise", "GreyNoise", "https://www.greynoise.io/blog/rss.xml"),
 	feed("group-ib", "Group-IB", "https://www.group-ib.com/blog/feed/"),
-	feed("hacker-news", "Hacker News", "https://hnrss.org/frontpage?points=300"),
+	NewsSource("hacker-news", "Hacker News", Source("rss", "https://hnrss.org/frontpage?points=300", extract=extract_discussion)),
 	feed("hexacorn", "Hexacorn", "https://www.hexacorn.com/blog/feed/"),
 	feed("hugging-face", "Hugging Face", "https://huggingface.co/blog/feed.xml"),
 	feed("import-ai", "Import AI", "https://importai.substack.com/feed"),
@@ -217,7 +240,7 @@ SOURCES = [
 	feed("krebs-on-security", "Krebs on Security", "https://krebsonsecurity.com/feed/"),
 	feed("lets-encrypt", "Let's Encrypt", "https://letsencrypt.org/feed.xml"),
 	feed("llvm-blog", "LLVM Blog", "https://blog.llvm.org/index.xml"),
-	feed("lobsters", "Lobsters", "https://lobste.rs/rss"),
+	NewsSource("lobsters", "Lobsters", Source("rss", "https://lobste.rs/rss", extract=extract_discussion)),
 	feed("lwn", "LWN.net", "https://lwn.net/headlines/rss"),
 	lab("meta", "meta", "https://ai.meta.com/blog/"),
 	feed("metr", "METR", "https://metr.org/feed.xml"),

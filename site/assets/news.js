@@ -5,7 +5,8 @@
  * sources, then `site/latest.json` (written by the Raspberry updater after the
  * Codex filters) for the items of the last 24 hours, and show each item as a
  * card: a generated cover from `covers.js`, the title (amber and bold for HOT
- * items), the time in the visitor's time zone and the source. The All / Hot
+ * items), the time in the visitor's time zone and the source. A click flips the
+ * card to its back, with the intro of the article and the link to it. The All / Hot
  * filter above the cards hides the items that are not HOT. Load after
  * `landing.js`, `section.js`, `cover-styles.js` and `covers.js`.
  */
@@ -32,7 +33,7 @@ function formatMoment(seconds) {
  * Load the items of the site file named by the index.
  *
  * @param {?object} index Parsed `index.json`, or null when it could not be read.
- * @returns {Promise<Array<{id: string, title: string, source: string, url: string, date: number, hot: boolean}>>} Valid items, newest first.
+ * @returns {Promise<Array<{id: string, title: string, source: string, url: string, date: number, hot: boolean, summary: ?string}>>} Valid items, newest first.
  */
 async function loadNews(index) {
 	if (index !== null && typeof index !== "object") {
@@ -51,11 +52,21 @@ async function loadNews(index) {
 }
 
 /**
- * Build the card of one item; its cover is drawn in the background and faded in when ready.
+ * Return the intro of an item when it says something, or null; feeds such as Hacker News only give "Comments".
  *
- * @param {{title: string, source: string, url: string, date: number, hot: boolean}} item News item.
+ * @param {*} summary Intro text from the site file.
+ * @returns {?string} Trimmed intro of at least 40 characters, or null.
+ */
+function usableIntro(summary) {
+	return typeof summary === "string" && summary.trim().length >= 40 ? summary.trim() : null;
+}
+
+/**
+ * Build the card of one item: the front shows the cover, the title, the time and the source; the back shows the intro over the darkened cover and the link to the article.
+ *
+ * @param {{title: string, source: string, url: string, date: number, hot: boolean, summary: ?string}} item News item.
  * @param {number} position Position of the card, used for the entrance delay.
- * @returns {HTMLAnchorElement} Card that opens the article in a new tab.
+ * @returns {HTMLElement} Card that flips when clicked.
  */
 function newsCard(item, position) {
 	if (!item || typeof item.url !== "string") {
@@ -66,29 +77,99 @@ function newsCard(item, position) {
 		throw new RangeError("position must be a non-negative integer");
 	}
 
-	const card = element("a", item.hot ? "card is-hot" : "card");
+	const hot = item.hot ? " is-hot" : "";
+	const card = element("div", `flip-card${hot}`);
+	const inner = element("div", "inner");
+	const front = element("div", `face front card${hot}`);
+	const back = element("div", "face back");
 	const art = element("div", "art");
 	const image = element("img", "");
 	const foot = element("div", "foot");
 	const source = element("span", "source", item.source || "");
+	const read = element("a", "read", `Read on ${item.source || "the source"}`);
+	const intro = usableIntro(item.summary);
 
-	card.href = item.url;
-	card.target = "_blank";
-	card.rel = "noopener";
+	card.tabIndex = 0;
+	card.setAttribute("role", "button");
+	card.setAttribute("aria-pressed", "false");
 	card.style.setProperty("--j", position);
 	image.alt = "";
 	source.title = item.source || "";
+	read.href = item.url;
+	read.target = "_blank";
+	read.rel = "noopener";
 
 	image.addEventListener("load", () => image.classList.add("ready"), {once: true});
 	coverUrl(item.url).then((url) => {
 		image.src = url;
+		back.style.backgroundImage = `url(${url})`;
 	}).catch((error) => console.warn("Cover not drawn:", error));
 
 	art.append(image);
 	foot.append(element("span", "when", formatMoment(item.date)), source);
-	card.append(art, element("h3", "", item.title), foot);
+	front.append(art, element("h3", "", item.title), foot);
+	back.append(element("h3", "", item.title), element("p", "intro", intro || "This source gives no intro: open the article to read it."), read);
+	inner.append(front, back);
+	card.append(inner);
 
 	return card;
+}
+
+/**
+ * Flip a card to its back or its front.
+ *
+ * @param {HTMLElement} card A `.flip-card`.
+ * @param {boolean} flipped Whether the back is shown.
+ * @returns {void}
+ */
+function setFlipped(card, flipped) {
+	requireInstance("card", card, HTMLElement);
+
+	if (typeof flipped !== "boolean") {
+		throw new TypeError("flipped must be a boolean");
+	}
+
+	card.classList.toggle("flipped", flipped);
+	card.setAttribute("aria-pressed", String(flipped));
+}
+
+/**
+ * Attach the flip listeners: a click or Enter flips a card and turns the others back, Escape turns every card back; the link on the back opens the article.
+ *
+ * @param {HTMLElement} grid Element that holds the cards.
+ * @returns {void}
+ */
+function bindFlips(grid) {
+	requireInstance("grid", grid, HTMLElement);
+
+	grid.addEventListener("click", (event) => {
+		const card = event.target.closest(".flip-card");
+
+		if (!card || event.target.closest(".read")) {
+			return;
+		}
+
+		const flip = !card.classList.contains("flipped");
+
+		grid.querySelectorAll(".flip-card.flipped").forEach((other) => other !== card && setFlipped(other, false));
+		setFlipped(card, flip);
+	});
+
+	grid.addEventListener("keydown", (event) => {
+		const card = event.target.closest(".flip-card");
+
+		if (card && !event.target.closest(".read") && (event.key === "Enter" || event.key === " ")) {
+			event.preventDefault();
+			card.click();
+		}
+	});
+
+	document.addEventListener("keydown", (event) => {
+
+		if (event.key === "Escape") {
+			grid.querySelectorAll(".flip-card.flipped").forEach((card) => setFlipped(card, false));
+		}
+	});
 }
 
 /**
@@ -112,6 +193,7 @@ function renderNews(grid, items) {
 
 	items.forEach((item, position) => grid.append(newsCard(item, position)));
 	grid.classList.add("cascade");
+	bindFlips(grid);
 }
 
 /**
@@ -217,7 +299,7 @@ function bindNewsFilter(items) {
 function replayEntrance(grid) {
 	requireInstance("grid", grid, HTMLElement);
 
-	const visible = [...grid.querySelectorAll(".card")].filter((card) => getComputedStyle(card).display !== "none");
+	const visible = [...grid.querySelectorAll(".flip-card")].filter((card) => getComputedStyle(card).display !== "none");
 
 	visible.forEach((card, position) => card.style.setProperty("--j", position));
 	grid.classList.remove("cascade");
