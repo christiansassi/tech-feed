@@ -5,7 +5,9 @@
  * conference (written by the Raspberry updater), keep the editions that have not
  * ended, and list them as dotted-leader lines grouped by the month they start,
  * soonest first. When there is nothing to list, show the message already in the
- * page. Load after `landing.js` and `section.js`.
+ * page. The "Following N conferences" button opens a layer (from `section.js`)
+ * that lists every conference the feed checks, so a missing edition can be told
+ * apart from a missing conference. Load after `landing.js` and `section.js`.
  */
 
 const TICKET_TAGS = {
@@ -44,10 +46,13 @@ function formatDays(start, end) {
 /**
  * Load the upcoming editions of every conference that has a site file.
  *
+ * @param {?object} index Parsed `index.json`, or null when it could not be read.
  * @returns {Promise<Array<{label: string, edition: {start: number, end: number, place: ?string, url: ?string, tickets: {status: string, url: ?string}}}>>} One entry per edition that has not ended, soonest first.
  */
-async function loadConferences() {
-	const index = await getJson("index.json");
+async function loadConferences(index) {
+	if (index !== null && typeof index !== "object") {
+		throw new TypeError("index must be an object or null");
+	}
 
 	if (!index || !Array.isArray(index.conferences)) {
 		return [];
@@ -112,9 +117,14 @@ function renderConferences(container, entries) {
 
 document.addEventListener("DOMContentLoaded", async () => {
 	const container = document.querySelector(".months");
+	const index = await getJson("index.json");
+	const followed = index && Array.isArray(index.conferences) ? index.conferences.map(({label}) => ({label, on: true, icon: null})) : null;
+
+	bindFollowing();
+	renderFollowing(followed, "conferences");
 
 	if (container) {
-		renderConferences(container, await loadConferences());
+		renderConferences(container, await loadConferences(index));
 		cascade(container);
 	}
 });

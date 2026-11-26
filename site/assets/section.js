@@ -143,4 +143,107 @@ async function showUpdated() {
 	}
 }
 
+/**
+ * Fill the chips of the Following layer, in alphabetical order, and the count on its button.
+ *
+ * Followed entries get the `on` class; the button shows how many there are,
+ * followed by `noun`. With no entries (the index could not be read) the
+ * "Following" part of the update line is removed instead.
+ *
+ * @param {?Array<{label: string, on: boolean, icon: ?Node}>} entries Chips to show, or null when the index is missing.
+ * @param {string} noun Plural word after the count, such as "labs".
+ * @returns {void}
+ */
+function renderFollowing(entries, noun) {
+	if (entries !== null && !Array.isArray(entries)) {
+		throw new TypeError("entries must be an array or null");
+	}
+
+	requireText("noun", noun);
+
+	const trigger = document.querySelector(".follow-trigger");
+	const chips = document.querySelector(".follow-layer .chips");
+
+	if (!trigger || !chips) {
+		return;
+	}
+
+	if (entries === null) {
+		trigger.closest(".following").remove();
+		return;
+	}
+
+	const sorted = entries.slice().sort((a, b) => a.label.localeCompare(b.label, "en", {sensitivity: "base"}));
+
+	sorted.forEach((entry, position) => {
+		const chip = element("span", entry.on ? "chip on" : "chip");
+
+		chip.style.setProperty("--k", position);
+
+		if (entry.icon) {
+			chip.append(entry.icon);
+		}
+
+		chip.append(element("span", "", entry.label));
+		chips.append(chip);
+	});
+
+	trigger.textContent = `${entries.filter((entry) => entry.on).length} ${noun}`;
+	trigger.closest(".following").classList.remove("pending");
+}
+
+/**
+ * Open or close the Following layer, moving the focus into it and back to the button.
+ *
+ * @param {boolean} open Whether the layer is shown.
+ * @returns {void}
+ */
+function setFollowingOpen(open) {
+	if (typeof open !== "boolean") {
+		throw new TypeError("open must be a boolean");
+	}
+
+	const trigger = document.querySelector(".follow-trigger");
+	const layer = document.querySelector(".follow-layer");
+
+	if (!trigger || !layer || layer.classList.contains("open") === open) {
+		return;
+	}
+
+	layer.classList.toggle("open", open);
+	trigger.setAttribute("aria-expanded", String(open));
+
+	(open ? layer : trigger).focus({preventScroll: true});
+}
+
+/**
+ * Attach the listeners of the Following layer: the button toggles it, and Escape or a click anywhere but a link closes it.
+ *
+ * @returns {void}
+ */
+function bindFollowing() {
+	const trigger = document.querySelector(".follow-trigger");
+	const layer = document.querySelector(".follow-layer");
+
+	if (!trigger || !layer) {
+		return;
+	}
+
+	trigger.addEventListener("click", () => setFollowingOpen(trigger.getAttribute("aria-expanded") !== "true"));
+
+	layer.addEventListener("click", (event) => {
+
+		if (!event.target.closest("a")) {
+			setFollowingOpen(false);
+		}
+	});
+
+	document.addEventListener("keydown", (event) => {
+
+		if (event.key === "Escape") {
+			setFollowingOpen(false);
+		}
+	});
+}
+
 document.addEventListener("DOMContentLoaded", showUpdated);

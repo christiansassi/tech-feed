@@ -18,13 +18,21 @@
 	<main class="ledger">
 		<header>
 			<h1>Conferences</h1>
-			<p class="meta"><span class="updated" data-index="index.json"></span><span>Something missing? Report it <a href="https://github.com/christiansassi/tech-feed/issues/new?template=missing-conference.yml" target="_blank" rel="noopener">here</a></span></p>
+			<p class="meta"><span class="updated" data-index="index.json"></span><span class="following pending">Following <button type="button" class="follow-trigger" aria-expanded="false" aria-controls="following"></button></span><span>Something missing? Report it <a href="https://github.com/christiansassi/tech-feed/issues/new?template=missing-conference.yml" target="_blank" rel="noopener">here</a></span></p>
 		</header>
 
 		<div class="months events">
 			<div class="empty" hidden><span class="empty-label">On the horizon</span><p class="empty-text">Stages are being built and speakers lined up. Every trip will be worth it.</p></div>
 		</div>
 	</main>
+
+	<div class="follow-layer" id="following" role="dialog" aria-modal="true" aria-labelledby="following-title" tabindex="-1">
+		<div class="inner">
+			<h2 id="following-title">Following</h2>
+			<p class="note">Not in the list? Report it <a href="https://github.com/christiansassi/tech-feed/issues/new?template=missing-conference.yml" target="_blank" rel="noopener">here</a>.</p>
+			<div class="chips"></div>
+		</div>
+	</div>
 
 	<script src="../assets/field.js"></script>
 	<script src="../assets/landing.js"></script>

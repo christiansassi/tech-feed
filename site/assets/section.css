@@ -216,6 +216,11 @@ body {
 	grid-column: 1 / -1;
 }
 
+/* A grid keeps the first margin that a block list would collapse, so drop it to start the list at the same height as on Models. */
+.months.events .empty + .month {
+	margin-top: 0;
+}
+
 .months.events .rows {
 	display: contents;
 }
@@ -283,8 +288,7 @@ body {
 /* Cascade entrance: months open one after the other, each drawing its line, and their rows follow (delays from cascade() in section.js, capped so long lists finish within about 1.6 s). */
 .months.cascade .month,
 .months.cascade .row {
-	opacity: 0;
-	animation: cascade-in 0.45s ease forwards;
+	animation: cascade-in 0.45s ease backwards;
 	animation-delay: calc(min(var(--g), 6) * 180ms + min(var(--j), 15) * 35ms);
 }
 
@@ -295,9 +299,10 @@ body {
 	animation-delay: calc(min(var(--g), 6) * 180ms);
 }
 
+/* Fill backwards only: a forwards fill would hold opacity 1 after the entrance and block the hover dimming. */
 @keyframes cascade-in {
-	to {
-		opacity: 1;
+	from {
+		opacity: 0;
 	}
 }
 
@@ -317,7 +322,7 @@ body {
 	}
 }
 
-/* "Following N labs" on the Models page: the button looks like the "here" link, and the line stays hidden until the count is known. */
+/* "Following N labs" or "N conferences" on the section pages: the button looks like the "here" link, and the line stays hidden until the count is known. */
 .meta .following::after {
 	content: "·";
 	padding-left: 0.4rem;
@@ -344,8 +349,8 @@ body {
 	background-size: 100% 1px;
 }
 
-/* Labs layer: covers the page with the same box as the ledger, so "Labs" sits exactly where "Models" is, the note where the update line is and the chips where the list starts. */
-.labs-layer {
+/* Following layer: covers the page with the same box as the ledger, so its title sits exactly where the page title is, the note where the update line is and the chips where the list starts. */
+.follow-layer {
 	position: fixed;
 	inset: 0;
 	z-index: 4;
@@ -359,26 +364,26 @@ body {
 	transition: opacity 0.3s ease, visibility 0.3s;
 }
 
-.labs-layer::-webkit-scrollbar {
+.follow-layer::-webkit-scrollbar {
 	display: none;
 }
 
 /* Visible at once when opening, so the layer can take the focus; when closing it stays visible until the fade ends. */
-.labs-layer.open {
+.follow-layer.open {
 	opacity: 1;
 	visibility: visible;
 	transition: opacity 0.3s ease, visibility 0s;
 }
 
-.labs-layer:focus {
+.follow-layer:focus {
 	outline: none;
 }
 
-body:has(.labs-layer.open) .ledger {
+body:has(.follow-layer.open) .ledger {
 	opacity: 0;
 }
 
-.labs-layer .inner {
+.follow-layer .inner {
 	display: grid;
 	gap: 1.4rem;
 	justify-items: center;
@@ -388,7 +393,7 @@ body:has(.labs-layer.open) .ledger {
 	text-align: center;
 }
 
-.labs-layer h2 {
+.follow-layer h2 {
 	margin: 0;
 	font-family: var(--font-title);
 	font-weight: 400;
@@ -397,7 +402,7 @@ body:has(.labs-layer.open) .ledger {
 	letter-spacing: -0.02em;
 }
 
-.labs-layer .note {
+.follow-layer .note {
 	margin: -0.4rem 0 0;
 	font-family: var(--font-mono);
 	font-size: 0.68rem;
@@ -406,7 +411,7 @@ body:has(.labs-layer.open) .ledger {
 }
 
 /* Inline-block, like the flex items of the update line, so both lines have the same height. */
-.labs-layer .note a {
+.follow-layer .note a {
 	display: inline-block;
 	padding-bottom: 0.15em;
 	color: var(--ink-muted);
@@ -415,14 +420,14 @@ body:has(.labs-layer.open) .ledger {
 	transition: color 0.2s ease, background-size 0.3s ease;
 }
 
-.labs-layer .note a:hover,
-.labs-layer .note a:focus-visible {
+.follow-layer .note a:hover,
+.follow-layer .note a:focus-visible {
 	color: var(--ink);
 	background-size: 100% 1px;
 }
 
 /* Followed labs in full color with an outline, the others faded. */
-.labs-layer .chips {
+.follow-layer .chips {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -467,7 +472,7 @@ body:has(.labs-layer.open) .ledger {
 }
 
 /* Chips enter in a short cascade each time the layer opens. */
-.labs-layer.open .chip {
+.follow-layer.open .chip {
 	animation: chip-in 0.4s ease both;
 	animation-delay: calc(var(--k) * 12ms);
 }
@@ -480,7 +485,7 @@ body:has(.labs-layer.open) .ledger {
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.labs-layer.open .chip {
+	.follow-layer.open .chip {
 		animation: none;
 	}
 }
