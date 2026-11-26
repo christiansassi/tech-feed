@@ -9,7 +9,6 @@ publisher share it.
 import importlib
 import json
 import re
-from collections.abc import Callable
 from dataclasses import dataclass
 
 from models.common.items import extract_feed, item, newest_first, text_of
@@ -82,45 +81,6 @@ def lab(slug: str, name: str, url_prefix: str) -> NewsSource:
 		raise ValueError(f"no source of {name} starts with {url_prefix}")
 
 	return NewsSource(slug, module.LABEL, source)
-
-def in_category(category: str) -> Callable[[dict, str], list[dict]]:
-	"""Return a feed extractor that keeps only the entries filed under ``category``.
-
-	Args:
-		category (str): Exact text of the ``<category>`` element to keep.
-
-	Returns:
-		Callable[[dict, str], list[dict]]: Extractor ``extract(content, source_url)`` for an xmltodict RSS document.
-	"""
-
-	require_text("category", category)
-
-	def extract(content: dict, source_url: str) -> list[dict]:
-		"""Drop the entries of other categories, then read the feed as usual.
-
-		Args:
-			content (dict): Feed converted by xmltodict.
-			source_url (str): Feed URL.
-
-		Returns:
-			list[dict]: Items of the kept entries, newest first.
-		"""
-
-		require_type("content", content, dict)
-
-		channel = dict(content.get("rss", {}).get("channel", {}))
-		entries = channel.get("item", [])
-		entries = [entries] if isinstance(entries, dict) else entries
-
-		def categories(entry: dict) -> list[str]:
-			value = entry.get("category", [])
-			return [text_of(name) or "" for name in (value if isinstance(value, list) else [value])]
-
-		channel["item"] = [entry for entry in entries if category in categories(entry)]
-
-		return extract_feed({"rss": {"channel": channel}}, source_url)
-
-	return extract
 
 def extract_discussion(content: dict, source_url: str) -> list[dict]:
 	"""Read a link aggregator feed so that each item links to its page on the aggregator, not to the article it points to.
@@ -197,12 +157,6 @@ SOURCES = [
 	feed("ars-technica", "Ars Technica", "https://feeds.arstechnica.com/arstechnica/technology-lab"),
 	feed("bair", "BAIR", "https://bair.berkeley.edu/blog/feed.xml"),
 	feed("binarly", "Binarly", "https://www.binarly.io/blog/rss.xml"),
-	feed("cccs", "Canadian Centre for Cyber Security", "https://www.cyber.gc.ca/api/cccs/rss/v1/get?feed=alerts_advisories&lang=en"),
-	feed("cert-cc", "CERT/CC", "https://www.kb.cert.org/vuls/atomfeed/"),
-	feed("cert-eu-advisories", "CERT-EU", "https://cert.europa.eu/publications/security-advisories-rss"),
-	feed("cert-eu-threat-intelligence", "CERT-EU", "https://cert.europa.eu/publications/threat-intelligence-rss"),
-	feed("cert-fr", "CERT-FR", "https://cert.cyber.gouv.fr/avis/feed/"),
-	NewsSource("cert-polska", "CERT Polska", Source("rss", "https://moje.cert.pl/advisories/feed/", extract=in_category("Dla administratorów"))),
 	feed("check-point-research", "Check Point Research", "https://research.checkpoint.com/feed/"),
 	feed("chips-and-cheese", "Chips and Cheese", "https://chipsandcheese.com/feed/"),
 	feed("circl", "CIRCL", "https://www.circl.lu/pub/rss.xml"),
@@ -211,7 +165,6 @@ SOURCES = [
 	feed("cloudflare-security", "Cloudflare", "https://blog.cloudflare.com/tag/security/rss/"),
 	feed("crowdstrike", "CrowdStrike", "https://www.crowdstrike.com/en-us/blog/feed/"),
 	feed("csa-singapore", "CSA Singapore", "https://www.csa.gov.sg/alerts-and-advisories/rss.xml"),
-	feed("cyberscoop", "CyberScoop", "https://cyberscoop.com/feed/"),
 	feed("dark-web-informer", "Dark Web Informer", "https://darkwebinformer.com/rss/"),
 	feed("datadog-security-labs", "Datadog Security Labs", "https://securitylabs.datadoghq.com/rss/feed.xml"),
 	lab("deepseek", "deepseek", "https://api-docs.deepseek.com/sitemap.xml"),
@@ -220,7 +173,6 @@ SOURCES = [
 	feed("doyensec", "Doyensec", "https://blog.doyensec.com/atom.xml"),
 	feed("elastic-security-labs", "Elastic Security Labs", "https://www.elastic.co/security-labs/rss/feed.xml"),
 	feed("embrace-the-red", "Embrace The Red", "https://embracethered.com/blog/index.xml"),
-	feed("full-disclosure", "Full Disclosure", "https://seclists.org/rss/fulldisclosure.rss"),
 	feed("github-security", "GitHub", "https://github.blog/security/feed/"),
 	feed("go-blog", "Go Blog", "https://go.dev/blog/feed.atom"),
 	feed("google-ai", "Google", "https://blog.google/technology/ai/rss/"),
@@ -240,7 +192,6 @@ SOURCES = [
 	feed("krebs-on-security", "Krebs on Security", "https://krebsonsecurity.com/feed/"),
 	feed("lets-encrypt", "Let's Encrypt", "https://letsencrypt.org/feed.xml"),
 	feed("llvm-blog", "LLVM Blog", "https://blog.llvm.org/index.xml"),
-	NewsSource("lobsters", "Lobsters", Source("rss", "https://lobste.rs/rss", extract=extract_discussion)),
 	feed("lwn", "LWN.net", "https://lwn.net/headlines/rss"),
 	lab("meta", "meta", "https://ai.meta.com/blog/"),
 	feed("metr", "METR", "https://metr.org/feed.xml"),
@@ -253,11 +204,9 @@ SOURCES = [
 	lab("moonshot", "moonshotai", "https://www.kimi.ai/blog/"),
 	feed("mozilla-security", "Mozilla", "https://blog.mozilla.org/security/feed/"),
 	NewsSource("ncc-group", "NCC Group", html("https://www.nccgroup.com/research/research-articles/", link_list(r"^/research/[a-z0-9-]+/?$", scope=".c-research__title, .c-research", title=".c-research__title"))),
-	feed("ncsc-nl", "NCSC Netherlands", "https://advisories.ncsc.nl/rss/advisories"),
 	feed("objective-see", "Objective-See", "https://objective-see.org/rss.xml"),
 	feed("old-new-thing", "The Old New Thing", "https://devblogs.microsoft.com/oldnewthing/feed"),
 	feed("openai", "OpenAI", "https://openai.com/news/rss.xml"),
-	feed("oss-security", "oss-security", "https://seclists.org/rss/oss-sec.rss"),
 	feed("ostif", "OSTIF", "https://ostif.org/feed/"),
 	feed("owasp-genai", "OWASP GenAI Security Project", "https://genai.owasp.org/feed/"),
 	feed("phoronix", "Phoronix", "https://www.phoronix.com/rss.php"),
@@ -271,7 +220,6 @@ SOURCES = [
 	feed("red-canary", "Red Canary", "https://redcanary.com/blog/feed/"),
 	feed("reversinglabs", "ReversingLabs", "https://www.reversinglabs.com/blog/rss.xml"),
 	feed("ripe-labs", "RIPE Labs", "https://labs.ripe.net/feed.xml"),
-	feed("risky-business", "Risky Business", "https://news.risky.biz/feed/"),
 	feed("rust-blog", "Rust Blog", "https://blog.rust-lang.org/feed.xml"),
 	feed("sans-isc", "SANS Internet Storm Center", "https://isc.sans.edu/rssfeed_full.xml"),
 	feed("schneier-on-security", "Schneier on Security", "https://www.schneier.com/feed/atom/"),
@@ -280,7 +228,6 @@ SOURCES = [
 	feed("sekoia", "Sekoia", "https://blog.sekoia.io/feed/"),
 	feed("sentinellabs", "SentinelLabs", "https://www.sentinelone.com/labs/feed/"),
 	NewsSource("shadowserver", "Shadowserver", html("https://www.shadowserver.org/news-insights/", link_list(r"^/news/[a-z0-9-]+/?$"))),
-	feed("simon-willison", "Simon Willison", "https://simonwillison.net/atom/everything/"),
 	feed("specterops", "SpecterOps", "https://specterops.io/feed/"),
 	feed("symantec", "Symantec", "https://www.security.com/rss/v1/blogs/rss.xml/221"),
 	feed("synacktiv", "Synacktiv", "https://www.synacktiv.com/feed/lastblog.xml"),
@@ -289,7 +236,6 @@ SOURCES = [
 	feed("tencent-xuanwu", "Tencent Xuanwu Lab", "https://xlab.tencent.com/en/atom.xml"),
 	feed("the-dfir-report", "The DFIR Report", "https://thedfirreport.com/feed/"),
 	feed("the-hacker-news", "The Hacker News", "https://feeds.feedburner.com/TheHackersNews"),
-	feed("the-record", "The Record", "https://therecord.media/feed"),
 	lab("thinkingmachines-blog", "thinkingmachines", "https://thinkingmachines.ai/blog/"),
 	lab("thinkingmachines-news", "thinkingmachines", "https://thinkingmachines.ai/news/"),
 	feed("tldr-sec", "tl;dr sec", "https://rss.beehiiv.com/feeds/xgTKUmMmUm.xml"),
