@@ -167,10 +167,59 @@ function labEntries(index) {
 	}
 
 	const others = Array.isArray(index.untracked) ? index.untracked : [];
-
 	const chip = (on) => (lab) => ({label: lab.label, on, icon: labIcon(lab.slug)});
 
 	return index.labs.map(chip(true)).concat(others.map(chip(false)));
+}
+
+/**
+ * Show the lab names only when every row has room for its icon, lab name, full model name and date; otherwise show the icons alone.
+ *
+ * The choice is the same for all rows, so the list never mixes rows with and
+ * without names. The dots take whatever width is left in either case.
+ *
+ * @param {HTMLElement} container Element that holds the model rows.
+ * @returns {void}
+ */
+function fitLabNames(container) {
+	requireInstance("container", container, HTMLElement);
+
+	container.classList.remove("icons-only");
+
+	const width = (node) => node.getBoundingClientRect().width;
+
+	const overflows = [...container.querySelectorAll(".row")].some((row) => {
+		const gap = parseFloat(getComputedStyle(row).columnGap) || 0;
+		const model = row.querySelector(".model");
+		const needed = width(row.querySelector(".icon")) + width(row.querySelector(".lab")) + model.scrollWidth + width(row.querySelector(".day")) + 4 * gap;
+
+		return needed > row.clientWidth + 0.5;
+	});
+
+	container.classList.toggle("icons-only", overflows);
+}
+
+/**
+ * Run `fitLabNames` now, when the web fonts finish loading, and whenever the width of the list changes.
+ *
+ * @param {HTMLElement} container Element that holds the model rows.
+ * @returns {void}
+ */
+function watchLabNames(container) {
+	requireInstance("container", container, HTMLElement);
+
+	let last = -1;
+
+	const observer = new ResizeObserver(([entry]) => {
+
+		if (entry.contentRect.width !== last) {
+			last = entry.contentRect.width;
+			fitLabNames(container);
+		}
+	});
+
+	observer.observe(container);
+	document.fonts.ready.then(() => fitLabNames(container));
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -182,6 +231,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 	if (container) {
 		renderModels(container, await loadModels(index));
+		watchLabNames(container);
 		cascade(container);
 	}
 });

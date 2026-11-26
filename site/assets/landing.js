@@ -313,10 +313,10 @@ async function showStatus(element, indexUrl) {
 		const index = await response.json();
 		const seconds = index.generated_at;
 		const generated = typeof seconds === "number" ? new Date(seconds * 1000) : new Date(seconds);
-		const day = generated.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
-		const time = generated.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: "UTC" });
+		const day = generated.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+		const time = generated.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" });
 
-		element.textContent = `${day} · ${time} UTC`;
+		element.textContent = `${day} · ${time}`;
 	} catch {
 		element.textContent = "";
 	}

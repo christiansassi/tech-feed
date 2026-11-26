@@ -114,7 +114,7 @@ function cascade(container) {
 }
 
 /**
- * Fill every `.updated` element with the time its index file was generated.
+ * Fill every `.updated` element with the time its index file was generated, in the time zone of the visitor.
  *
  * The index is rewritten each time the sources are read, so this is the time of
  * the last data check. Elements whose index cannot be read are removed. The line
@@ -131,10 +131,10 @@ async function showUpdated() {
 			node.remove();
 		} else {
 			const when = new Date(index.generated_at * 1000);
-			const day = when.toLocaleDateString("en-US", {month: "short", day: "numeric", timeZone: "UTC"});
-			const time = when.toLocaleTimeString("en-GB", {hour: "2-digit", minute: "2-digit", timeZone: "UTC"});
+			const day = when.toLocaleDateString("en-US", {month: "short", day: "numeric"});
+			const time = when.toLocaleTimeString("en-GB", {hour: "2-digit", minute: "2-digit"});
 
-			node.textContent = `Updated ${day}, ${time} UTC`;
+			node.textContent = `Updated ${day}, ${time}`;
 		}
 
 		if (line) {

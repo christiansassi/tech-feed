@@ -89,10 +89,11 @@ h1 span:last-child {
 	transform: translateX(0.35em);
 }
 
+/* Links touch and the space between them is padding, so the pointer never falls in a gap that would undo the hover dimming; the negative margin keeps the menu height. */
 nav.toc {
 	display: grid;
-	gap: 0.55rem;
 	width: min(22rem, 86vw);
+	margin-block: -0.275rem;
 	font-family: var(--font-body);
 	font-size: 1.05rem;
 }
@@ -102,6 +103,7 @@ nav.toc a {
 	grid-template-columns: auto 1fr auto;
 	align-items: baseline;
 	gap: 0.4rem;
+	padding-block: 0.275rem;
 	color: var(--ink);
 	text-decoration: none;
 }

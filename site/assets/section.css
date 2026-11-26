@@ -82,7 +82,7 @@ body {
 	display: flex;
 	gap: 0.8rem;
 	align-items: center;
-	margin: 2.6rem 0 1rem;
+	margin: 2.25rem 0 0.65rem;
 	font-family: var(--font-mono);
 	font-size: 0.72rem;
 	letter-spacing: 0.14em;
@@ -96,9 +96,9 @@ body {
 	border-top: 1px solid var(--ink-faint);
 }
 
+/* Rows touch and the space between them is padding, so the pointer never falls in a gap that would undo the hover dimming. The month margins leave room for the padding of the rows next to them. */
 .rows {
 	display: grid;
-	gap: 0.7rem;
 }
 
 .row {
@@ -106,6 +106,7 @@ body {
 	grid-template-columns: auto auto 1fr auto auto;
 	gap: 0.55rem;
 	align-items: baseline;
+	padding-block: 0.35rem;
 	color: inherit;
 	text-decoration: none;
 	transition: opacity 0.25s ease;
@@ -145,6 +146,10 @@ body {
 }
 
 .row .model {
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 	font-family: var(--font-title);
 	font-size: 1.08rem;
 	text-align: right;
@@ -159,15 +164,13 @@ body {
 	color: var(--ink-muted);
 }
 
-@media (max-width: 560px) {
-	.row {
-		grid-template-columns: auto 1fr auto;
-	}
+/* Set by models.js when a lab name does not fit in some row: every row then shows the icon alone, and the dots fill what is left. */
+.months.icons-only .row {
+	grid-template-columns: auto 1fr auto auto;
+}
 
-	.row .lab,
-	.row .dots {
-		display: none;
-	}
+.months.icons-only .row .lab {
+	display: none;
 }
 
 .empty {
@@ -209,7 +212,6 @@ body {
 	display: grid;
 	grid-template-columns: 1fr auto auto;
 	column-gap: 1.4rem;
-	row-gap: 0.7rem;
 }
 
 .months.events .month {
@@ -231,6 +233,7 @@ body {
 	column-gap: 1.4rem;
 }
 
+/* The name keeps its full width first and is cut with an ellipsis when the row is too narrow; the dots take only the space left. */
 .row.event .lead {
 	display: flex;
 	gap: 0.55rem;
@@ -239,8 +242,8 @@ body {
 }
 
 .row.event .model {
+	flex: 0 1 auto;
 	text-align: left;
-	white-space: nowrap;
 }
 
 .row.event .lead .dots {
@@ -248,7 +251,9 @@ body {
 }
 
 .row.event .lab {
+	flex: none;
 	text-align: right;
+	white-space: nowrap;
 }
 
 .row.event .day {
