@@ -94,6 +94,7 @@ function newsCard(item, position) {
 	card.setAttribute("aria-pressed", "false");
 	card.style.setProperty("--j", position);
 	image.alt = "";
+	image.draggable = false;
 	source.title = item.source || "";
 	read.href = item.url;
 	read.target = "_blank";
@@ -146,6 +147,13 @@ function bindFlips(grid) {
 		const card = event.target.closest(".flip-card");
 
 		if (!card || event.target.closest(".read")) {
+			return;
+		}
+
+		const selection = window.getSelection();
+
+		// A drag that selected text in the card is a selection, not a click.
+		if (selection && !selection.isCollapsed && card.contains(selection.anchorNode)) {
 			return;
 		}
 

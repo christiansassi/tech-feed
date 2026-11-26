@@ -848,3 +848,26 @@ body.hot-only .flip-card:not(.is-hot) {
 		transition: none;
 	}
 }
+
+/* News cards: the cover cannot be dragged; the title and the back can be selected, with the colors swapped (text color behind, background color for the letters). */
+.card .art img {
+	-webkit-user-drag: none;
+	user-select: none;
+}
+
+.card h3,
+.flip-card .back {
+	-webkit-user-select: text;
+	user-select: text;
+}
+
+.card h3::selection,
+.flip-card .back ::selection {
+	color: var(--ground);
+	background: var(--ink);
+}
+
+.card.is-hot h3::selection,
+.flip-card.is-hot .back h3::selection {
+	background: #ee7c37;
+}
