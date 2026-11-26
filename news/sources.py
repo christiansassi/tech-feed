@@ -93,7 +93,7 @@ def extract_discussion(content: dict, source_url: str) -> list[dict]:
 		source_url (str): Feed URL.
 
 	Returns:
-		list[dict]: Items with the aggregator page as ``url``, newest first.
+		list[dict]: Items with the aggregator page as ``url`` and the article link as ``target``, newest first.
 	"""
 
 	require_type("content", content, dict)
@@ -101,9 +101,11 @@ def extract_discussion(content: dict, source_url: str) -> list[dict]:
 	channel = dict(content.get("rss", {}).get("channel", {}))
 	entries = channel.get("item", [])
 	entries = [entries] if isinstance(entries, dict) else entries
+	targets = {text_of(entry.get("comments")): text_of(entry.get("link")) for entry in entries if text_of(entry.get("comments"))}
 	channel["item"] = [dict(entry, link=text_of(entry.get("comments")) or entry.get("link")) for entry in entries]
 
-	return extract_feed({"rss": {"channel": channel}}, source_url)
+	# The article link stays as ``target``, so the filters can tell what the item is about.
+	return [dict(entry, target=targets.get(entry["url"])) for entry in extract_feed({"rss": {"channel": channel}}, source_url)]
 
 def extract_msrc(content: dict, source_url: str) -> list[dict]:
 	"""Turn the MSRC blog search API response into items, leaving out the posts in Japanese.
