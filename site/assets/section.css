@@ -495,15 +495,15 @@ body:has(.follow-layer.open) .ledger {
 	}
 }
 
-/* News cards: wider page so three cards fit in a row; each card is a square cover, the title, then the time on the left and the source on the right. Spacing on an 8px grid: 16px between cards in a row, three times that between rows so each title stays with its own cover, 12px inside a card. */
+/* News cards: wider page so three wide cards fit in a row; each card is a 3:2 cover, the title, then the time on the left and the source on the right. Spacing on an 8px grid: 16px between cards in a row, three times that between rows so each title stays with its own cover, 12px inside a card. */
 .ledger.wide {
-	width: min(46rem, calc(100vw - 2rem));
+	width: min(62rem, calc(100vw - 2rem));
 }
 
 /* Full width, so the cards keep their size when the Hot filter leaves only a few. */
 .cards {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(11.5rem, 1fr));
+	grid-template-columns: repeat(3, minmax(0, 1fr));
 	gap: 48px 16px;
 	width: 100%;
 	margin-top: 2.6rem;
@@ -583,12 +583,12 @@ body:has(.follow-layer.open) .ledger {
 	}
 }
 
-/* The card and its single column may shrink below the width of the one-line source, so the source is cut instead of widening the card. */
+/* The card and its single column may shrink below the width of the one-line source, so the source is cut instead of widening the card. The title row takes the spare height, so the time and the source sit at the bottom of every card in a row, whatever the length of the title. */
 .card {
 	display: grid;
 	grid-template-columns: minmax(0, 1fr);
+	grid-template-rows: auto 1fr auto;
 	gap: 12px;
-	align-content: start;
 	min-width: 0;
 	color: inherit;
 	text-decoration: none;
@@ -601,7 +601,7 @@ body:has(.follow-layer.open) .ledger {
 
 .card .art {
 	position: relative;
-	aspect-ratio: 1;
+	aspect-ratio: 3 / 2;
 	border-radius: 10px;
 	overflow: hidden;
 	background: #15151a;
@@ -679,9 +679,49 @@ body.hot-only .card:not(.is-hot) {
 	}
 }
 
-/* Phones: one card per row, so the source fits and the cover is larger. */
+/* Two cards per row on medium screens and one on phones, so titles stay on few lines. */
+@media (max-width: 900px) {
+	.cards {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
 @media (max-width: 560px) {
 	.cards {
 		grid-template-columns: 1fr;
 	}
+}
+
+/* Home link in the top left corner of the section pages: the site name, its letters as far from the top as from the left edge. section.js sets --gutter (the scrollbar space the page reserves on the left), --cap-gap (the empty space above the capitals) and --ink-gap (the space before the first letter). */
+.home-link {
+	position: fixed;
+	top: max(calc(20px - var(--cap-gap, 0px)), env(safe-area-inset-top));
+	left: max(calc(20px - var(--gutter, 0px) - var(--ink-gap, 0px)), env(safe-area-inset-left));
+	z-index: 3;
+	font-family: var(--font-title);
+	font-size: 1rem;
+	line-height: 1;
+	color: var(--ink-muted);
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+.home-link:hover,
+.home-link:focus-visible {
+	color: var(--ink);
+}
+
+/* Chevron as tall as the letters of the link (--text-height, from section.js), its width in proportion; it sits on the baseline like the letters. */
+.home-link svg {
+	height: var(--text-height, 0.72em);
+	width: auto;
+	aspect-ratio: 7 / 12;
+	margin-right: 0.6em;
+	vertical-align: baseline;
+	overflow: visible;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1.5;
+	stroke-linecap: round;
+	stroke-linejoin: round;
 }

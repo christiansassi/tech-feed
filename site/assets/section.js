@@ -246,4 +246,69 @@ function bindFollowing() {
 	});
 }
 
+/**
+ * Place the home link so that its letters sit 20px from the top and 20px from the left edge of the window.
+ *
+ * Fixed elements start after the scrollbar space the page reserves on the left
+ * (`scrollbar-gutter: stable both-edges`), and a text box starts above and
+ * before its letters. This measures both offsets and the height of the letters,
+ * and stores them as CSS variables: `.home-link` subtracts the offsets, and its
+ * chevron takes the height of the letters.
+ *
+ * @returns {void}
+ */
+function placeHomeLink() {
+	const link = document.querySelector(".home-link");
+
+	if (!link) {
+		return;
+	}
+
+	const probe = document.createElement("div");
+
+	probe.style.cssText = "position: fixed; left: 0; top: 0; width: 0; height: 0; visibility: hidden";
+	document.body.append(probe);
+
+	const gutter = probe.getBoundingClientRect().left;
+
+	probe.remove();
+
+	const style = getComputedStyle(link);
+	const context = document.createElement("canvas").getContext("2d");
+
+	// Measured at 1000px and scaled down, since small sizes return whole pixels and the letters would look shorter than they are.
+	context.font = `${style.fontWeight} 1000px ${style.fontFamily}`;
+
+	const size = Number.parseFloat(style.fontSize);
+	const scale = size / 1000;
+	const metrics = context.measureText(link.textContent.trim());
+	const ascent = metrics.fontBoundingBoxAscent * scale;
+	const descent = metrics.fontBoundingBoxDescent * scale;
+	const height = metrics.actualBoundingBoxAscent * scale;
+
+	// With line-height 1 the line box is one font size tall; the font's own ascent and descent are centered in it, and the tallest letter starts below the ascent line.
+	const capGap = (size - ascent - descent) / 2 + ascent - height;
+
+	// The chevron, when present, comes first and its stroke reaches the left edge of its box.
+	const inkGap = link.querySelector("svg") ? 0 : -metrics.actualBoundingBoxLeft * scale;
+
+	link.style.setProperty("--gutter", `${gutter}px`);
+	link.style.setProperty("--cap-gap", `${capGap}px`);
+	link.style.setProperty("--ink-gap", `${inkGap}px`);
+	link.style.setProperty("--text-height", `${height}px`);
+
+	const chevron = link.querySelector("svg");
+
+	// The chevron top is the top of the letters, so its rendered position gives the exact gap above them.
+	if (chevron) {
+		link.style.setProperty("--cap-gap", `${chevron.getBoundingClientRect().top - link.getBoundingClientRect().top}px`);
+	}
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+	placeHomeLink();
+	document.fonts.ready.then(placeHomeLink);
+	window.addEventListener("resize", placeHomeLink);
+});
+
 document.addEventListener("DOMContentLoaded", showUpdated);
