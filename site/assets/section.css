@@ -529,6 +529,12 @@ body:has(.follow-layer.open) .ledger {
 	transform: none;
 }
 
+/* While a card is flipped the filter is off: it fades and does not react. */
+.news-filter.shown:has(+ .cards .flip-card.flipped) {
+	opacity: 0.35;
+	pointer-events: none;
+}
+
 .news-filter[hidden] + .cards {
 	margin-top: 2.6rem;
 }

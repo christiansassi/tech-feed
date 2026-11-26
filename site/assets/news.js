@@ -108,7 +108,7 @@ function newsCard(item, position) {
 	art.append(image);
 	foot.append(element("span", "when", formatMoment(item.date)), source);
 	front.append(art, element("h3", "", item.title), foot);
-	back.append(element("h3", "", item.title), element("p", "intro", intro || "This source gives no intro: open the article to read it."), read);
+	back.append(element("h3", "", item.title), element("p", "intro", intro || ""), read);
 	inner.append(front, back);
 	card.append(inner);
 
@@ -277,7 +277,8 @@ function bindNewsFilter(items) {
 	filter.addEventListener("click", (event) => {
 		const button = event.target.closest("button[data-filter]");
 
-		if (!button || button === active()) {
+		// The filter is off while a card is flipped.
+		if (!button || button === active() || document.querySelector(".flip-card.flipped")) {
 			return;
 		}
 
