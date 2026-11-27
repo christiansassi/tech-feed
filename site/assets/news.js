@@ -422,4 +422,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 			revealFilter(filter, grid);
 		}
 	}
+
+	hideLoader();
 });

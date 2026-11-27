@@ -396,3 +396,16 @@ function toneIcon(image) {
 	// Only a dark, nearly gray icon (mean brightness and chroma out of 255) becomes a silhouette; a dark icon in color would lose its drawing.
 	image.classList.toggle("dark", light / visible < 60 && chroma / visible < 48);
 }
+
+/**
+ * Remove the loading blob once the page has drawn its content.
+ *
+ * @returns {void}
+ */
+function hideLoader() {
+	const loader = document.querySelector(".loader");
+
+	if (loader) {
+		loader.remove();
+	}
+}

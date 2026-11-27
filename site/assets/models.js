@@ -234,4 +234,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 		watchLabNames(container);
 		cascade(container);
 	}
+
+	hideLoader();
 });

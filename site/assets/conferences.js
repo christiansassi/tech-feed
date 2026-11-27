@@ -138,4 +138,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 		renderConferences(container, entries);
 		cascade(container);
 	}
+
+	hideLoader();
 });
