@@ -689,6 +689,7 @@ body:has(.follow-layer.open) .ledger {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	text-align: right;
+	color: var(--ink-muted);
 }
 
 /* The source on the front: its icon, then its name. */
@@ -774,6 +775,34 @@ body.hot-only .flip-card:not(.is-hot) {
 	stroke-width: 1.5;
 	stroke-linecap: round;
 	stroke-linejoin: round;
+}
+
+/* The front of a news card: the cover runs to the edges of the card, and below it the title and the foot sit on the blurred, darkened cover, the same layer as on the back. */
+.flip-card .front {
+	position: relative;
+	overflow: hidden;
+	isolation: isolate;
+	border-radius: 10px;
+	padding-bottom: 12px;
+	background: #0c0c10;
+}
+
+.flip-card .front::before {
+	content: "";
+	position: absolute;
+	inset: -48px;
+	z-index: -1;
+	background: var(--cover, none) center / cover no-repeat;
+	filter: blur(18px) brightness(0.28) saturate(1.2);
+}
+
+.flip-card .front .art {
+	border-radius: 0;
+}
+
+.flip-card .front h3,
+.flip-card .front .foot {
+	padding-inline: 12px;
 }
 
 /* Flip cards: a click turns the card to its back, which shows the intro over the blurred, darkened cover and the link to the article. */

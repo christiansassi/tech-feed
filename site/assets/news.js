@@ -115,7 +115,8 @@ function newsCard(item, position) {
 	image.addEventListener("load", () => image.classList.add("ready"), {once: true});
 	coverUrl(item.url).then((url) => {
 		image.src = url;
-		back.style.setProperty("--cover", `url(${url})`);
+		// Both faces draw the blurred cover from this property.
+		card.style.setProperty("--cover", `url(${url})`);
 	}).catch((error) => console.warn("Cover not drawn:", error));
 
 	art.append(image);
