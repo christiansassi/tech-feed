@@ -3,31 +3,28 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Tech Feed</title>
+	<title>Not found | Tech Feed</title>
 	<meta name="robots" content="noindex">
-	<meta http-equiv="refresh" content="0; url=/tech-feed/">
-	<link rel="canonical" href="https://christiansassi.github.io/tech-feed/">
-	<style>
-		body {
-			margin: 0;
-			min-height: 100vh;
-			display: grid;
-			place-items: center;
-			background: #050507;
-			color: #f3efe6;
-			font-family: ui-monospace, Menlo, Consolas, monospace;
-		}
-
-		a {
-			color: inherit;
-		}
-	</style>
-	<script>
-		/** Send every missing path back to the Tech Feed landing page. */
-		location.replace("/tech-feed/");
-	</script>
+	<!-- GitHub Pages serves this page at any missing path, so every link and asset is absolute. -->
+	<link rel="icon" href="/tech-feed/assets/favicon.svg" type="image/svg+xml">
+	<link rel="icon" href="/tech-feed/assets/favicon.ico" sizes="16x16 32x32 48x48">
+	<link rel="apple-touch-icon" href="/tech-feed/assets/apple-touch-icon.png">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk&family=Instrument+Sans&display=swap">
+	<link rel="stylesheet" href="/tech-feed/assets/landing.css">
+	<link rel="stylesheet" href="/tech-feed/assets/section.css">
 </head>
 <body>
-	<p>Redirecting to <a href="/tech-feed/">Tech Feed</a>.</p>
+	<canvas class="field" data-shader="field-culture" data-bands="0" aria-hidden="true"></canvas>
+	<div class="veil" aria-hidden="true"></div>
+
+	<a class="home-link" href="/tech-feed/"><svg viewBox="0 0 7 12" aria-hidden="true"><path d="M6 1 1 6l5 5"/></svg>Tech Feed</a>
+
+	<div class="empty"><span class="empty-label">Ahead of us</span><p class="empty-text">Whatever you hoped to find, we haven't thought of it yet. Keep that thought.</p></div>
+
+	<script src="/tech-feed/assets/field.js"></script>
+	<script src="/tech-feed/assets/landing.js"></script>
+	<script src="/tech-feed/assets/section.js"></script>
 </body>
 </html>
