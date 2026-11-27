@@ -520,6 +520,11 @@ body:has(.follow-layer.open) .ledger {
 	color: var(--ink);
 }
 
+/* A chip that opens a home page shows the hand cursor, as the cards do. */
+a.chip {
+	cursor: pointer;
+}
+
 .chip:hover .icon,
 .chip:focus-visible .icon {
 	filter: none;
