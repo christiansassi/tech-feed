@@ -129,8 +129,15 @@ nav.toc a {
 	transition: opacity 0.25s ease;
 }
 
-nav.toc:has(a:hover, a:focus-visible) a:not(:hover, :focus-visible) {
+/* Pointer hover dims the other links only where a pointer can hover; keyboard focus does it everywhere. */
+nav.toc:has(a:focus-visible) a:not(:focus-visible) {
 	opacity: 0.3;
+}
+
+@media (hover: hover) {
+	nav.toc:has(a:hover, a:focus-visible) a:not(:hover, :focus-visible) {
+		opacity: 0.3;
+	}
 }
 
 nav.toc a[aria-disabled="true"] {
@@ -159,9 +166,14 @@ nav.toc a[aria-disabled="true"] .dots {
 	height: 100%;
 }
 
-.repo:hover,
 .repo:focus-visible {
 	color: var(--ink);
+}
+
+@media (hover: hover) {
+	.repo:hover {
+		color: var(--ink);
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {

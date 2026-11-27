@@ -72,10 +72,16 @@ body {
 	transition: color 0.2s ease, background-size 0.3s ease;
 }
 
-.meta a:hover,
 .meta a:focus-visible {
 	color: var(--ink);
 	background-size: 100% 1px;
+}
+
+@media (hover: hover) {
+	.meta a:hover {
+		color: var(--ink);
+		background-size: 100% 1px;
+	}
 }
 
 .month {
@@ -112,8 +118,10 @@ body {
 	transition: opacity 0.25s ease;
 }
 
-.months:has(.row:hover) .row:not(:hover) {
-	opacity: 0.3;
+@media (hover: hover) {
+	.months:has(.row:hover) .row:not(:hover) {
+		opacity: 0.3;
+	}
 }
 
 .row .icon {
@@ -365,11 +373,17 @@ body {
 	transition: color 0.2s ease, background-size 0.3s ease;
 }
 
-.meta button:hover,
 .meta button:focus-visible,
 .meta button[aria-expanded="true"] {
 	color: var(--ink);
 	background-size: 100% 1px;
+}
+
+@media (hover: hover) {
+	.meta button:hover {
+		color: var(--ink);
+		background-size: 100% 1px;
+	}
 }
 
 /* Following layer: covers the page with the same box as the ledger, so its title sits exactly where the page title is, the note where the update line is and the chips where the list starts. */
@@ -443,10 +457,16 @@ body:has(.follow-layer.open) .ledger {
 	transition: color 0.2s ease, background-size 0.3s ease;
 }
 
-.follow-layer .note a:hover,
 .follow-layer .note a:focus-visible {
 	color: var(--ink);
 	background-size: 100% 1px;
+}
+
+@media (hover: hover) {
+	.follow-layer .note a:hover {
+		color: var(--ink);
+		background-size: 100% 1px;
+	}
 }
 
 /* Followed labs in full color with an outline, the others faded. */
@@ -510,14 +530,22 @@ body:has(.follow-layer.open) .ledger {
 }
 
 /* Hovering a chip lights it up, also one that is not followed, and dims the others, as the rows and cards do; a chip opens the home page of its lab, source or conference. */
-.chips:has(.chip:hover) .chip:not(:hover) {
-	opacity: 0.3;
+@media (hover: hover) {
+	.chips:has(.chip:hover) .chip:not(:hover) {
+		opacity: 0.3;
+	}
 }
 
-.chip:hover,
 .chip:focus-visible {
 	border-color: rgba(243, 239, 230, 0.22);
 	color: var(--ink);
+}
+
+@media (hover: hover) {
+	.chip:hover {
+		border-color: rgba(243, 239, 230, 0.22);
+		color: var(--ink);
+	}
 }
 
 /* A chip that opens a home page shows the hand cursor, as the cards do. */
@@ -525,10 +553,16 @@ a.chip {
 	cursor: pointer;
 }
 
-.chip:hover .icon,
 .chip:focus-visible .icon {
 	filter: none;
 	opacity: 1;
+}
+
+@media (hover: hover) {
+	.chip:hover .icon {
+		filter: none;
+		opacity: 1;
+	}
 }
 
 /* Chips enter in a short cascade each time the layer opens. */
@@ -611,9 +645,14 @@ a.chip {
 	transition: color 0.25s ease;
 }
 
-.news-filter button:hover,
 .news-filter button:focus-visible {
 	color: var(--ink);
+}
+
+@media (hover: hover) {
+	.news-filter button:hover {
+		color: var(--ink);
+	}
 }
 
 .news-filter button[aria-pressed="true"] {
@@ -656,8 +695,10 @@ a.chip {
 	transition: opacity 0.25s ease;
 }
 
-.cards:has(.card:hover) .card:not(:hover) {
-	opacity: 0.3;
+@media (hover: hover) {
+	.cards:has(.card:hover) .card:not(:hover) {
+		opacity: 0.3;
+	}
 }
 
 .card .art {
@@ -789,9 +830,14 @@ body.hot-only .flip-card:not(.is-hot) {
 	transition: color 0.2s ease;
 }
 
-.home-link:hover,
 .home-link:focus-visible {
 	color: var(--ink);
+}
+
+@media (hover: hover) {
+	.home-link:hover {
+		color: var(--ink);
+	}
 }
 
 /* Chevron as tall as the letters of the link (--text-height, from section.js), its width in proportion; it sits on the baseline like the letters. */
@@ -931,9 +977,14 @@ body.hot-only .flip-card:not(.is-hot) {
 	transition: background-size 0.3s ease;
 }
 
-.flip-card .back .read:hover,
 .flip-card .back .read:focus-visible {
 	background-size: 100% 1px;
+}
+
+@media (hover: hover) {
+	.flip-card .back .read:hover {
+		background-size: 100% 1px;
+	}
 }
 
 /* While a card is flipped, the others stay dimmed as on hover; hovering one lights it up, and the flipped card stays lit. */
@@ -941,9 +992,14 @@ body.hot-only .flip-card:not(.is-hot) {
 	opacity: 0.3;
 }
 
-.cards:has(.flip-card.flipped) .flip-card:not(.flipped) .card:hover,
 .cards:has(.flip-card.flipped) .flip-card.flipped .card {
 	opacity: 1;
+}
+
+@media (hover: hover) {
+	.cards:has(.flip-card.flipped) .flip-card:not(.flipped) .card:hover {
+		opacity: 1;
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
