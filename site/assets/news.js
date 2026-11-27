@@ -269,7 +269,7 @@ function renderNews(grid, items) {
  * Return the chips of the Following layer: one per publisher, all followed.
  *
  * @param {?object} index Parsed `index.json`, or null when it could not be read.
- * @returns {?Array<{label: string, on: boolean, icon: ?Node}>} One entry per publisher, with its icon when there is one, or null without an index.
+ * @returns {?Array<{label: string, on: boolean, icon: ?Node, url: ?string}>} One entry per publisher, with its icon when there is one and its home page, or null without an index.
  */
 function sourceEntries(index) {
 	if (index !== null && typeof index !== "object") {
@@ -280,9 +280,12 @@ function sourceEntries(index) {
 		return null;
 	}
 
-	const labels = [...new Set(index.sources.map((source) => source.label).filter((label) => typeof label === "string"))];
+	// One chip per publisher; a publisher with several feeds links to the home page of its first one.
+	const homes = new Map();
 
-	return labels.map((label) => ({label, on: true, icon: SOURCE_ICONS.has(label) ? faviconIcon(SOURCE_ICONS.get(label)) : null}));
+	index.sources.forEach((source) => typeof source.label === "string" && !homes.has(source.label) && homes.set(source.label, typeof source.home === "string" && source.home ? source.home : null));
+
+	return [...homes].map(([label, url]) => ({label, on: true, icon: SOURCE_ICONS.has(label) ? faviconIcon(SOURCE_ICONS.get(label)) : null, url}));
 }
 
 /**

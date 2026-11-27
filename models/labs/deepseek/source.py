@@ -56,6 +56,9 @@ def latest_news(client: primp.Client, source: Source) -> str:
 
 	return fetch_html(client, Source("html", newest))
 
+# Home page linked from the Labs list; the sources are only APIs and documentation.
+HOME = "https://www.deepseek.com/"
+
 LABEL = "DeepSeek"
 
 SOURCES = [

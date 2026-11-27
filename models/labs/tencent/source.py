@@ -60,6 +60,9 @@ def extract_posts(content: dict, source_url: str) -> list[dict]:
 
 	return newest_first(items)
 
+# Home page linked from the Labs list; the sources are only APIs and documentation.
+HOME = "https://hunyuan.tencent.com/"
+
 LABEL = "Tencent"
 
 SOURCES = [

@@ -177,6 +177,9 @@ def write_json(path: Path, text: str) -> None:
 	path.parent.mkdir(parents=True, exist_ok=True)
 	path.write_text(text + "\n", encoding="utf-8", newline="\n")
 
+# Home page of each conference, linked from the Following list.
+HOMES = {conference.slug: conference.home or conference.url for conference in CONFERENCES}
+
 def build(out_dir: Path, workers: int) -> list[dict]:
 	"""Fetch every conference in parallel and write the raw files and the index.
 
@@ -201,9 +204,9 @@ def build(out_dir: Path, workers: int) -> list[dict]:
 	for document in documents:
 		slug = document["slug"]
 		write_json(root / slug / "raw" / "page.json", to_json(document))
-		entries.append({"slug": slug, "label": document["label"], "raw": f"{slug}/raw/page.json", "site": f"{slug}/site/latest.json", "status": document["status"], "error": document["error"], "tickets": (document["tickets"] or {}).get("url")})
+		entries.append({"slug": slug, "label": document["label"], "raw": f"{slug}/raw/page.json", "site": f"{slug}/site/latest.json", "status": document["status"], "error": document["error"], "tickets": (document["tickets"] or {}).get("url"), "home": HOMES[slug]})
 
-	write_json(root / "index.json", to_json({"generated_at": utc_now(), "conferences": entries, "untracked": [{"label": label} for label in UNTRACKED]}))
+	write_json(root / "index.json", to_json({"generated_at": utc_now(), "conferences": entries, "untracked": [{"label": label, "home": home} for label, home in UNTRACKED]}))
 
 	return entries
 

@@ -155,7 +155,7 @@ function renderModels(container, entries) {
  * scraper is in the repository but whose data is not built.
  *
  * @param {?object} index Parsed `index.json`, or null when it could not be read.
- * @returns {?Array<{label: string, on: boolean, icon: Node}>} One entry per lab, or null without an index.
+ * @returns {?Array<{label: string, on: boolean, icon: Node, url: ?string}>} One entry per lab with its home page, or null without an index.
  */
 function labEntries(index) {
 	if (index !== null && typeof index !== "object") {
@@ -167,7 +167,7 @@ function labEntries(index) {
 	}
 
 	const others = Array.isArray(index.untracked) ? index.untracked : [];
-	const chip = (on) => (lab) => ({label: lab.label, on, icon: labIcon(lab.slug)});
+	const chip = (on) => (lab) => ({label: lab.label, on, icon: labIcon(lab.slug), url: typeof lab.home === "string" ? lab.home : null});
 
 	return index.labs.map(chip(true)).concat(others.map(chip(false)));
 }

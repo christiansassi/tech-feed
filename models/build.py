@@ -21,6 +21,7 @@ import os
 import sys
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+from urllib.parse import parse_qs, urlsplit
 
 from models.common.items import LEVELS
 from models.common.runner import at_document_level, run_lab, to_json, utc_now
@@ -58,6 +59,38 @@ def lab_label(lab: str) -> str:
 	require_type("lab", lab, str)
 
 	return importlib.import_module(f"models.labs.{lab}.source").LABEL
+
+def lab_home(lab: str) -> str:
+	"""Return the home page of a lab, linked from the Labs list.
+
+	A lab can set ``HOME`` in its ``source.py``. Otherwise the home is the site of
+	its first source that is not an API, a documentation site or Hugging Face,
+	and with none of those, its organization page on Hugging Face.
+
+	Args:
+		lab (str): Lab folder name.
+
+	Returns:
+		str: URL such as ``https://www.anthropic.com/``.
+	"""
+
+	require_type("lab", lab, str)
+
+	module = importlib.import_module(f"models.labs.{lab}.source")
+
+	if getattr(module, "HOME", None):
+		return module.HOME
+
+	urls = [urlsplit(source.url) for source in module.SOURCES]
+
+	for url in urls:
+
+		if url.hostname != "huggingface.co" and not url.hostname.startswith(("api.", "api-docs.", "docs.")):
+			return f"{url.scheme}://{url.hostname}/"
+
+	authors = [parse_qs(url.query).get("author", [""])[0] for url in urls if url.hostname == "huggingface.co"]
+
+	return f"https://huggingface.co/{authors[0]}" if authors and authors[0] else f"{urls[0].scheme}://{urls[0].hostname}/"
 
 def build_lab(lab: str) -> dict:
 	"""Import a lab's ``source.py`` and run its sources with its ``LABEL``.
@@ -148,8 +181,8 @@ def build(out_dir: Path, labs: list[str], workers: int) -> list[dict]:
 		if DEFAULT_LEVEL:
 			write_json(lab_dir / "index.json", to_json(at_document_level(document, DEFAULT_LEVEL)))
 
-	entries = [summary_entry(document) for document in documents]
-	untracked = [{"slug": lab, "label": lab_label(lab)} for lab in discover_labs() if lab not in TRACKED]
+	entries = [dict(summary_entry(document), home=lab_home(document["slug"])) for document in documents]
+	untracked = [{"slug": lab, "label": lab_label(lab), "home": lab_home(lab)} for lab in discover_labs() if lab not in TRACKED]
 
 	write_json(models_dir / "index.json", to_json({"generated_at": utc_now(), "labs": entries, "untracked": untracked}))
 

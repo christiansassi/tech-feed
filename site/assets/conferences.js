@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 	// Only conferences with an upcoming edition have an icon; the chips of the others show the name alone.
 	const icons = new Map(entries.filter((entry) => entry.icon).map((entry) => [entry.label, entry.icon]));
-	const chip = (on) => ({label}) => ({label, on, icon: on && icons.has(label) ? faviconIcon(icons.get(label)) : null});
+	const chip = (on) => ({label, home}) => ({label, on, icon: on && icons.has(label) ? faviconIcon(icons.get(label)) : null, url: typeof home === "string" ? home : null});
 
 	// Conferences left out on purpose (suspended, or a site that cannot be read) are listed as not followed.
 	const followed = index && Array.isArray(index.conferences) ? index.conferences.map(chip(true)).concat(others.map(chip(false))) : null;

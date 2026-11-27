@@ -15,8 +15,10 @@ Usage: ``python -m news.build [--out _site] [--workers 8]``
 import argparse
 import os
 import sys
+from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
+from urllib.parse import urlsplit
 
 from models.common.runner import run_lab, to_json, utc_now
 from models.common.validation import require_positive_number, require_text, require_type
@@ -59,6 +61,27 @@ def write_json(path: Path, text: str) -> None:
 	path.parent.mkdir(parents=True, exist_ok=True)
 	path.write_text(text + "\n", encoding="utf-8", newline="\n")
 
+def home_of(result: dict) -> str:
+	"""Return the home page of a news source: the host most of its articles live on, or else the host of its feed.
+
+	A feed is often served from another host (FeedBurner, a CDN), so the
+	articles say better where the site of the source is.
+
+	Args:
+		result (dict): Output of ``read_source``, with ``url`` and ``items``.
+
+	Returns:
+		str: URL such as ``https://thehackernews.com/``.
+	"""
+
+	require_type("result", result, dict)
+
+	hosts = Counter(urlsplit(item["url"]).hostname for item in result["items"] if item.get("url"))
+	hosts.pop(None, None)
+	host = hosts.most_common(1)[0][0] if hosts else urlsplit(result["url"] or "").hostname
+
+	return f"https://{host}/" if host else ""
+
 def collect(workers: int) -> dict:
 	"""Read every source in parallel and return the items of the last ``WINDOW_HOURS`` with the status of each source.
 
@@ -66,7 +89,7 @@ def collect(workers: int) -> dict:
 		workers (int): Maximum number of sources fetched at the same time.
 
 	Returns:
-		dict: ``generated_at``, ``items`` (newest first, each with its source ``slug`` as ``source`` and its publisher ``label``) and ``sources`` (one index entry per source).
+		dict: ``generated_at``, ``items`` (newest first, each with its source ``slug`` as ``source`` and its publisher ``label``) and ``sources`` (one index entry per source, with its ``home`` page).
 	"""
 
 	require_type("workers", workers, int)
@@ -85,7 +108,7 @@ def collect(workers: int) -> dict:
 		undated = sum(1 for item in result["items"] if not isinstance(item["date"], int))
 
 		items.extend({"source": result["slug"], "label": result["label"], **item} for item in recent)
-		entries.append({key: result[key] for key in ("slug", "label", "url", "type", "status", "error")} | {"items": len(result["items"]), "recent": len(recent), "undated": undated})
+		entries.append({key: result[key] for key in ("slug", "label", "url", "type", "status", "error")} | {"home": home_of(result), "items": len(result["items"]), "recent": len(recent), "undated": undated})
 
 	items.sort(key=lambda item: item["date"], reverse=True)
 

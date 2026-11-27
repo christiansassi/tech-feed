@@ -150,7 +150,7 @@ async function showUpdated() {
  * followed by `noun`. With no entries (the index could not be read) the
  * "Following" part of the update line is removed instead.
  *
- * @param {?Array<{label: string, on: boolean, icon: ?Node}>} entries Chips to show, or null when the index is missing.
+ * @param {?Array<{label: string, on: boolean, icon: ?Node, url: ?string}>} entries Chips to show, each linking to its home page when it has a `url`, or null when the index is missing.
  * @param {string} noun Plural word after the count, such as "labs".
  * @returns {void}
  */
@@ -176,7 +176,14 @@ function renderFollowing(entries, noun) {
 	const sorted = entries.slice().sort((a, b) => a.label.localeCompare(b.label, "en", {sensitivity: "base"}));
 
 	sorted.forEach((entry, position) => {
-		const chip = element("span", entry.on ? "chip on" : "chip");
+		const chip = element(entry.url ? "a" : "span", entry.on ? "chip on" : "chip");
+
+		// A chip with a home page links to it in a new tab, as every external link of the site.
+		if (entry.url) {
+			chip.href = entry.url;
+			chip.target = "_blank";
+			chip.rel = "noopener";
+		}
 
 		chip.style.setProperty("--k", position);
 

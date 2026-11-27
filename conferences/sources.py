@@ -20,6 +20,7 @@ class Conference:
 		url (str): Page fetched every hour.
 		note (str | None): Hint for the analysis, such as which edition to report.
 		tickets (str | None): Ticket page to read when the fetched page does not link to it.
+		home (str | None): Home page linked from the site when ``url`` is not one (a calendar feed, a data file); None means ``url``.
 	"""
 
 	slug: str
@@ -27,6 +28,7 @@ class Conference:
 	url: str
 	note: str | None = None
 	tickets: str | None = None
+	home: str | None = None
 
 CONFERENCES = [
 	Conference("area41", "AREA41", "https://area41.io/"),
@@ -63,7 +65,7 @@ CONFERENCES = [
 	Conference("fwd-cloudsec-eu", "fwd:cloudsec Europe", "https://fwdcloudsec.org/", "Report only the Europe edition, not North America."),
 	Conference("fwd-cloudsec-na", "fwd:cloudsec North America", "https://fwdcloudsec.org/", "Report only the North America edition, not Europe."),
 	Conference("grehack", "GreHack", "https://grehack.fr/"),
-	Conference("hackinbo", "HackInBo", "https://tickets.hackinbo.it/events/ical/?locale=en", "The page is a calendar feed. The Business and Classic editions on consecutive days form one edition: report both days.", "https://tickets.hackinbo.it/"),
+	Conference("hackinbo", "HackInBo", "https://tickets.hackinbo.it/events/ical/?locale=en", "The page is a calendar feed. The Business and Classic editions on consecutive days form one edition: report both days.", "https://tickets.hackinbo.it/", home="https://www.hackinbo.it/"),
 	Conference("hacklu", "Hack.lu", "https://hack.lu/"),
 	Conference("hacktivity", "Hacktivity", "https://hacktivity.com/"),
 	Conference("hardwear-io", "hardwear.io Netherlands", "https://hardwear.io/", "Report only the Netherlands edition, not the USA one."),
@@ -83,8 +85,8 @@ CONFERENCES = [
 	Conference("nullcon-goa", "Nullcon Goa", "https://nullcon.net/", "Report only the Goa edition, not Berlin."),
 	Conference("offensivecon", "OffensiveCon", "https://www.offensivecon.org/", "Report only the Berlin edition, not Tokyo."),
 	Conference("one-conference", "ONE Conference", "https://one-conference.nl/"),
-	Conference("owasp-appsec-eu", "OWASP Global AppSec EU", "https://owasp.org/assets/sitedata/events.yml", "The page lists every OWASP event: report only Global AppSec EU. Its listed range covers three training days followed by two conference days: report only the last two days."),
-	Conference("owasp-appsec-us", "OWASP Global AppSec USA", "https://owasp.org/assets/sitedata/events.yml", "The page lists every OWASP event: report only Global AppSec USA. Its listed range covers three training days followed by two conference days: report only the last two days."),
+	Conference("owasp-appsec-eu", "OWASP Global AppSec EU", "https://owasp.org/assets/sitedata/events.yml", "The page lists every OWASP event: report only Global AppSec EU. Its listed range covers three training days followed by two conference days: report only the last two days.", home="https://owasp.org/events/"),
+	Conference("owasp-appsec-us", "OWASP Global AppSec USA", "https://owasp.org/assets/sitedata/events.yml", "The page lists every OWASP event: report only Global AppSec USA. Its listed range covers three training days followed by two conference days: report only the last two days.", home="https://owasp.org/events/"),
 	Conference("pass-the-salt", "Pass the SALT", "https://www.pass-the-salt.org/"),
 	Conference("poc", "POC", "https://powerofcommunity.net/"),
 	Conference("rootedcon", "RootedCON", "https://rootedcon.com/", "Report only RootedCON Madrid."),
@@ -101,23 +103,23 @@ CONFERENCES = [
 	Conference("x33fcon", "x33fcon", "https://www.x33fcon.com/conference.md"),
 ]
 
-# Conferences left out on purpose, shown as not followed so nobody asks for them in an issue.
+# Conferences left out on purpose, with their home page, shown as not followed so nobody asks for them in an issue.
 UNTRACKED = [
-	"Black Hat Europe",  # The site sits behind Cloudflare and answers 403.
-	"Black Hat USA",  # Same site as Black Hat Europe: Cloudflare often answers 403.
-	"BSides Barcelona",  # The dates are only in the JavaScript of the page, not in its HTML.
-	"BSides Las Vegas",  # The page is built by JavaScript and has no dates in its HTML.
-	"BSides SF",  # The page is built by JavaScript and has no dates in its HTML.
-	"BSides Zürich",  # No conference since 2024, only meetups.
-	"HITB Amsterdam",  # No Amsterdam edition since 2023.
-	"HITB SecConf",  # The site answers 503 behind a bot filter.
-	"LABScon",  # The site answers 429 to automated requests.
-	"Objective by the Sea",  # The page is built by JavaScript and has no dates in its HTML.
-	"Paranoia Oslo",  # The domain is gone; the last edition was in 2023.
-	"REcon",  # The page is built by JavaScript and has no dates in its HTML.
-	"RomHack",  # The conference is suspended indefinitely.
-	"SecTor",  # Same site as Black Hat Europe: Cloudflare often answers 403.
-	"TyphoonCon",  # The home page gives no dates.
-	"Wild West Hackin' Fest",  # The home page gives no dates.
-	"x33fcon",  # The page is built by JavaScript and has no text in its HTML.
+	("Black Hat Europe", "https://www.blackhat.com/"),  # The site sits behind Cloudflare and answers 403.
+	("Black Hat USA", "https://www.blackhat.com/"),  # Same site as Black Hat Europe: Cloudflare often answers 403.
+	("BSides Barcelona", "https://bsides.barcelona/"),  # The dates are only in the JavaScript of the page, not in its HTML.
+	("BSides Las Vegas", "https://bsideslv.org/"),  # The page is built by JavaScript and has no dates in its HTML.
+	("BSides SF", "https://bsidessf.org/"),  # The page is built by JavaScript and has no dates in its HTML.
+	("BSides Zürich", "https://bsideszh.ch/"),  # No conference since 2024, only meetups.
+	("HITB Amsterdam", "https://conference.hitb.org/"),  # No Amsterdam edition since 2023.
+	("HITB SecConf", "https://conference.hitb.org/"),  # The site answers 503 behind a bot filter.
+	("LABScon", "https://www.labscon.io/"),  # The site answers 429 to automated requests.
+	("Objective by the Sea", "https://objectivebythesea.org/"),  # The page is built by JavaScript and has no dates in its HTML.
+	("Paranoia Oslo", None),  # The domain is gone; the last edition was in 2023.
+	("REcon", "https://recon.cx/"),  # The page is built by JavaScript and has no dates in its HTML.
+	("RomHack", "https://romhack.io/"),  # The conference is suspended indefinitely.
+	("SecTor", "https://www.blackhat.com/sector/"),  # Same site as Black Hat Europe: Cloudflare often answers 403.
+	("TyphoonCon", "https://typhooncon.com/"),  # The home page gives no dates.
+	("Wild West Hackin' Fest", "https://wildwesthackinfest.com/"),  # The home page gives no dates.
+	("x33fcon", "https://www.x33fcon.com/"),  # The page is built by JavaScript and has no text in its HTML.
 ]
