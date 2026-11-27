@@ -2,7 +2,8 @@
 
 For each source in ``news/sources.py``, fetch it with the shared source runner,
 keep the items dated within ``WINDOW_HOURS`` and write them, newest first, to
-``<out>/news/raw/latest.json``. The Raspberry updater calls ``build`` with its
+``<out>/news/raw/latest.json`` (``medium`` level: no body) and
+``<out>/news/raw/full.json`` (``full`` level: with the body, when the feed gives one). The Raspberry updater calls ``build`` with its
 site folder every hour, then filters the items with Codex. ``<out>/news/index.json`` lists every source
 with its fetch status and item counts, the raw file and the site file
 (``site/latest.json``, written by the Raspberry updater after the Codex filters).
@@ -27,7 +28,7 @@ DEFAULT_WORKERS = 8
 WINDOW_HOURS = 48
 
 def read_source(news_source: NewsSource) -> dict:
-	"""Fetch one news source and return its status and its items at the ``medium`` level.
+	"""Fetch one news source and return its status and its items at the ``full`` level.
 
 	Args:
 		news_source (NewsSource): Source to read.
@@ -39,9 +40,7 @@ def read_source(news_source: NewsSource) -> dict:
 	require_type("news_source", news_source, NewsSource)
 
 	entry = run_lab(news_source.slug, news_source.label, [news_source.source])["sources"][0]
-	items = [{key: value for key, value in item.items() if key != "body"} for item in entry["items"]]
-
-	return {"slug": news_source.slug, "label": news_source.label, "url": entry["url"], "type": entry["type"], "status": entry["status"], "error": entry["error"], "items": items}
+	return {"slug": news_source.slug, "label": news_source.label, "url": entry["url"], "type": entry["type"], "status": entry["status"], "error": entry["error"], "items": entry["items"]}
 
 def write_json(path: Path, text: str) -> None:
 	"""Write JSON text to ``path``, creating parent folders.
@@ -100,7 +99,7 @@ def build(out_dir: Path, workers: int) -> dict:
 		workers (int): Maximum number of sources fetched at the same time.
 
 	Returns:
-		dict: The collected document from ``collect``.
+		dict: The collected document from ``collect``, whose items keep their ``body``.
 	"""
 
 	require_type("out_dir", out_dir, Path)
@@ -108,7 +107,10 @@ def build(out_dir: Path, workers: int) -> dict:
 	document = collect(workers)
 	news_dir = out_dir / "news"
 
-	write_json(news_dir / "raw" / "latest.json", to_json({"generated_at": document["generated_at"], "window_hours": WINDOW_HOURS, "items": document["items"]}))
+	medium = [{key: value for key, value in item.items() if key != "body"} for item in document["items"]]
+
+	write_json(news_dir / "raw" / "latest.json", to_json({"generated_at": document["generated_at"], "window_hours": WINDOW_HOURS, "items": medium}))
+	write_json(news_dir / "raw" / "full.json", to_json({"generated_at": document["generated_at"], "window_hours": WINDOW_HOURS, "items": document["items"]}))
 	write_json(news_dir / "index.json", to_json({"generated_at": document["generated_at"], "raw": "raw/latest.json", "site": "site/latest.json", "sources": document["sources"]}))
 
 	return document
