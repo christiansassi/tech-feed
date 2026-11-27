@@ -767,10 +767,12 @@ body.hot-only .flip-card:not(.is-hot) {
 	-webkit-backface-visibility: hidden;
 }
 
+/* The back never makes the card taller than its front; the intro takes the height left between the title and the link. */
 .flip-card .back {
 	position: relative;
+	contain: size;
 	display: grid;
-	grid-template-rows: auto 1fr auto;
+	grid-template-rows: auto minmax(0, 1fr) auto;
 	gap: 10px;
 	padding: 16px;
 	border-radius: 10px;
@@ -811,7 +813,6 @@ body.hot-only .flip-card:not(.is-hot) {
 	line-height: 1.5;
 	color: rgba(243, 239, 230, 0.82);
 	display: -webkit-box;
-	-webkit-line-clamp: 7;
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 }

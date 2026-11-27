@@ -54,11 +54,19 @@ async function loadNews(index) {
 /**
  * Return the intro of an item when it says something, or null; feeds such as Hacker News only give "Comments".
  *
+ * Feeds often cut their summary in the middle of a sentence; such a summary gets an ellipsis at the end.
+ *
  * @param {*} summary Intro text from the site file.
- * @returns {?string} Trimmed intro of at least 40 characters, or null.
+ * @returns {?string} Trimmed intro of at least 40 characters, ending with an ellipsis when it was cut, or null.
  */
 function usableIntro(summary) {
-	return typeof summary === "string" && summary.trim().length >= 40 ? summary.trim() : null;
+	const text = typeof summary === "string" ? summary.trim() : "";
+
+	if (text.length < 40) {
+		return null;
+	}
+
+	return /[.!?…"'”’)\]]$/.test(text) ? text : `${text}…`;
 }
 
 /**
@@ -132,6 +140,35 @@ function setFlipped(card, flipped) {
 
 	card.classList.toggle("flipped", flipped);
 	card.setAttribute("aria-pressed", String(flipped));
+
+	if (flipped) {
+		fitIntro(card);
+	}
+}
+
+/**
+ * Clamp the intro on the back of a card to the whole lines that fit above the link, so the last visible line ends with an ellipsis.
+ *
+ * @param {HTMLElement} card A `.flip-card`.
+ * @returns {void}
+ */
+function fitIntro(card) {
+	requireInstance("card", card, HTMLElement);
+
+	const intro = card.querySelector(".back .intro");
+
+	if (!intro) {
+		return;
+	}
+
+	// The intro is stretched to the free height; without a max height Chrome still paints the lines past the clamp.
+	intro.style.maxHeight = "";
+
+	const lineHeight = parseFloat(getComputedStyle(intro).lineHeight);
+	const lines = Math.max(0, Math.floor(intro.clientHeight / lineHeight));
+
+	intro.style.webkitLineClamp = String(lines);
+	intro.style.maxHeight = `${lines * lineHeight}px`;
 }
 
 /**
@@ -178,6 +215,9 @@ function bindFlips(grid) {
 			grid.querySelectorAll(".flip-card.flipped").forEach((card) => setFlipped(card, false));
 		}
 	});
+
+	// A narrower or wider card wraps the intro differently, so the clamp of a flipped card is measured again.
+	window.addEventListener("resize", () => grid.querySelectorAll(".flip-card.flipped").forEach(fitIntro));
 
 	// A click anywhere outside the cards turns every card back.
 	document.addEventListener("click", (event) => {

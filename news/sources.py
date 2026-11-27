@@ -104,8 +104,8 @@ def extract_discussion(content: dict, source_url: str) -> list[dict]:
 	targets = {text_of(entry.get("comments")): text_of(entry.get("link")) for entry in entries if text_of(entry.get("comments"))}
 	channel["item"] = [dict(entry, link=text_of(entry.get("comments")) or entry.get("link")) for entry in entries]
 
-	# The article link stays as ``target``, so the filters can tell what the item is about.
-	return [dict(entry, target=targets.get(entry["url"])) for entry in extract_feed({"rss": {"channel": channel}}, source_url)]
+	# The article link stays as ``target``, so the filters can tell what the item is about. The feed summary only lists the links and the points, so it is not an intro.
+	return [dict(entry, target=targets.get(entry["url"]), summary=None) for entry in extract_feed({"rss": {"channel": channel}}, source_url)]
 
 def extract_msrc(content: dict, source_url: str) -> list[dict]:
 	"""Turn the MSRC blog search API response into items, leaving out the posts in Japanese.
