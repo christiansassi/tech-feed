@@ -47,7 +47,7 @@ function formatDays(start, end) {
  * Load the upcoming editions of every conference that has a site file.
  *
  * @param {?object} index Parsed `index.json`, or null when it could not be read.
- * @returns {Promise<Array<{label: string, edition: {start: number, end: number, place: ?string, url: ?string, tickets: {status: string, url: ?string}}}>>} One entry per edition that has not ended, soonest first.
+ * @returns {Promise<Array<{label: string, icon: ?string, edition: {start: number, end: number, place: ?string, url: ?string, tickets: {status: string, url: ?string}}}>>} One entry per edition that has not ended, soonest first.
  */
 async function loadConferences(index) {
 	if (index !== null && typeof index !== "object") {
@@ -61,10 +61,90 @@ async function loadConferences(index) {
 	const files = await Promise.all(index.conferences.map((conference) => getJson(conference.site)));
 	const today = Math.floor(Date.now() / 1000 / DAY_SECONDS) * DAY_SECONDS;
 
+	// The icon file sits next to the site file of its conference.
+	const iconOf = (file, position) => (typeof file.icon === "string" ? index.conferences[position].site.replace(/[^/]*$/, file.icon) : null);
+
 	return files
-		.filter((file) => file && file.edition && Number.isInteger(file.edition.end) && file.edition.end >= today)
-		.map((file) => ({label: file.label, edition: file.edition}))
+		.map((file, position) => (file && file.edition && Number.isInteger(file.edition.end) && file.edition.end >= today ? {label: file.label, icon: iconOf(file, position), edition: file.edition} : null))
+		.filter(Boolean)
 		.sort((a, b) => a.edition.start - b.edition.start);
+}
+
+/**
+ * Create the icon slot of a conference row: the same square as the lab icons on Models, empty when the conference has no icon.
+ *
+ * @param {?string} src Path of the icon file, relative to the page, or null.
+ * @returns {HTMLSpanElement} Icon element.
+ */
+function conferenceIcon(src) {
+	if (src !== null && typeof src !== "string") {
+		throw new TypeError("src must be a string or null");
+	}
+
+	const icon = element("span", "icon");
+
+	icon.setAttribute("aria-hidden", "true");
+
+	if (src) {
+		const image = element("img", "");
+
+		image.alt = "";
+		image.src = src;
+		image.draggable = false;
+		image.addEventListener("load", () => toneIcon(image), {once: true});
+		image.addEventListener("error", () => image.remove(), {once: true});
+		icon.append(image);
+	}
+
+	return icon;
+}
+
+/**
+ * Adapt a loaded favicon to the dark page: remove it when it has no visible pixels, and draw it as a light silhouette when it is dark and nearly gray, like the one-color lab icons.
+ *
+ * @param {HTMLImageElement} image Loaded icon image, served from the same origin as the page.
+ * @returns {void}
+ */
+function toneIcon(image) {
+	requireInstance("image", image, HTMLImageElement);
+
+	const side = 32;
+	const canvas = document.createElement("canvas");
+	const context = canvas.getContext("2d", {willReadFrequently: true});
+
+	canvas.width = side;
+	canvas.height = side;
+
+	let pixels;
+
+	try {
+		context.drawImage(image, 0, 0, side, side);
+		pixels = context.getImageData(0, 0, side, side).data;
+	} catch {
+		return;
+	}
+
+	let visible = 0;
+	let light = 0;
+	let chroma = 0;
+
+	for (let offset = 0; offset < pixels.length; offset += 4) {
+		const [red, green, blue, alpha] = pixels.subarray(offset, offset + 4);
+
+		if (alpha > 20) {
+			visible += 1;
+			light += (red + green + blue) / 3;
+			chroma += Math.max(red, green, blue) - Math.min(red, green, blue);
+		}
+	}
+
+	if (!visible) {
+		image.remove();
+		return;
+	}
+
+	// Only a dark, nearly gray icon (mean brightness and chroma out of 255) becomes a silhouette; a dark icon in color would lose its drawing.
+	image.classList.toggle("dark", light / visible < 60 && chroma / visible < 48);
 }
 
 /**
@@ -89,7 +169,7 @@ function renderConferences(container, entries) {
 	let rows = null;
 	let current = "";
 
-	for (const {label, edition} of entries) {
+	for (const {label, icon, edition} of entries) {
 		const month = monthOf(edition.start);
 
 		if (month !== current) {
@@ -103,7 +183,7 @@ function renderConferences(container, entries) {
 
 		const lead = element("span", "lead");
 
-		lead.append(element("span", "model", label), element("span", "dots"), element("span", "lab", edition.place || ""));
+		lead.append(conferenceIcon(icon), element("span", "model", label), element("span", "dots"), element("span", "lab", edition.place || ""));
 		row.classList.add("event");
 		row.append(lead, element("span", "day", formatDays(edition.start, edition.end)));
 

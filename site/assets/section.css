@@ -123,9 +123,24 @@ body {
 	align-self: center;
 }
 
-.row .icon svg {
+.row .icon svg,
+.row .icon img {
 	width: 100%;
 	height: 100%;
+}
+
+/* Conference icons are favicons of any shape: they fit inside the square without stretching. */
+.row .icon img {
+	object-fit: contain;
+}
+
+/* A dark favicon (set by conferences.js) is drawn as a silhouette in the text color, as the one-color lab icons are. */
+.row .icon img.dark {
+	filter: brightness(0) invert(0.94) sepia(0.08);
+}
+
+.row.event .icon {
+	flex: none;
 }
 
 /* The lab of a model and the place of a conference: gray, on the right of the dots. */
