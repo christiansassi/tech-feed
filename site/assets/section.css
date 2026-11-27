@@ -1003,3 +1003,77 @@ body.hot-only .flip-card:not(.is-hot) {
 		display: none;
 	}
 }
+
+/* Pull to refresh: on touch screens the page does not bounce or reload by itself; the ring below takes that role. */
+@media (pointer: coarse) {
+	html {
+		overscroll-behavior-y: none;
+	}
+}
+
+/* The ring fills with the pull (--progress from 0 to 1) and comes down with it. */
+.pull {
+	position: fixed;
+	top: calc(env(safe-area-inset-top, 0px) + 10px);
+	left: 50%;
+	z-index: 30;
+	width: 34px;
+	height: 34px;
+	translate: -50% calc(var(--progress, 0) * 56px - 44px);
+	opacity: 0;
+	pointer-events: none;
+	transition: translate 0.3s ease, opacity 0.3s ease;
+}
+
+.pull.active {
+	opacity: 1;
+}
+
+/* While the finger moves, the ring follows it without delay. */
+.pull.dragging {
+	transition: none;
+}
+
+.pull svg {
+	display: block;
+	width: 100%;
+	height: 100%;
+	rotate: -90deg;
+}
+
+.pull circle {
+	fill: none;
+	stroke-width: 2.5;
+}
+
+.pull .track {
+	stroke: rgba(243, 239, 230, 0.16);
+}
+
+.pull .fill {
+	stroke: var(--ink);
+	stroke-linecap: round;
+	stroke-dasharray: 1;
+	stroke-dashoffset: calc(1 - var(--progress, 0));
+}
+
+.pull.closed {
+	opacity: 0;
+	transition-delay: 0.15s;
+}
+
+/* Refreshing: everything but the title fades out, and the loading blob shows at once. */
+body.refreshing main > :not(header),
+body.refreshing header > :not(h1),
+body.refreshing .meta.ready,
+body.refreshing .home-link {
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+/* On refresh the blob shows at once, with no fade, and the ring has already gone. */
+.loader.now {
+	animation: none;
+	opacity: 1;
+}
+

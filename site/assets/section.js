@@ -409,3 +409,100 @@ function hideLoader() {
 		loader.remove();
 	}
 }
+
+// Finger travel, in pixels, that fills the pull-to-refresh ring; the ring itself moves half as far.
+const PULL_DISTANCE = 140;
+
+/**
+ * Start the refresh: hide everything but the title, show the loading blob and reload the page.
+ *
+ * @returns {void}
+ */
+function refreshPage() {
+	document.body.classList.add("refreshing");
+
+	const loader = element("img", "loader now");
+
+	// The blob sits next to the stylesheet, whatever the depth of the page.
+	loader.src = new URL("loader.webp", document.querySelector('link[href*="section.css"]').href).href;
+	loader.alt = "";
+	loader.setAttribute("aria-hidden", "true");
+	document.body.append(loader);
+
+	// A short pause lets the title stand alone and the blob appear before the page reloads.
+	setTimeout(() => location.reload(), 450);
+}
+
+/**
+ * Attach pull to refresh on touch screens: pulling down from the top of the page fills a ring, pushing back empties it, and a closed ring refreshes the page.
+ *
+ * @returns {void}
+ */
+function bindPullToRefresh() {
+	if (!window.matchMedia("(pointer: coarse)").matches) {
+		return;
+	}
+
+	const ring = element("div", "pull");
+
+	ring.setAttribute("aria-hidden", "true");
+	ring.innerHTML = '<svg viewBox="0 0 36 36"><circle class="track" cx="18" cy="18" r="15"/><circle class="fill" cx="18" cy="18" r="15" pathLength="1"/></svg>';
+	document.body.append(ring);
+
+	let start = null;
+	let done = false;
+
+	const show = (progress) => {
+		ring.style.setProperty("--progress", progress.toFixed(3));
+		ring.classList.toggle("active", progress > 0);
+	};
+
+	document.addEventListener("touchstart", (event) => {
+		// Only a pull that starts at the very top, with one finger and no layer open, counts.
+		const blocked = window.scrollY > 0 || event.touches.length !== 1 || document.querySelector(".follow-layer.open") || done;
+
+		start = blocked ? null : event.touches[0].clientY;
+		ring.classList.add("dragging");
+	}, {passive: true});
+
+	document.addEventListener("touchmove", (event) => {
+
+		if (start === null) {
+			return;
+		}
+
+		const progress = Math.min(Math.max((event.touches[0].clientY - start) / PULL_DISTANCE, 0), 1);
+
+		// While the finger pulls down the page stays still and the ring follows.
+		if (progress > 0) {
+			event.preventDefault();
+		}
+
+		show(progress);
+
+		if (progress === 1) {
+			done = true;
+			start = null;
+			ring.classList.remove("dragging");
+			ring.classList.add("closed");
+			refreshPage();
+		}
+	}, {passive: false});
+
+	const release = () => {
+
+		if (done) {
+			return;
+		}
+
+		start = null;
+		ring.classList.remove("dragging");
+		show(0);
+	};
+
+	document.addEventListener("touchend", release);
+	document.addEventListener("touchcancel", release);
+}
+
+document.addEventListener("DOMContentLoaded", bindPullToRefresh);
+
