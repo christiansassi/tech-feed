@@ -198,7 +198,10 @@ function renderConferences(container, entries) {
 document.addEventListener("DOMContentLoaded", async () => {
 	const container = document.querySelector(".months");
 	const index = await getJson("index.json");
-	const followed = index && Array.isArray(index.conferences) ? index.conferences.map(({label}) => ({label, on: true, icon: null})) : null;
+	const others = index && Array.isArray(index.untracked) ? index.untracked : [];
+
+	// Conferences left out on purpose (suspended, or a site that cannot be read) are listed as not followed.
+	const followed = index && Array.isArray(index.conferences) ? index.conferences.map(({label}) => ({label, on: true, icon: null})).concat(others.map(({label}) => ({label, on: false, icon: null}))) : null;
 
 	bindFollowing();
 	renderFollowing(followed, "conferences");

@@ -4,7 +4,8 @@ The page is the home of the conference, whose layout stays the same from one
 edition to the next, except for three sites whose dates live elsewhere (a
 Markdown file, a data file, a calendar feed). ``note`` tells the analysis which
 edition counts when a conference runs several. Conferences that are suspended
-or whose site cannot be read without a browser are not listed.
+or whose site cannot be read without a browser are not followed: ``UNTRACKED``
+names them, so the page can list them as not followed.
 """
 
 from dataclasses import dataclass
@@ -81,4 +82,14 @@ CONFERENCES = [
 	Conference("troopers", "TROOPERS", "https://troopers.de/"),
 	Conference("virus-bulletin", "Virus Bulletin", "https://www.virusbulletin.com/conference/"),
 	Conference("x33fcon", "x33fcon", "https://www.x33fcon.com/conference.md"),
+]
+
+# Conferences left out on purpose, shown as not followed so nobody asks for them in an issue.
+UNTRACKED = [
+	"Black Hat Europe",  # The site sits behind Cloudflare and answers 403.
+	"BSides Barcelona",  # The dates are only in the JavaScript of the page, not in its HTML.
+	"BSides Zürich",  # No conference since 2024, only meetups.
+	"HITB Amsterdam",  # No Amsterdam edition since 2023.
+	"Paranoia Oslo",  # The domain is gone; the last edition was in 2023.
+	"RomHack",  # The conference is suspended indefinitely.
 ]

@@ -6,7 +6,7 @@ the link to its ticket shop and download that page too, then write
 ``<out>/conferences/<slug>/raw/page.json``. ``<out>/conferences/index.json``
 lists every conference with its raw file, its site file
 (``<slug>/site/latest.json``, written by the Raspberry updater) and the fetch
-status. Dates, place and ticket status are read from this text later by Codex.
+status, and names the conferences left out as ``untracked``. Dates, place and ticket status are read from this text later by Codex.
 
 Usage: ``python -m conferences.build [--out _site] [--workers 8]``
 """
@@ -22,7 +22,7 @@ from urllib.parse import urljoin, urlparse
 
 from selectolax.lexbor import LexborHTMLParser
 
-from conferences.sources import CONFERENCES, Conference
+from conferences.sources import CONFERENCES, UNTRACKED, Conference
 from models.common.http import FetchError, new_client, send
 from models.common.runner import to_json, utc_now
 from models.common.validation import require_positive_number, require_text, require_type
@@ -203,7 +203,7 @@ def build(out_dir: Path, workers: int) -> list[dict]:
 		write_json(root / slug / "raw" / "page.json", to_json(document))
 		entries.append({"slug": slug, "label": document["label"], "raw": f"{slug}/raw/page.json", "site": f"{slug}/site/latest.json", "status": document["status"], "error": document["error"], "tickets": (document["tickets"] or {}).get("url")})
 
-	write_json(root / "index.json", to_json({"generated_at": utc_now(), "conferences": entries}))
+	write_json(root / "index.json", to_json({"generated_at": utc_now(), "conferences": entries, "untracked": [{"label": label} for label in UNTRACKED]}))
 
 	return entries
 
