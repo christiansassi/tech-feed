@@ -32,7 +32,7 @@
 	<main class="ledger wide">
 		<header>
 			<h1>News</h1>
-			<p class="meta"><span class="updated" data-index="index.json"></span><span class="following pending">Following <button type="button" class="follow-trigger" aria-expanded="false" aria-controls="following"></button></span><span>Something missing? Report it <a href="https://github.com/christiansassi/tech-feed/issues/new?template=missing-news.yml" target="_blank" rel="noopener">here</a></span></p>
+			<p class="meta"><span class="updated" data-index="index.json"></span><span class="following pending">Following <button type="button" class="follow-trigger" aria-expanded="false" aria-controls="sources"></button></span><span>Something missing? Report it <a href="https://github.com/christiansassi/tech-feed/issues/new?template=missing-news.yml" target="_blank" rel="noopener">here</a></span></p>
 		</header>
 
 		<div class="news-filter" role="group" aria-label="Show" hidden><button type="button" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="hot" aria-pressed="false">Hot</button></div>
@@ -42,9 +42,9 @@
 		<div class="empty" hidden><span class="empty-label">Clear skies</span><p class="empty-text">Good news, bad news, or a zero-day. None of it has landed yet.</p></div>
 	</main>
 
-	<div class="follow-layer" id="following" role="dialog" aria-modal="true" aria-labelledby="following-title" tabindex="-1">
+	<div class="follow-layer" id="sources" role="dialog" aria-modal="true" aria-labelledby="sources-title" tabindex="-1">
 		<div class="inner">
-			<h2 id="following-title">Following</h2>
+			<h2 id="sources-title">Sources</h2>
 			<p class="note">Something missing? Report it <a href="https://github.com/christiansassi/tech-feed/issues/new?template=missing-news.yml" target="_blank" rel="noopener">here</a></p>
 			<div class="chips"></div>
 		</div>
