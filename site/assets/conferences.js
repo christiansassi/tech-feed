@@ -71,83 +71,6 @@ async function loadConferences(index) {
 }
 
 /**
- * Create the icon slot of a conference row: the same square as the lab icons on Models, empty when the conference has no icon.
- *
- * @param {?string} src Path of the icon file, relative to the page, or null.
- * @returns {HTMLSpanElement} Icon element.
- */
-function conferenceIcon(src) {
-	if (src !== null && typeof src !== "string") {
-		throw new TypeError("src must be a string or null");
-	}
-
-	const icon = element("span", "icon");
-
-	icon.setAttribute("aria-hidden", "true");
-
-	if (src) {
-		const image = element("img", "");
-
-		image.alt = "";
-		image.src = src;
-		image.draggable = false;
-		image.addEventListener("load", () => toneIcon(image), {once: true});
-		image.addEventListener("error", () => image.remove(), {once: true});
-		icon.append(image);
-	}
-
-	return icon;
-}
-
-/**
- * Adapt a loaded favicon to the dark page: remove it when it has no visible pixels, and draw it as a light silhouette when it is dark and nearly gray, like the one-color lab icons.
- *
- * @param {HTMLImageElement} image Loaded icon image, served from the same origin as the page.
- * @returns {void}
- */
-function toneIcon(image) {
-	requireInstance("image", image, HTMLImageElement);
-
-	const side = 32;
-	const canvas = document.createElement("canvas");
-	const context = canvas.getContext("2d", {willReadFrequently: true});
-
-	canvas.width = side;
-	canvas.height = side;
-
-	let pixels;
-
-	try {
-		context.drawImage(image, 0, 0, side, side);
-		pixels = context.getImageData(0, 0, side, side).data;
-	} catch {
-		return;
-	}
-
-	let visible = 0;
-	let light = 0;
-	let chroma = 0;
-
-	for (let offset = 0; offset < pixels.length; offset += 4) {
-		const [red, green, blue, alpha] = pixels.subarray(offset, offset + 4);
-
-		if (alpha > 20) {
-			visible += 1;
-			light += (red + green + blue) / 3;
-			chroma += Math.max(red, green, blue) - Math.min(red, green, blue);
-		}
-	}
-
-	if (!visible) {
-		image.remove();
-		return;
-	}
-
-	// Only a dark, nearly gray icon (mean brightness and chroma out of 255) becomes a silhouette; a dark icon in color would lose its drawing.
-	image.classList.toggle("dark", light / visible < 60 && chroma / visible < 48);
-}
-
-/**
  * Render the conference lines, grouped by starting month, into a container.
  *
  * @param {HTMLElement} container Element that receives the month groups.
@@ -183,7 +106,7 @@ function renderConferences(container, entries) {
 
 		const lead = element("span", "lead");
 
-		lead.append(conferenceIcon(icon), element("span", "model", label), element("span", "dots"), element("span", "lab", edition.place || ""));
+		lead.append(faviconIcon(icon), element("span", "model", label), element("span", "dots"), element("span", "lab", edition.place || ""));
 		row.classList.add("event");
 		row.append(lead, element("span", "day", formatDays(edition.start, edition.end)));
 
@@ -199,15 +122,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 	const container = document.querySelector(".months");
 	const index = await getJson("index.json");
 	const others = index && Array.isArray(index.untracked) ? index.untracked : [];
+	const entries = await loadConferences(index);
+
+	// Only conferences with an upcoming edition have an icon; the chips of the others show the name alone.
+	const icons = new Map(entries.filter((entry) => entry.icon).map((entry) => [entry.label, entry.icon]));
+	const chip = (on) => ({label}) => ({label, on, icon: on && icons.has(label) ? faviconIcon(icons.get(label)) : null});
 
 	// Conferences left out on purpose (suspended, or a site that cannot be read) are listed as not followed.
-	const followed = index && Array.isArray(index.conferences) ? index.conferences.map(({label}) => ({label, on: true, icon: null})).concat(others.map(({label}) => ({label, on: false, icon: null}))) : null;
+	const followed = index && Array.isArray(index.conferences) ? index.conferences.map(chip(true)).concat(others.map(chip(false))) : null;
 
 	bindFollowing();
 	renderFollowing(followed, "conferences");
 
 	if (container) {
-		renderConferences(container, await loadConferences(index));
+		renderConferences(container, entries);
 		cascade(container);
 	}
 });

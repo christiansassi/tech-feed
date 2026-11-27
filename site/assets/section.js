@@ -312,3 +312,80 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", showUpdated);
+
+/**
+ * Create the icon slot of a row, chip or card from a downloaded favicon: the same square as the lab icons on Models, empty when there is no icon.
+ *
+ * @param {?string} src Path of the icon file, relative to the page, or null.
+ * @returns {HTMLSpanElement} Icon element.
+ */
+function faviconIcon(src) {
+	if (src !== null && typeof src !== "string") {
+		throw new TypeError("src must be a string or null");
+	}
+
+	const icon = element("span", "icon");
+
+	icon.setAttribute("aria-hidden", "true");
+
+	if (src) {
+		const image = element("img", "");
+
+		image.alt = "";
+		image.src = src;
+		image.draggable = false;
+		image.addEventListener("load", () => toneIcon(image), {once: true});
+		image.addEventListener("error", () => image.remove(), {once: true});
+		icon.append(image);
+	}
+
+	return icon;
+}
+
+/**
+ * Adapt a loaded favicon to the dark page: remove it when it has no visible pixels, and draw it as a light silhouette when it is dark and nearly gray, like the one-color lab icons.
+ *
+ * @param {HTMLImageElement} image Loaded icon image, served from the same origin as the page.
+ * @returns {void}
+ */
+function toneIcon(image) {
+	requireInstance("image", image, HTMLImageElement);
+
+	const side = 32;
+	const canvas = document.createElement("canvas");
+	const context = canvas.getContext("2d", {willReadFrequently: true});
+
+	canvas.width = side;
+	canvas.height = side;
+
+	let pixels;
+
+	try {
+		context.drawImage(image, 0, 0, side, side);
+		pixels = context.getImageData(0, 0, side, side).data;
+	} catch {
+		return;
+	}
+
+	let visible = 0;
+	let light = 0;
+	let chroma = 0;
+
+	for (let offset = 0; offset < pixels.length; offset += 4) {
+		const [red, green, blue, alpha] = pixels.subarray(offset, offset + 4);
+
+		if (alpha > 20) {
+			visible += 1;
+			light += (red + green + blue) / 3;
+			chroma += Math.max(red, green, blue) - Math.min(red, green, blue);
+		}
+	}
+
+	if (!visible) {
+		image.remove();
+		return;
+	}
+
+	// Only a dark, nearly gray icon (mean brightness and chroma out of 255) becomes a silhouette; a dark icon in color would lose its drawing.
+	image.classList.toggle("dark", light / visible < 60 && chroma / visible < 48);
+}

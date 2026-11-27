@@ -5,11 +5,15 @@
  * sources, then `site/latest.json` (written by the Raspberry updater after the
  * Codex filters) for the items of the last 24 hours, and show each item as a
  * card: a generated cover from `covers.js`, the title (amber and bold for HOT
- * items), the time in the visitor's time zone and the source. A click flips the
- * card to its back, with the intro of the article and the link to it. The All / Hot
+ * items), the time in the visitor's time zone and the source with its icon
+ * (`icons/index.json`). A click flips the card to its back, with the intro of
+ * the article and the link to it. The All / Hot
  * filter above the cards hides the items that are not HOT. Load after
  * `landing.js`, `section.js`, `cover-styles.js` and `covers.js`.
  */
+
+// Icon file of each source, by source name, from `icons/index.json` (written by the Raspberry updater).
+const SOURCE_ICONS = new Map();
 
 /**
  * Return the date and time of a Unix timestamp in the visitor's time zone, such as "Nov 26, 09:50".
@@ -94,7 +98,7 @@ function newsCard(item, position) {
 	const image = element("img", "");
 	const foot = element("div", "foot");
 	const source = element("span", "source", item.source || "");
-	const read = element("a", "read", `Read on ${item.source || "the source"}`);
+	const read = element("a", "read", "Read full article");
 	const intro = usableIntro(item.summary);
 
 	card.tabIndex = 0;
@@ -115,7 +119,15 @@ function newsCard(item, position) {
 	}).catch((error) => console.warn("Cover not drawn:", error));
 
 	art.append(image);
-	foot.append(element("span", "when", formatMoment(item.date)), source);
+	const from = element("span", "from");
+
+	// The icon of the source sits before its name on the front only; the back does not repeat the source.
+	if (SOURCE_ICONS.has(item.source)) {
+		from.append(faviconIcon(SOURCE_ICONS.get(item.source)));
+	}
+
+	from.append(source);
+	foot.append(element("span", "when", formatMoment(item.date)), from);
 	front.append(art, element("h3", "", item.title), foot);
 	back.append(element("h3", "", item.title), element("p", "intro", intro || ""), read);
 	inner.append(front, back);
@@ -256,7 +268,7 @@ function renderNews(grid, items) {
  * Return the chips of the Following layer: one per publisher, all followed.
  *
  * @param {?object} index Parsed `index.json`, or null when it could not be read.
- * @returns {?Array<{label: string, on: boolean, icon: null}>} One entry per publisher, or null without an index.
+ * @returns {?Array<{label: string, on: boolean, icon: ?Node}>} One entry per publisher, with its icon when there is one, or null without an index.
  */
 function sourceEntries(index) {
 	if (index !== null && typeof index !== "object") {
@@ -269,7 +281,7 @@ function sourceEntries(index) {
 
 	const labels = [...new Set(index.sources.map((source) => source.label).filter((label) => typeof label === "string"))];
 
-	return labels.map((label) => ({label, on: true, icon: null}));
+	return labels.map((label) => ({label, on: true, icon: SOURCE_ICONS.has(label) ? faviconIcon(SOURCE_ICONS.get(label)) : null}));
 }
 
 /**
@@ -386,7 +398,11 @@ async function revealFilter(filter, grid) {
 
 document.addEventListener("DOMContentLoaded", async () => {
 	const grid = document.querySelector(".cards");
-	const index = await getJson("index.json");
+	const [index, icons] = await Promise.all([getJson("index.json"), getJson("icons/index.json")]);
+
+	if (icons && icons.icons && typeof icons.icons === "object") {
+		Object.entries(icons.icons).forEach(([label, path]) => typeof path === "string" && SOURCE_ICONS.set(label, path));
+	}
 
 	bindFollowing();
 	renderFollowing(sourceEntries(index), "sources");

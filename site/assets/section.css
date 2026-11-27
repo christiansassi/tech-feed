@@ -135,7 +135,7 @@ body {
 }
 
 /* A dark favicon (set by conferences.js) is drawn as a silhouette in the text color, as the one-color lab icons are. */
-.row .icon img.dark {
+.icon img.dark {
 	filter: brightness(0) invert(0.94) sepia(0.08);
 }
 
@@ -479,9 +479,14 @@ body:has(.follow-layer.open) .ledger {
 	opacity: 0.4;
 }
 
-.chip .icon svg {
+.chip .icon svg,
+.chip .icon img {
 	width: 100%;
 	height: 100%;
+}
+
+.chip .icon img {
+	object-fit: contain;
 }
 
 .chip.on {
@@ -684,6 +689,27 @@ body:has(.follow-layer.open) .ledger {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	text-align: right;
+}
+
+/* The source on the front: its icon, then its name. */
+.card .foot .from {
+	display: flex;
+	align-items: center;
+	gap: 0.4em;
+	min-width: 0;
+}
+
+.card .foot .from .icon {
+	display: inline-flex;
+	width: 1.15em;
+	height: 1.15em;
+	flex: none;
+}
+
+.card .foot .from .icon img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
 }
 
 /* Entrance: the same fade as the rows of the other pages, one card after the other. */
