@@ -1,0 +1,16 @@
+{
+	"slug": "ccc",
+	"label": "Chaos Communication Congress",
+	"updated_at": 1795820526,
+	"edition": {
+		"start": 1798329600,
+		"end": 1798588800,
+		"place": "Hamburg, Germany",
+		"url": "https://events.ccc.de/",
+		"tickets": {
+			"status": "unknown",
+			"url": null
+		}
+	},
+	"icon": "icon.svg"
+}

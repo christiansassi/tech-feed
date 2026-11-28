@@ -1,0 +1,16 @@
+{
+	"slug": "confidence",
+	"label": "CONFidence",
+	"updated_at": 1795623314,
+	"edition": {
+		"start": 1811116800,
+		"end": 1811203200,
+		"place": null,
+		"url": "https://confidence-conference.org/",
+		"tickets": {
+			"status": "available",
+			"url": null
+		}
+	},
+	"icon": "icon.svg"
+}

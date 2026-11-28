@@ -1,0 +1,16 @@
+{
+	"slug": "one-conference",
+	"label": "ONE Conference",
+	"updated_at": 1795623495,
+	"edition": {
+		"start": 1822694400,
+		"end": 1822780800,
+		"place": null,
+		"url": "https://one-conference.nl/",
+		"tickets": {
+			"status": "unknown",
+			"url": null
+		}
+	},
+	"icon": "icon.jpg"
+}

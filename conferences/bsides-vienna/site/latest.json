@@ -1,0 +1,16 @@
+{
+	"slug": "bsides-vienna",
+	"label": "BSides Vienna",
+	"updated_at": 1795623314,
+	"edition": {
+		"start": 1813968000,
+		"end": 1814054400,
+		"place": "Vienna, Austria",
+		"url": "https://bsidesvienna.at/",
+		"tickets": {
+			"status": "unknown",
+			"url": "https://tickets.bsidesvienna.at"
+		}
+	},
+	"icon": "icon.ico"
+}

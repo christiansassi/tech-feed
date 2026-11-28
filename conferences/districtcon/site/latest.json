@@ -1,0 +1,16 @@
+{
+	"slug": "districtcon",
+	"label": "DistrictCon",
+	"updated_at": 1795771571,
+	"edition": {
+		"start": 1801872000,
+		"end": 1801958400,
+		"place": "Washington, D.C., United States",
+		"url": "https://www.districtcon.org/",
+		"tickets": {
+			"status": "sold_out",
+			"url": "https://www.districtcon.org/tickets"
+		}
+	},
+	"icon": "icon.webp"
+}

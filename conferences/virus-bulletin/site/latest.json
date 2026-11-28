@@ -1,0 +1,16 @@
+{
+	"slug": "virus-bulletin",
+	"label": "Virus Bulletin",
+	"updated_at": 1795623641,
+	"edition": {
+		"start": 1822780800,
+		"end": 1822953600,
+		"place": "London, United Kingdom",
+		"url": "https://www.virusbulletin.com/conference/",
+		"tickets": {
+			"status": "unknown",
+			"url": null
+		}
+	},
+	"icon": "icon.png"
+}

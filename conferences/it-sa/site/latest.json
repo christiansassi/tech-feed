@@ -1,0 +1,16 @@
+{
+	"slug": "it-sa",
+	"label": "it-sa Expo&Congress",
+	"updated_at": 1795623460,
+	"edition": {
+		"start": 1822694400,
+		"end": 1822867200,
+		"place": "Nuremberg, Germany",
+		"url": "https://www.itsa365.de/en/it-sa-expo",
+		"tickets": {
+			"status": "unknown",
+			"url": null
+		}
+	},
+	"icon": "icon.ico"
+}

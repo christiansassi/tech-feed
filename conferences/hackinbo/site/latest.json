@@ -1,0 +1,16 @@
+{
+	"slug": "hackinbo",
+	"label": "HackInBo",
+	"updated_at": 1795624508,
+	"edition": {
+		"start": 1813276800,
+		"end": 1813363200,
+		"place": "Bologna, Italy",
+		"url": "https://tickets.hackinbo.it/events/ical/?locale=en",
+		"tickets": {
+			"status": "available",
+			"url": "https://tickets.hackinbo.it/"
+		}
+	},
+	"icon": "icon.png"
+}

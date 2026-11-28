@@ -1,0 +1,109 @@
+{
+	"slug": "xiaomi",
+	"label": "Xiaomi",
+	"updated_at": 1795645214,
+	"models": [
+		{
+			"slug": "mimo-v2-6-mopd",
+			"label": "MiMo-V2.6-MOPD",
+			"date": 1790481480,
+			"url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-MOPD"
+		},
+		{
+			"slug": "mimo-v2-6",
+			"label": "MiMo-V2.6",
+			"date": 1790035200,
+			"url": "https://mimo.xiaomi.com/mimo-v2-6/"
+		},
+		{
+			"slug": "mimo-v2-5-dflash",
+			"label": "MiMo-V2.5-DFlash",
+			"date": 1783077508,
+			"url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.5-DFlash"
+		},
+		{
+			"slug": "mimo-v2-5-pro",
+			"label": "MiMo-V2.5-Pro",
+			"date": 1777248000,
+			"url": "https://mimo.xiaomi.com/blog/mimo-v2-5-pro"
+		},
+		{
+			"slug": "mimo-v2-5",
+			"label": "MiMo-V2.5",
+			"date": 1776816000,
+			"url": "https://mimo.xiaomi.com/blog/mimo-v2-5"
+		},
+		{
+			"slug": "mimo-v2-5-asr",
+			"label": "MiMo-V2.5-ASR",
+			"date": 1775001600,
+			"url": "https://mimo.xiaomi.com/blog/mimo-v2-5-asr"
+		},
+		{
+			"slug": "mimo-v2-5-tts",
+			"label": "MiMo-V2.5-TTS",
+			"date": 1775001600,
+			"url": "https://mimo.xiaomi.com/blog/mimo-v2-5-tts"
+		},
+		{
+			"slug": "mimo-v2-omni",
+			"label": "MiMo-V2-Omni",
+			"date": 1773792000,
+			"url": "https://mimo.xiaomi.com/blog/mimo-v2-omni"
+		},
+		{
+			"slug": "mimo-v2-pro",
+			"label": "MiMo-V2-Pro",
+			"date": 1773792000,
+			"url": "https://mimo.xiaomi.com/blog/mimo-v2-pro"
+		},
+		{
+			"slug": "mimo-v2-tts",
+			"label": "MiMo-V2-TTS",
+			"date": 1773792000,
+			"url": "https://mimo.xiaomi.com/blog/mimo-v2-tts"
+		},
+		{
+			"slug": "mimo-v2-flash",
+			"label": "MiMo-V2-Flash",
+			"date": 1765843200,
+			"url": "https://mimo.xiaomi.com/blog/mimo-v2-flash"
+		},
+		{
+			"slug": "mimo-embodied-7b",
+			"label": "MiMo-Embodied-7B",
+			"date": 1763544867,
+			"url": "https://huggingface.co/XiaomiMiMo/MiMo-Embodied-7B"
+		},
+		{
+			"slug": "mimo-audio-7b",
+			"label": "MiMo-Audio-7B",
+			"date": 1758228936,
+			"url": "https://huggingface.co/XiaomiMiMo/MiMo-Audio-7B-Base"
+		},
+		{
+			"slug": "mimo-vl-7b-2508",
+			"label": "MiMo-VL-7B-2508",
+			"date": 1754559396,
+			"url": "https://huggingface.co/XiaomiMiMo/MiMo-VL-7B-SFT-2508"
+		},
+		{
+			"slug": "mimo-7b-rl-0530",
+			"label": "MiMo-7B-RL-0530",
+			"date": 1748567977,
+			"url": "https://huggingface.co/XiaomiMiMo/MiMo-7B-RL-0530"
+		},
+		{
+			"slug": "mimo-vl-7b",
+			"label": "MiMo-VL-7B",
+			"date": 1748565441,
+			"url": "https://huggingface.co/XiaomiMiMo/MiMo-VL-7B-RL"
+		},
+		{
+			"slug": "mimo-7b",
+			"label": "MiMo-7B",
+			"date": 1745969447,
+			"url": "https://huggingface.co/XiaomiMiMo/MiMo-7B-SFT"
+		}
+	]
+}

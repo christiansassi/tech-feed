@@ -1,0 +1,16 @@
+{
+	"slug": "swiss-cyber-storm",
+	"label": "Swiss Cyber Storm",
+	"updated_at": 1795623641,
+	"edition": {
+		"start": 1824508800,
+		"end": 1824508800,
+		"place": "Bern, Switzerland",
+		"url": "https://www.swisscyberstorm.com/",
+		"tickets": {
+			"status": "available",
+			"url": "https://pretix.eu/scs/2027/"
+		}
+	},
+	"icon": "icon.png"
+}

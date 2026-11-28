@@ -1,0 +1,146 @@
+{
+	"updated_at": 1795870802,
+	"items": [
+		{
+			"id": "ed56aac972a3",
+			"title": "pCloud Password Manager Hit by Cyber Attack Involving Email Address Exposure and Login Attempts",
+			"source": "The Hacker News",
+			"url": "https://thehackernews.com/2026/11/pcloud-password-manager-hit-by-cyber.html",
+			"date": 1795853291,
+			"added_at": 1795856402,
+			"hot": false,
+			"coverage": 1,
+			"sources": [
+				"The Hacker News"
+			],
+			"summary": "Cross-platform password manager pCloud Pass has confirmed it was targeted by a cyber attack after users reported seeing unknown devices being connected to their accounts. \"A cyber attack targeting pCloud Pass occurred, which was promptly contained by the pCloud team,\" the Swiss company said in response to a number of posts on Reddit. \"Unfortunately, a small number of pCloud Pass user email",
+			"target": null
+		},
+		{
+			"id": "5769d3ad7fbd",
+			"title": "Google's DeepCrossAttention achieves comparable model quality up to 3x faster",
+			"source": "Hacker News",
+			"url": "https://news.ycombinator.com/item?id=50672565",
+			"date": 1795820789,
+			"added_at": 1795852802,
+			"hot": false,
+			"coverage": 1,
+			"sources": [
+				"Hacker News"
+			],
+			"summary": "Google Research reported that DeepCrossAttention lets transformers reach the same model quality up to three times faster with a negligible increase in parameters. The architecture, introduced in an ICML 2025 paper, uses depth-wise cross-attention to combine features from earlier layers for each token.",
+			"target": "https://research.google/blog/supercharging-transformer-residual-connections/",
+			"intro_from": "page"
+		},
+		{
+			"id": "2adc7df12620",
+			"title": "3 hours, $200 — AI uncovers a critical Java zero-day",
+			"source": "Anquanke",
+			"url": "https://www.anquanke.com/post/id/316568",
+			"date": 1795803940,
+			"added_at": 1795802403,
+			"hot": false,
+			"coverage": 1,
+			"sources": [
+				"Anquanke"
+			],
+			"summary": "Calif researcher Quang Luong used AI to find Java4Shell (CVE-2026-114938) in OpenJDK's Base64 decoder and develop an exploit in three hours, spending under $200 on tokens. Oracle's November update fixed the flaw, which scored 9.2 on CVSS 4.0 and can allow unauthenticated remote code execution.",
+			"target": null,
+			"intro_from": "page"
+		},
+		{
+			"id": "e51c0ed76903",
+			"title": "Search for DeepSeek and lose your WeChat account — convincing clones of the official site are spreading malware at scale",
+			"source": "Anquanke",
+			"url": "https://www.anquanke.com/post/id/316565",
+			"date": 1795803721,
+			"added_at": 1795802403,
+			"hot": false,
+			"coverage": 1,
+			"sources": [
+				"Anquanke"
+			],
+			"summary": "Threat actors are distributing malware disguised as DeepSeek desktop installers through lookalike websites, some promoted through search ads. Users reported that attackers took remote control of their computers and sent spam from hijacked WeChat accounts, leading to account bans.",
+			"target": null,
+			"intro_from": "page"
+		},
+		{
+			"id": "4c9b743c4e0b",
+			"title": "Convex skills send the user's app idea to a remote server without telling them",
+			"source": "Hacker News",
+			"url": "https://news.ycombinator.com/item?id=50669765",
+			"date": 1795802565,
+			"added_at": 1795860002,
+			"hot": false,
+			"coverage": 1,
+			"sources": [
+				"Hacker News"
+			],
+			"summary": "A GitHub issue reports that Convex's Quickstart skill sends users' one-sentence project ideas to a Convex-hosted server as telemetry without notifying them. The plugin, listed in Anthropic's official Claude marketplace, also includes the Add and Labs Quickstart skills, which run unpinned remote scripts.",
+			"target": "https://github.com/convex/convex-backend-skill/issues/64",
+			"intro_from": "page"
+		},
+		{
+			"id": "f01224df1f54",
+			"title": "Suspected Vietnam-Linked Hackers Target Southeast Asia in South China Sea Espionage Campaign",
+			"source": "The Hacker News",
+			"url": "https://thehackernews.com/2026/11/suspected-vietnam-linked-hackers-target.html",
+			"date": 1795797371,
+			"added_at": 1795802403,
+			"hot": false,
+			"coverage": 1,
+			"sources": [
+				"The Hacker News"
+			],
+			"summary": "A Vietnam-sponsored hacking group has been attributed to attacks targeting Southeast Asian military, government, and legislative organizations with an aim to gather intelligence on South China Sea defense and military agreements. The previously undocumented incursion set, detailed by SOCRadar, has been codenamed WeaveLotus. The activity is assessed to have comprised five intrusions in Thailand",
+			"target": null
+		},
+		{
+			"id": "a2adb88f039a",
+			"title": "Credit card skimming scripts using WebRTC found on popular shopping sites",
+			"source": "Hacker News",
+			"url": "https://news.ycombinator.com/item?id=50668145",
+			"date": 1795794031,
+			"added_at": 1795816802,
+			"hot": false,
+			"coverage": 1,
+			"sources": [
+				"Hacker News"
+			],
+			"summary": "InfoHawk found a WebRTC card-skimming script on the online stores of Lascana, Samsonite, American Tourister, Revolve and FWRD in the week before Black Friday. The script sent test card details from Lascana's checkout to a third party and was removed from all five sites by November 25.",
+			"target": "https://www.infohawk.com/news/2026-11-27-black-friday-webrtc-skimmer",
+			"intro_from": "page"
+		},
+		{
+			"id": "c6c42dd47705",
+			"title": "US Air Force's cloud computing platform hacked",
+			"source": "Hacker News",
+			"url": "https://news.ycombinator.com/item?id=50666375",
+			"date": 1795784051,
+			"added_at": 1795820531,
+			"hot": false,
+			"coverage": 1,
+			"sources": [
+				"Hacker News"
+			],
+			"summary": null,
+			"target": "https://news.sky.com/story/us-air-forces-cloud-computing-platform-hacked-13617163",
+			"intro_from": "none"
+		},
+		{
+			"id": "4895aa5a5bc0",
+			"title": "Microsoft Store App Found Delivering Vinci RAT Capable of Remote System Control",
+			"source": "The Hacker News",
+			"url": "https://thehackernews.com/2026/11/microsoft-store-app-found-delivering.html",
+			"date": 1795780174,
+			"added_at": 1795788002,
+			"hot": false,
+			"coverage": 1,
+			"sources": [
+				"The Hacker News"
+			],
+			"summary": "Cybersecurity researchers have disclosed details of a cyber attack in which a threat actor leveraged a Microsoft Store application to deliver a remote access trojan (RAT) called Vinci RAT. The intrusion, according to eSentire, begins with a redirection to a bogus site for a sniping tool (\"snipp.codes-team[.]com\"), from where a Microsoft-signed installer called \"Snipping-Tool.exe\" is",
+			"target": null
+		}
+	]
+}

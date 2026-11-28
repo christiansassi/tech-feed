@@ -1,0 +1,301 @@
+{
+	"slug": "tencent",
+	"label": "Tencent",
+	"updated_at": 1795762826,
+	"models": [
+		{
+			"slug": "hy-embodied-apexio-1-0",
+			"label": "Hy-Embodied-Apexio-1.0",
+			"date": 1795758403,
+			"url": "https://huggingface.co/tencent/Hy-Embodied-Apexio-1.0"
+		},
+		{
+			"slug": "hy-mt3",
+			"label": "Hy-MT3",
+			"date": 1794881243,
+			"url": "https://huggingface.co/tencent/Hy-MT3-30B-A3B"
+		},
+		{
+			"slug": "hy4-flash",
+			"label": "Hy4 flash",
+			"date": 1794758400,
+			"url": "https://hunyuan.tencent.com/research/hy4-flash"
+		},
+		{
+			"slug": "hy4",
+			"label": "Hy4",
+			"date": 1793721600,
+			"url": "https://hunyuan.tencent.com/research/hy4"
+		},
+		{
+			"slug": "hy-simulmt-30b-a3b",
+			"label": "Hy-SimulMT-30B-A3B",
+			"date": 1792654157,
+			"url": "https://huggingface.co/tencent/Hy-SimulMT-30B-A3B"
+		},
+		{
+			"slug": "hy-nomas",
+			"label": "Hy-Nomas",
+			"date": 1792549057,
+			"url": "https://huggingface.co/tencent/Hy-Nomas"
+		},
+		{
+			"slug": "hy-memory-30b-a3b",
+			"label": "Hy-Memory-30B-A3B",
+			"date": 1792057920,
+			"url": "https://huggingface.co/tencent/Hy-Memory-30B-A3B"
+		},
+		{
+			"slug": "hy4-preview",
+			"label": "Hy4 preview",
+			"date": 1787846400,
+			"url": "https://hunyuan.tencent.com/research/hy4-preview"
+		},
+		{
+			"slug": "hy-embodied-vlm-1-0",
+			"label": "Hy-Embodied-VLM-1.0",
+			"date": 1784023104,
+			"url": "https://huggingface.co/tencent/Hy-Embodied-VLM-1.0"
+		},
+		{
+			"slug": "hy-embodied-rxbrain-1-0",
+			"label": "Hy-Embodied-RxBrain-1.0",
+			"date": 1783996856,
+			"url": "https://huggingface.co/tencent/Hy-Embodied-RxBrain-1.0"
+		},
+		{
+			"slug": "hy3",
+			"label": "Hy3",
+			"date": 1783440000,
+			"url": "https://hunyuan.tencent.com/research/hy3"
+		},
+		{
+			"slug": "hy-embodied-0-5-vla",
+			"label": "Hy-Embodied-0.5-VLA",
+			"date": 1781161785,
+			"url": "https://huggingface.co/tencent/Hy-Embodied-0.5-VLA-UMI"
+		},
+		{
+			"slug": "hy-mt2",
+			"label": "Hy-MT2",
+			"date": 1778485431,
+			"url": "https://huggingface.co/tencent/Hy-MT2-30B-A3B"
+		},
+		{
+			"slug": "hy-embodied-0-5-x",
+			"label": "HY-Embodied-0.5-X",
+			"date": 1776911684,
+			"url": "https://huggingface.co/tencent/HY-Embodied-0.5-X"
+		},
+		{
+			"slug": "hy3-preview",
+			"label": "Hy3 preview",
+			"date": 1776873600,
+			"url": "https://hunyuan.tencent.com/research/hy3-preview"
+		},
+		{
+			"slug": "hy-world-2-0",
+			"label": "HY-World-2.0",
+			"date": 1775790317,
+			"url": "https://huggingface.co/tencent/HY-World-2.0"
+		},
+		{
+			"slug": "hy-embodied-0-5",
+			"label": "HY-Embodied-0.5",
+			"date": 1775134930,
+			"url": "https://huggingface.co/tencent/HY-Embodied-0.5"
+		},
+		{
+			"slug": "hy-omniweaving",
+			"label": "HY-OmniWeaving",
+			"date": 1774950120,
+			"url": "https://huggingface.co/tencent/HY-OmniWeaving"
+		},
+		{
+			"slug": "hy-wu",
+			"label": "HY-WU",
+			"date": 1772696712,
+			"url": "https://huggingface.co/tencent/HY-WU"
+		},
+		{
+			"slug": "hy-video-prfl",
+			"label": "HY-Video-PRFL",
+			"date": 1767777008,
+			"url": "https://huggingface.co/tencent/HY-Video-PRFL"
+		},
+		{
+			"slug": "hy-motion-1-0",
+			"label": "HY-Motion-1.0",
+			"date": 1767001161,
+			"url": "https://huggingface.co/tencent/HY-Motion-1.0"
+		},
+		{
+			"slug": "hy-mt1-5",
+			"label": "HY-MT1.5",
+			"date": 1766659265,
+			"url": "https://huggingface.co/tencent/HY-MT1.5-1.8B"
+		},
+		{
+			"slug": "hy-worldplay",
+			"label": "HY-WorldPlay",
+			"date": 1765526260,
+			"url": "https://huggingface.co/tencent/HY-WorldPlay"
+		},
+		{
+			"slug": "hunyuanvideo-1-5",
+			"label": "HunyuanVideo-1.5",
+			"date": 1763447814,
+			"url": "https://huggingface.co/tencent/HunyuanVideo-1.5"
+		},
+		{
+			"slug": "hunyuanocr",
+			"label": "HunyuanOCR",
+			"date": 1763438936,
+			"url": "https://huggingface.co/tencent/HunyuanOCR"
+		},
+		{
+			"slug": "hunyuanworld-mirror",
+			"label": "HunyuanWorld-Mirror",
+			"date": 1760598622,
+			"url": "https://huggingface.co/tencent/HunyuanWorld-Mirror"
+		},
+		{
+			"slug": "hunyuanimage-3-0-instruct",
+			"label": "HunyuanImage-3.0-Instruct",
+			"date": 1758781733,
+			"url": "https://huggingface.co/tencent/HunyuanImage-3.0-Instruct"
+		},
+		{
+			"slug": "hunyuanimage-3-0",
+			"label": "HunyuanImage-3.0",
+			"date": 1758781708,
+			"url": "https://huggingface.co/tencent/HunyuanImage-3.0"
+		},
+		{
+			"slug": "hunyuan3d-omni",
+			"label": "Hunyuan3D-Omni",
+			"date": 1758597450,
+			"url": "https://huggingface.co/tencent/Hunyuan3D-Omni"
+		},
+		{
+			"slug": "hunyuan3d-part",
+			"label": "Hunyuan3D-Part",
+			"date": 1758596403,
+			"url": "https://huggingface.co/tencent/Hunyuan3D-Part"
+		},
+		{
+			"slug": "hunyuanimage-2-1",
+			"label": "HunyuanImage-2.1",
+			"date": 1757057913,
+			"url": "https://huggingface.co/tencent/HunyuanImage-2.1"
+		},
+		{
+			"slug": "hunyuan-mt-7b",
+			"label": "Hunyuan-MT-7B",
+			"date": 1756374699,
+			"url": "https://huggingface.co/tencent/Hunyuan-MT-7B"
+		},
+		{
+			"slug": "hunyuanworld-voyager",
+			"label": "HunyuanWorld-Voyager",
+			"date": 1756287126,
+			"url": "https://huggingface.co/tencent/HunyuanWorld-Voyager"
+		},
+		{
+			"slug": "hunyuanvideo-foley",
+			"label": "HunyuanVideo-Foley",
+			"date": 1755759762,
+			"url": "https://huggingface.co/tencent/HunyuanVideo-Foley"
+		},
+		{
+			"slug": "hunyuan-gamecraft-1-0",
+			"label": "Hunyuan-GameCraft-1.0",
+			"date": 1755069008,
+			"url": "https://huggingface.co/tencent/Hunyuan-GameCraft-1.0"
+		},
+		{
+			"slug": "hunyuan",
+			"label": "Hunyuan",
+			"date": 1753683004,
+			"url": "https://huggingface.co/tencent/Hunyuan-0.5B-Pretrain"
+		},
+		{
+			"slug": "hunyuanworld-1",
+			"label": "HunyuanWorld-1",
+			"date": 1753069065,
+			"url": "https://huggingface.co/tencent/HunyuanWorld-1"
+		},
+		{
+			"slug": "hunyuan-a13b",
+			"label": "Hunyuan-A13B",
+			"date": 1750855192,
+			"url": "https://huggingface.co/tencent/Hunyuan-A13B-Instruct"
+		},
+		{
+			"slug": "hunyuan3d-2-1",
+			"label": "Hunyuan3D-2.1",
+			"date": 1749831002,
+			"url": "https://huggingface.co/tencent/Hunyuan3D-2.1"
+		},
+		{
+			"slug": "hunyuanportrait",
+			"label": "HunyuanPortrait",
+			"date": 1748326596,
+			"url": "https://huggingface.co/tencent/HunyuanPortrait"
+		},
+		{
+			"slug": "hunyuanvideo-avatar",
+			"label": "HunyuanVideo-Avatar",
+			"date": 1748247988,
+			"url": "https://huggingface.co/tencent/HunyuanVideo-Avatar"
+		},
+		{
+			"slug": "hunyuancustom",
+			"label": "HunyuanCustom",
+			"date": 1746711424,
+			"url": "https://huggingface.co/tencent/HunyuanCustom"
+		},
+		{
+			"slug": "hunyuanvideo-i2v",
+			"label": "HunyuanVideo-I2V",
+			"date": 1741166823,
+			"url": "https://huggingface.co/tencent/HunyuanVideo-I2V"
+		},
+		{
+			"slug": "hunyuan-7b-0124",
+			"label": "Hunyuan-7B-0124",
+			"date": 1737706241,
+			"url": "https://huggingface.co/tencent/Hunyuan-7B-Pretrain-0124"
+		},
+		{
+			"slug": "hunyuan3d-2",
+			"label": "Hunyuan3D-2",
+			"date": 1737356137,
+			"url": "https://huggingface.co/tencent/Hunyuan3D-2"
+		},
+		{
+			"slug": "hunyuanvideo-promptrewrite",
+			"label": "HunyuanVideo-PromptRewrite",
+			"date": 1733140317,
+			"url": "https://huggingface.co/tencent/HunyuanVideo-PromptRewrite"
+		},
+		{
+			"slug": "hunyuanvideo",
+			"label": "HunyuanVideo",
+			"date": 1733032834,
+			"url": "https://huggingface.co/tencent/HunyuanVideo"
+		},
+		{
+			"slug": "hunyuan3d-1",
+			"label": "Hunyuan3D-1",
+			"date": 1730450548,
+			"url": "https://huggingface.co/tencent/Hunyuan3D-1"
+		},
+		{
+			"slug": "tencent-hunyuan-large",
+			"label": "Tencent-Hunyuan-Large",
+			"date": 1729607224,
+			"url": "https://huggingface.co/tencent/Tencent-Hunyuan-Large"
+		}
+	]
+}

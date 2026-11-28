@@ -1,0 +1,16 @@
+{
+	"slug": "bsides-krakow",
+	"label": "BSides Kraków",
+	"updated_at": 1795623230,
+	"edition": {
+		"start": 1821225600,
+		"end": 1821225600,
+		"place": "Kraków, Poland",
+		"url": "https://bsideskrakow.pl/",
+		"tickets": {
+			"status": "available",
+			"url": "https://buytickets.at/securitybsideskrakw/2449963"
+		}
+	},
+	"icon": "icon.png"
+}

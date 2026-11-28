@@ -1,0 +1,139 @@
+{
+	"slug": "xai",
+	"label": "xAI",
+	"updated_at": 1795645214,
+	"models": [
+		{
+			"slug": "grok-voice-3-0",
+			"label": "Grok Voice 3.0",
+			"date": 1791936000,
+			"url": "https://x.ai/news/grok-voice-3"
+		},
+		{
+			"slug": "grok-4-7",
+			"label": "Grok 4.7",
+			"date": 1789948800,
+			"url": "https://x.ai/news/grok-4-7"
+		},
+		{
+			"slug": "grok-voice-transcribe-2-0",
+			"label": "Grok Voice Transcribe 2.0",
+			"date": 1789689600,
+			"url": "https://x.ai/news/grok-voice-transcribe-2"
+		},
+		{
+			"slug": "grok-4-6",
+			"label": "Grok 4.6",
+			"date": 1786492800,
+			"url": "https://x.ai/news/grok-4-6"
+		},
+		{
+			"slug": "imagine-image-2-0",
+			"label": "Imagine Image 2.0",
+			"date": 1786060800,
+			"url": "https://x.ai/news/grok-imagine-image-2"
+		},
+		{
+			"slug": "grok-voice-2-0",
+			"label": "Grok Voice 2.0",
+			"date": 1785283200,
+			"url": "https://x.ai/news/grok-voice-think-fast-2"
+		},
+		{
+			"slug": "grok-4-5",
+			"label": "Grok 4.5",
+			"date": 1784160000,
+			"url": "https://x.ai/news/grok-4-5"
+		},
+		{
+			"slug": "grok-imagine-video-1-5",
+			"label": "Grok Imagine Video 1.5",
+			"date": 1780444800,
+			"url": "https://x.ai/news/grok-imagine-1-5"
+		},
+		{
+			"slug": "grok-build-0-1",
+			"label": "Grok Build 0.1",
+			"date": 1779148800,
+			"url": "https://docs.x.ai/docs/release-notes#grok-build-01"
+		},
+		{
+			"slug": "grok-voice-1-0",
+			"label": "Grok Voice 1.0",
+			"date": 1776902400,
+			"url": "https://x.ai/news/grok-voice-think-fast-1"
+		},
+		{
+			"slug": "grok-4-1-fast",
+			"label": "Grok 4.1 Fast",
+			"date": 1763510400,
+			"url": "https://x.ai/news/grok-4-1-fast"
+		},
+		{
+			"slug": "grok-4-1",
+			"label": "Grok 4.1",
+			"date": 1763337600,
+			"url": "https://x.ai/news/grok-4-1"
+		},
+		{
+			"slug": "grok-4-fast",
+			"label": "Grok 4 Fast",
+			"date": 1758240000,
+			"url": "https://x.ai/news/grok-4-fast"
+		},
+		{
+			"slug": "grok-code-fast-1",
+			"label": "Grok Code Fast 1",
+			"date": 1756339200,
+			"url": "https://x.ai/news/grok-code-fast-1"
+		},
+		{
+			"slug": "grok-4",
+			"label": "Grok 4",
+			"date": 1752019200,
+			"url": "https://x.ai/news/grok-4"
+		},
+		{
+			"slug": "grok-3",
+			"label": "Grok 3",
+			"date": 1739923200,
+			"url": "https://x.ai/news/grok-3"
+		},
+		{
+			"slug": "aurora",
+			"label": "Aurora",
+			"date": 1733702400,
+			"url": "https://x.ai/news/grok-image-generation-release"
+		},
+		{
+			"slug": "grok-2",
+			"label": "Grok-2",
+			"date": 1723507200,
+			"url": "https://x.ai/news/grok-2"
+		},
+		{
+			"slug": "grok-2-mini",
+			"label": "Grok-2 mini",
+			"date": 1723507200,
+			"url": "https://x.ai/news/grok-2"
+		},
+		{
+			"slug": "grok-1-5v",
+			"label": "Grok-1.5V",
+			"date": 1712880000,
+			"url": "https://x.ai/news/grok-1.5v"
+		},
+		{
+			"slug": "grok-1-5",
+			"label": "Grok-1.5",
+			"date": 1711584000,
+			"url": "https://x.ai/news/grok-1.5"
+		},
+		{
+			"slug": "grok-1",
+			"label": "Grok-1",
+			"date": 1698969600,
+			"url": "https://x.ai/news/grok"
+		}
+	]
+}

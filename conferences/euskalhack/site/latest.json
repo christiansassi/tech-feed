@@ -1,0 +1,15 @@
+{
+	"slug": "euskalhack",
+	"label": "EuskalHack Security Congress",
+	"updated_at": 1795771636,
+	"edition": {
+		"start": 1813276800,
+		"end": 1813363200,
+		"place": "San Sebastián, Spain",
+		"url": "https://securitycongress.euskalhack.org/",
+		"tickets": {
+			"status": "not_yet",
+			"url": "https://www.inscribirme.com/euskalhacksecuritycongressx"
+		}
+	}
+}

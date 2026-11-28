@@ -1,0 +1,262 @@
+{
+	"generated_at": 1795870836,
+	"window_hours": 48,
+	"items": [
+		{
+			"source": "the-hacker-news",
+			"label": "The Hacker News",
+			"title": "pCloud Password Manager Hit by Cyber Attack Involving Email Address Exposure and Login Attempts",
+			"date": 1795853291,
+			"url": "https://thehackernews.com/2026/11/pcloud-password-manager-hit-by-cyber.html",
+			"summary": "Cross-platform password manager pCloud Pass has confirmed it was targeted by a cyber attack after users reported seeing unknown devices being connected to their accounts. \"A cyber attack targeting pCloud Pass occurred, which was promptly contained by the pCloud team,\" the Swiss company said in response to a number of posts on Reddit. \"Unfortunately, a small number of pCloud Pass user email"
+		},
+		{
+			"source": "hacker-news",
+			"label": "Hacker News",
+			"title": "Unkernel: Real Linux kernel, compiled to WebAssembly",
+			"date": 1795835960,
+			"url": "https://news.ycombinator.com/item?id=50674218",
+			"summary": null,
+			"target": "https://unkernel.dev"
+		},
+		{
+			"source": "hacker-news",
+			"label": "Hacker News",
+			"title": "Google's DeepCrossAttention achieves comparable model quality up to 3x faster",
+			"date": 1795820789,
+			"url": "https://news.ycombinator.com/item?id=50672565",
+			"summary": null,
+			"target": "https://research.google/blog/supercharging-transformer-residual-connections/"
+		},
+		{
+			"source": "schneier-on-security",
+			"label": "Schneier on Security",
+			"title": "Friday Squid Blogging: Giant Squid in Newfoundland",
+			"date": 1795816885,
+			"url": "https://www.schneier.com/blog/archives/2026/11/friday-squid-blogging-giant-squid-in-newfoundland.html",
+			"summary": "The two have an interesting history . As usual, you can also use this squid post to talk about the security stories in the news that I haven’t covered. Blog moderation policy."
+		},
+		{
+			"source": "hacker-news",
+			"label": "Hacker News",
+			"title": "States sue SpaceX to stop Grok from generating child sex images, revenge porn",
+			"date": 1795808545,
+			"url": "https://news.ycombinator.com/item?id=50670855",
+			"summary": null,
+			"target": "https://www.oag.state.va.us/media-center/news-releases/jay-jones/3162-attorneys-general-jones-and-rayfield-file-suit-against-spacex-parent-company-of-x-xai-and-grok-over-creation-and-promotion-of-child-exploitation-and-non-consensual-images-on-platform"
+		},
+		{
+			"source": "hacker-news",
+			"label": "Hacker News",
+			"title": "Michael Nielsen took down his book on neural nets",
+			"date": 1795807861,
+			"url": "https://news.ycombinator.com/item?id=50670757",
+			"summary": null,
+			"target": "https://neuralnetworksanddeeplearning.com/"
+		},
+		{
+			"source": "anquanke",
+			"label": "Anquanke",
+			"title": "3小时、200美元，AI挖出Java致命0day",
+			"date": 1795803940,
+			"url": "https://www.anquanke.com/post/id/316568",
+			"summary": null
+		},
+		{
+			"source": "anquanke",
+			"label": "Anquanke",
+			"title": "搜个DeepSeek微信没了，高仿官网正在批量投毒",
+			"date": 1795803721,
+			"url": "https://www.anquanke.com/post/id/316565",
+			"summary": null
+		},
+		{
+			"source": "hacker-news",
+			"label": "Hacker News",
+			"title": "Convex skills send the user's app idea to a remote server without telling them",
+			"date": 1795802565,
+			"url": "https://news.ycombinator.com/item?id=50669765",
+			"summary": null,
+			"target": "https://github.com/convex/convex-backend-skill/issues/64"
+		},
+		{
+			"source": "the-hacker-news",
+			"label": "The Hacker News",
+			"title": "Suspected Vietnam-Linked Hackers Target Southeast Asia in South China Sea Espionage Campaign",
+			"date": 1795797371,
+			"url": "https://thehackernews.com/2026/11/suspected-vietnam-linked-hackers-target.html",
+			"summary": "A Vietnam-sponsored hacking group has been attributed to attacks targeting Southeast Asian military, government, and legislative organizations with an aim to gather intelligence on South China Sea defense and military agreements. The previously undocumented incursion set, detailed by SOCRadar, has been codenamed WeaveLotus. The activity is assessed to have comprised five intrusions in Thailand"
+		},
+		{
+			"source": "hacker-news",
+			"label": "Hacker News",
+			"title": "Credit card skimming scripts using WebRTC found on popular shopping sites",
+			"date": 1795794031,
+			"url": "https://news.ycombinator.com/item?id=50668145",
+			"summary": null,
+			"target": "https://www.infohawk.com/news/2026-11-27-black-friday-webrtc-skimmer"
+		},
+		{
+			"source": "hacker-news",
+			"label": "Hacker News",
+			"title": "Show HN: bouncemarket – a live prediction market game for a bouncing ball",
+			"date": 1795791710,
+			"url": "https://news.ycombinator.com/item?id=50667726",
+			"summary": null,
+			"target": "https://bouncemarket.minhanhday.com/"
+		},
+		{
+			"source": "didier-stevens",
+			"label": "Didier Stevens",
+			"title": "Rad Pro Random Number Generator",
+			"date": 1795784743,
+			"url": "https://blog.didierstevens.com/2026/11/27/rad-pro-random-number-generator/",
+			"summary": "Rad Pro, a custom firmware for Geiger counters/radiation meters, has a random number generator. It is a Hardware Random Number Generator, it generates random numbers from a physical process (radiation). From the main screen: You go into the settings menu to Random generator: And there you have many options: I select Alphanumeric, and this gives […]"
+		},
+		{
+			"source": "schneier-on-security",
+			"label": "Schneier on Security",
+			"title": "Recent Outages Have Economic Causes",
+			"date": 1795780943,
+			"url": "https://www.schneier.com/blog/archives/2026/11/recent-outages-have-economic-causes.html",
+			"summary": "This essay originally appeared in The Guardian . It’s an expanded version of the one I posted as “ We Get the Infrastructure We Pay For .” It’s been a bad week for our computerized infrastructure. We’ve seen outages at Microsoft , the FAA , a handful of banks , United Airlines , an unnamed classified NSA network , and Apple . People should be forgiven for suspecting a coordinated cyberattack, a common cause, or at least a conspiracy. But there is none. The incidents are unrelated. They’re not the result of any cyberattack, coordinated or not. And, even more surprising, they don’t seem to be..."
+		},
+		{
+			"source": "the-hacker-news",
+			"label": "The Hacker News",
+			"title": "Microsoft Store App Found Delivering Vinci RAT Capable of Remote System Control",
+			"date": 1795780174,
+			"url": "https://thehackernews.com/2026/11/microsoft-store-app-found-delivering.html",
+			"summary": "Cybersecurity researchers have disclosed details of a cyber attack in which a threat actor leveraged a Microsoft Store application to deliver a remote access trojan (RAT) called Vinci RAT. The intrusion, according to eSentire, begins with a redirection to a bogus site for a sniping tool (\"snipp.codes-team[.]com\"), from where a Microsoft-signed installer called \"Snipping-Tool.exe\" is"
+		},
+		{
+			"source": "securityweek",
+			"label": "SecurityWeek",
+			"title": "In Other News: Tanker Cyberattacks, EU Quantum Act, New VirusTotal Capabilities",
+			"date": 1795777200,
+			"url": "https://www.securityweek.com/in-other-news-tanker-cyberattacks-eu-quantum-act-new-virustotal-capabilities/",
+			"summary": "Noteworthy stories that might have slipped under the radar: RansomwareHelp accused of profiting from ransom payments, USDA payment systems breach, cybersecurity firm Radware hacked. The post In Other News: Tanker Cyberattacks, EU Quantum Act, New VirusTotal Capabilities appeared first on SecurityWeek ."
+		},
+		{
+			"source": "the-hacker-news",
+			"label": "The Hacker News",
+			"title": "How to Keep Your Security Picture Current When Attackers Move at AI Speed",
+			"date": 1795775538,
+			"url": "https://thehackernews.com/2026/11/how-to-keep-your-security-picture.html",
+			"summary": "Most security metrics are not built to be used. They are built to be shown. Somewhere between the quarterly review and the next status update, a set of numbers gets assembled that looks reassuring in a room and tells almost no one what is actually happening across the environment that week. Someone pulls them together the week before, cleans them up, and presents a picture of a program that is,"
+		},
+		{
+			"source": "securityweek",
+			"label": "SecurityWeek",
+			"title": "100,000 Potentially Impacted by Colorado Data Breach",
+			"date": 1795771854,
+			"url": "https://www.securityweek.com/100000-potentially-impacted-by-colorado-data-breach/",
+			"summary": "Hackers breached the digital identification and document storage application myColorado and accessed user-uploaded data. The post 100,000 Potentially Impacted by Colorado Data Breach appeared first on SecurityWeek ."
+		},
+		{
+			"source": "the-hacker-news",
+			"label": "The Hacker News",
+			"title": "Hackers Trojanize Official Q-Dir and DesktopOK Downloads to Deliver Remote Access Malware",
+			"date": 1795771770,
+			"url": "https://thehackernews.com/2026/11/hackers-trojanize-official-q-dir-and.html",
+			"summary": "Cybersecurity researchers have disclosed details of a software supply chain attack that has tampered with Q-Dir and DesktopOK installation files distributed via the official SoftwareOK website. \"Evidence indicates that malicious files were generated not only when users downloaded the programs directly from the official download page but also during the update process of previously installed"
+		},
+		{
+			"source": "securityweek",
+			"label": "SecurityWeek",
+			"title": "Hex Package Manager Warns of Potential Data Breach",
+			"date": 1795765489,
+			"url": "https://www.securityweek.com/hex-package-manager-warns-of-potential-data-breach/",
+			"summary": "A vulnerability in hex.pm allowed hackers to run commands on web servers. No evidence of data modification was found, but database reads are not logged. The post Hex Package Manager Warns of Potential Data Breach appeared first on SecurityWeek ."
+		},
+		{
+			"source": "securityweek",
+			"label": "SecurityWeek",
+			"title": "SAP Confirms Cyberattack, Source Code Reportedly Compromised",
+			"date": 1795764974,
+			"url": "https://www.securityweek.com/sap-confirms-cyberattack-source-code-reportedly-compromised/",
+			"summary": "SAP has detected suspicious activity on GitHub, where hackers reportedly used stolen employee tokens to copy and alter source code. The post SAP Confirms Cyberattack, Source Code Reportedly Compromised appeared first on SecurityWeek ."
+		},
+		{
+			"source": "the-hacker-news",
+			"label": "The Hacker News",
+			"title": "Switzerland Confirms AI-Assisted Cyberattacks Breached Critical Infrastructure Operators",
+			"date": 1795759460,
+			"url": "https://thehackernews.com/2026/11/switzerland-confirms-ai-assisted.html",
+			"summary": "Attackers using AI agents have broken into computer systems at Swiss organizations in four of five confirmed attacks, the first such cases in the country, the country's cybersecurity agency said yesterday. Three of the attacks targeted critical infrastructure operators, and two of those succeeded, with no major disruptions reported. The victims have not been named, and it is not known who is"
+		},
+		{
+			"source": "the-hacker-news",
+			"label": "The Hacker News",
+			"title": "Unpatched Cacti Zero-Day Enables RCE in Just Four HTTP Requests via Guest Access",
+			"date": 1795758500,
+			"url": "https://thehackernews.com/2026/11/unpatched-cacti-zero-day-enables-rce-in.html",
+			"summary": "Details have emerged about a new zero-day vulnerability in Cacti, an open-source network monitoring tool, that could be exploited to achieve remote code execution. The proof-of-concept (PoC) exploit, which has yet to be assigned a CVE identifier, has been tracked as 4HTTP2SHELL and 4HTTP2ROOT. \"I found a path from a fresh, unauthenticated HTTP session to command execution as the Cacti server"
+		},
+		{
+			"source": "hugging-face",
+			"label": "Hugging Face",
+			"title": "Taking Trainium3 to the Track: Generating Videos with LTX-2.5",
+			"date": 1795737600,
+			"url": "https://huggingface.co/blog/video-trainium3",
+			"summary": null
+		},
+		{
+			"source": "the-hacker-news",
+			"label": "The Hacker News",
+			"title": "ThreatsDay: 10M NGINX Services at Risk, 250+ Malicious Extensions, AI Server Hijacking + 17 More Stories",
+			"date": 1795721997,
+			"url": "https://thehackernews.com/2026/11/threatsday-250-rogue-extensions-10m.html",
+			"summary": "A website can look perfectly fine to the person running it. Log out, visit the same page, and things might look different. Something similar is happening with browser extensions, where even the way you find and install one can change what it does. Checking whether software works as expected only tells you so much. Then there’s the question of who gets to use what. Stolen logins are opening"
+		},
+		{
+			"source": "hacker-news",
+			"label": "Hacker News",
+			"title": "The Balatro Timeline",
+			"date": 1795713627,
+			"url": "https://news.ycombinator.com/item?id=50657346",
+			"summary": null,
+			"target": "https://localthunk.com/blog/balatro-timeline-3aarh"
+		},
+		{
+			"source": "securityweek",
+			"label": "SecurityWeek",
+			"title": "FIFA Says It Has Been Victim of a Cyberattack Accessing ‘Personal and Business Information’",
+			"date": 1795712815,
+			"url": "https://www.securityweek.com/fifa-says-it-has-been-victim-of-a-cyberattack-accessing-personal-and-business-information/",
+			"summary": "FIFA didn’t say when the cyberattack took place, or the precise nature of the hacked information. The post FIFA Says It Has Been Victim of a Cyberattack Accessing ‘Personal and Business Information’ appeared first on SecurityWeek ."
+		},
+		{
+			"source": "group-ib",
+			"label": "Group-IB",
+			"title": "Odd Jobs: Inside Telegram Recruitment Campaigns",
+			"date": 1795712342,
+			"url": "https://www.group-ib.com/blog/telegram-recruitment-campaigns/",
+			"summary": "How suspicious recruitment networks target communities across the Middle East, Europe and the US with paid offers ranging from everyday tasks to criminal activity"
+		},
+		{
+			"source": "csa-singapore",
+			"label": "CSA Singapore",
+			"title": "Critical Vulnerabilities in VMware Products",
+			"date": 1795708800,
+			"url": "https://www.csa.gov.sg/alerts-and-advisories/alerts/al-2026-171",
+			"summary": "Attackers can exploit critical vulnerabilities in VMware products to bypass authentication and execute arbitrary code on affected systems. Patch immediately."
+		},
+		{
+			"source": "the-hacker-news",
+			"label": "The Hacker News",
+			"title": "North Korea-Linked PolinRider Poisons Over 7,600 GitHub Repositories to Spread Malware",
+			"date": 1795706021,
+			"url": "https://thehackernews.com/2026/11/north-korea-linked-polinrider-poisons.html",
+			"summary": "The threat actors behind the PolinRider campaign have compromised over 7,600 GitHub repositories, in some cases planting a Python loader capable of delivering next-stage payloads, as evidence emerges that the activity may have started as far back as February 2025. \"These are real developers, not throwaway accounts,\" Apiiro researcher Shmulik Cohen said. \"6,541 of the 7,609 repos (86%) belong"
+		},
+		{
+			"source": "securityweek",
+			"label": "SecurityWeek",
+			"title": "Critical Juniper Session Smart Conductor Flaw Exploited in Attacks",
+			"date": 1795698246,
+			"url": "https://www.securityweek.com/critical-juniper-session-smart-conductor-flaw-exploited-in-attacks/",
+			"summary": "Tracked as CVE-2026-103406, the vulnerability allows remote attackers to execute arbitrary commands as root. The post Critical Juniper Session Smart Conductor Flaw Exploited in Attacks appeared first on SecurityWeek ."
+		}
+	]
+}

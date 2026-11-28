@@ -1,0 +1,16 @@
+{
+	"slug": "bsides-london",
+	"label": "BSides London",
+	"updated_at": 1795622867,
+	"edition": {
+		"start": 1797033600,
+		"end": 1797033600,
+		"place": "London, United Kingdom",
+		"url": "https://bsides.london/",
+		"tickets": {
+			"status": "available",
+			"url": "https://bsides.london/ticketsfaqs"
+		}
+	},
+	"icon": "icon.ico"
+}

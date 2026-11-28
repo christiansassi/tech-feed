@@ -1,0 +1,16 @@
+{
+	"slug": "infosecurity-europe",
+	"label": "Infosecurity Europe",
+	"updated_at": 1795623460,
+	"edition": {
+		"start": 1812412800,
+		"end": 1812585600,
+		"place": "London, United Kingdom",
+		"url": "https://www.infosecurityeurope.com/",
+		"tickets": {
+			"status": "not_yet",
+			"url": null
+		}
+	},
+	"icon": "icon.ico"
+}

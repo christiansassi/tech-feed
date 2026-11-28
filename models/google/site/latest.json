@@ -1,0 +1,1243 @@
+{
+	"slug": "google",
+	"label": "Google",
+	"updated_at": 1795645214,
+	"models": [
+		{
+			"slug": "gemini-4-neon",
+			"label": "Gemini 4 Neon",
+			"date": 1795037743,
+			"url": "https://deepmind.google/blog/introducing-gemini-4-neon/"
+		},
+		{
+			"slug": "gemini-4-hydrogen",
+			"label": "Gemini 4 Hydrogen",
+			"date": 1794506450,
+			"url": "https://deepmind.google/blog/introducing-gemini-4-hydrogen/"
+		},
+		{
+			"slug": "alphagenome-2",
+			"label": "AlphaGenome 2",
+			"date": 1794409215,
+			"url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/"
+		},
+		{
+			"slug": "gemini-decision-1",
+			"label": "Gemini Decision 1",
+			"date": 1794355200,
+			"url": "https://aistudio.google.com/docs/changelog#11-11-2026"
+		},
+		{
+			"slug": "alphaproof-code",
+			"label": "AlphaProof Code",
+			"date": 1794312148,
+			"url": "https://deepmind.google/blog/introducing-alphaproof-code/"
+		},
+		{
+			"slug": "gemini-robotics-2-5",
+			"label": "Gemini Robotics 2.5",
+			"date": 1794253907,
+			"url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/"
+		},
+		{
+			"slug": "gemini-omni-1-2-flash",
+			"label": "Gemini Omni 1.2 Flash",
+			"date": 1793898316,
+			"url": "https://deepmind.google/blog/gemini-omni-12-flash-fast-and-cost-effective-with-longer-clips/"
+		},
+		{
+			"slug": "gemini-4-carbon",
+			"label": "Gemini 4 Carbon",
+			"date": 1793206858,
+			"url": "https://deepmind.google/blog/gemini-4-carbon-our-next-frontier-model/"
+		},
+		{
+			"slug": "genie-4",
+			"label": "Genie 4",
+			"date": 1793116898,
+			"url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/"
+		},
+		{
+			"slug": "embeddinggemma-2",
+			"label": "EmbeddingGemma 2",
+			"date": 1791316624,
+			"url": "https://deepmind.google/blog/embeddinggemma-2-an-open-lightweight-multimodal-embedding-model/"
+		},
+		{
+			"slug": "gemini-nano-banana-2-1",
+			"label": "Gemini Nano Banana 2.1",
+			"date": 1791244800,
+			"url": "https://aistudio.google.com/docs/changelog#10-06-2026"
+		},
+		{
+			"slug": "gemini-4-argon",
+			"label": "Gemini 4 Argon",
+			"date": 1790798505,
+			"url": "https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence/"
+		},
+		{
+			"slug": "gemini-3-8-flash-tts",
+			"label": "Gemini 3.8 Flash TTS",
+			"date": 1790177114,
+			"url": "https://deepmind.google/blog/say-hello-to-gemini-38-text-to-speech/"
+		},
+		{
+			"slug": "gemini-3-8-flash-lite-tts",
+			"label": "Gemini 3.8 Flash-Lite TTS",
+			"date": 1790177114,
+			"url": "https://deepmind.google/blog/say-hello-to-gemini-38-text-to-speech/"
+		},
+		{
+			"slug": "gemini-3-8-live",
+			"label": "Gemini 3.8 Live",
+			"date": 1789491957,
+			"url": "https://deepmind.google/blog/introducing-gemini-3-8-live-and-3-8-live-extended-thinking/"
+		},
+		{
+			"slug": "gemini-3-8-live-extended-thinking",
+			"label": "Gemini 3.8 Live Extended Thinking",
+			"date": 1789491957,
+			"url": "https://deepmind.google/blog/introducing-gemini-3-8-live-and-3-8-live-extended-thinking/"
+		},
+		{
+			"slug": "weathernext-3",
+			"label": "WeatherNext 3",
+			"date": 1788447728,
+			"url": "https://deepmind.google/blog/introducing-weathernext-3-our-most-advanced-and-accurate-global-weather-ai-model/"
+		},
+		{
+			"slug": "gemini-3-8-flash",
+			"label": "Gemini 3.8 Flash",
+			"date": 1788365911,
+			"url": "https://deepmind.google/blog/introducing-gemini-3-8-flash-and-38-flash-cyber/"
+		},
+		{
+			"slug": "gemini-3-8-flash-cyber",
+			"label": "Gemini 3.8 Flash Cyber",
+			"date": 1788365911,
+			"url": "https://deepmind.google/blog/introducing-gemini-3-8-flash-and-38-flash-cyber/"
+		},
+		{
+			"slug": "gnm-v3",
+			"label": "gnm-v3",
+			"date": 1788282210,
+			"url": "https://huggingface.co/google/gnm-v3"
+		},
+		{
+			"slug": "timesfm-3",
+			"label": "TimesFM-3",
+			"date": 1788196740,
+			"url": "https://research.google/blog/timesfm-3-a-zero-shot-foundation-model-for-multivariate-forecasting/"
+		},
+		{
+			"slug": "gemini-omni-1-1-flash",
+			"label": "Gemini Omni 1.1 Flash",
+			"date": 1787847092,
+			"url": "https://deepmind.google/blog/gemini-omni-1-1-flash-lets-you-build-with-more-control/"
+		},
+		{
+			"slug": "glucofm",
+			"label": "GlucoFM",
+			"date": 1787769763,
+			"url": "https://research.google/blog/glucofm-foundation-model-for-continuous-glucose-monitoring/"
+		},
+		{
+			"slug": "gemini-3-5-transcribe",
+			"label": "Gemini 3.5 Transcribe",
+			"date": 1787763660,
+			"url": "https://deepmind.google/blog/intelligent-transcription-with-gemini-3-5-transcribe/"
+		},
+		{
+			"slug": "gemini-3-5-transcribe-live",
+			"label": "Gemini 3.5 Transcribe Live",
+			"date": 1787702400,
+			"url": "https://aistudio.google.com/docs/changelog#08-26-2026"
+		},
+		{
+			"slug": "tipsv1",
+			"label": "tipsv1",
+			"date": 1787150629,
+			"url": "https://huggingface.co/google/tipsv1-s14"
+		},
+		{
+			"slug": "gemini-3-7-flash",
+			"label": "Gemini 3.7 Flash",
+			"date": 1786640658,
+			"url": "https://deepmind.google/blog/introducing-gemini-3-7-flash/"
+		},
+		{
+			"slug": "sl2t",
+			"label": "SL2T",
+			"date": 1786543319,
+			"url": "https://deepmind.google/blog/putting-sign-language-ai-into-users-hands/"
+		},
+		{
+			"slug": "tabfm-1-1-0",
+			"label": "TabFM 1.1.0",
+			"date": 1785514905,
+			"url": "https://huggingface.co/google/tabfm-1.1.0-pytorch"
+		},
+		{
+			"slug": "gemini-robotics-er-2",
+			"label": "Gemini Robotics ER 2",
+			"date": 1785423659,
+			"url": "https://deepmind.google/blog/gemini-robotics-er-2-powering-robotics-with-video-understanding-task-orchestration-and-multi-robot-collaboration/"
+		},
+		{
+			"slug": "lyria-3-5",
+			"label": "Lyria 3.5",
+			"date": 1785340930,
+			"url": "https://deepmind.google/blog/were-launching-lyria-35-in-google-flow-music-with-advances-across-musicality-lyrics-vocals-and-creative-control/"
+		},
+		{
+			"slug": "gemini-robotics-2",
+			"label": "Gemini Robotics 2",
+			"date": 1785244897,
+			"url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/"
+		},
+		{
+			"slug": "gemini-3-6-flash",
+			"label": "Gemini 3.6 Flash",
+			"date": 1784646990,
+			"url": "https://deepmind.google/blog/introducing-gemini-3-6-flash-3-5-flash-lite-and-3-5-flash-cyber/"
+		},
+		{
+			"slug": "gemini-3-5-flash-lite",
+			"label": "Gemini 3.5 Flash-Lite",
+			"date": 1784646990,
+			"url": "https://deepmind.google/blog/introducing-gemini-3-6-flash-3-5-flash-lite-and-3-5-flash-cyber/"
+		},
+		{
+			"slug": "gemini-3-5-flash-cyber",
+			"label": "Gemini 3.5 Flash Cyber",
+			"date": 1784300411,
+			"url": "https://deepmind.google/blog/introducing-gemini-3-5-flash-cyber/"
+		},
+		{
+			"slug": "nano-banana-2-lite",
+			"label": "Nano Banana 2 Lite",
+			"date": 1782835360,
+			"url": "https://deepmind.google/blog/start-building-with-nano-banana-2-lite-and-gemini-omni-flash/"
+		},
+		{
+			"slug": "gemini-omni-flash",
+			"label": "Gemini Omni Flash",
+			"date": 1782835360,
+			"url": "https://deepmind.google/blog/start-building-with-nano-banana-2-lite-and-gemini-omni-flash/"
+		},
+		{
+			"slug": "tabfm",
+			"label": "TabFM",
+			"date": 1782815160,
+			"url": "https://research.google/blog/introducing-tabfm-a-zero-shot-foundation-model-for-tabular-data/"
+		},
+		{
+			"slug": "diffusiongemma",
+			"label": "DiffusionGemma",
+			"date": 1781108651,
+			"url": "https://deepmind.google/blog/diffusiongemma-4x-faster-text-generation/"
+		},
+		{
+			"slug": "gemini-3-5-live-translate",
+			"label": "Gemini 3.5 Live Translate",
+			"date": 1781018185,
+			"url": "https://deepmind.google/blog/fluid-natural-voice-translation-with-gemini-35-live-translate/"
+		},
+		{
+			"slug": "gemma-4-12b",
+			"label": "Gemma 4 12B",
+			"date": 1781014219,
+			"url": "https://deepmind.google/blog/introducing-gemma-4-12b-a-unified-encoder-free-multimodal-model/"
+		},
+		{
+			"slug": "magenta-realtime-2",
+			"label": "magenta-realtime-2",
+			"date": 1780005347,
+			"url": "https://huggingface.co/google/magenta-realtime-2"
+		},
+		{
+			"slug": "gemini-omni",
+			"label": "Gemini Omni",
+			"date": 1779047457,
+			"url": "https://deepmind.google/blog/introducing-gemini-omni/"
+		},
+		{
+			"slug": "gemini-3-5",
+			"label": "Gemini 3.5",
+			"date": 1778885412,
+			"url": "https://deepmind.google/blog/gemini-3-5-frontier-intelligence-with-action/"
+		},
+		{
+			"slug": "gemma-4-mtp",
+			"label": "Gemma 4 - MTP",
+			"date": 1776297600,
+			"url": "https://ai.google.dev/gemma/docs/releases#april-16-2026"
+		},
+		{
+			"slug": "gemini-3-1-flash-tts",
+			"label": "Gemini 3.1 Flash TTS",
+			"date": 1776268999,
+			"url": "https://deepmind.google/blog/gemini-3-1-flash-tts-the-next-generation-of-expressive-ai-speech/"
+		},
+		{
+			"slug": "gemini-robotics-er-1-6",
+			"label": "Gemini Robotics-ER 1.6",
+			"date": 1776095533,
+			"url": "https://deepmind.google/blog/gemini-robotics-er-1-6/"
+		},
+		{
+			"slug": "tipsv2",
+			"label": "tipsv2",
+			"date": 1775714121,
+			"url": "https://huggingface.co/google/tipsv2-l14"
+		},
+		{
+			"slug": "gemma-4",
+			"label": "Gemma 4",
+			"date": 1775145649,
+			"url": "https://deepmind.google/blog/gemma-4-byte-for-byte-the-most-capable-open-models/"
+		},
+		{
+			"slug": "veo-3-1-lite-preview",
+			"label": "Veo 3.1 Lite Preview",
+			"date": 1774915200,
+			"url": "https://aistudio.google.com/docs/changelog#03-31-2026"
+		},
+		{
+			"slug": "gemini-3-1-flash-live",
+			"label": "Gemini 3.1 Flash Live",
+			"date": 1774538615,
+			"url": "https://deepmind.google/blog/gemini-3-1-flash-live-making-audio-ai-more-natural-and-reliable/"
+		},
+		{
+			"slug": "lyria-3-pro",
+			"label": "Lyria 3 Pro",
+			"date": 1774454499,
+			"url": "https://deepmind.google/blog/lyria-3-pro-create-longer-tracks-in-more/"
+		},
+		{
+			"slug": "gemini-embedding-2",
+			"label": "Gemini Embedding 2",
+			"date": 1773100800,
+			"url": "https://aistudio.google.com/docs/changelog#03-10-2026"
+		},
+		{
+			"slug": "gemini-3-1-flash-lite",
+			"label": "Gemini 3.1 Flash-Lite",
+			"date": 1772555755,
+			"url": "https://deepmind.google/blog/gemini-3-1-flash-lite-built-for-intelligence-at-scale/"
+		},
+		{
+			"slug": "nano-banana-2",
+			"label": "Nano Banana 2",
+			"date": 1772121710,
+			"url": "https://deepmind.google/blog/nano-banana-2-combining-pro-capabilities-with-lightning-fast-speed/"
+		},
+		{
+			"slug": "gemini-3-1-pro",
+			"label": "Gemini 3.1 Pro",
+			"date": 1771517174,
+			"url": "https://deepmind.google/blog/gemini-3-1-pro-a-smarter-model-for-your-most-complex-tasks/"
+		},
+		{
+			"slug": "lyria-3",
+			"label": "Lyria 3",
+			"date": 1771430498,
+			"url": "https://deepmind.google/blog/a-new-way-to-express-yourself-gemini-can-now-create-music/"
+		},
+		{
+			"slug": "gemini-3-deep-think",
+			"label": "Gemini 3 Deep Think",
+			"date": 1770912909,
+			"url": "https://deepmind.google/blog/gemini-3-deep-think-advancing-science-research-and-engineering/"
+		},
+		{
+			"slug": "d4rt",
+			"label": "D4RT",
+			"date": 1768559940,
+			"url": "https://deepmind.google/blog/d4rt-teaching-ai-to-see-the-world-in-four-dimensions/"
+		},
+		{
+			"slug": "translategemma",
+			"label": "TranslateGemma",
+			"date": 1768435200,
+			"url": "https://ai.google.dev/gemma/docs/releases#january-15-2026"
+		},
+		{
+			"slug": "alphagenome",
+			"label": "AlphaGenome",
+			"date": 1768401129,
+			"url": "https://huggingface.co/google/alphagenome-all-folds"
+		},
+		{
+			"slug": "medasr",
+			"label": "MedASR",
+			"date": 1768337836,
+			"url": "https://research.google/blog/next-generation-medical-image-interpretation-with-medgemma-15-and-medical-speech-to-text-with-medasr/"
+		},
+		{
+			"slug": "medgemma-1-5",
+			"label": "MedGemma 1.5",
+			"date": 1768262400,
+			"url": "https://ai.google.dev/gemma/docs/releases#january-13-2026"
+		},
+		{
+			"slug": "gemma-scope-2",
+			"label": "Gemma Scope 2",
+			"date": 1766102400,
+			"url": "https://ai.google.dev/gemma/docs/releases#december-19-2025"
+		},
+		{
+			"slug": "functiongemma",
+			"label": "FunctionGemma",
+			"date": 1766016000,
+			"url": "https://ai.google.dev/gemma/docs/releases#december-18-2025"
+		},
+		{
+			"slug": "t5gemma-v2",
+			"label": "T5Gemma v2",
+			"date": 1766016000,
+			"url": "https://ai.google.dev/gemma/docs/releases#december-18-2025"
+		},
+		{
+			"slug": "gemini-3-flash-preview",
+			"label": "Gemini 3 Flash Preview",
+			"date": 1765929600,
+			"url": "https://aistudio.google.com/docs/changelog#12-17-2025"
+		},
+		{
+			"slug": "gemini-2-5-flash-native-audio",
+			"label": "Gemini 2.5 Flash Native Audio",
+			"date": 1765497600,
+			"url": "https://aistudio.google.com/docs/changelog#12-12-2025"
+		},
+		{
+			"slug": "gemini-3-pro-image-preview",
+			"label": "Gemini 3 Pro Image Preview",
+			"date": 1763596800,
+			"url": "https://aistudio.google.com/docs/changelog#11-20-2025"
+		},
+		{
+			"slug": "gemini-3-pro-preview",
+			"label": "Gemini 3 Pro Preview",
+			"date": 1763424000,
+			"url": "https://aistudio.google.com/docs/changelog#11-18-2025"
+		},
+		{
+			"slug": "veo-3-1",
+			"label": "Veo 3.1",
+			"date": 1760486400,
+			"url": "https://aistudio.google.com/docs/changelog#10-15-2025"
+		},
+		{
+			"slug": "veo-3-1-fast",
+			"label": "Veo 3.1 Fast",
+			"date": 1760486400,
+			"url": "https://aistudio.google.com/docs/changelog#10-15-2025"
+		},
+		{
+			"slug": "gemini-2-5-computer-use-preview",
+			"label": "Gemini 2.5 Computer Use Preview",
+			"date": 1759795200,
+			"url": "https://aistudio.google.com/docs/changelog#10-07-2025"
+		},
+		{
+			"slug": "gemini-2-5-flash-image",
+			"label": "Gemini 2.5 Flash Image",
+			"date": 1759363200,
+			"url": "https://aistudio.google.com/docs/changelog#10-02-2025"
+		},
+		{
+			"slug": "gemini-robotics-er-1-5",
+			"label": "Gemini Robotics-ER 1.5",
+			"date": 1758758400,
+			"url": "https://aistudio.google.com/docs/changelog#09-25-2025"
+		},
+		{
+			"slug": "gemini-2-5-flash-preview-09-2025",
+			"label": "gemini-2.5-flash-preview-09-2025",
+			"date": 1758758400,
+			"url": "https://aistudio.google.com/docs/changelog#09-25-2025"
+		},
+		{
+			"slug": "gemini-2-5-flash-lite-preview-09-2025",
+			"label": "gemini-2.5-flash-lite-preview-09-2025",
+			"date": 1758758400,
+			"url": "https://aistudio.google.com/docs/changelog#09-25-2025"
+		},
+		{
+			"slug": "gemini-2-5-flash-native-audio-preview-09-2025",
+			"label": "gemini-2.5-flash-native-audio-preview-09-2025",
+			"date": 1758585600,
+			"url": "https://aistudio.google.com/docs/changelog#09-23-2025"
+		},
+		{
+			"slug": "vaultgemma",
+			"label": "VaultGemma",
+			"date": 1757721600,
+			"url": "https://ai.google.dev/gemma/docs/releases#september-13-2025"
+		},
+		{
+			"slug": "embeddinggemma",
+			"label": "EmbeddingGemma",
+			"date": 1756944000,
+			"url": "https://ai.google.dev/gemma/docs/releases#september-4-2025"
+		},
+		{
+			"slug": "timesfm-2-5",
+			"label": "TimesFM 2.5",
+			"date": 1756839345,
+			"url": "https://huggingface.co/google/timesfm-2.5-200m-pytorch"
+		},
+		{
+			"slug": "gemini-2-5-image-preview",
+			"label": "Gemini 2.5 Image Preview",
+			"date": 1756166400,
+			"url": "https://aistudio.google.com/docs/changelog#08-26-2025"
+		},
+		{
+			"slug": "imagen-4-fast",
+			"label": "Imagen 4 Fast",
+			"date": 1755129600,
+			"url": "https://aistudio.google.com/docs/changelog#08-14-2025"
+		},
+		{
+			"slug": "gemma-3-270m",
+			"label": "Gemma 3 270M",
+			"date": 1755129600,
+			"url": "https://ai.google.dev/gemma/docs/releases#august-14-2025"
+		},
+		{
+			"slug": "veo-3-fast",
+			"label": "Veo 3 Fast",
+			"date": 1753920000,
+			"url": "https://aistudio.google.com/docs/changelog#07-31-2025"
+		},
+		{
+			"slug": "veo-3",
+			"label": "Veo 3",
+			"date": 1752710400,
+			"url": "https://aistudio.google.com/docs/changelog#07-17-2025"
+		},
+		{
+			"slug": "medsiglip",
+			"label": "MedSigLIP",
+			"date": 1752080661,
+			"url": "https://huggingface.co/google/medsiglip-448"
+		},
+		{
+			"slug": "t5gemma",
+			"label": "T5Gemma",
+			"date": 1752019200,
+			"url": "https://ai.google.dev/gemma/docs/releases#july-9-2025"
+		},
+		{
+			"slug": "medgemma-27b-multimodal",
+			"label": "MedGemma 27B Multimodal",
+			"date": 1752019200,
+			"url": "https://ai.google.dev/gemma/docs/releases#july-9-2025"
+		},
+		{
+			"slug": "imagen-4-ultra",
+			"label": "Imagen 4 Ultra",
+			"date": 1750723200,
+			"url": "https://aistudio.google.com/docs/changelog#06-24-2025"
+		},
+		{
+			"slug": "imagen-4-standard",
+			"label": "Imagen 4 Standard",
+			"date": 1750723200,
+			"url": "https://aistudio.google.com/docs/changelog#06-24-2025"
+		},
+		{
+			"slug": "magenta-realtime",
+			"label": "Magenta RealTime",
+			"date": 1750165791,
+			"url": "https://huggingface.co/google/magenta-realtime"
+		},
+		{
+			"slug": "gemini-2-5-flash-lite-preview-06-17",
+			"label": "gemini-2.5-flash-lite-preview-06-17",
+			"date": 1750118400,
+			"url": "https://aistudio.google.com/docs/changelog#06-17-2025"
+		},
+		{
+			"slug": "videoprism",
+			"label": "VideoPrism",
+			"date": 1749938309,
+			"url": "https://huggingface.co/google/videoprism-base-f16r288"
+		},
+		{
+			"slug": "gemini-2-5-pro-preview-06-05",
+			"label": "gemini-2.5-pro-preview-06-05",
+			"date": 1749081600,
+			"url": "https://aistudio.google.com/docs/changelog#06-05-2025"
+		},
+		{
+			"slug": "svq",
+			"label": "SVQ",
+			"date": 1747952827,
+			"url": "https://huggingface.co/google/svq"
+		},
+		{
+			"slug": "gemini-2-5-flash-preview-05-20",
+			"label": "gemini-2.5-flash-preview-05-20",
+			"date": 1747699200,
+			"url": "https://aistudio.google.com/docs/changelog#05-20-2025"
+		},
+		{
+			"slug": "gemini-2-5-pro-preview-tts",
+			"label": "gemini-2.5-pro-preview-tts",
+			"date": 1747699200,
+			"url": "https://aistudio.google.com/docs/changelog#05-20-2025"
+		},
+		{
+			"slug": "gemini-2-5-flash-preview-tts",
+			"label": "gemini-2.5-flash-preview-tts",
+			"date": 1747699200,
+			"url": "https://aistudio.google.com/docs/changelog#05-20-2025"
+		},
+		{
+			"slug": "lyria-realtime-exp",
+			"label": "lyria-realtime-exp",
+			"date": 1747699200,
+			"url": "https://aistudio.google.com/docs/changelog#05-20-2025"
+		},
+		{
+			"slug": "gemini-2-5-flash-preview-native-audio-dialog",
+			"label": "gemini-2.5-flash-preview-native-audio-dialog",
+			"date": 1747699200,
+			"url": "https://aistudio.google.com/docs/changelog#05-20-2025"
+		},
+		{
+			"slug": "gemini-2-5-flash-exp-native-audio-thinking-dialog",
+			"label": "gemini-2.5-flash-exp-native-audio-thinking-dialog",
+			"date": 1747699200,
+			"url": "https://aistudio.google.com/docs/changelog#05-20-2025"
+		},
+		{
+			"slug": "gemma-3n",
+			"label": "Gemma 3n",
+			"date": 1747699200,
+			"url": "https://aistudio.google.com/docs/changelog#05-20-2025"
+		},
+		{
+			"slug": "medgemma",
+			"label": "MedGemma",
+			"date": 1747699200,
+			"url": "https://ai.google.dev/gemma/docs/releases#may-20-2025"
+		},
+		{
+			"slug": "gemini-2-0-flash-preview-image-generation",
+			"label": "Gemini 2.0 Flash Preview Image Generation",
+			"date": 1746576000,
+			"url": "https://aistudio.google.com/docs/changelog#05-07-2025"
+		},
+		{
+			"slug": "gemini-2-5-pro-preview-05-06",
+			"label": "gemini-2.5-pro-preview-05-06",
+			"date": 1746489600,
+			"url": "https://aistudio.google.com/docs/changelog#05-06-2025"
+		},
+		{
+			"slug": "tapnet",
+			"label": "TAPNet",
+			"date": 1746083925,
+			"url": "https://huggingface.co/google/tapnet"
+		},
+		{
+			"slug": "gemini-2-5-flash-preview-04-17",
+			"label": "gemini-2.5-flash-preview-04-17",
+			"date": 1744848000,
+			"url": "https://aistudio.google.com/docs/changelog#04-17-2025"
+		},
+		{
+			"slug": "veo-2-0-generate-001",
+			"label": "veo-2.0-generate-001",
+			"date": 1744156800,
+			"url": "https://aistudio.google.com/docs/changelog#04-09-2025"
+		},
+		{
+			"slug": "gemini-2-0-flash-live-001",
+			"label": "gemini-2.0-flash-live-001",
+			"date": 1744156800,
+			"url": "https://aistudio.google.com/docs/changelog#04-09-2025"
+		},
+		{
+			"slug": "gemini-2-5-pro-experimental",
+			"label": "Gemini 2.5 Pro Experimental",
+			"date": 1742860800,
+			"url": "https://aistudio.google.com/docs/changelog#03-25-2025"
+		},
+		{
+			"slug": "txgemma",
+			"label": "TxGemma",
+			"date": 1742574552,
+			"url": "https://huggingface.co/google/txgemma-2b-predict"
+		},
+		{
+			"slug": "gemini-2-0-flash-experimental-image-generation",
+			"label": "Gemini 2.0 Flash Experimental Image Generation",
+			"date": 1741737600,
+			"url": "https://aistudio.google.com/docs/changelog#03-12-2025"
+		},
+		{
+			"slug": "gemma-3",
+			"label": "Gemma 3",
+			"date": 1741564800,
+			"url": "https://ai.google.dev/gemma/docs/releases#march-10-2025"
+		},
+		{
+			"slug": "shieldgemma-2",
+			"label": "ShieldGemma 2",
+			"date": 1741564800,
+			"url": "https://ai.google.dev/gemma/docs/releases#march-10-2025"
+		},
+		{
+			"slug": "gemini-embedding-exp-03-07",
+			"label": "gemini-embedding-exp-03-07",
+			"date": 1741305600,
+			"url": "https://aistudio.google.com/docs/changelog#03-07-2025"
+		},
+		{
+			"slug": "paligemma-2-mix",
+			"label": "PaliGemma 2 mix",
+			"date": 1739923200,
+			"url": "https://ai.google.dev/gemma/docs/releases#february-19-2025"
+		},
+		{
+			"slug": "siglip-2",
+			"label": "SigLIP 2",
+			"date": 1739820362,
+			"url": "https://huggingface.co/google/siglip2-base-patch32-256"
+		},
+		{
+			"slug": "imagen-3-0-generate-002",
+			"label": "imagen-3.0-generate-002",
+			"date": 1738800000,
+			"url": "https://aistudio.google.com/docs/changelog#02-06-2025"
+		},
+		{
+			"slug": "gemini-2-0-pro-exp-02-05",
+			"label": "gemini-2.0-pro-exp-02-05",
+			"date": 1738713600,
+			"url": "https://aistudio.google.com/docs/changelog#02-05-2025"
+		},
+		{
+			"slug": "gemini-2-0-flash-lite-preview-02-05",
+			"label": "gemini-2.0-flash-lite-preview-02-05",
+			"date": 1738713600,
+			"url": "https://aistudio.google.com/docs/changelog#02-05-2025"
+		},
+		{
+			"slug": "gemini-2-0-flash-thinking-exp-01-21",
+			"label": "gemini-2.0-flash-thinking-exp-01-21",
+			"date": 1737417600,
+			"url": "https://aistudio.google.com/docs/changelog#01-21-2025"
+		},
+		{
+			"slug": "timesfm-2-0",
+			"label": "TimesFM 2.0",
+			"date": 1734734338,
+			"url": "https://huggingface.co/google/timesfm-2.0-500m-jax"
+		},
+		{
+			"slug": "gemini-2-0-flash-thinking-mode",
+			"label": "Gemini 2.0 Flash Thinking Mode",
+			"date": 1734566400,
+			"url": "https://aistudio.google.com/docs/changelog#12-19-2024"
+		},
+		{
+			"slug": "hear",
+			"label": "HeAR",
+			"date": 1734483469,
+			"url": "https://huggingface.co/google/hear"
+		},
+		{
+			"slug": "gemini-2-0-flash-experimental",
+			"label": "Gemini 2.0 Flash Experimental",
+			"date": 1733875200,
+			"url": "https://aistudio.google.com/docs/changelog#12-11-2024"
+		},
+		{
+			"slug": "paligemma-2",
+			"label": "PaliGemma 2",
+			"date": 1733356800,
+			"url": "https://ai.google.dev/gemma/docs/releases#december-5-2024"
+		},
+		{
+			"slug": "gemini-exp-1121",
+			"label": "gemini-exp-1121",
+			"date": 1732147200,
+			"url": "https://aistudio.google.com/docs/changelog#11-21-24"
+		},
+		{
+			"slug": "derm-foundation",
+			"label": "Derm Foundation",
+			"date": 1732139510,
+			"url": "https://huggingface.co/google/derm-foundation"
+		},
+		{
+			"slug": "cxr-foundation",
+			"label": "CXR Foundation",
+			"date": 1732139391,
+			"url": "https://huggingface.co/google/cxr-foundation"
+		},
+		{
+			"slug": "path-foundation",
+			"label": "Path Foundation",
+			"date": 1732139331,
+			"url": "https://huggingface.co/google/path-foundation"
+		},
+		{
+			"slug": "metricx-24",
+			"label": "MetricX-24",
+			"date": 1731611259,
+			"url": "https://huggingface.co/google/metricx-24-hybrid-large-v2p6"
+		},
+		{
+			"slug": "gemini-exp-1114",
+			"label": "gemini-exp-1114",
+			"date": 1731542400,
+			"url": "https://aistudio.google.com/docs/changelog#11-14-24"
+		},
+		{
+			"slug": "gemma-aps",
+			"label": "Gemma-APS",
+			"date": 1728950400,
+			"url": "https://ai.google.dev/gemma/docs/releases#october-15-2024"
+		},
+		{
+			"slug": "gemma-2-jpn",
+			"label": "Gemma 2 JPN",
+			"date": 1727913600,
+			"url": "https://ai.google.dev/gemma/docs/releases#october-3-2024"
+		},
+		{
+			"slug": "gemini-1-5-pro-002",
+			"label": "gemini-1.5-pro-002",
+			"date": 1727136000,
+			"url": "https://aistudio.google.com/docs/changelog#09-24-24"
+		},
+		{
+			"slug": "gemini-1-5-flash-002",
+			"label": "gemini-1.5-flash-002",
+			"date": 1727136000,
+			"url": "https://aistudio.google.com/docs/changelog#09-24-24"
+		},
+		{
+			"slug": "gemini-1-5-flash-8b-exp-0924",
+			"label": "gemini-1.5-flash-8b-exp-0924",
+			"date": 1727136000,
+			"url": "https://aistudio.google.com/docs/changelog#09-24-24"
+		},
+		{
+			"slug": "datagemma",
+			"label": "DataGemma",
+			"date": 1726099200,
+			"url": "https://ai.google.dev/gemma/docs/releases#september-12-2024"
+		},
+		{
+			"slug": "gemini-1-5-pro-exp-0827",
+			"label": "gemini-1.5-pro-exp-0827",
+			"date": 1724716800,
+			"url": "https://aistudio.google.com/docs/changelog#08-27-24"
+		},
+		{
+			"slug": "gemini-1-5-flash-exp-0827",
+			"label": "gemini-1.5-flash-exp-0827",
+			"date": 1724716800,
+			"url": "https://aistudio.google.com/docs/changelog#08-27-24"
+		},
+		{
+			"slug": "gemini-1-5-flash-8b-exp-0827",
+			"label": "gemini-1.5-flash-8b-exp-0827",
+			"date": 1724716800,
+			"url": "https://aistudio.google.com/docs/changelog#08-27-24"
+		},
+		{
+			"slug": "diarizationlm-v2",
+			"label": "DiarizationLM v2",
+			"date": 1722632668,
+			"url": "https://huggingface.co/google/DiarizationLM-8b-Fisher-v2"
+		},
+		{
+			"slug": "gemini-1-5-pro-exp-0801",
+			"label": "gemini-1.5-pro-exp-0801",
+			"date": 1722470400,
+			"url": "https://aistudio.google.com/docs/changelog#08-01-24"
+		},
+		{
+			"slug": "gemma-2-2b",
+			"label": "Gemma 2 2B",
+			"date": 1722384000,
+			"url": "https://ai.google.dev/gemma/docs/releases#july-31-2024"
+		},
+		{
+			"slug": "shieldgemma",
+			"label": "ShieldGemma",
+			"date": 1722384000,
+			"url": "https://ai.google.dev/gemma/docs/releases#july-31-2024"
+		},
+		{
+			"slug": "gemma-scope",
+			"label": "Gemma Scope",
+			"date": 1722384000,
+			"url": "https://ai.google.dev/gemma/docs/releases#july-31-2024"
+		},
+		{
+			"slug": "gemma-2",
+			"label": "Gemma 2",
+			"date": 1719446400,
+			"url": "https://ai.google.dev/gemma/docs/releases#june-27-2024"
+		},
+		{
+			"slug": "diarizationlm-v1",
+			"label": "DiarizationLM v1",
+			"date": 1719066466,
+			"url": "https://huggingface.co/google/DiarizationLM-13b-Fisher-v1"
+		},
+		{
+			"slug": "recurrentgemma-9b",
+			"label": "RecurrentGemma 9B",
+			"date": 1718064000,
+			"url": "https://ai.google.dev/gemma/docs/releases#june-11-2024"
+		},
+		{
+			"slug": "paligemma",
+			"label": "PaliGemma",
+			"date": 1715644800,
+			"url": "https://ai.google.dev/gemma/docs/releases#may-14-2024"
+		},
+		{
+			"slug": "gemini-1-5-flash",
+			"label": "Gemini 1.5 Flash",
+			"date": 1715299200,
+			"url": "https://aistudio.google.com/docs/changelog#05-10-24"
+		},
+		{
+			"slug": "timesfm-1-0",
+			"label": "TimesFM 1.0",
+			"date": 1714713335,
+			"url": "https://huggingface.co/google/timesfm-1.0-200m"
+		},
+		{
+			"slug": "codegemma-v1-1",
+			"label": "CodeGemma v1.1",
+			"date": 1714694400,
+			"url": "https://ai.google.dev/gemma/docs/releases#may-3-2024"
+		},
+		{
+			"slug": "xtr",
+			"label": "XTR",
+			"date": 1714404949,
+			"url": "https://huggingface.co/google/xtr-base-en"
+		},
+		{
+			"slug": "gemini-1-5-pro",
+			"label": "Gemini 1.5 Pro",
+			"date": 1712620800,
+			"url": "https://aistudio.google.com/docs/changelog#04-09-24"
+		},
+		{
+			"slug": "text-embeddings-004",
+			"label": "text-embeddings-004",
+			"date": 1712620800,
+			"url": "https://aistudio.google.com/docs/changelog#04-09-24"
+		},
+		{
+			"slug": "codegemma",
+			"label": "CodeGemma",
+			"date": 1712620800,
+			"url": "https://ai.google.dev/gemma/docs/releases#april-9-2024"
+		},
+		{
+			"slug": "recurrentgemma",
+			"label": "RecurrentGemma",
+			"date": 1712620800,
+			"url": "https://ai.google.dev/gemma/docs/releases#april-9-2024"
+		},
+		{
+			"slug": "gemma-1-1",
+			"label": "Gemma 1.1",
+			"date": 1712275200,
+			"url": "https://ai.google.dev/gemma/docs/releases#april-5-2024"
+		},
+		{
+			"slug": "gemma",
+			"label": "Gemma",
+			"date": 1708473600,
+			"url": "https://ai.google.dev/gemma/docs/releases#february-21-2024"
+		},
+		{
+			"slug": "metricx-23",
+			"label": "MetricX-23",
+			"date": 1707320861,
+			"url": "https://huggingface.co/google/metricx-23-large-v2p0"
+		},
+		{
+			"slug": "gemini-pro",
+			"label": "gemini-pro",
+			"date": 1702425600,
+			"url": "https://aistudio.google.com/docs/changelog#12-13-23"
+		},
+		{
+			"slug": "gemini-pro-vision",
+			"label": "gemini-pro-vision",
+			"date": 1702425600,
+			"url": "https://aistudio.google.com/docs/changelog#12-13-23"
+		},
+		{
+			"slug": "embedding-001",
+			"label": "embedding-001",
+			"date": 1702425600,
+			"url": "https://aistudio.google.com/docs/changelog#12-13-23"
+		},
+		{
+			"slug": "aqa",
+			"label": "aqa",
+			"date": 1702425600,
+			"url": "https://aistudio.google.com/docs/changelog#12-13-23"
+		},
+		{
+			"slug": "madlad-400",
+			"label": "MADLAD-400",
+			"date": 1701100713,
+			"url": "https://huggingface.co/google/madlad400-3b-mt"
+		},
+		{
+			"slug": "owlv2",
+			"label": "OWLv2",
+			"date": 1697188737,
+			"url": "https://huggingface.co/google/owlv2-base-patch16"
+		},
+		{
+			"slug": "seahorse",
+			"label": "SEAHORSE",
+			"date": 1696963908,
+			"url": "https://huggingface.co/google/seahorse-xxl-q1"
+		},
+		{
+			"slug": "siglip",
+			"label": "SigLIP",
+			"date": 1696098123,
+			"url": "https://huggingface.co/google/siglip-base-patch16-224"
+		},
+		{
+			"slug": "t5-11b-trueteacher-and-anli",
+			"label": "T5-11B TrueTeacher and ANLI",
+			"date": 1692012174,
+			"url": "https://huggingface.co/google/t5_11b_trueteacher_and_anli"
+		},
+		{
+			"slug": "umt5",
+			"label": "UMT5",
+			"date": 1688262533,
+			"url": "https://huggingface.co/google/umt5-small"
+		},
+		{
+			"slug": "deplot",
+			"label": "DePlot",
+			"date": 1680519938,
+			"url": "https://huggingface.co/google/deplot"
+		},
+		{
+			"slug": "matcha",
+			"label": "MatCha",
+			"date": 1680518851,
+			"url": "https://huggingface.co/google/matcha-chart2text-pew"
+		},
+		{
+			"slug": "music-spectrogram-diffusion",
+			"label": "Music Spectrogram Diffusion",
+			"date": 1679403706,
+			"url": "https://huggingface.co/google/music-spectrogram-diffusion"
+		},
+		{
+			"slug": "flan-ul2",
+			"label": "Flan-UL2",
+			"date": 1677839847,
+			"url": "https://huggingface.co/google/flan-ul2"
+		},
+		{
+			"slug": "pix2struct",
+			"label": "Pix2Struct",
+			"date": 1677661661,
+			"url": "https://huggingface.co/google/pix2struct-textcaps-base"
+		},
+		{
+			"slug": "efficientnet",
+			"label": "EfficientNet",
+			"date": 1676492247,
+			"url": "https://huggingface.co/google/efficientnet-b0"
+		},
+		{
+			"slug": "t5-xxl-true-nli-mixture",
+			"label": "T5-XXL TRUE NLI Mixture",
+			"date": 1670431906,
+			"url": "https://huggingface.co/google/t5_xxl_true_nli_mixture"
+		},
+		{
+			"slug": "vit-hybrid",
+			"label": "ViT Hybrid",
+			"date": 1670348335,
+			"url": "https://huggingface.co/google/vit-hybrid-base-bit-384"
+		},
+		{
+			"slug": "bit-50",
+			"label": "BiT-50",
+			"date": 1670348177,
+			"url": "https://huggingface.co/google/bit-50"
+		},
+		{
+			"slug": "vivit",
+			"label": "ViViT",
+			"date": 1669229839,
+			"url": "https://huggingface.co/google/vivit-b-16x2"
+		},
+		{
+			"slug": "mobilenet-v1",
+			"label": "MobileNet V1",
+			"date": 1668096384,
+			"url": "https://huggingface.co/google/mobilenet_v1_1.0_224"
+		},
+		{
+			"slug": "deeplabv3-mobilenetv2",
+			"label": "DeepLabv3 MobileNetV2",
+			"date": 1668096357,
+			"url": "https://huggingface.co/google/deeplabv3_mobilenet_v2_1.0_513"
+		},
+		{
+			"slug": "mobilenet-v2",
+			"label": "MobileNet V2",
+			"date": 1668096234,
+			"url": "https://huggingface.co/google/mobilenet_v2_1.4_224"
+		},
+		{
+			"slug": "switch-transformer",
+			"label": "Switch Transformer",
+			"date": 1666630701,
+			"url": "https://huggingface.co/google/switch-base-8"
+		},
+		{
+			"slug": "flan-t5",
+			"label": "Flan-T5",
+			"date": 1666346364,
+			"url": "https://huggingface.co/google/flan-t5-small"
+		},
+		{
+			"slug": "maxim",
+			"label": "MAXIM",
+			"date": 1666117296,
+			"url": "https://huggingface.co/google/maxim-s3-denoising-sidd"
+		},
+		{
+			"slug": "pegasus-x",
+			"label": "PEGASUS-X",
+			"date": 1662057259,
+			"url": "https://huggingface.co/google/pegasus-x-base"
+		},
+		{
+			"slug": "ncsn",
+			"label": "NCSN++",
+			"date": 1658220621,
+			"url": "https://huggingface.co/google/ncsnpp-ffhq-1024"
+		},
+		{
+			"slug": "owl-vit",
+			"label": "OWL-ViT",
+			"date": 1657002601,
+			"url": "https://huggingface.co/google/owlvit-base-patch32"
+		},
+		{
+			"slug": "ul2",
+			"label": "UL2",
+			"date": 1655387406,
+			"url": "https://huggingface.co/google/ul2"
+		},
+		{
+			"slug": "ddpm",
+			"label": "DDPM",
+			"date": 1655384002,
+			"url": "https://huggingface.co/google/ddpm-cifar10-32"
+		},
+		{
+			"slug": "longt5",
+			"label": "LongT5",
+			"date": 1649955231,
+			"url": "https://huggingface.co/google/long-t5-local-base"
+		},
+		{
+			"slug": "vit",
+			"label": "ViT",
+			"date": 1646263745,
+			"url": "https://huggingface.co/google/vit-base-patch16-224"
+		},
+		{
+			"slug": "tapas",
+			"label": "TAPAS",
+			"date": 1646263745,
+			"url": "https://huggingface.co/google/tapas-base"
+		},
+		{
+			"slug": "t5-ssm",
+			"label": "T5 SSM",
+			"date": 1646263745,
+			"url": "https://huggingface.co/google/t5-xxl-ssm"
+		},
+		{
+			"slug": "t5-lm-adapt",
+			"label": "T5 LM-Adapt",
+			"date": 1646263745,
+			"url": "https://huggingface.co/google/t5-base-lm-adapt"
+		},
+		{
+			"slug": "t5-v1-1",
+			"label": "T5 v1.1",
+			"date": 1646263745,
+			"url": "https://huggingface.co/google/t5-v1_1-base"
+		},
+		{
+			"slug": "t5-efficient",
+			"label": "T5 Efficient",
+			"date": 1646263745,
+			"url": "https://huggingface.co/google/t5-efficient-base"
+		},
+		{
+			"slug": "rembert",
+			"label": "RemBERT",
+			"date": 1646263745,
+			"url": "https://huggingface.co/google/rembert"
+		},
+		{
+			"slug": "reformer",
+			"label": "Reformer",
+			"date": 1646263745,
+			"url": "https://huggingface.co/google/reformer-enwik8"
+		},
+		{
+			"slug": "realm",
+			"label": "REALM",
+			"date": 1646263745,
+			"url": "https://huggingface.co/google/realm-cc-news-pretrained-openqa"
+		},
+		{
+			"slug": "pegasus",
+			"label": "PEGASUS",
+			"date": 1646263745,
+			"url": "https://huggingface.co/google/pegasus-large"
+		},
+		{
+			"slug": "muril",
+			"label": "MuRIL",
+			"date": 1646263745,
+			"url": "https://huggingface.co/google/muril-base-cased"
+		},
+		{
+			"slug": "multiberts",
+			"label": "MultiBERTs",
+			"date": 1646263745,
+			"url": "https://huggingface.co/google/multiberts-seed_9"
+		}
+	]
+}

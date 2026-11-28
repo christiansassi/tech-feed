@@ -1,0 +1,16 @@
+{
+	"slug": "northsec",
+	"label": "NorthSec",
+	"updated_at": 1795771704,
+	"edition": {
+		"start": 1810166400,
+		"end": 1810252800,
+		"place": "Montreal, Canada",
+		"url": "https://nsec.io/",
+		"tickets": {
+			"status": "available",
+			"url": "https://registrations.nsec.io/northsec/2027/"
+		}
+	},
+	"icon": "icon.ico"
+}

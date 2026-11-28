@@ -1,0 +1,289 @@
+{
+	"slug": "mistral",
+	"label": "Mistral AI",
+	"updated_at": 1795645214,
+	"models": [
+		{
+			"slug": "timestral",
+			"label": "Timestral",
+			"date": 1792065600,
+			"url": "https://mistral.ai/news/timestral/"
+		},
+		{
+			"slug": "lidstral-arabic",
+			"label": "LIDstral-Arabic",
+			"date": 1791459425,
+			"url": "https://huggingface.co/mistralai/LIDstral-Arabic"
+		},
+		{
+			"slug": "voxtral-mini-4b-realtime-arabic",
+			"label": "Voxtral Mini 4B Realtime Arabic",
+			"date": 1791459366,
+			"url": "https://huggingface.co/mistralai/Voxtral-Mini-4B-Realtime-Arabic"
+		},
+		{
+			"slug": "mistral-large-4",
+			"label": "Mistral Large 4",
+			"date": 1791288027,
+			"url": "https://mistral.ai/news/mistral-large-4/"
+		},
+		{
+			"slug": "shieldstral",
+			"label": "Shieldstral",
+			"date": 1785844826,
+			"url": "https://mistral.ai/news/shieldstral/"
+		},
+		{
+			"slug": "robostral-navigate",
+			"label": "Robostral Navigate",
+			"date": 1783512059,
+			"url": "https://mistral.ai/news/robostral-navigate/"
+		},
+		{
+			"slug": "leanstral-1-5",
+			"label": "Leanstral 1.5",
+			"date": 1783000554,
+			"url": "https://mistral.ai/news/leanstral-1-5/"
+		},
+		{
+			"slug": "mistral-ocr-4",
+			"label": "Mistral OCR 4",
+			"date": 1782216048,
+			"url": "https://mistral.ai/news/ocr-4/"
+		},
+		{
+			"slug": "mistral-medium-3-5",
+			"label": "Mistral Medium 3.5",
+			"date": 1779462115,
+			"url": "https://mistral.ai/news/vibe-remote-agents-mistral-medium-3-5/"
+		},
+		{
+			"slug": "voxtral-tts",
+			"label": "Voxtral TTS",
+			"date": 1774281600,
+			"url": "https://mistral.ai/news/voxtral-tts/"
+		},
+		{
+			"slug": "mistral-small-4",
+			"label": "Mistral Small 4",
+			"date": 1773694800,
+			"url": "https://mistral.ai/news/mistral-small-4/"
+		},
+		{
+			"slug": "leanstral",
+			"label": "Leanstral",
+			"date": 1773676800,
+			"url": "https://mistral.ai/news/leanstral/"
+		},
+		{
+			"slug": "voxtral-transcribe-2",
+			"label": "Voxtral Transcribe 2",
+			"date": 1770220800,
+			"url": "https://mistral.ai/news/voxtral-transcribe-2/"
+		},
+		{
+			"slug": "mistral-ocr-3",
+			"label": "Mistral OCR 3",
+			"date": 1765983600,
+			"url": "https://mistral.ai/news/mistral-ocr-3/"
+		},
+		{
+			"slug": "devstral-2",
+			"label": "Devstral 2",
+			"date": 1765281600,
+			"url": "https://mistral.ai/news/devstral-2-vibe-cli/"
+		},
+		{
+			"slug": "mistral-3",
+			"label": "Mistral 3",
+			"date": 1764691200,
+			"url": "https://mistral.ai/news/mistral-3/"
+		},
+		{
+			"slug": "magistral-small-2509",
+			"label": "Magistral Small 2509",
+			"date": 1757670310,
+			"url": "https://huggingface.co/mistralai/Magistral-Small-2509"
+		},
+		{
+			"slug": "codestral-25-08",
+			"label": "Codestral 25.08",
+			"date": 1753876800,
+			"url": "https://mistral.ai/news/codestral-25-08/"
+		},
+		{
+			"slug": "magistral-small-2507",
+			"label": "Magistral Small 2507",
+			"date": 1752826476,
+			"url": "https://huggingface.co/mistralai/Magistral-Small-2507"
+		},
+		{
+			"slug": "voxtral",
+			"label": "Voxtral",
+			"date": 1752580800,
+			"url": "https://mistral.ai/news/voxtral/"
+		},
+		{
+			"slug": "devstral-2507",
+			"label": "Devstral 2507",
+			"date": 1752163200,
+			"url": "https://mistral.ai/news/devstral-2507/"
+		},
+		{
+			"slug": "mistral-small-3-2",
+			"label": "Mistral Small 3.2",
+			"date": 1750354873,
+			"url": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506"
+		},
+		{
+			"slug": "magistral",
+			"label": "Magistral",
+			"date": 1749556800,
+			"url": "https://mistral.ai/news/magistral/"
+		},
+		{
+			"slug": "codestral-embed",
+			"label": "Codestral Embed",
+			"date": 1748433600,
+			"url": "https://mistral.ai/news/codestral-embed/"
+		},
+		{
+			"slug": "devstral",
+			"label": "Devstral",
+			"date": 1747828800,
+			"url": "https://mistral.ai/news/devstral/"
+		},
+		{
+			"slug": "mistral-medium-3",
+			"label": "Mistral Medium 3",
+			"date": 1746619200,
+			"url": "https://mistral.ai/news/mistral-medium-3/"
+		},
+		{
+			"slug": "mistral-small-3-1",
+			"label": "Mistral Small 3.1",
+			"date": 1742212800,
+			"url": "https://mistral.ai/news/mistral-small-3-1/"
+		},
+		{
+			"slug": "mistral-ocr",
+			"label": "Mistral OCR",
+			"date": 1741280400,
+			"url": "https://mistral.ai/news/mistral-ocr/"
+		},
+		{
+			"slug": "mistral-saba",
+			"label": "Mistral Saba",
+			"date": 1739800800,
+			"url": "https://mistral.ai/news/mistral-saba/"
+		},
+		{
+			"slug": "mistral-small-3",
+			"label": "Mistral Small 3",
+			"date": 1738238400,
+			"url": "https://mistral.ai/news/mistral-small-3/"
+		},
+		{
+			"slug": "codestral-25-01",
+			"label": "Codestral 25.01",
+			"date": 1736755200,
+			"url": "https://mistral.ai/news/codestral-2501/"
+		},
+		{
+			"slug": "pixtral-large",
+			"label": "Pixtral Large",
+			"date": 1731916800,
+			"url": "https://mistral.ai/news/pixtral-large/"
+		},
+		{
+			"slug": "mistral-large-2411",
+			"label": "Mistral Large 2411",
+			"date": 1731614632,
+			"url": "https://huggingface.co/mistralai/Mistral-Large-Instruct-2411"
+		},
+		{
+			"slug": "ministral",
+			"label": "Ministral",
+			"date": 1729044000,
+			"url": "https://mistral.ai/news/ministraux/"
+		},
+		{
+			"slug": "mistral-small-2409",
+			"label": "Mistral Small 2409",
+			"date": 1726578337,
+			"url": "https://huggingface.co/mistralai/Mistral-Small-Instruct-2409"
+		},
+		{
+			"slug": "pixtral-12b",
+			"label": "Pixtral 12B",
+			"date": 1726538400,
+			"url": "https://mistral.ai/news/pixtral-12b/"
+		},
+		{
+			"slug": "mistral-large-2",
+			"label": "Mistral Large 2",
+			"date": 1721822400,
+			"url": "https://mistral.ai/news/mistral-large-2407/"
+		},
+		{
+			"slug": "mistral-nemo",
+			"label": "Mistral NeMo",
+			"date": 1721289600,
+			"url": "https://mistral.ai/news/mistral-nemo/"
+		},
+		{
+			"slug": "math-tral",
+			"label": "MathΣtral",
+			"date": 1721116800,
+			"url": "https://mistral.ai/news/mathstral/"
+		},
+		{
+			"slug": "codestral-mamba",
+			"label": "Codestral Mamba",
+			"date": 1721116800,
+			"url": "https://mistral.ai/news/codestral-mamba/"
+		},
+		{
+			"slug": "codestral",
+			"label": "Codestral",
+			"date": 1716973200,
+			"url": "https://mistral.ai/news/codestral/"
+		},
+		{
+			"slug": "mistral-7b-v0-3",
+			"label": "Mistral 7B v0.3",
+			"date": 1716371798,
+			"url": "https://huggingface.co/mistralai/Mistral-7B-v0.3"
+		},
+		{
+			"slug": "mixtral-8x22b",
+			"label": "Mixtral 8x22B",
+			"date": 1713362400,
+			"url": "https://mistral.ai/news/mixtral-8x22b/"
+		},
+		{
+			"slug": "mistral-large",
+			"label": "Mistral Large",
+			"date": 1708934400,
+			"url": "https://mistral.ai/news/mistral-large/"
+		},
+		{
+			"slug": "mistral-7b-v0-2",
+			"label": "Mistral 7B v0.2",
+			"date": 1702300724,
+			"url": "https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2"
+		},
+		{
+			"slug": "mixtral-8x7b",
+			"label": "Mixtral 8x7B",
+			"date": 1702278000,
+			"url": "https://mistral.ai/news/mixtral-of-experts/"
+		},
+		{
+			"slug": "mistral-7b",
+			"label": "Mistral 7B",
+			"date": 1695801600,
+			"url": "https://mistral.ai/news/announcing-mistral-7b/"
+		}
+	]
+}

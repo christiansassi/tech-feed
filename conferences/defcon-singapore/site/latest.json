@@ -1,0 +1,16 @@
+{
+	"slug": "defcon-singapore",
+	"label": "DEF CON Singapore",
+	"updated_at": 1795771571,
+	"edition": {
+		"start": 1804118400,
+		"end": 1804291200,
+		"place": "Singapore, Singapore",
+		"url": "https://defcon.org/",
+		"tickets": {
+			"status": "available",
+			"url": "https://sg.shop.defcon.org"
+		}
+	},
+	"icon": "icon.png"
+}

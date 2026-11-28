@@ -1,0 +1,445 @@
+{
+	"slug": "zai",
+	"label": "Z.ai",
+	"updated_at": 1795645214,
+	"models": [
+		{
+			"slug": "glm-5-4",
+			"label": "GLM-5.4",
+			"date": 1795363200,
+			"url": "https://z.ai/blog/glm-5.4"
+		},
+		{
+			"slug": "glm-5-3-flash",
+			"label": "GLM-5.3-Flash",
+			"date": 1787752800,
+			"url": "https://z.ai/blog/glm-5.3-flash"
+		},
+		{
+			"slug": "glm-5-3",
+			"label": "GLM-5.3",
+			"date": 1786687200,
+			"url": "https://z.ai/blog/glm-5.3"
+		},
+		{
+			"slug": "glm-5-2",
+			"label": "GLM-5.2",
+			"date": 1781625600,
+			"url": "https://z.ai/blog/glm-5.2"
+		},
+		{
+			"slug": "scail-2",
+			"label": "SCAIL-2",
+			"date": 1780989507,
+			"url": "https://huggingface.co/zai-org/SCAIL-2"
+		},
+		{
+			"slug": "glm-5-1",
+			"label": "GLM-5.1",
+			"date": 1775577600,
+			"url": "https://z.ai/blog/glm-5.1"
+		},
+		{
+			"slug": "glm-5v-turbo",
+			"label": "GLM-5V-Turbo",
+			"date": 1775059200,
+			"url": "https://www.zhipuai.cn/en/research/156"
+		},
+		{
+			"slug": "glm-5-turbo",
+			"label": "GLM-5-Turbo",
+			"date": 1773590400,
+			"url": "https://www.zhipuai.cn/en/research/155"
+		},
+		{
+			"slug": "glm-5",
+			"label": "GLM-5",
+			"date": 1770825600,
+			"url": "https://z.ai/blog/glm-5"
+		},
+		{
+			"slug": "glm-ocr",
+			"label": "GLM-OCR",
+			"date": 1770048000,
+			"url": "https://www.zhipuai.cn/en/research/150"
+		},
+		{
+			"slug": "glm-4-7-flash",
+			"label": "GLM-4.7-Flash",
+			"date": 1768838400,
+			"url": "https://www.zhipuai.cn/en/research/148"
+		},
+		{
+			"slug": "glm-image",
+			"label": "GLM-Image",
+			"date": 1768320000,
+			"url": "https://z.ai/blog/glm-image"
+		},
+		{
+			"slug": "glm-4-7",
+			"label": "GLM-4.7",
+			"date": 1766332800,
+			"url": "https://www.zhipuai.cn/en/research/143"
+		},
+		{
+			"slug": "realvideo",
+			"label": "RealVideo",
+			"date": 1765440275,
+			"url": "https://huggingface.co/zai-org/RealVideo"
+		},
+		{
+			"slug": "glm-tts",
+			"label": "GLM-TTS",
+			"date": 1765382400,
+			"url": "https://www.zhipuai.cn/en/research/147"
+		},
+		{
+			"slug": "glm-asr-nano",
+			"label": "GLM-ASR-Nano",
+			"date": 1765296000,
+			"url": "https://www.zhipuai.cn/en/research/149"
+		},
+		{
+			"slug": "autoglm-phone-9b",
+			"label": "AutoGLM-Phone-9B",
+			"date": 1765209600,
+			"url": "https://autoglm.z.ai/blog/"
+		},
+		{
+			"slug": "scail-preview",
+			"label": "SCAIL-Preview",
+			"date": 1765197627,
+			"url": "https://huggingface.co/zai-org/SCAIL-Preview"
+		},
+		{
+			"slug": "glm-4-6v",
+			"label": "GLM-4.6V",
+			"date": 1765123200,
+			"url": "https://www.zhipuai.cn/en/research/144"
+		},
+		{
+			"slug": "ssvae",
+			"label": "SSVAE",
+			"date": 1764829378,
+			"url": "https://huggingface.co/zai-org/SSVAE"
+		},
+		{
+			"slug": "webvia-agent",
+			"label": "WebVIA-Agent",
+			"date": 1762922354,
+			"url": "https://huggingface.co/zai-org/WebVIA-Agent"
+		},
+		{
+			"slug": "ui2code-n",
+			"label": "UI2Code_N",
+			"date": 1762859912,
+			"url": "https://huggingface.co/zai-org/UI2Code_N"
+		},
+		{
+			"slug": "kaleido-14b-s2v",
+			"label": "Kaleido-14B-S2V",
+			"date": 1761553886,
+			"url": "https://huggingface.co/zai-org/Kaleido-14B-S2V"
+		},
+		{
+			"slug": "glyph",
+			"label": "Glyph",
+			"date": 1761373147,
+			"url": "https://huggingface.co/zai-org/Glyph"
+		},
+		{
+			"slug": "glm-4-6",
+			"label": "GLM-4.6",
+			"date": 1759231403,
+			"url": "https://docs.z.ai/release-notes/new-released#2025-09-30"
+		},
+		{
+			"slug": "glm-4-5v",
+			"label": "GLM-4.5V",
+			"date": 1754834130,
+			"url": "https://huggingface.co/zai-org/GLM-4.5V"
+		},
+		{
+			"slug": "glm-4-5",
+			"label": "GLM-4.5",
+			"date": 1752981883,
+			"url": "https://huggingface.co/zai-org/GLM-4.5-Air-Base"
+		},
+		{
+			"slug": "glm-4-1v-9b",
+			"label": "GLM-4.1V-9B",
+			"date": 1751120626,
+			"url": "https://huggingface.co/zai-org/GLM-4.1V-9B-Base"
+		},
+		{
+			"slug": "androidgen-glm-4-9b",
+			"label": "androidgen-glm-4-9b",
+			"date": 1748419097,
+			"url": "https://huggingface.co/zai-org/androidgen-glm-4-9b"
+		},
+		{
+			"slug": "glm-z1-rumination-32b-0414",
+			"label": "GLM-Z1-Rumination-32B-0414",
+			"date": 1744545964,
+			"url": "https://huggingface.co/zai-org/GLM-Z1-Rumination-32B-0414"
+		},
+		{
+			"slug": "glm-z1",
+			"label": "GLM-Z1",
+			"date": 1744094391,
+			"url": "https://huggingface.co/zai-org/GLM-Z1-9B-0414"
+		},
+		{
+			"slug": "glm-4-0414",
+			"label": "GLM-4-0414",
+			"date": 1744027022,
+			"url": "https://huggingface.co/zai-org/GLM-4-9B-0414"
+		},
+		{
+			"slug": "swe-dev",
+			"label": "SWE-Dev",
+			"date": 1743946405,
+			"url": "https://huggingface.co/zai-org/SWE-Dev-7B"
+		},
+		{
+			"slug": "cogview4-6b",
+			"label": "CogView4-6B",
+			"date": 1741004398,
+			"url": "https://huggingface.co/zai-org/CogView4-6B"
+		},
+		{
+			"slug": "cogagent-9b",
+			"label": "CogAgent-9B",
+			"date": 1735555470,
+			"url": "https://www.zhipuai.cn/en/research/76"
+		},
+		{
+			"slug": "visionreward",
+			"label": "VisionReward",
+			"date": 1733823656,
+			"url": "https://huggingface.co/zai-org/VisionReward-Video"
+		},
+		{
+			"slug": "mathglm-vision",
+			"label": "MathGLM-Vision",
+			"date": 1733369353,
+			"url": "https://huggingface.co/zai-org/MathGLM-Vision"
+		},
+		{
+			"slug": "glm-edge-v",
+			"label": "glm-edge-v",
+			"date": 1732453848,
+			"url": "https://huggingface.co/zai-org/glm-edge-v-2b"
+		},
+		{
+			"slug": "glm-edge",
+			"label": "glm-edge",
+			"date": 1732112736,
+			"url": "https://huggingface.co/zai-org/glm-edge-1.5b-chat"
+		},
+		{
+			"slug": "webrl-glm-4-9b",
+			"label": "webrl-glm-4-9b",
+			"date": 1730733618,
+			"url": "https://huggingface.co/zai-org/webrl-glm-4-9b"
+		},
+		{
+			"slug": "cogvideox1-5-5b",
+			"label": "CogVideoX1.5-5B",
+			"date": 1730553564,
+			"url": "https://huggingface.co/zai-org/CogVideoX1.5-5B"
+		},
+		{
+			"slug": "longreward-glm4-9b-dpo",
+			"label": "LongReward-glm4-9b-DPO",
+			"date": 1730134471,
+			"url": "https://huggingface.co/zai-org/LongReward-glm4-9b-DPO"
+		},
+		{
+			"slug": "glm-4-voice-9b",
+			"label": "glm-4-voice-9b",
+			"date": 1729765254,
+			"url": "https://huggingface.co/zai-org/glm-4-voice-9b"
+		},
+		{
+			"slug": "cogvideox-5b-i2v",
+			"label": "CogVideoX-5b-I2V",
+			"date": 1726455473,
+			"url": "https://huggingface.co/zai-org/CogVideoX-5b-I2V"
+		},
+		{
+			"slug": "glm-4-plus",
+			"label": "GLM-4-Plus",
+			"date": 1726110755,
+			"url": "https://www.zhipuai.cn/en/research/69"
+		},
+		{
+			"slug": "cogview-3-plus",
+			"label": "CogView-3-Plus",
+			"date": 1726110755,
+			"url": "https://www.zhipuai.cn/en/research/69"
+		},
+		{
+			"slug": "ying",
+			"label": "Ying",
+			"date": 1725949265,
+			"url": "https://www.zhipuai.cn/en/research/127"
+		},
+		{
+			"slug": "longcite-glm4-9b",
+			"label": "LongCite-glm4-9b",
+			"date": 1725249579,
+			"url": "https://huggingface.co/zai-org/LongCite-glm4-9b"
+		},
+		{
+			"slug": "longwriter-glm4-9b",
+			"label": "LongWriter-glm4-9b",
+			"date": 1723443409,
+			"url": "https://huggingface.co/zai-org/LongWriter-glm4-9b"
+		},
+		{
+			"slug": "cogvideox",
+			"label": "CogVideoX",
+			"date": 1722867211,
+			"url": "https://huggingface.co/zai-org/CogVideoX-2b"
+		},
+		{
+			"slug": "apar",
+			"label": "apar",
+			"date": 1721620184,
+			"url": "https://huggingface.co/zai-org/apar-7b"
+		},
+		{
+			"slug": "codegeex4-all-9b",
+			"label": "codegeex4-all-9b",
+			"date": 1720145397,
+			"url": "https://huggingface.co/zai-org/codegeex4-all-9b"
+		},
+		{
+			"slug": "msagpt",
+			"label": "MSAGPT",
+			"date": 1718106479,
+			"url": "https://huggingface.co/zai-org/MSAGPT"
+		},
+		{
+			"slug": "glm-4-9b",
+			"label": "GLM-4-9B",
+			"date": 1717491549,
+			"url": "https://huggingface.co/zai-org/glm-4-9b"
+		},
+		{
+			"slug": "glm-4v-9b",
+			"label": "GLM-4V-9B",
+			"date": 1717491526,
+			"url": "https://huggingface.co/zai-org/glm-4v-9b"
+		},
+		{
+			"slug": "chatglm3-6b-128k",
+			"label": "chatglm3-6b-128k",
+			"date": 1706598055,
+			"url": "https://huggingface.co/zai-org/chatglm3-6b-128k"
+		},
+		{
+			"slug": "longalign",
+			"label": "LongAlign",
+			"date": 1706519176,
+			"url": "https://huggingface.co/zai-org/LongAlign-7B-64k"
+		},
+		{
+			"slug": "cogagent",
+			"label": "CogAgent",
+			"date": 1702647017,
+			"url": "https://huggingface.co/zai-org/CogAgent"
+		},
+		{
+			"slug": "bpo",
+			"label": "BPO",
+			"date": 1700469015,
+			"url": "https://huggingface.co/zai-org/BPO"
+		},
+		{
+			"slug": "chatglm3-6b",
+			"label": "chatglm3-6b",
+			"date": 1698227801,
+			"url": "https://huggingface.co/zai-org/chatglm3-6b"
+		},
+		{
+			"slug": "cogvlm",
+			"label": "CogVLM",
+			"date": 1696992656,
+			"url": "https://huggingface.co/zai-org/CogVLM"
+		},
+		{
+			"slug": "agentlm",
+			"label": "agentlm",
+			"date": 1696769336,
+			"url": "https://huggingface.co/zai-org/agentlm-13b"
+		},
+		{
+			"slug": "mathglm",
+			"label": "MathGLM",
+			"date": 1695327906,
+			"url": "https://huggingface.co/zai-org/MathGLM"
+		},
+		{
+			"slug": "chatglm2-6b-32k",
+			"label": "chatglm2-6b-32k",
+			"date": 1690726603,
+			"url": "https://huggingface.co/zai-org/chatglm2-6b-32k"
+		},
+		{
+			"slug": "codegeex2-6b",
+			"label": "codegeex2-6b",
+			"date": 1689755126,
+			"url": "https://huggingface.co/zai-org/codegeex2-6b"
+		},
+		{
+			"slug": "chatglm2-6b",
+			"label": "chatglm2-6b",
+			"date": 1687623987,
+			"url": "https://huggingface.co/zai-org/chatglm2-6b"
+		},
+		{
+			"slug": "webglm",
+			"label": "WebGLM",
+			"date": 1685257494,
+			"url": "https://huggingface.co/zai-org/WebGLM"
+		},
+		{
+			"slug": "visualglm-6b",
+			"label": "visualglm-6b",
+			"date": 1684312459,
+			"url": "https://huggingface.co/zai-org/visualglm-6b"
+		},
+		{
+			"slug": "imagereward",
+			"label": "ImageReward",
+			"date": 1680782078,
+			"url": "https://huggingface.co/zai-org/ImageReward"
+		},
+		{
+			"slug": "chatglm-6b",
+			"label": "ChatGLM-6B",
+			"date": 1678724884,
+			"url": "https://huggingface.co/zai-org/chatglm-6b"
+		},
+		{
+			"slug": "glm",
+			"label": "GLM",
+			"date": 1677596327,
+			"url": "https://huggingface.co/zai-org/glm-10b-chinese"
+		},
+		{
+			"slug": "cogvideo",
+			"label": "CogVideo",
+			"date": 1658142150,
+			"url": "https://huggingface.co/zai-org/CogVideo"
+		},
+		{
+			"slug": "cogview2",
+			"label": "CogView2",
+			"date": 1655897022,
+			"url": "https://huggingface.co/zai-org/CogView2"
+		}
+	]
+}

@@ -1,0 +1,97 @@
+{
+	"slug": "minimax",
+	"label": "MiniMax",
+	"updated_at": 1795645214,
+	"models": [
+		{
+			"slug": "minimax-h3-image",
+			"label": "MiniMax H3 Image",
+			"date": 1794327800,
+			"url": "https://www.minimax.io/blog/minimax-h3-image"
+		},
+		{
+			"slug": "minimax-m3-1-flash",
+			"label": "MiniMax M3.1 Flash",
+			"date": 1792368000,
+			"url": "https://www.minimax.io/blog/minimax-m31f"
+		},
+		{
+			"slug": "minimax-music-3-0",
+			"label": "MiniMax Music 3.0",
+			"date": 1786628039,
+			"url": "https://www.minimax.io/blog/minimax-music-3-0-next-generation-open-weights-production-ready-versatile-music-model"
+		},
+		{
+			"slug": "minimax-h3",
+			"label": "MiniMax H3",
+			"date": 1785456000,
+			"url": "https://www.minimax.io/blog/minimax-h3"
+		},
+		{
+			"slug": "minimax-m3",
+			"label": "MiniMax M3",
+			"date": 1780248678,
+			"url": "https://www.minimax.io/blog/minimax-m3"
+		},
+		{
+			"slug": "minimax-m2-7",
+			"label": "MiniMax M2.7",
+			"date": 1773792000,
+			"url": "https://www.minimax.io/blog/minimax-m27"
+		},
+		{
+			"slug": "minimax-m2-5",
+			"label": "MiniMax M2.5",
+			"date": 1770854400,
+			"url": "https://www.minimax.io/blog/minimax-m25"
+		},
+		{
+			"slug": "minimax-m2-her",
+			"label": "MiniMax-M2-her",
+			"date": 1769472000,
+			"url": "https://www.minimax.io/blog/minimax-m2-her"
+		},
+		{
+			"slug": "minimax-m2-1",
+			"label": "MiniMax M2.1",
+			"date": 1766448000,
+			"url": "https://www.minimax.io/blog/minimax-m21"
+		},
+		{
+			"slug": "vtp",
+			"label": "VTP",
+			"date": 1765861562,
+			"url": "https://huggingface.co/MiniMaxAI/VTP-Small-f16d64"
+		},
+		{
+			"slug": "minimax-m2",
+			"label": "MiniMax M2",
+			"date": 1761523200,
+			"url": "https://www.minimax.io/blog/minimax-m2-en-1748600000"
+		},
+		{
+			"slug": "minimax-m1",
+			"label": "MiniMax-M1",
+			"date": 1749112969,
+			"url": "https://huggingface.co/MiniMaxAI/MiniMax-M1-40k"
+		},
+		{
+			"slug": "synlogic",
+			"label": "SynLogic",
+			"date": 1748606794,
+			"url": "https://huggingface.co/MiniMaxAI/SynLogic-32B"
+		},
+		{
+			"slug": "minimax-vl-01",
+			"label": "MiniMax-VL-01",
+			"date": 1736694133,
+			"url": "https://huggingface.co/MiniMaxAI/MiniMax-VL-01"
+		},
+		{
+			"slug": "minimax-text-01",
+			"label": "MiniMax-Text-01",
+			"date": 1736689711,
+			"url": "https://huggingface.co/MiniMaxAI/MiniMax-Text-01"
+		}
+	]
+}

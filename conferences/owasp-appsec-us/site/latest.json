@@ -1,0 +1,16 @@
+{
+	"slug": "owasp-appsec-us",
+	"label": "OWASP Global AppSec USA",
+	"updated_at": 1795771752,
+	"edition": {
+		"start": 1821657600,
+		"end": 1821744000,
+		"place": "Atlanta, United States",
+		"url": "https://owasp.org/assets/sitedata/events.yml",
+		"tickets": {
+			"status": "unknown",
+			"url": null
+		}
+	},
+	"icon": "icon.svg"
+}

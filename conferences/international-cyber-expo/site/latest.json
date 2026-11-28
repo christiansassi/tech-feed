@@ -1,0 +1,16 @@
+{
+	"slug": "international-cyber-expo",
+	"label": "International Cyber Expo",
+	"updated_at": 1795820526,
+	"edition": {
+		"start": 1827014400,
+		"end": 1827100800,
+		"place": "London, United Kingdom",
+		"url": "https://www.internationalcyberexpo.com/",
+		"tickets": {
+			"status": "unknown",
+			"url": null
+		}
+	},
+	"icon": "icon.ico"
+}

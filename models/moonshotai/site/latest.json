@@ -1,0 +1,97 @@
+{
+	"slug": "moonshotai",
+	"label": "Moonshot AI",
+	"updated_at": 1795645214,
+	"models": [
+		{
+			"slug": "kimi-k3-1-pro",
+			"label": "Kimi K3.1 Pro",
+			"date": 1792800000,
+			"url": "https://www.kimi.ai/blog/kimi-k3-1-pro"
+		},
+		{
+			"slug": "kimi-k3",
+			"label": "Kimi K3",
+			"date": 1784160000,
+			"url": "https://www.kimi.ai/blog/kimi-k3"
+		},
+		{
+			"slug": "kimi-k2-7-code",
+			"label": "Kimi-K2.7-Code",
+			"date": 1781164307,
+			"url": "https://huggingface.co/moonshotai/Kimi-K2.7-Code"
+		},
+		{
+			"slug": "kimi-k2-6",
+			"label": "Kimi K2.6",
+			"date": 1776643200,
+			"url": "https://www.kimi.ai/blog/kimi-k2-6"
+		},
+		{
+			"slug": "kimi-k2-5",
+			"label": "Kimi K2.5",
+			"date": 1769472000,
+			"url": "https://www.kimi.ai/blog/kimi-k2-5"
+		},
+		{
+			"slug": "kimi-k2-thinking",
+			"label": "Kimi K2 Thinking",
+			"date": 1762387200,
+			"url": "https://www.kimi.ai/blog/kimi-k2-thinking"
+		},
+		{
+			"slug": "kimi-linear-48b-a3b",
+			"label": "Kimi-Linear-48B-A3B",
+			"date": 1761827851,
+			"url": "https://huggingface.co/moonshotai/Kimi-Linear-48B-A3B-Instruct"
+		},
+		{
+			"slug": "kimi-k2-instruct-0905",
+			"label": "Kimi-K2-Instruct-0905",
+			"date": 1756870476,
+			"url": "https://huggingface.co/moonshotai/Kimi-K2-Instruct-0905"
+		},
+		{
+			"slug": "kimi-k2",
+			"label": "Kimi K2",
+			"date": 1752192000,
+			"url": "https://www.kimi.ai/blog/kimi-k2"
+		},
+		{
+			"slug": "kimi-vl-a3b-thinking-2506",
+			"label": "Kimi-VL-A3B-Thinking-2506",
+			"date": 1750498828,
+			"url": "https://huggingface.co/moonshotai/Kimi-VL-A3B-Thinking-2506"
+		},
+		{
+			"slug": "kimi-dev-72b",
+			"label": "Kimi-Dev-72B",
+			"date": 1750074059,
+			"url": "https://huggingface.co/moonshotai/Kimi-Dev-72B"
+		},
+		{
+			"slug": "kimi-audio-7b",
+			"label": "Kimi-Audio-7B",
+			"date": 1745568310,
+			"url": "https://huggingface.co/moonshotai/Kimi-Audio-7B-Instruct"
+		},
+		{
+			"slug": "moonvit-so-400m",
+			"label": "MoonViT-SO-400M",
+			"date": 1744279355,
+			"url": "https://huggingface.co/moonshotai/MoonViT-SO-400M"
+		},
+		{
+			"slug": "kimi-vl-a3b",
+			"label": "Kimi-VL-A3B",
+			"date": 1744186026,
+			"url": "https://huggingface.co/moonshotai/Kimi-VL-A3B-Instruct"
+		},
+		{
+			"slug": "moonlight-16b-a3b",
+			"label": "Moonlight-16B-A3B",
+			"date": 1740197680,
+			"url": "https://huggingface.co/moonshotai/Moonlight-16B-A3B"
+		}
+	]
+}

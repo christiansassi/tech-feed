@@ -1,0 +1,16 @@
+{
+	"slug": "owasp-appsec-eu",
+	"label": "OWASP Global AppSec EU",
+	"updated_at": 1795624508,
+	"edition": {
+		"start": 1813795200,
+		"end": 1813881600,
+		"place": "Vienna, Austria",
+		"url": "https://owasp.org/assets/sitedata/events.yml",
+		"tickets": {
+			"status": "unknown",
+			"url": null
+		}
+	},
+	"icon": "icon.svg"
+}

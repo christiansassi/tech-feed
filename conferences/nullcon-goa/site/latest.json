@@ -1,0 +1,16 @@
+{
+	"slug": "nullcon-goa",
+	"label": "Nullcon Goa",
+	"updated_at": 1795771752,
+	"edition": {
+		"start": 1803686400,
+		"end": 1803772800,
+		"place": "Goa, India",
+		"url": "https://nullcon.net/event/nullcon-goa-2027/",
+		"tickets": {
+			"status": "available",
+			"url": "https://nullcon.net/event/nullcon-goa-2027/registration/?utm_source=Website&utm_medium=Cybermonday&utm_campaign=mrkt"
+		}
+	},
+	"icon": "icon.png"
+}

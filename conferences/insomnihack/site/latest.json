@@ -1,0 +1,16 @@
+{
+	"slug": "insomnihack",
+	"label": "Insomni'hack",
+	"updated_at": 1795622867,
+	"edition": {
+		"start": 1801699200,
+		"end": 1801785600,
+		"place": "Ecublens, Switzerland",
+		"url": "https://www.insomnihack.ch/",
+		"tickets": {
+			"status": "available",
+			"url": "https://www.insomnihack.ch/content/pre-registration"
+		}
+	},
+	"icon": "icon.svg"
+}

@@ -1,0 +1,16 @@
+{
+	"slug": "sstic",
+	"label": "SSTIC",
+	"updated_at": 1795623602,
+	"edition": {
+		"start": 1811894400,
+		"end": 1812067200,
+		"place": "Rennes, France",
+		"url": "https://www.sstic.org/2027/news/",
+		"tickets": {
+			"status": "unknown",
+			"url": null
+		}
+	},
+	"icon": "icon.png"
+}

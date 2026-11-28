@@ -1,0 +1,16 @@
+{
+	"slug": "botconf",
+	"label": "Botconf",
+	"updated_at": 1795622867,
+	"edition": {
+		"start": 1808870400,
+		"end": 1809043200,
+		"place": "Vannes, France",
+		"url": "https://www.botconf.eu/",
+		"tickets": {
+			"status": "unknown",
+			"url": null
+		}
+	},
+	"icon": "icon.png"
+}

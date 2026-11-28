@@ -1,0 +1,37 @@
+{
+	"slug": "thinkingmachines",
+	"label": "Thinking Machines",
+	"updated_at": 1795645214,
+	"models": [
+		{
+			"slug": "inkling-2-mini",
+			"label": "Inkling 2 Mini",
+			"date": 1795132800,
+			"url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+		},
+		{
+			"slug": "tml-d24-varloop-research",
+			"label": "TML-d24-varloop-research",
+			"date": 1795037017,
+			"url": "https://huggingface.co/thinkingmachines/TML-d24-varloop-research"
+		},
+		{
+			"slug": "inkling-2-small",
+			"label": "Inkling 2 Small",
+			"date": 1793836800,
+			"url": "https://thinkingmachines.ai/news/inkling-2-small/"
+		},
+		{
+			"slug": "inkling-small",
+			"label": "Inkling-Small",
+			"date": 1785369600,
+			"url": "https://thinkingmachines.ai/news/inkling-small/"
+		},
+		{
+			"slug": "inkling",
+			"label": "Inkling",
+			"date": 1784073600,
+			"url": "https://thinkingmachines.ai/news/introducing-inkling/"
+		}
+	]
+}

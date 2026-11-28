@@ -1,0 +1,157 @@
+{
+	"slug": "anthropic",
+	"label": "Anthropic",
+	"updated_at": 1795645214,
+	"models": [
+		{
+			"slug": "claude-fable-5-2",
+			"label": "Claude Fable 5.2",
+			"date": 1794182400,
+			"url": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+		},
+		{
+			"slug": "claude-mythos-5-2",
+			"label": "Claude Mythos 5.2",
+			"date": 1794182400,
+			"url": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+		},
+		{
+			"slug": "claude-haiku-5-5",
+			"label": "Claude Haiku 5.5",
+			"date": 1791331200,
+			"url": "https://www.anthropic.com/claude-haiku-5-5"
+		},
+		{
+			"slug": "claude-sonnet-5-5",
+			"label": "Claude Sonnet 5.5",
+			"date": 1790553600,
+			"url": "https://www.anthropic.com/claude-sonnet-5-5"
+		},
+		{
+			"slug": "claude-opus-5-5",
+			"label": "Claude Opus 5.5",
+			"date": 1790035200,
+			"url": "https://www.anthropic.com/claude-opus-5-5"
+		},
+		{
+			"slug": "claude-fable-5-1",
+			"label": "Claude Fable 5.1",
+			"date": 1788220800,
+			"url": "https://platform.claude.com/docs/en/release-notes/overview#september-1-2026"
+		},
+		{
+			"slug": "claude-mythos-5-1",
+			"label": "Claude Mythos 5.1",
+			"date": 1788220800,
+			"url": "https://platform.claude.com/docs/en/release-notes/overview#september-1-2026"
+		},
+		{
+			"slug": "claude-opus-5",
+			"label": "Claude Opus 5",
+			"date": 1784851200,
+			"url": "https://platform.claude.com/docs/en/release-notes/overview#july-24-2026"
+		},
+		{
+			"slug": "claude-sonnet-5",
+			"label": "Claude Sonnet 5",
+			"date": 1782777600,
+			"url": "https://platform.claude.com/docs/en/release-notes/overview#june-30-2026"
+		},
+		{
+			"slug": "claude-fable-5",
+			"label": "Claude Fable 5",
+			"date": 1780963200,
+			"url": "https://platform.claude.com/docs/en/release-notes/overview#june-9-2026"
+		},
+		{
+			"slug": "claude-mythos-5",
+			"label": "Claude Mythos 5",
+			"date": 1780963200,
+			"url": "https://platform.claude.com/docs/en/release-notes/overview#june-9-2026"
+		},
+		{
+			"slug": "claude-opus-4-8",
+			"label": "Claude Opus 4.8",
+			"date": 1779926400,
+			"url": "https://platform.claude.com/docs/en/release-notes/overview#may-28-2026"
+		},
+		{
+			"slug": "claude-opus-4-7",
+			"label": "Claude Opus 4.7",
+			"date": 1776297600,
+			"url": "https://platform.claude.com/docs/en/release-notes/overview#april-16-2026"
+		},
+		{
+			"slug": "claude-mythos-preview",
+			"label": "Claude Mythos Preview",
+			"date": 1775520000,
+			"url": "https://platform.claude.com/docs/en/release-notes/overview#april-7-2026"
+		},
+		{
+			"slug": "claude-sonnet-4-6",
+			"label": "Claude Sonnet 4.6",
+			"date": 1771286400,
+			"url": "https://platform.claude.com/docs/en/release-notes/overview#february-17-2026"
+		},
+		{
+			"slug": "claude-opus-4-6",
+			"label": "Claude Opus 4.6",
+			"date": 1770249600,
+			"url": "https://platform.claude.com/docs/en/release-notes/overview#february-5-2026"
+		},
+		{
+			"slug": "claude-opus-4-5",
+			"label": "Claude Opus 4.5",
+			"date": 1763942400,
+			"url": "https://platform.claude.com/docs/en/release-notes/overview#november-24-2025"
+		},
+		{
+			"slug": "claude-haiku-4-5",
+			"label": "Claude Haiku 4.5",
+			"date": 1760486400,
+			"url": "https://platform.claude.com/docs/en/release-notes/overview#october-15-2025"
+		},
+		{
+			"slug": "claude-sonnet-4-5",
+			"label": "Claude Sonnet 4.5",
+			"date": 1759104000,
+			"url": "https://platform.claude.com/docs/en/release-notes/overview#september-29-2025"
+		},
+		{
+			"slug": "claude-opus-4-1",
+			"label": "Claude Opus 4.1",
+			"date": 1754352000,
+			"url": "https://platform.claude.com/docs/en/release-notes/overview#august-5-2025"
+		},
+		{
+			"slug": "claude-opus-4",
+			"label": "Claude Opus 4",
+			"date": 1747872000,
+			"url": "https://platform.claude.com/docs/en/release-notes/overview#may-22-2025"
+		},
+		{
+			"slug": "claude-sonnet-4",
+			"label": "Claude Sonnet 4",
+			"date": 1747872000,
+			"url": "https://platform.claude.com/docs/en/release-notes/overview#may-22-2025"
+		},
+		{
+			"slug": "claude-sonnet-3-7",
+			"label": "Claude Sonnet 3.7",
+			"date": 1740355200,
+			"url": "https://platform.claude.com/docs/en/release-notes/overview#february-24-2025"
+		},
+		{
+			"slug": "claude-haiku-3-5",
+			"label": "Claude Haiku 3.5",
+			"date": 1730678400,
+			"url": "https://platform.claude.com/docs/en/release-notes/overview#november-4-2024"
+		},
+		{
+			"slug": "claude-sonnet-3-5",
+			"label": "Claude Sonnet 3.5",
+			"date": 1718841600,
+			"url": "https://platform.claude.com/docs/en/release-notes/overview#june-20-2024"
+		}
+	]
+}

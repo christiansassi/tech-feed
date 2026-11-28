@@ -1,0 +1,16 @@
+{
+	"slug": "hardwear-io-usa",
+	"label": "hardwear.io USA",
+	"updated_at": 1795771704,
+	"edition": {
+		"start": 1810512000,
+		"end": 1810857600,
+		"place": "Santa Clara, United States",
+		"url": "https://hardwear.io/",
+		"tickets": {
+			"status": "unknown",
+			"url": null
+		}
+	},
+	"icon": "icon.png"
+}

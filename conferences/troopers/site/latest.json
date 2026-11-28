@@ -1,0 +1,16 @@
+{
+	"slug": "troopers",
+	"label": "TROOPERS",
+	"updated_at": 1795623641,
+	"edition": {
+		"start": 1813708800,
+		"end": 1813881600,
+		"place": "Heidelberg, Germany",
+		"url": "https://troopers.de/",
+		"tickets": {
+			"status": "available",
+			"url": "https://tickets.ernw.de/troopers/tr27/"
+		}
+	},
+	"icon": "icon.png"
+}

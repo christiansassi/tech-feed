@@ -1,0 +1,16 @@
+{
+	"slug": "hope",
+	"label": "HOPE",
+	"updated_at": 1795771704,
+	"edition": {
+		"start": 1818115200,
+		"end": 1818288000,
+		"place": "New York City, United States",
+		"url": "https://www.hope.net/",
+		"tickets": {
+			"status": "unknown",
+			"url": null
+		}
+	},
+	"icon": "icon.ico"
+}

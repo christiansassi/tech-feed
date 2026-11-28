@@ -1,0 +1,781 @@
+{
+	"slug": "openai",
+	"label": "OpenAI",
+	"updated_at": 1795654926,
+	"models": [
+		{
+			"slug": "gpt-live-1-1",
+			"label": "GPT-Live-1.1",
+			"date": 1795046400,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "gpt-6-2-astra",
+			"label": "GPT-6.2 Astra",
+			"date": 1794937500,
+			"url": "https://openai.com/index/introducing-gpt-6-2-astra-sol"
+		},
+		{
+			"slug": "gpt-6-2-sol",
+			"label": "GPT-6.2 Sol",
+			"date": 1794937500,
+			"url": "https://openai.com/index/introducing-gpt-6-2-astra-sol"
+		},
+		{
+			"slug": "astra-for-law",
+			"label": "Astra for Law",
+			"date": 1794873600,
+			"url": "https://openai.com/index/astra-law-6-2"
+		},
+		{
+			"slug": "openai-csam-image-classifier",
+			"label": "OpenAI CSAM Image Classifier",
+			"date": 1794787200,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "gpt-6-cyber",
+			"label": "GPT-6 Cyber",
+			"date": 1793869200,
+			"url": "https://openai.com/index/introducing-gpt-6-cyber"
+		},
+		{
+			"slug": "gpt-image-2-6-sunburst",
+			"label": "GPT-Image-2.6 Sunburst",
+			"date": 1793750400,
+			"url": "https://openai.com/index/introducing-images-2-6"
+		},
+		{
+			"slug": "gpt-image-2-6-flare",
+			"label": "GPT-Image-2.6 Flare",
+			"date": 1793750400,
+			"url": "https://openai.com/index/introducing-images-2-6"
+		},
+		{
+			"slug": "gpt-6-rosalind",
+			"label": "GPT-6 Rosalind",
+			"date": 1793318400,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "gpt-6-1-terra",
+			"label": "GPT-6.1 Terra",
+			"date": 1793037600,
+			"url": "https://openai.com/index/introducing-gpt-6-1-terra"
+		},
+		{
+			"slug": "gpt-6-1-sol",
+			"label": "GPT-6.1 Sol",
+			"date": 1790701200,
+			"url": "https://openai.com/index/introducing-gpt-6-1-sol"
+		},
+		{
+			"slug": "gpt-6-sol",
+			"label": "GPT-6 Sol",
+			"date": 1790100000,
+			"url": "https://openai.com/index/introducing-gpt-6-sol-and-luna"
+		},
+		{
+			"slug": "gpt-6-luna",
+			"label": "GPT-6 Luna",
+			"date": 1790100000,
+			"url": "https://openai.com/index/introducing-gpt-6-sol-and-luna"
+		},
+		{
+			"slug": "gpt-live-1",
+			"label": "GPT-Live-1",
+			"date": 1788998400,
+			"url": "https://openai.com/index/introducing-gpt-live-1-in-the-api"
+		},
+		{
+			"slug": "gpt-image-2-5-sunburst",
+			"label": "GPT-Image-2.5 Sunburst",
+			"date": 1788867000,
+			"url": "https://openai.com/index/introducing-chatgpt-images-2-5"
+		},
+		{
+			"slug": "gpt-image-2-5-flare",
+			"label": "GPT-Image-2.5 Flare",
+			"date": 1788867000,
+			"url": "https://openai.com/index/introducing-chatgpt-images-2-5"
+		},
+		{
+			"slug": "gpt-6-astra",
+			"label": "GPT-6 Astra",
+			"date": 1788433200,
+			"url": "https://openai.com/index/gpt-6-astra"
+		},
+		{
+			"slug": "gpt-5-6-cyber",
+			"label": "GPT-5.6-Cyber",
+			"date": 1786356000,
+			"url": "https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows"
+		},
+		{
+			"slug": "gpt-5-6-sol",
+			"label": "GPT-5.6 Sol",
+			"date": 1786010400,
+			"url": "https://openai.com/index/improving-gpt-5-6-sol-in-chatgpt"
+		},
+		{
+			"slug": "gpt-transcribe",
+			"label": "GPT-Transcribe",
+			"date": 1785196800,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "gpt-live-transcribe",
+			"label": "GPT-Live-Transcribe",
+			"date": 1785196800,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "gpt-5-6",
+			"label": "GPT-5.6",
+			"date": 1783591200,
+			"url": "https://openai.com/index/gpt-5-6"
+		},
+		{
+			"slug": "gpt-live",
+			"label": "GPT-Live",
+			"date": 1783468800,
+			"url": "https://openai.com/index/introducing-gpt-live"
+		},
+		{
+			"slug": "gpt-realtime-2-1",
+			"label": "GPT-Realtime-2.1",
+			"date": 1783296000,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "gpt-5-5-cyber",
+			"label": "GPT-5.5-Cyber",
+			"date": 1778158800,
+			"url": "https://openai.com/index/gpt-5-5-with-trusted-access-for-cyber"
+		},
+		{
+			"slug": "gpt-realtime-2",
+			"label": "GPT-Realtime-2",
+			"date": 1778148000,
+			"url": "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api"
+		},
+		{
+			"slug": "gpt-realtime-translate",
+			"label": "GPT-Realtime-Translate",
+			"date": 1778148000,
+			"url": "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api"
+		},
+		{
+			"slug": "gpt-realtime-whisper",
+			"label": "GPT-Realtime-Whisper",
+			"date": 1778148000,
+			"url": "https://openai.com/index/advancing-voice-intelligence-with-new-models-in-the-api"
+		},
+		{
+			"slug": "gpt-5-5-instant",
+			"label": "GPT-5.5 Instant",
+			"date": 1777975200,
+			"url": "https://openai.com/index/gpt-5-5-instant"
+		},
+		{
+			"slug": "gpt-5-5",
+			"label": "GPT-5.5",
+			"date": 1776942000,
+			"url": "https://openai.com/index/introducing-gpt-5-5"
+		},
+		{
+			"slug": "openai-privacy-filter",
+			"label": "OpenAI Privacy Filter",
+			"date": 1776816000,
+			"url": "https://openai.com/index/introducing-openai-privacy-filter"
+		},
+		{
+			"slug": "gpt-image-2",
+			"label": "GPT Image 2",
+			"date": 1776772800,
+			"url": "https://openai.com/index/introducing-chatgpt-images-2-0"
+		},
+		{
+			"slug": "gpt-rosalind",
+			"label": "GPT-Rosalind",
+			"date": 1776301200,
+			"url": "https://openai.com/index/introducing-gpt-rosalind"
+		},
+		{
+			"slug": "gpt-5-4-cyber",
+			"label": "GPT-5.4-Cyber",
+			"date": 1776124800,
+			"url": "https://openai.com/index/scaling-trusted-access-for-cyber-defense"
+		},
+		{
+			"slug": "gpt-5-4-mini-and-nano",
+			"label": "GPT-5.4 mini and nano",
+			"date": 1773741600,
+			"url": "https://openai.com/index/introducing-gpt-5-4-mini-and-nano"
+		},
+		{
+			"slug": "gpt-5-4",
+			"label": "GPT-5.4",
+			"date": 1772704800,
+			"url": "https://openai.com/index/introducing-gpt-5-4"
+		},
+		{
+			"slug": "gpt-5-3-instant",
+			"label": "GPT-5.3 Instant",
+			"date": 1772532000,
+			"url": "https://openai.com/index/gpt-5-3-instant"
+		},
+		{
+			"slug": "gpt-realtime-1-5",
+			"label": "GPT-Realtime-1.5",
+			"date": 1771804800,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "gpt-audio-1-5",
+			"label": "gpt-audio-1.5",
+			"date": 1771804800,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "gpt-5-3-codex-spark",
+			"label": "GPT-5.3-Codex-Spark",
+			"date": 1770890400,
+			"url": "https://openai.com/index/introducing-gpt-5-3-codex-spark"
+		},
+		{
+			"slug": "gpt-5-3-codex",
+			"label": "GPT-5.3-Codex",
+			"date": 1770249600,
+			"url": "https://openai.com/index/introducing-gpt-5-3-codex"
+		},
+		{
+			"slug": "gpt-5-2-codex",
+			"label": "GPT-5.2-Codex",
+			"date": 1766016000,
+			"url": "https://openai.com/index/introducing-gpt-5-2-codex"
+		},
+		{
+			"slug": "gpt-image-1-5",
+			"label": "GPT‑Image‑1.5",
+			"date": 1765843200,
+			"url": "https://openai.com/index/new-chatgpt-images-is-here"
+		},
+		{
+			"slug": "circuit-sparsity",
+			"label": "circuit-sparsity",
+			"date": 1765492774,
+			"url": "https://huggingface.co/openai/circuit-sparsity"
+		},
+		{
+			"slug": "gpt-5-2",
+			"label": "GPT-5.2",
+			"date": 1765411200,
+			"url": "https://openai.com/index/introducing-gpt-5-2"
+		},
+		{
+			"slug": "gpt-5-1-codex-max",
+			"label": "GPT-5.1-Codex-Max",
+			"date": 1763510400,
+			"url": "https://openai.com/index/gpt-5-1-codex-max"
+		},
+		{
+			"slug": "gpt-5-1-codex",
+			"label": "GPT-5.1-Codex",
+			"date": 1762992000,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "gpt-5-1",
+			"label": "GPT-5.1",
+			"date": 1762905600,
+			"url": "https://openai.com/index/gpt-5-1"
+		},
+		{
+			"slug": "gpt-oss-safeguard",
+			"label": "gpt-oss-safeguard",
+			"date": 1761696000,
+			"url": "https://openai.com/index/introducing-gpt-oss-safeguard"
+		},
+		{
+			"slug": "gpt-realtime-mini",
+			"label": "GPT-Realtime mini",
+			"date": 1759708800,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "gpt-audio-mini",
+			"label": "gpt-audio-mini",
+			"date": 1759708800,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "gpt-5-pro",
+			"label": "GPT-5 pro",
+			"date": 1759708800,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "gpt-image-1-mini",
+			"label": "gpt-image-1-mini",
+			"date": 1759708800,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "sora-2",
+			"label": "Sora 2",
+			"date": 1759190400,
+			"url": "https://openai.com/index/sora-2"
+		},
+		{
+			"slug": "gpt-5-codex",
+			"label": "GPT-5-Codex",
+			"date": 1757894400,
+			"url": "https://openai.com/index/gpt-5-system-card-addendum-gpt-5-codex"
+		},
+		{
+			"slug": "gpt-realtime",
+			"label": "gpt-realtime",
+			"date": 1756375200,
+			"url": "https://openai.com/index/introducing-gpt-realtime"
+		},
+		{
+			"slug": "gpt-5",
+			"label": "GPT-5",
+			"date": 1754524800,
+			"url": "https://openai.com/index/introducing-gpt-5"
+		},
+		{
+			"slug": "gpt-oss",
+			"label": "gpt-oss",
+			"date": 1754352000,
+			"url": "https://openai.com/index/introducing-gpt-oss"
+		},
+		{
+			"slug": "chatgpt-agent",
+			"label": "ChatGPT agent",
+			"date": 1752746400,
+			"url": "https://openai.com/index/introducing-chatgpt-agent"
+		},
+		{
+			"slug": "o3-deep-research",
+			"label": "o3-deep-research",
+			"date": 1750723200,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "o4-mini-deep-research",
+			"label": "o4-mini-deep-research",
+			"date": 1750723200,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "o3-pro",
+			"label": "o3-pro",
+			"date": 1749513600,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "gpt-4o-realtime-preview",
+			"label": "gpt-4o-realtime-preview",
+			"date": 1748908800,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "openai-o3-operator",
+			"label": "OpenAI o3 Operator",
+			"date": 1747958400,
+			"url": "https://openai.com/index/o3-o4-mini-system-card-addendum-operator-o3"
+		},
+		{
+			"slug": "codex-1",
+			"label": "codex-1",
+			"date": 1747382400,
+			"url": "https://openai.com/index/introducing-codex"
+		},
+		{
+			"slug": "codex-mini-latest",
+			"label": "codex-mini-latest",
+			"date": 1747267200,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "gpt-image-1",
+			"label": "gpt-image-1",
+			"date": 1745402400,
+			"url": "https://openai.com/index/image-generation-api"
+		},
+		{
+			"slug": "openai-o3",
+			"label": "OpenAI o3",
+			"date": 1744797600,
+			"url": "https://openai.com/index/introducing-o3-and-o4-mini"
+		},
+		{
+			"slug": "o4-mini",
+			"label": "o4-mini",
+			"date": 1744797600,
+			"url": "https://openai.com/index/introducing-o3-and-o4-mini"
+		},
+		{
+			"slug": "gpt-4-1",
+			"label": "GPT-4.1",
+			"date": 1744624800,
+			"url": "https://openai.com/index/gpt-4-1"
+		},
+		{
+			"slug": "gpt-4o-mini-transcribe",
+			"label": "gpt-4o-mini-transcribe",
+			"date": 1742468400,
+			"url": "https://openai.com/index/introducing-our-next-generation-audio-models"
+		},
+		{
+			"slug": "gpt-4o-mini-tts",
+			"label": "gpt-4o-mini-tts",
+			"date": 1742468400,
+			"url": "https://openai.com/index/introducing-our-next-generation-audio-models"
+		},
+		{
+			"slug": "gpt-4o-transcribe",
+			"label": "gpt-4o-transcribe",
+			"date": 1742468400,
+			"url": "https://openai.com/index/introducing-our-next-generation-audio-models"
+		},
+		{
+			"slug": "o1-pro",
+			"label": "o1-pro",
+			"date": 1742342400,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "gpt-4o-search-preview",
+			"label": "gpt-4o-search-preview",
+			"date": 1741651200,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "gpt-4o-mini-search-preview",
+			"label": "gpt-4o-mini-search-preview",
+			"date": 1741651200,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "gpt-4-5",
+			"label": "GPT-4.5",
+			"date": 1740657600,
+			"url": "https://openai.com/index/gpt-4-5-system-card"
+		},
+		{
+			"slug": "openai-o3-mini",
+			"label": "OpenAI o3-mini",
+			"date": 1738321200,
+			"url": "https://openai.com/index/openai-o3-mini"
+		},
+		{
+			"slug": "computer-using-agent",
+			"label": "Computer-Using Agent",
+			"date": 1737626400,
+			"url": "https://openai.com/index/computer-using-agent"
+		},
+		{
+			"slug": "openai-o1",
+			"label": "OpenAI o1",
+			"date": 1734393600,
+			"url": "https://openai.com/index/o1-and-new-tools-for-developers"
+		},
+		{
+			"slug": "gpt-4o-realtime",
+			"label": "gpt-4o-realtime",
+			"date": 1734393600,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "gpt-4o-audio",
+			"label": "gpt-4o-audio",
+			"date": 1734393600,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "gpt-4o-2024-11-20",
+			"label": "gpt-4o-2024-11-20",
+			"date": 1732060800,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "gpt-4o-audio-preview",
+			"label": "gpt-4o-audio-preview",
+			"date": 1729123200,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "whisper-large-v3-turbo",
+			"label": "whisper-large-v3-turbo",
+			"date": 1727768368,
+			"url": "https://huggingface.co/openai/whisper-large-v3-turbo"
+		},
+		{
+			"slug": "omni-moderation-latest",
+			"label": "omni-moderation-latest",
+			"date": 1727344800,
+			"url": "https://openai.com/index/upgrading-the-moderation-api-with-our-new-multimodal-moderation-model"
+		},
+		{
+			"slug": "o1-preview",
+			"label": "o1-preview",
+			"date": 1726135380,
+			"url": "https://openai.com/index/introducing-openai-o1-preview"
+		},
+		{
+			"slug": "openai-o1-mini",
+			"label": "OpenAI o1-mini",
+			"date": 1726135260,
+			"url": "https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning"
+		},
+		{
+			"slug": "gpt-4o-2024-08-06",
+			"label": "gpt-4o-2024-08-06",
+			"date": 1722902400,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "gpt-4o-mini",
+			"label": "GPT-4o mini",
+			"date": 1721296800,
+			"url": "https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence"
+		},
+		{
+			"slug": "criticgpt",
+			"label": "CriticGPT",
+			"date": 1719482400,
+			"url": "https://openai.com/index/finding-gpt4s-mistakes-with-gpt-4"
+		},
+		{
+			"slug": "gpt-4o",
+			"label": "GPT-4o",
+			"date": 1715594700,
+			"url": "https://openai.com/index/hello-gpt-4o"
+		},
+		{
+			"slug": "gpt-4-custom-model-optimized-for-the-japanese-language",
+			"label": "GPT-4 custom model optimized for the Japanese language",
+			"date": 1713052800,
+			"url": "https://openai.com/index/introducing-openai-japan"
+		},
+		{
+			"slug": "voice-engine",
+			"label": "Voice Engine",
+			"date": 1711670400,
+			"url": "https://openai.com/index/navigating-the-challenges-and-opportunities-of-synthetic-voices"
+		},
+		{
+			"slug": "sora",
+			"label": "Sora",
+			"date": 1707984000,
+			"url": "https://openai.com/index/video-generation-models-as-world-simulators"
+		},
+		{
+			"slug": "gpt-3-5-turbo-0125",
+			"label": "gpt-3.5-turbo-0125",
+			"date": 1706745600,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "embedding-v3",
+			"label": "embedding V3",
+			"date": 1706169600,
+			"url": "https://openai.com/index/new-embedding-models-and-api-updates"
+		},
+		{
+			"slug": "gpt-4-turbo-preview",
+			"label": "GPT-4 Turbo preview",
+			"date": 1706140800,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "consistency-decoder",
+			"label": "consistency-decoder",
+			"date": 1699527049,
+			"url": "https://huggingface.co/openai/consistency-decoder"
+		},
+		{
+			"slug": "whisper-large-v3",
+			"label": "whisper-large-v3",
+			"date": 1699382474,
+			"url": "https://huggingface.co/openai/whisper-large-v3"
+		},
+		{
+			"slug": "gpt-4-turbo",
+			"label": "GPT-4 Turbo",
+			"date": 1699257600,
+			"url": "https://openai.com/index/new-models-and-developer-products-announced-at-devday"
+		},
+		{
+			"slug": "gpt-4-turbo-with-vision",
+			"label": "GPT-4 Turbo with Vision",
+			"date": 1699257600,
+			"url": "https://openai.com/index/new-models-and-developer-products-announced-at-devday"
+		},
+		{
+			"slug": "gpt-3-5-turbo",
+			"label": "GPT-3.5 Turbo",
+			"date": 1699228800,
+			"url": "https://developers.openai.com/api/docs/changelog"
+		},
+		{
+			"slug": "shap-e",
+			"label": "Shap-E",
+			"date": 1688477135,
+			"url": "https://huggingface.co/openai/shap-e"
+		},
+		{
+			"slug": "gpt-4",
+			"label": "GPT-4",
+			"date": 1678777200,
+			"url": "https://openai.com/index/gpt-4-research"
+		},
+		{
+			"slug": "ai-text-classifier",
+			"label": "AI Text Classifier",
+			"date": 1675152000,
+			"url": "https://openai.com/index/new-ai-classifier-for-indicating-ai-written-text"
+		},
+		{
+			"slug": "point-e",
+			"label": "Point-E",
+			"date": 1671177600,
+			"url": "https://openai.com/index/point-e"
+		},
+		{
+			"slug": "text-embedding-ada-002",
+			"label": "text-embedding-ada-002",
+			"date": 1671091200,
+			"url": "https://openai.com/index/new-and-improved-embedding-model"
+		},
+		{
+			"slug": "whisper-large-v2",
+			"label": "whisper-large-v2",
+			"date": 1670265740,
+			"url": "https://huggingface.co/openai/whisper-large-v2"
+		},
+		{
+			"slug": "chatgpt",
+			"label": "ChatGPT",
+			"date": 1669795200,
+			"url": "https://openai.com/index/chatgpt"
+		},
+		{
+			"slug": "whisper",
+			"label": "Whisper",
+			"date": 1663743600,
+			"url": "https://openai.com/index/whisper"
+		},
+		{
+			"slug": "video-pretraining-vpt",
+			"label": "Video PreTraining (VPT)",
+			"date": 1655967600,
+			"url": "https://openai.com/index/vpt"
+		},
+		{
+			"slug": "codex",
+			"label": "Codex",
+			"date": 1647327600,
+			"url": "https://openai.com/index/gpt-3-edit-insert"
+		},
+		{
+			"slug": "instructgpt",
+			"label": "InstructGPT",
+			"date": 1643270400,
+			"url": "https://openai.com/index/instruction-following"
+		},
+		{
+			"slug": "text-and-code-embeddings",
+			"label": "Text and code embeddings",
+			"date": 1643097600,
+			"url": "https://openai.com/index/introducing-text-and-code-embeddings"
+		},
+		{
+			"slug": "webgpt",
+			"label": "WebGPT",
+			"date": 1639641600,
+			"url": "https://openai.com/index/webgpt"
+		},
+		{
+			"slug": "openai-codex",
+			"label": "OpenAI Codex",
+			"date": 1628578800,
+			"url": "https://openai.com/index/openai-codex"
+		},
+		{
+			"slug": "dall-e",
+			"label": "DALL·E",
+			"date": 1609833600,
+			"url": "https://openai.com/index/dall-e"
+		},
+		{
+			"slug": "clip",
+			"label": "CLIP",
+			"date": 1609833600,
+			"url": "https://openai.com/index/clip"
+		},
+		{
+			"slug": "image-gpt",
+			"label": "Image GPT",
+			"date": 1592377200,
+			"url": "https://openai.com/index/image-gpt"
+		},
+		{
+			"slug": "gpt-3",
+			"label": "GPT-3",
+			"date": 1591858800,
+			"url": "https://openai.com/index/openai-api"
+		},
+		{
+			"slug": "jukebox",
+			"label": "Jukebox",
+			"date": 1588230000,
+			"url": "https://openai.com/index/jukebox"
+		},
+		{
+			"slug": "musenet",
+			"label": "MuseNet",
+			"date": 1556175600,
+			"url": "https://openai.com/index/musenet"
+		},
+		{
+			"slug": "sparse-transformer",
+			"label": "Sparse Transformer",
+			"date": 1556002800,
+			"url": "https://openai.com/index/sparse-transformer"
+		},
+		{
+			"slug": "gpt-2",
+			"label": "GPT-2",
+			"date": 1550131200,
+			"url": "https://openai.com/index/better-language-models"
+		},
+		{
+			"slug": "glow",
+			"label": "Glow",
+			"date": 1531119600,
+			"url": "https://openai.com/index/glow"
+		},
+		{
+			"slug": "openai-five",
+			"label": "OpenAI Five",
+			"date": 1529910000,
+			"url": "https://openai.com/index/openai-five"
+		},
+		{
+			"slug": "gpt-1",
+			"label": "GPT-1",
+			"date": 1528700400,
+			"url": "https://openai.com/index/language-unsupervised"
+		},
+		{
+			"slug": "pixelcnn",
+			"label": "PixelCNN++",
+			"date": 1484812800,
+			"url": "https://openai.com/index/pixelcnn-plus-plus"
+		}
+	]
+}

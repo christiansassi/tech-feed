@@ -1,0 +1,16 @@
+{
+	"slug": "cybersec-europe",
+	"label": "Cybersec Europe",
+	"updated_at": 1795623314,
+	"edition": {
+		"start": 1811289600,
+		"end": 1811376000,
+		"place": "Brussels, Belgium",
+		"url": "https://www.cyberseceurope.com/",
+		"tickets": {
+			"status": "unknown",
+			"url": null
+		}
+	},
+	"icon": "icon.png"
+}

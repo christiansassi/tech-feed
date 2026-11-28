@@ -1,0 +1,517 @@
+{
+	"slug": "qwen",
+	"label": "Qwen",
+	"updated_at": 1795645214,
+	"models": [
+		{
+			"slug": "qwen4-max",
+			"label": "Qwen4-Max",
+			"date": 1794794400,
+			"url": "https://qwen.ai/blog?id=qwen4-max"
+		},
+		{
+			"slug": "qwen-image-2-1-turbo",
+			"label": "Qwen-Image-2.1-Turbo",
+			"date": 1791521401,
+			"url": "https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo"
+		},
+		{
+			"slug": "qwen-image-2-1",
+			"label": "Qwen-Image-2.1",
+			"date": 1789905600,
+			"url": "https://qwen.ai/blog?id=qwen-image-2.1"
+		},
+		{
+			"slug": "qwen3-8-livetranslate",
+			"label": "Qwen3.8-LiveTranslate",
+			"date": 1789723800,
+			"url": "https://qwen.ai/blog?id=qwen3.8-livetranslate"
+		},
+		{
+			"slug": "qwen3-8-omni-flash",
+			"label": "Qwen3.8-Omni-Flash",
+			"date": 1789714800,
+			"url": "https://qwen.ai/blog?id=qwen3.8-omni-flash"
+		},
+		{
+			"slug": "qwen-drive-1-0",
+			"label": "Qwen-Drive-1.0",
+			"date": 1788393600,
+			"url": "https://qwen.ai/blog?id=qwen-drive-1.0"
+		},
+		{
+			"slug": "qwen3-8-flash-next",
+			"label": "Qwen3.8-Flash-Next",
+			"date": 1787747400,
+			"url": "https://qwen.ai/blog?id=qwen3.8-flash-next"
+		},
+		{
+			"slug": "qwen3-8-27b",
+			"label": "Qwen3.8-27B",
+			"date": 1785918179,
+			"url": "https://huggingface.co/Qwen/Qwen3.8-27B"
+		},
+		{
+			"slug": "qwen3-8-max",
+			"label": "Qwen3.8-Max",
+			"date": 1785722400,
+			"url": "https://qwen.ai/blog?id=qwen3.8"
+		},
+		{
+			"slug": "qwen-image-3-0",
+			"label": "Qwen-Image-3.0",
+			"date": 1784613600,
+			"url": "https://qwen.ai/blog?id=qwen-image-3.0"
+		},
+		{
+			"slug": "qwen-agentworld",
+			"label": "Qwen-AgentWorld",
+			"date": 1782185430,
+			"url": "https://qwen.ai/blog?id=qwen-agentworld"
+		},
+		{
+			"slug": "qwen-robotnav",
+			"label": "Qwen-RobotNav",
+			"date": 1781568000,
+			"url": "https://qwen.ai/blog?id=qwen-robotnav"
+		},
+		{
+			"slug": "qwen-robotworld",
+			"label": "Qwen-RobotWorld",
+			"date": 1781568000,
+			"url": "https://qwen.ai/blog?id=qwen-robotworld"
+		},
+		{
+			"slug": "qwen-robotmanip",
+			"label": "Qwen-RobotManip",
+			"date": 1781568000,
+			"url": "https://qwen.ai/blog?id=qwen-robotmanip"
+		},
+		{
+			"slug": "qwen3-7-plus",
+			"label": "Qwen3.7-Plus",
+			"date": 1780279200,
+			"url": "https://qwen.ai/blog?id=qwen3.7-plus"
+		},
+		{
+			"slug": "qwen-vla",
+			"label": "Qwen-VLA",
+			"date": 1780045200,
+			"url": "https://qwen.ai/blog?id=qwenvla"
+		},
+		{
+			"slug": "qwen3-7-max",
+			"label": "Qwen3.7-Max",
+			"date": 1779242400,
+			"url": "https://qwen.ai/blog?id=qwen3.7"
+		},
+		{
+			"slug": "qwen3-5-livetranslate-flash",
+			"label": "Qwen3.5-LiveTranslate-Flash",
+			"date": 1779183600,
+			"url": "https://qwen.ai/blog?id=qwen3.5-livetranslate"
+		},
+		{
+			"slug": "qwen-scope",
+			"label": "Qwen-Scope",
+			"date": 1777521600,
+			"url": "https://qwen.ai/blog?id=qwen-scope"
+		},
+		{
+			"slug": "qwen3-6-27b",
+			"label": "Qwen3.6-27B",
+			"date": 1776823200,
+			"url": "https://qwen.ai/blog?id=qwen3.6-27b"
+		},
+		{
+			"slug": "qwen3-6-max-preview",
+			"label": "Qwen3.6-Max-Preview",
+			"date": 1776477600,
+			"url": "https://qwen.ai/blog?id=qwen3.6-max-preview"
+		},
+		{
+			"slug": "qwen3-6-35b-a3b",
+			"label": "Qwen3.6-35B-A3B",
+			"date": 1776218400,
+			"url": "https://qwen.ai/blog?id=qwen3.6-35b-a3b"
+		},
+		{
+			"slug": "qwen3-6-plus",
+			"label": "Qwen3.6-Plus",
+			"date": 1775073600,
+			"url": "https://qwen.ai/blog?id=qwen3.6"
+		},
+		{
+			"slug": "qwen3-5-omni",
+			"label": "Qwen3.5-Omni",
+			"date": 1774814400,
+			"url": "https://qwen.ai/blog?id=qwen3.5-omni"
+		},
+		{
+			"slug": "qwen3-5-max-preview",
+			"label": "Qwen3.5-Max-Preview",
+			"date": 1773864000,
+			"url": "https://qwen.ai/blog?id=qwen3.5-max-preview"
+		},
+		{
+			"slug": "qwen3-5",
+			"label": "Qwen3.5",
+			"date": 1771185600,
+			"url": "https://qwen.ai/blog?id=qwen3.5"
+		},
+		{
+			"slug": "webworld",
+			"label": "WebWorld",
+			"date": 1770992019,
+			"url": "https://huggingface.co/Qwen/WebWorld-8B"
+		},
+		{
+			"slug": "qwen-image-2-0",
+			"label": "Qwen-Image-2.0",
+			"date": 1770700110,
+			"url": "https://qwen.ai/blog?id=qwen-image-2.0"
+		},
+		{
+			"slug": "qwen3-coder-next",
+			"label": "Qwen3-Coder-Next",
+			"date": 1770062400,
+			"url": "https://qwen.ai/blog?id=qwen3-coder-next"
+		},
+		{
+			"slug": "qwen3-asr",
+			"label": "Qwen3-ASR",
+			"date": 1769616004,
+			"url": "https://qwen.ai/blog?id=qwen3asr"
+		},
+		{
+			"slug": "qwen3-forcedaligner",
+			"label": "Qwen3-ForcedAligner",
+			"date": 1769616004,
+			"url": "https://qwen.ai/blog?id=qwen3asr"
+		},
+		{
+			"slug": "qwen3-max-thinking",
+			"label": "Qwen3-Max-Thinking",
+			"date": 1769371200,
+			"url": "https://qwen.ai/blog?id=qwen3-max-thinking"
+		},
+		{
+			"slug": "qwen3-tts",
+			"label": "Qwen3-TTS",
+			"date": 1769011204,
+			"url": "https://qwen.ai/blog?id=qwen3tts-0115"
+		},
+		{
+			"slug": "qwen3-vl-embedding",
+			"label": "Qwen3-VL-Embedding",
+			"date": 1767816000,
+			"url": "https://qwen.ai/blog?id=qwen3-vl-embedding"
+		},
+		{
+			"slug": "qwen3-vl-reranker",
+			"label": "Qwen3-VL-Reranker",
+			"date": 1767816000,
+			"url": "https://qwen.ai/blog?id=qwen3-vl-embedding"
+		},
+		{
+			"slug": "qwen-image-2512",
+			"label": "Qwen-Image-2512",
+			"date": 1767157710,
+			"url": "https://qwen.ai/blog?id=qwen-image-2512"
+		},
+		{
+			"slug": "qwen-image-edit-2511",
+			"label": "Qwen-Image-Edit-2511",
+			"date": 1766466510,
+			"url": "https://qwen.ai/blog?id=qwen-image-edit-2511"
+		},
+		{
+			"slug": "qwen3-tts-vd-flash",
+			"label": "Qwen3-TTS-VD-Flash",
+			"date": 1766419245,
+			"url": "https://qwen.ai/blog?id=qwen3-tts-vc-voicedesign"
+		},
+		{
+			"slug": "qwen3-tts-vc-flash",
+			"label": "Qwen3-TTS-VC-Flash",
+			"date": 1766419245,
+			"url": "https://qwen.ai/blog?id=qwen3-tts-vc-voicedesign"
+		},
+		{
+			"slug": "qwen-image-layered",
+			"label": "Qwen-Image-Layered",
+			"date": 1766120910,
+			"url": "https://qwen.ai/blog?id=qwen-image-layered"
+		},
+		{
+			"slug": "qwen3-omni-flash-2025-12-01",
+			"label": "Qwen3-Omni-Flash-2025-12-01",
+			"date": 1765227600,
+			"url": "https://qwen.ai/blog?id=qwen3-omni-flash-20251201"
+		},
+		{
+			"slug": "qwen3-tts-flash",
+			"label": "Qwen3-TTS-Flash",
+			"date": 1764864004,
+			"url": "https://qwen.ai/blog?id=qwen3-tts-1128"
+		},
+		{
+			"slug": "qwen3-4b-saferl",
+			"label": "Qwen3-4B-SafeRL",
+			"date": 1759227923,
+			"url": "https://huggingface.co/Qwen/Qwen3-4B-SafeRL"
+		},
+		{
+			"slug": "qwen3guard",
+			"label": "Qwen3Guard",
+			"date": 1758627317,
+			"url": "https://huggingface.co/Qwen/Qwen3Guard-Gen-0.6B"
+		},
+		{
+			"slug": "qwen-image-edit-2509",
+			"label": "Qwen-Image-Edit-2509",
+			"date": 1758546580,
+			"url": "https://huggingface.co/Qwen/Qwen-Image-Edit-2509"
+		},
+		{
+			"slug": "qwen3-vl",
+			"label": "Qwen3-VL",
+			"date": 1758513272,
+			"url": "https://huggingface.co/Qwen/Qwen3-VL-235B-A22B-Instruct"
+		},
+		{
+			"slug": "qwen3-omni",
+			"label": "Qwen3-Omni",
+			"date": 1757950003,
+			"url": "https://huggingface.co/Qwen/Qwen3-Omni-30B-A3B-Captioner"
+		},
+		{
+			"slug": "qwen3-next",
+			"label": "Qwen3-Next",
+			"date": 1757432456,
+			"url": "https://huggingface.co/Qwen/Qwen3-Next-80B-A3B-Instruct"
+		},
+		{
+			"slug": "qwen-image-edit",
+			"label": "Qwen-Image-Edit",
+			"date": 1755419521,
+			"url": "https://huggingface.co/Qwen/Qwen-Image-Edit"
+		},
+		{
+			"slug": "qwen-image",
+			"label": "Qwen-Image",
+			"date": 1754110687,
+			"url": "https://huggingface.co/Qwen/Qwen-Image"
+		},
+		{
+			"slug": "qwen3-coder",
+			"label": "Qwen3-Coder",
+			"date": 1753195958,
+			"url": "https://huggingface.co/Qwen/Qwen3-Coder-480B-A35B-Instruct"
+		},
+		{
+			"slug": "qwen3-2507",
+			"label": "Qwen3-2507",
+			"date": 1753080416,
+			"url": "https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507"
+		},
+		{
+			"slug": "qwen3-embedding",
+			"label": "Qwen3-Embedding",
+			"date": 1748960732,
+			"url": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B"
+		},
+		{
+			"slug": "qwen3-reranker",
+			"label": "Qwen3-Reranker",
+			"date": 1748525418,
+			"url": "https://huggingface.co/Qwen/Qwen3-Reranker-8B"
+		},
+		{
+			"slug": "worldpm-72b",
+			"label": "WorldPM-72B",
+			"date": 1747383246,
+			"url": "https://huggingface.co/Qwen/WorldPM-72B"
+		},
+		{
+			"slug": "qwen2-5-omni-3b",
+			"label": "Qwen2.5-Omni-3B",
+			"date": 1745983367,
+			"url": "https://huggingface.co/Qwen/Qwen2.5-Omni-3B"
+		},
+		{
+			"slug": "qwen3",
+			"label": "Qwen3",
+			"date": 1745725208,
+			"url": "https://huggingface.co/Qwen/Qwen3-0.6B"
+		},
+		{
+			"slug": "qwen2-5-omni",
+			"label": "Qwen2.5-Omni",
+			"date": 1742610475,
+			"url": "https://huggingface.co/Qwen/Qwen2.5-Omni-7B"
+		},
+		{
+			"slug": "qwen2-5-vl-32b-instruct",
+			"label": "Qwen2.5-VL-32B-Instruct",
+			"date": 1742570595,
+			"url": "https://huggingface.co/Qwen/Qwen2.5-VL-32B-Instruct"
+		},
+		{
+			"slug": "qwq-32b",
+			"label": "QwQ-32B",
+			"date": 1741184219,
+			"url": "https://huggingface.co/Qwen/QwQ-32B"
+		},
+		{
+			"slug": "qwen2-5-vl",
+			"label": "Qwen2.5-VL",
+			"date": 1737883535,
+			"url": "https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct"
+		},
+		{
+			"slug": "qwen2-5-1m",
+			"label": "Qwen2.5-1M",
+			"date": 1737638604,
+			"url": "https://huggingface.co/Qwen/Qwen2.5-14B-Instruct-1M"
+		},
+		{
+			"slug": "qwen2-5-math-prm",
+			"label": "Qwen2.5-Math-PRM",
+			"date": 1736773190,
+			"url": "https://huggingface.co/Qwen/Qwen2.5-Math-7B-PRM800K"
+		},
+		{
+			"slug": "qvq-72b-preview",
+			"label": "QVQ-72B-Preview",
+			"date": 1735035202,
+			"url": "https://huggingface.co/Qwen/QVQ-72B-Preview"
+		},
+		{
+			"slug": "qwq-32b-preview",
+			"label": "QwQ-32B-Preview",
+			"date": 1732722655,
+			"url": "https://huggingface.co/Qwen/QwQ-32B-Preview"
+		},
+		{
+			"slug": "qwen2-math-rm-72b",
+			"label": "Qwen2-Math-RM-72B",
+			"date": 1726574542,
+			"url": "https://huggingface.co/Qwen/Qwen2-Math-RM-72B"
+		},
+		{
+			"slug": "qwen2-5-math-rm-72b",
+			"label": "Qwen2.5-Math-RM-72B",
+			"date": 1726574528,
+			"url": "https://huggingface.co/Qwen/Qwen2.5-Math-RM-72B"
+		},
+		{
+			"slug": "qwen2-5-math",
+			"label": "Qwen2.5-Math",
+			"date": 1726487863,
+			"url": "https://huggingface.co/Qwen/Qwen2.5-Math-1.5B"
+		},
+		{
+			"slug": "qwen2-5-coder",
+			"label": "Qwen2.5-Coder",
+			"date": 1726487844,
+			"url": "https://huggingface.co/Qwen/Qwen2.5-Coder-7B"
+		},
+		{
+			"slug": "qwen2-5",
+			"label": "Qwen2.5",
+			"date": 1726402539,
+			"url": "https://huggingface.co/Qwen/Qwen2.5-0.5B"
+		},
+		{
+			"slug": "qwen2-vl",
+			"label": "Qwen2-VL",
+			"date": 1724835735,
+			"url": "https://huggingface.co/Qwen/Qwen2-VL-2B-Instruct"
+		},
+		{
+			"slug": "qwen2-math",
+			"label": "Qwen2-Math",
+			"date": 1723090724,
+			"url": "https://huggingface.co/Qwen/Qwen2-Math-72B-Instruct"
+		},
+		{
+			"slug": "qwen2-audio",
+			"label": "Qwen2-Audio",
+			"date": 1721116744,
+			"url": "https://huggingface.co/Qwen/Qwen2-Audio-7B"
+		},
+		{
+			"slug": "qwen2",
+			"label": "Qwen2",
+			"date": 1716391690,
+			"url": "https://huggingface.co/Qwen/Qwen2-72B"
+		},
+		{
+			"slug": "qwen1-5-110b",
+			"label": "Qwen1.5-110B",
+			"date": 1714030256,
+			"url": "https://huggingface.co/Qwen/Qwen1.5-110B"
+		},
+		{
+			"slug": "codeqwen1-5-7b",
+			"label": "CodeQwen1.5-7B",
+			"date": 1713159510,
+			"url": "https://huggingface.co/Qwen/CodeQwen1.5-7B"
+		},
+		{
+			"slug": "qwen1-5-32b",
+			"label": "Qwen1.5-32B",
+			"date": 1711952361,
+			"url": "https://huggingface.co/Qwen/Qwen1.5-32B"
+		},
+		{
+			"slug": "qwen1-5-moe-a2-7b",
+			"label": "Qwen1.5-MoE-A2.7B",
+			"date": 1709182336,
+			"url": "https://huggingface.co/Qwen/Qwen1.5-MoE-A2.7B"
+		},
+		{
+			"slug": "qwen1-5",
+			"label": "Qwen1.5",
+			"date": 1705941010,
+			"url": "https://huggingface.co/Qwen/Qwen1.5-0.5B"
+		},
+		{
+			"slug": "qwen-audio",
+			"label": "Qwen-Audio",
+			"date": 1701334357,
+			"url": "https://huggingface.co/Qwen/Qwen-Audio"
+		},
+		{
+			"slug": "qwen-1-8b",
+			"label": "Qwen-1_8B",
+			"date": 1701312915,
+			"url": "https://huggingface.co/Qwen/Qwen-1_8B"
+		},
+		{
+			"slug": "qwen-72b",
+			"label": "Qwen-72B",
+			"date": 1701015391,
+			"url": "https://huggingface.co/Qwen/Qwen-72B"
+		},
+		{
+			"slug": "qwen-14b",
+			"label": "Qwen-14B",
+			"date": 1695526078,
+			"url": "https://huggingface.co/Qwen/Qwen-14B-Chat"
+		},
+		{
+			"slug": "qwen-vl",
+			"label": "Qwen-VL",
+			"date": 1692325259,
+			"url": "https://huggingface.co/Qwen/Qwen-VL"
+		},
+		{
+			"slug": "qwen-7b",
+			"label": "Qwen-7B",
+			"date": 1691031078,
+			"url": "https://huggingface.co/Qwen/Qwen-7B"
+		}
+	]
+}

@@ -1,0 +1,15 @@
+{
+	"slug": "security-fest",
+	"label": "Security Fest",
+	"updated_at": 1795623602,
+	"edition": {
+		"start": 1811376000,
+		"end": 1811462400,
+		"place": "Gothenburg, Sweden",
+		"url": "https://securityfest.com/",
+		"tickets": {
+			"status": "unknown",
+			"url": null
+		}
+	}
+}

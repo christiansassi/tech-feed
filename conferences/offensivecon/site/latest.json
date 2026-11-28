@@ -1,0 +1,16 @@
+{
+	"slug": "offensivecon",
+	"label": "OffensiveCon",
+	"updated_at": 1795623495,
+	"edition": {
+		"start": 1810857600,
+		"end": 1810944000,
+		"place": "Berlin, Germany",
+		"url": "https://www.offensivecon.org/",
+		"tickets": {
+			"status": "not_yet",
+			"url": "https://www.offensivecon.org/register.html"
+		}
+	},
+	"icon": "icon.png"
+}

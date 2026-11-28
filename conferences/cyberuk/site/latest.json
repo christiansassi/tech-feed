@@ -1,0 +1,16 @@
+{
+	"slug": "cyberuk",
+	"label": "CYBERUK",
+	"updated_at": 1795623360,
+	"edition": {
+		"start": 1809993600,
+		"end": 1810166400,
+		"place": "Liverpool, United Kingdom",
+		"url": "https://www.cyberuk.uk/",
+		"tickets": {
+			"status": "unknown",
+			"url": null
+		}
+	},
+	"icon": "icon.png"
+}

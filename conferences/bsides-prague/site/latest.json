@@ -1,0 +1,16 @@
+{
+	"slug": "bsides-prague",
+	"label": "BSides Prague",
+	"updated_at": 1795623314,
+	"edition": {
+		"start": 1807056000,
+		"end": 1807142400,
+		"place": "Prague, Czechia",
+		"url": "https://bsides.cz/",
+		"tickets": {
+			"status": "unknown",
+			"url": null
+		}
+	},
+	"icon": "icon.png"
+}

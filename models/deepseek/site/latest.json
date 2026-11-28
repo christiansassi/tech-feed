@@ -1,0 +1,271 @@
+{
+	"slug": "deepseek",
+	"label": "DeepSeek",
+	"updated_at": 1795645214,
+	"models": [
+		{
+			"slug": "deepseek-v4-1-flash-1017",
+			"label": "DeepSeek-V4.1-Flash-1017",
+			"date": 1792195200,
+			"url": "https://api-docs.deepseek.com/news/news261017/"
+		},
+		{
+			"slug": "deepseek-v4-1-flash",
+			"label": "DeepSeek-V4.1-Flash",
+			"date": 1788998400,
+			"url": "https://api-docs.deepseek.com/news/news260910/"
+		},
+		{
+			"slug": "deepseek-v4-flash-vision-exp",
+			"label": "DeepSeek-V4-Flash-Vision-Exp",
+			"date": 1787270400,
+			"url": "https://api-docs.deepseek.com/news/news260821/"
+		},
+		{
+			"slug": "deepseek-v4-pro-0813",
+			"label": "DeepSeek-V4-Pro-0813",
+			"date": 1786579200,
+			"url": "https://api-docs.deepseek.com/news/news260813/"
+		},
+		{
+			"slug": "deepseek-v4-flash-0731",
+			"label": "DeepSeek-V4-Flash-0731",
+			"date": 1785456000,
+			"url": "https://api-docs.deepseek.com/updates#date-2026-07-31"
+		},
+		{
+			"slug": "deepseek-v4-pro-dspark",
+			"label": "DeepSeek-V4-Pro-DSpark",
+			"date": 1782529376,
+			"url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-DSpark"
+		},
+		{
+			"slug": "deepseek-v4-flash-dspark",
+			"label": "DeepSeek-V4-Flash-DSpark",
+			"date": 1782527256,
+			"url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-DSpark"
+		},
+		{
+			"slug": "deepseek-v4-pro",
+			"label": "DeepSeek-V4-Pro",
+			"date": 1776988800,
+			"url": "https://api-docs.deepseek.com/news/news260424/"
+		},
+		{
+			"slug": "deepseek-v4-flash",
+			"label": "DeepSeek-V4-Flash",
+			"date": 1776988800,
+			"url": "https://api-docs.deepseek.com/news/news260424/"
+		},
+		{
+			"slug": "deepseek-ocr-2",
+			"label": "DeepSeek-OCR-2",
+			"date": 1769482614,
+			"url": "https://huggingface.co/deepseek-ai/DeepSeek-OCR-2"
+		},
+		{
+			"slug": "deepseek-v3-2",
+			"label": "DeepSeek-V3.2",
+			"date": 1764547200,
+			"url": "https://api-docs.deepseek.com/news/news251201/"
+		},
+		{
+			"slug": "deepseek-v3-2-speciale",
+			"label": "DeepSeek-V3.2-Speciale",
+			"date": 1764547200,
+			"url": "https://api-docs.deepseek.com/updates#date-2025-12-01"
+		},
+		{
+			"slug": "deepseek-math-v2",
+			"label": "DeepSeek-Math-V2",
+			"date": 1764237263,
+			"url": "https://huggingface.co/deepseek-ai/DeepSeek-Math-V2"
+		},
+		{
+			"slug": "deepseek-ocr",
+			"label": "DeepSeek-OCR",
+			"date": 1760682125,
+			"url": "https://huggingface.co/deepseek-ai/DeepSeek-OCR"
+		},
+		{
+			"slug": "deepseek-v3-2-exp",
+			"label": "DeepSeek-V3.2-Exp",
+			"date": 1759104000,
+			"url": "https://api-docs.deepseek.com/news/news250929/"
+		},
+		{
+			"slug": "deepseek-v3-1-terminus",
+			"label": "DeepSeek-V3.1-Terminus",
+			"date": 1758499200,
+			"url": "https://api-docs.deepseek.com/news/news250922/"
+		},
+		{
+			"slug": "deepseek-v3-1",
+			"label": "DeepSeek-V3.1",
+			"date": 1755734400,
+			"url": "https://api-docs.deepseek.com/news/news250821/"
+		},
+		{
+			"slug": "deepseek-r1-0528",
+			"label": "DeepSeek-R1-0528",
+			"date": 1748390400,
+			"url": "https://api-docs.deepseek.com/news/news250528/"
+		},
+		{
+			"slug": "deepseek-prover-v2",
+			"label": "DeepSeek-Prover-V2",
+			"date": 1745993675,
+			"url": "https://huggingface.co/deepseek-ai/DeepSeek-Prover-V2-671B"
+		},
+		{
+			"slug": "deepseek-v3-0324",
+			"label": "DeepSeek-V3-0324",
+			"date": 1742860800,
+			"url": "https://api-docs.deepseek.com/news/news250325/"
+		},
+		{
+			"slug": "janus-pro",
+			"label": "Janus-Pro",
+			"date": 1737893150,
+			"url": "https://huggingface.co/deepseek-ai/Janus-Pro-7B"
+		},
+		{
+			"slug": "deepseek-r1-zero",
+			"label": "DeepSeek-R1-Zero",
+			"date": 1737344148,
+			"url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Zero"
+		},
+		{
+			"slug": "deepseek-r1",
+			"label": "DeepSeek-R1",
+			"date": 1737331200,
+			"url": "https://api-docs.deepseek.com/news/news250120/"
+		},
+		{
+			"slug": "deepseek-v3",
+			"label": "DeepSeek-V3",
+			"date": 1735171200,
+			"url": "https://api-docs.deepseek.com/updates#date-2024-12-26"
+		},
+		{
+			"slug": "deepseek-vl2",
+			"label": "deepseek-vl2",
+			"date": 1734079762,
+			"url": "https://huggingface.co/deepseek-ai/deepseek-vl2-tiny"
+		},
+		{
+			"slug": "deepseek-v2-5-1210",
+			"label": "DeepSeek-V2.5-1210",
+			"date": 1733788800,
+			"url": "https://api-docs.deepseek.com/updates#date-2024-12-10"
+		},
+		{
+			"slug": "janusflow-1-3b",
+			"label": "JanusFlow-1.3B",
+			"date": 1731393565,
+			"url": "https://huggingface.co/deepseek-ai/JanusFlow-1.3B"
+		},
+		{
+			"slug": "janus-1-3b",
+			"label": "Janus-1.3B",
+			"date": 1729225166,
+			"url": "https://huggingface.co/deepseek-ai/Janus-1.3B"
+		},
+		{
+			"slug": "deepseek-v2-5",
+			"label": "DeepSeek V2.5",
+			"date": 1725494400,
+			"url": "https://api-docs.deepseek.com/updates#date-2024-09-05"
+		},
+		{
+			"slug": "deepseek-prover-v1",
+			"label": "DeepSeek-Prover-V1",
+			"date": 1723792295,
+			"url": "https://huggingface.co/deepseek-ai/DeepSeek-Prover-V1"
+		},
+		{
+			"slug": "deepseek-prover-v1-5",
+			"label": "DeepSeek-Prover-V1.5",
+			"date": 1723732540,
+			"url": "https://huggingface.co/deepseek-ai/DeepSeek-Prover-V1.5-Base"
+		},
+		{
+			"slug": "deepseek-coder-v2-0724",
+			"label": "DeepSeek-Coder-V2-0724",
+			"date": 1721779200,
+			"url": "https://api-docs.deepseek.com/updates#date-2024-07-24"
+		},
+		{
+			"slug": "esft",
+			"label": "ESFT",
+			"date": 1720079329,
+			"url": "https://huggingface.co/deepseek-ai/ESFT-vanilla-lite"
+		},
+		{
+			"slug": "deepseek-v2-0628",
+			"label": "DeepSeek-V2-0628",
+			"date": 1719532800,
+			"url": "https://api-docs.deepseek.com/updates#date-2024-06-28"
+		},
+		{
+			"slug": "deepseek-coder-v2-0614",
+			"label": "DeepSeek-Coder-V2-0614",
+			"date": 1718323200,
+			"url": "https://api-docs.deepseek.com/updates#date-2024-06-14"
+		},
+		{
+			"slug": "deepseek-v2-0517",
+			"label": "DeepSeek-V2-0517",
+			"date": 1715904000,
+			"url": "https://api-docs.deepseek.com/updates#date-2024-05-17"
+		},
+		{
+			"slug": "deepseek-v2-lite",
+			"label": "DeepSeek-V2-Lite",
+			"date": 1715751113,
+			"url": "https://huggingface.co/deepseek-ai/DeepSeek-V2-Lite"
+		},
+		{
+			"slug": "deepseek-v2",
+			"label": "DeepSeek-V2",
+			"date": 1713772426,
+			"url": "https://huggingface.co/deepseek-ai/DeepSeek-V2"
+		},
+		{
+			"slug": "deepseek-vl",
+			"label": "deepseek-vl",
+			"date": 1709792069,
+			"url": "https://huggingface.co/deepseek-ai/deepseek-vl-7b-chat"
+		},
+		{
+			"slug": "deepseek-math-7b",
+			"label": "deepseek-math-7b",
+			"date": 1707120645,
+			"url": "https://huggingface.co/deepseek-ai/deepseek-math-7b-base"
+		},
+		{
+			"slug": "deepseek-coder-7b-v1-5",
+			"label": "deepseek-coder-7b-v1.5",
+			"date": 1706197190,
+			"url": "https://huggingface.co/deepseek-ai/deepseek-coder-7b-base-v1.5"
+		},
+		{
+			"slug": "deepseek-moe-16b",
+			"label": "deepseek-moe-16b",
+			"date": 1704707158,
+			"url": "https://huggingface.co/deepseek-ai/deepseek-moe-16b-base"
+		},
+		{
+			"slug": "deepseek-llm",
+			"label": "deepseek-llm",
+			"date": 1701227302,
+			"url": "https://huggingface.co/deepseek-ai/deepseek-llm-7b-base"
+		},
+		{
+			"slug": "deepseek-coder",
+			"label": "deepseek-coder",
+			"date": 1698077739,
+			"url": "https://huggingface.co/deepseek-ai/deepseek-coder-6.7b-base"
+		}
+	]
+}

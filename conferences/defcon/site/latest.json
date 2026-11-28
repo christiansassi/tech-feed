@@ -1,0 +1,16 @@
+{
+	"slug": "defcon",
+	"label": "DEF CON",
+	"updated_at": 1795771571,
+	"edition": {
+		"start": 1817424000,
+		"end": 1817683200,
+		"place": "Las Vegas, United States",
+		"url": "https://defcon.org/",
+		"tickets": {
+			"status": "unknown",
+			"url": null
+		}
+	},
+	"icon": "icon.png"
+}

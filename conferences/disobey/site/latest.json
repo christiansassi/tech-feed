@@ -1,0 +1,16 @@
+{
+	"slug": "disobey",
+	"label": "Disobey",
+	"updated_at": 1795623360,
+	"edition": {
+		"start": 1802995200,
+		"end": 1803081600,
+		"place": "Helsinki, Finland",
+		"url": "https://disobey.fi/2027/",
+		"tickets": {
+			"status": "sold_out",
+			"url": "https://disobey.fi/2027/tickets"
+		}
+	},
+	"icon": "icon.ico"
+}

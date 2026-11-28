@@ -1,0 +1,16 @@
+{
+	"slug": "forum-incyber",
+	"label": "Forum InCyber Europe",
+	"updated_at": 1795623411,
+	"edition": {
+		"start": 1804550400,
+		"end": 1804723200,
+		"place": "Lille, France",
+		"url": "https://europe.forum-incyber.com/",
+		"tickets": {
+			"status": "not_yet",
+			"url": null
+		}
+	},
+	"icon": "icon.png"
+}

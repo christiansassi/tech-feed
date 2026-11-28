@@ -1,0 +1,817 @@
+{
+	"slug": "meta",
+	"label": "Meta",
+	"updated_at": 1795645214,
+	"models": [
+		{
+			"slug": "meta-encoder-v1",
+			"label": "meta-encoder-v1",
+			"date": 1794448827,
+			"url": "https://huggingface.co/facebook/meta-encoder-v1"
+		},
+		{
+			"slug": "stereo-splat",
+			"label": "stereo-splat",
+			"date": 1793717117,
+			"url": "https://huggingface.co/facebook/stereo-splat"
+		},
+		{
+			"slug": "free-range-gaussians",
+			"label": "free-range-gaussians",
+			"date": 1793209589,
+			"url": "https://huggingface.co/facebook/free-range-gaussians"
+		},
+		{
+			"slug": "stereo-crossinjection",
+			"label": "stereo_crossinjection",
+			"date": 1793189518,
+			"url": "https://huggingface.co/facebook/stereo_crossinjection"
+		},
+		{
+			"slug": "muse-wonder",
+			"label": "Muse Wonder",
+			"date": 1791824885,
+			"url": "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/"
+		},
+		{
+			"slug": "muse-wonder-full",
+			"label": "Muse Wonder Full",
+			"date": 1791824885,
+			"url": "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/"
+		},
+		{
+			"slug": "meta-encoder",
+			"label": "meta-encoder",
+			"date": 1790791219,
+			"url": "https://huggingface.co/facebook/meta-encoder"
+		},
+		{
+			"slug": "moevie",
+			"label": "MoEViE",
+			"date": 1786314484,
+			"url": "https://huggingface.co/facebook/MoEViE-B16-224"
+		},
+		{
+			"slug": "muse-spark-1-1",
+			"label": "Muse Spark 1.1",
+			"date": 1783555200,
+			"url": "https://ai.meta.com/blog/introducing-muse-spark-meta-model-api/"
+		},
+		{
+			"slug": "muse-image",
+			"label": "Muse Image",
+			"date": 1783447534,
+			"url": "https://about.fb.com/news/2026/07/introducing-muse-image-meta-ai/"
+		},
+		{
+			"slug": "muse-video",
+			"label": "Muse Video",
+			"date": 1783382400,
+			"url": "https://ai.meta.com/blog/introducing-muse-image-muse-video-msl/"
+		},
+		{
+			"slug": "mobilemoe",
+			"label": "MobileMoE",
+			"date": 1781131238,
+			"url": "https://huggingface.co/facebook/MobileMoE-L-Base"
+		},
+		{
+			"slug": "lamp",
+			"label": "LAMP",
+			"date": 1781124237,
+			"url": "https://huggingface.co/facebook/LAMP"
+		},
+		{
+			"slug": "autopartgen",
+			"label": "autopartgen",
+			"date": 1781009670,
+			"url": "https://huggingface.co/facebook/autopartgen"
+		},
+		{
+			"slug": "meshflow",
+			"label": "meshflow",
+			"date": 1779878601,
+			"url": "https://huggingface.co/facebook/meshflow"
+		},
+		{
+			"slug": "large-sparse-reconstruction-model",
+			"label": "Large-Sparse-Reconstruction-Model",
+			"date": 1779175213,
+			"url": "https://huggingface.co/facebook/Large-Sparse-Reconstruction-Model"
+		},
+		{
+			"slug": "eva-flow",
+			"label": "eva-flow",
+			"date": 1778620990,
+			"url": "https://huggingface.co/facebook/eva-flow"
+		},
+		{
+			"slug": "sapiens2",
+			"label": "Sapiens2",
+			"date": 1776965576,
+			"url": "https://huggingface.co/facebook/sapiens2-pretrain-0.1b"
+		},
+		{
+			"slug": "muse-spark",
+			"label": "Muse Spark",
+			"date": 1775663996,
+			"url": "https://about.fb.com/news/2026/04/introducing-muse-spark-meta-superintelligence-labs/"
+		},
+		{
+			"slug": "boxer",
+			"label": "boxer",
+			"date": 1774645725,
+			"url": "https://huggingface.co/facebook/boxer"
+		},
+		{
+			"slug": "sam-3-1",
+			"label": "SAM 3.1",
+			"date": 1774488354,
+			"url": "https://huggingface.co/facebook/sam3.1"
+		},
+		{
+			"slug": "tribe-v2",
+			"label": "TRIBE v2",
+			"date": 1774349650,
+			"url": "https://huggingface.co/facebook/tribev2"
+		},
+		{
+			"slug": "eupe",
+			"label": "EUPE",
+			"date": 1774288083,
+			"url": "https://huggingface.co/facebook/EUPE-ViT-B"
+		},
+		{
+			"slug": "vggt-omega",
+			"label": "VGGT-Omega",
+			"date": 1773780465,
+			"url": "https://huggingface.co/facebook/VGGT-Omega"
+		},
+		{
+			"slug": "allscaip",
+			"label": "AllScAIP",
+			"date": 1773245773,
+			"url": "https://huggingface.co/facebook/AllScAIP"
+		},
+		{
+			"slug": "canopy-height-maps-v2",
+			"label": "Canopy Height Maps v2",
+			"date": 1773100800,
+			"url": "https://ai.meta.com/blog/world-resources-institute-dino-canopy-height-maps-v2/"
+		},
+		{
+			"slug": "lagernvs",
+			"label": "lagernvs",
+			"date": 1772709351,
+			"url": "https://huggingface.co/facebook/lagernvs_general_512"
+		},
+		{
+			"slug": "hyden",
+			"label": "hyden",
+			"date": 1772660933,
+			"url": "https://huggingface.co/facebook/hyden-da2-relative-depth"
+		},
+		{
+			"slug": "jepa-wms",
+			"label": "jepa-wms",
+			"date": 1769771613,
+			"url": "https://huggingface.co/facebook/jepa-wms"
+		},
+		{
+			"slug": "shaper",
+			"label": "ShapeR",
+			"date": 1768407064,
+			"url": "https://huggingface.co/facebook/ShapeR"
+		},
+		{
+			"slug": "actionmesh",
+			"label": "ActionMesh",
+			"date": 1768317567,
+			"url": "https://huggingface.co/facebook/ActionMesh"
+		},
+		{
+			"slug": "cowtracker",
+			"label": "cowtracker",
+			"date": 1766353470,
+			"url": "https://huggingface.co/facebook/cowtracker"
+		},
+		{
+			"slug": "meta-ai-blender",
+			"label": "meta_ai_blender",
+			"date": 1766056492,
+			"url": "https://huggingface.co/facebook/meta_ai_blender"
+		},
+		{
+			"slug": "map-anything-v1",
+			"label": "map-anything-v1",
+			"date": 1766036895,
+			"url": "https://huggingface.co/facebook/map-anything-v1"
+		},
+		{
+			"slug": "sam-audio",
+			"label": "SAM Audio",
+			"date": 1765900845,
+			"url": "https://about.fb.com/news/2025/12/our-new-sam-audio-model-transforms-audio-editing/"
+		},
+		{
+			"slug": "pixio",
+			"label": "pixio",
+			"date": 1765841925,
+			"url": "https://huggingface.co/facebook/pixio-vitb16"
+		},
+		{
+			"slug": "wt-asbs",
+			"label": "wt-asbs",
+			"date": 1765481083,
+			"url": "https://huggingface.co/facebook/wt-asbs"
+		},
+		{
+			"slug": "omniasr",
+			"label": "omniASR",
+			"date": 1764280763,
+			"url": "https://huggingface.co/facebook/omniASR-W2V-300M"
+		},
+		{
+			"slug": "crv-8b-instruct-transcoders",
+			"label": "crv-8b-instruct-transcoders",
+			"date": 1764084414,
+			"url": "https://huggingface.co/facebook/crv-8b-instruct-transcoders"
+		},
+		{
+			"slug": "mobilellm-r1-5",
+			"label": "MobileLLM-R1.5",
+			"date": 1763760611,
+			"url": "https://huggingface.co/facebook/MobileLLM-R1.5-950M"
+		},
+		{
+			"slug": "sam-3",
+			"label": "SAM 3",
+			"date": 1763567903,
+			"url": "https://about.fb.com/news/2025/11/new-sam-models-detect-objects-create-3d-reconstructions/"
+		},
+		{
+			"slug": "sam-3d",
+			"label": "SAM 3D",
+			"date": 1763567903,
+			"url": "https://about.fb.com/news/2025/11/new-sam-models-detect-objects-create-3d-reconstructions/"
+		},
+		{
+			"slug": "pe-a-frame",
+			"label": "pe-a-frame",
+			"date": 1760368344,
+			"url": "https://huggingface.co/facebook/pe-a-frame-small"
+		},
+		{
+			"slug": "ssdd",
+			"label": "SSDD",
+			"date": 1759761219,
+			"url": "https://huggingface.co/facebook/SSDD"
+		},
+		{
+			"slug": "dacvae-watermarked",
+			"label": "dacvae-watermarked",
+			"date": 1759500890,
+			"url": "https://huggingface.co/facebook/dacvae-watermarked"
+		},
+		{
+			"slug": "depthlm",
+			"label": "DepthLM",
+			"date": 1758428478,
+			"url": "https://huggingface.co/facebook/DepthLM"
+		},
+		{
+			"slug": "pe-av",
+			"label": "pe-av",
+			"date": 1757683828,
+			"url": "https://huggingface.co/facebook/pe-av-large"
+		},
+		{
+			"slug": "sam-audio-judge",
+			"label": "SAM Audio Judge",
+			"date": 1757609068,
+			"url": "https://huggingface.co/facebook/sam-audio-judge"
+		},
+		{
+			"slug": "mobilellm-pro",
+			"label": "MobileLLM-Pro",
+			"date": 1757529606,
+			"url": "https://huggingface.co/facebook/MobileLLM-Pro"
+		},
+		{
+			"slug": "mobilellm-r1",
+			"label": "MobileLLM-R1",
+			"date": 1757485851,
+			"url": "https://huggingface.co/facebook/MobileLLM-R1-950M"
+		},
+		{
+			"slug": "map-anything",
+			"label": "map-anything",
+			"date": 1757305856,
+			"url": "https://huggingface.co/facebook/map-anything-apache"
+		},
+		{
+			"slug": "cwm",
+			"label": "CWM",
+			"date": 1756134588,
+			"url": "https://huggingface.co/facebook/cwm"
+		},
+		{
+			"slug": "sparsh-skin",
+			"label": "sparsh-skin",
+			"date": 1755620535,
+			"url": "https://huggingface.co/facebook/sparsh-skin"
+		},
+		{
+			"slug": "sparsh-x",
+			"label": "sparsh-x",
+			"date": 1755224256,
+			"url": "https://huggingface.co/facebook/sparsh-x-all"
+		},
+		{
+			"slug": "meta-wiki-expert",
+			"label": "meta-wiki-expert",
+			"date": 1754437947,
+			"url": "https://huggingface.co/facebook/meta-wiki-expert"
+		},
+		{
+			"slug": "dinov3",
+			"label": "DINOv3",
+			"date": 1754311203,
+			"url": "https://huggingface.co/facebook/dinov3-vit7b16-pretrain-lvd1689m"
+		},
+		{
+			"slug": "metaclip-2",
+			"label": "MetaCLIP 2",
+			"date": 1753977718,
+			"url": "https://huggingface.co/facebook/metaclip-2-worldwide-huge-quickgelu"
+		},
+		{
+			"slug": "meta-secalign",
+			"label": "Meta-SecAlign",
+			"date": 1750976515,
+			"url": "https://huggingface.co/facebook/Meta-SecAlign-8B"
+		},
+		{
+			"slug": "oc25",
+			"label": "OC25",
+			"date": 1749828476,
+			"url": "https://huggingface.co/facebook/OC25"
+		},
+		{
+			"slug": "odac25",
+			"label": "ODAC25",
+			"date": 1749828464,
+			"url": "https://huggingface.co/facebook/ODAC25"
+		},
+		{
+			"slug": "omc25",
+			"label": "OMC25",
+			"date": 1749828457,
+			"url": "https://huggingface.co/facebook/OMC25"
+		},
+		{
+			"slug": "v-jepa-2",
+			"label": "V-JEPA 2",
+			"date": 1749652228,
+			"url": "https://about.fb.com/news/2025/06/our-new-model-helps-ai-think-before-it-acts/"
+		},
+		{
+			"slug": "segment-this-thing",
+			"label": "segment_this_thing",
+			"date": 1749583924,
+			"url": "https://huggingface.co/facebook/segment_this_thing"
+		},
+		{
+			"slug": "mobilellm-paretoq",
+			"label": "MobileLLM-ParetoQ",
+			"date": 1748577207,
+			"url": "https://huggingface.co/facebook/MobileLLM-ParetoQ-125M-BF16"
+		},
+		{
+			"slug": "adjoint-sampling",
+			"label": "adjoint_sampling",
+			"date": 1747080315,
+			"url": "https://huggingface.co/facebook/adjoint_sampling"
+		},
+		{
+			"slug": "dynadiff",
+			"label": "dynadiff",
+			"date": 1747079886,
+			"url": "https://huggingface.co/facebook/dynadiff"
+		},
+		{
+			"slug": "edgetam",
+			"label": "EdgeTAM",
+			"date": 1746038872,
+			"url": "https://huggingface.co/facebook/EdgeTAM"
+		},
+		{
+			"slug": "3d-jepa",
+			"label": "3D-JEPA",
+			"date": 1744898725,
+			"url": "https://huggingface.co/facebook/3d-jepa"
+		},
+		{
+			"slug": "locate-3d",
+			"label": "locate-3d",
+			"date": 1744750248,
+			"url": "https://huggingface.co/facebook/locate-3d"
+		},
+		{
+			"slug": "pe-detection",
+			"label": "PE-Detection",
+			"date": 1744742168,
+			"url": "https://huggingface.co/facebook/PE-Detection"
+		},
+		{
+			"slug": "kernelllm",
+			"label": "KernelLLM",
+			"date": 1744666432,
+			"url": "https://huggingface.co/facebook/KernelLLM"
+		},
+		{
+			"slug": "webssl",
+			"label": "WebSSL",
+			"date": 1744594178,
+			"url": "https://huggingface.co/facebook/webssl-dino7b-full8b-518"
+		},
+		{
+			"slug": "pe-spatial",
+			"label": "PE-Spatial",
+			"date": 1744396245,
+			"url": "https://huggingface.co/facebook/PE-Spatial-G14-448"
+		},
+		{
+			"slug": "pe-lang",
+			"label": "PE-Lang",
+			"date": 1744396221,
+			"url": "https://huggingface.co/facebook/PE-Lang-L14-448"
+		},
+		{
+			"slug": "pe-core",
+			"label": "PE-Core",
+			"date": 1744396197,
+			"url": "https://huggingface.co/facebook/PE-Core-L14-336"
+		},
+		{
+			"slug": "perception-lm",
+			"label": "Perception-LM",
+			"date": 1744253853,
+			"url": "https://huggingface.co/facebook/Perception-LM-3B"
+		},
+		{
+			"slug": "uma",
+			"label": "UMA",
+			"date": 1744157446,
+			"url": "https://huggingface.co/facebook/UMA"
+		},
+		{
+			"slug": "omol25",
+			"label": "OMol25",
+			"date": 1744156170,
+			"url": "https://huggingface.co/facebook/OMol25"
+		},
+		{
+			"slug": "blt",
+			"label": "BLT",
+			"date": 1744053604,
+			"url": "https://huggingface.co/facebook/blt"
+		},
+		{
+			"slug": "nwm",
+			"label": "nwm",
+			"date": 1741392698,
+			"url": "https://huggingface.co/facebook/nwm"
+		},
+		{
+			"slug": "sonata",
+			"label": "sonata",
+			"date": 1741313392,
+			"url": "https://huggingface.co/facebook/sonata"
+		},
+		{
+			"slug": "drama",
+			"label": "drama",
+			"date": 1740440716,
+			"url": "https://huggingface.co/facebook/drama-base"
+		},
+		{
+			"slug": "vggt",
+			"label": "VGGT",
+			"date": 1740440644,
+			"url": "https://huggingface.co/facebook/vggt_alpha"
+		},
+		{
+			"slug": "audiobox-aesthetics",
+			"label": "Audiobox Aesthetics",
+			"date": 1739488060,
+			"url": "https://huggingface.co/facebook/audiobox-aesthetics"
+		},
+		{
+			"slug": "jasco",
+			"label": "JASCO",
+			"date": 1735556909,
+			"url": "https://huggingface.co/facebook/jasco-chords-drums-1B"
+		},
+		{
+			"slug": "dinov2-with-registers",
+			"label": "DINOv2 with Registers",
+			"date": 1734715045,
+			"url": "https://huggingface.co/facebook/dinov2-with-registers-small"
+		},
+		{
+			"slug": "video-seal",
+			"label": "Video Seal",
+			"date": 1734148356,
+			"url": "https://huggingface.co/facebook/video_seal"
+		},
+		{
+			"slug": "watermark-anything",
+			"label": "Watermark Anything",
+			"date": 1734112544,
+			"url": "https://huggingface.co/facebook/watermark-anything"
+		},
+		{
+			"slug": "meta-motivo",
+			"label": "Meta Motivo",
+			"date": 1733432774,
+			"url": "https://huggingface.co/facebook/metamotivo-S-1"
+		},
+		{
+			"slug": "musicgen-stem",
+			"label": "MusicGen Stem",
+			"date": 1730395806,
+			"url": "https://huggingface.co/facebook/musicgen-stem-6cb"
+		},
+		{
+			"slug": "mobilellm",
+			"label": "MobileLLM",
+			"date": 1730328514,
+			"url": "https://huggingface.co/facebook/MobileLLM-125M"
+		},
+		{
+			"slug": "encodec-32-khz-bass-1-drums-1-other-4",
+			"label": "encodec_32_khz_bass_1_drums_1_other_4",
+			"date": 1730305135,
+			"url": "https://huggingface.co/facebook/encodec_32_khz_bass_1_drums_1_other_4"
+		},
+		{
+			"slug": "melodyflow",
+			"label": "MelodyFlow",
+			"date": 1729715810,
+			"url": "https://huggingface.co/facebook/melodyflow-t24-30secs"
+		},
+		{
+			"slug": "sparsh",
+			"label": "Sparsh",
+			"date": 1729527266,
+			"url": "https://huggingface.co/facebook/sparsh-dino-base"
+		},
+		{
+			"slug": "musicgen-style",
+			"label": "MusicGen Style",
+			"date": 1729523670,
+			"url": "https://huggingface.co/facebook/musicgen-style"
+		},
+		{
+			"slug": "omat24",
+			"label": "OMAT24",
+			"date": 1728679729,
+			"url": "https://huggingface.co/facebook/OMAT24"
+		},
+		{
+			"slug": "mexma",
+			"label": "MEXMA",
+			"date": 1728077104,
+			"url": "https://huggingface.co/facebook/MEXMA"
+		},
+		{
+			"slug": "cotracker3",
+			"label": "CoTracker3",
+			"date": 1727172209,
+			"url": "https://huggingface.co/facebook/cotracker3"
+		},
+		{
+			"slug": "sam-2-1",
+			"label": "SAM 2.1",
+			"date": 1727139603,
+			"url": "https://huggingface.co/facebook/sam2.1-hiera-large"
+		},
+		{
+			"slug": "self-taught-evaluator",
+			"label": "Self-Taught Evaluator",
+			"date": 1726855076,
+			"url": "https://huggingface.co/facebook/Self-taught-evaluator-llama3.1-70B"
+		},
+		{
+			"slug": "i-jepa",
+			"label": "I-JEPA",
+			"date": 1724598065,
+			"url": "https://huggingface.co/facebook/ijepa_vith14_1k"
+		},
+		{
+			"slug": "sapiens",
+			"label": "Sapiens",
+			"date": 1724363137,
+			"url": "https://huggingface.co/facebook/sapiens"
+		},
+		{
+			"slug": "vfusion3d",
+			"label": "VFusion3D",
+			"date": 1723282815,
+			"url": "https://huggingface.co/facebook/vfusion3d"
+		},
+		{
+			"slug": "segment-anything-model-2",
+			"label": "Segment Anything Model 2",
+			"date": 1722293128,
+			"url": "https://about.fb.com/news/2024/07/our-new-ai-model-can-segment-video/"
+		},
+		{
+			"slug": "vggsfm",
+			"label": "VGGSfM",
+			"date": 1719282886,
+			"url": "https://huggingface.co/facebook/VGGSfM"
+		},
+		{
+			"slug": "multi-token-prediction",
+			"label": "Multi-Token Prediction",
+			"date": 1718384754,
+			"url": "https://huggingface.co/facebook/multi-token-prediction"
+		},
+		{
+			"slug": "layerskip",
+			"label": "LayerSkip",
+			"date": 1718297556,
+			"url": "https://huggingface.co/facebook/layerskip-llama2-7B"
+		},
+		{
+			"slug": "llm-compiler",
+			"label": "LLM Compiler",
+			"date": 1715292518,
+			"url": "https://huggingface.co/facebook/llm-compiler-7b-ftd"
+		},
+		{
+			"slug": "superblock-vit",
+			"label": "Superblock ViT",
+			"date": 1714670088,
+			"url": "https://huggingface.co/facebook/superblock-vit-b-16"
+		},
+		{
+			"slug": "llama-3",
+			"label": "Llama 3",
+			"date": 1713455945,
+			"url": "https://about.fb.com/news/2024/04/meta-ai-assistant-built-with-llama-3/"
+		},
+		{
+			"slug": "chameleon",
+			"label": "Chameleon",
+			"date": 1711432975,
+			"url": "https://huggingface.co/facebook/chameleon-7b"
+		},
+		{
+			"slug": "audioseal",
+			"label": "AudioSeal",
+			"date": 1710180673,
+			"url": "https://huggingface.co/facebook/audioseal"
+		},
+		{
+			"slug": "hiera",
+			"label": "Hiera",
+			"date": 1709197367,
+			"url": "https://huggingface.co/facebook/hiera_tiny_224.mae_in1k_ft_in1k"
+		},
+		{
+			"slug": "hybrid-magnet",
+			"label": "Hybrid MAGNeT",
+			"date": 1706782345,
+			"url": "https://huggingface.co/facebook/hybrid-magnet-small"
+		},
+		{
+			"slug": "magnet",
+			"label": "MAGNeT",
+			"date": 1704898185,
+			"url": "https://huggingface.co/facebook/magnet-small-10secs"
+		},
+		{
+			"slug": "w2v-bert-2-0",
+			"label": "w2v-BERT 2.0",
+			"date": 1702971709,
+			"url": "https://huggingface.co/facebook/w2v-bert-2.0"
+		},
+		{
+			"slug": "seamlessstreaming",
+			"label": "SeamlessStreaming",
+			"date": 1701268900,
+			"url": "https://huggingface.co/facebook/seamless-streaming"
+		},
+		{
+			"slug": "seamlessexpressive",
+			"label": "SeamlessExpressive",
+			"date": 1701268879,
+			"url": "https://huggingface.co/facebook/seamless-expressive"
+		},
+		{
+			"slug": "seamlessm4t-v2",
+			"label": "SeamlessM4T v2",
+			"date": 1701268624,
+			"url": "https://huggingface.co/facebook/seamless-m4t-v2-large"
+		},
+		{
+			"slug": "dpt-dinov2",
+			"label": "DPT DINOv2",
+			"date": 1698774269,
+			"url": "https://huggingface.co/facebook/dpt-dinov2-small-nyu"
+		},
+		{
+			"slug": "musicgen",
+			"label": "MusicGen",
+			"date": 1698070659,
+			"url": "https://huggingface.co/facebook/musicgen-stereo-small"
+		},
+		{
+			"slug": "metaclip",
+			"label": "MetaCLIP",
+			"date": 1696690152,
+			"url": "https://huggingface.co/facebook/metaclip-b32-400m"
+		},
+		{
+			"slug": "nougat",
+			"label": "Nougat",
+			"date": 1695285564,
+			"url": "https://huggingface.co/facebook/nougat-base"
+		},
+		{
+			"slug": "dinov2",
+			"label": "DINOv2",
+			"date": 1694721462,
+			"url": "https://huggingface.co/facebook/dinov2-small-imagenet1k-1-layer"
+		},
+		{
+			"slug": "cotracker",
+			"label": "CoTracker",
+			"date": 1693910815,
+			"url": "https://huggingface.co/facebook/cotracker"
+		},
+		{
+			"slug": "code-llama",
+			"label": "Code Llama",
+			"date": 1692883821,
+			"url": "https://about.fb.com/news/2023/08/code-llama-ai-for-coding/"
+		},
+		{
+			"slug": "seamlessm4t",
+			"label": "SeamlessM4T",
+			"date": 1692711023,
+			"url": "https://about.fb.com/news/2023/08/seamlessm4t-ai-translation-model/"
+		},
+		{
+			"slug": "llama-2",
+			"label": "Llama 2",
+			"date": 1689696023,
+			"url": "https://about.fb.com/news/2023/07/llama-2/"
+		},
+		{
+			"slug": "voicebox",
+			"label": "Voicebox",
+			"date": 1686927669,
+			"url": "https://about.fb.com/news/2023/06/introducing-voicebox-ai-for-speech-generation/"
+		},
+		{
+			"slug": "massively-multilingual-speech",
+			"label": "Massively Multilingual Speech",
+			"date": 1684772145,
+			"url": "https://about.fb.com/news/2023/05/ai-massively-multilingual-speech-technology/"
+		},
+		{
+			"slug": "cicero",
+			"label": "CICERO",
+			"date": 1669129212,
+			"url": "https://about.fb.com/news/2022/11/cicero-ai-that-can-collaborate-and-negotiate-with-you/"
+		},
+		{
+			"slug": "blenderbot-3",
+			"label": "BlenderBot 3",
+			"date": 1659711649,
+			"url": "https://about.fb.com/news/2022/08/blenderbot-ai-chatbot-improves-through-conversation/"
+		},
+		{
+			"slug": "data2vec",
+			"label": "data2vec",
+			"date": 1642698044,
+			"url": "https://about.fb.com/news/2022/01/first-self-supervised-algorithm-for-speech-vision-text/"
+		},
+		{
+			"slug": "textstylebrush",
+			"label": "TextStyleBrush",
+			"date": 1623427255,
+			"url": "https://about.fb.com/news/2021/06/ai-can-now-emulate-text-style-in-images-in-one-shot-using-just-a-single-word/"
+		},
+		{
+			"slug": "m2m-100",
+			"label": "M2M-100",
+			"date": 1603119652,
+			"url": "https://about.fb.com/news/2020/10/first-multilingual-machine-translation-model/"
+		}
+	]
+}
